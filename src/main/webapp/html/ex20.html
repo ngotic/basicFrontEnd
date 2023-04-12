@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        HTML 4.01 + XHTML 1.0
+        HTML5(2014년)
+
+        input.placeholder 미리 값을 넣어놨다가 입력칸 누르고 입력하면 비워짐
+
+        required 옵션 아무것도 안쓰면 메세지 뜬다. 
+        html 수준에서 필수 입력값을 검사한다.
+
+        input.type="email" > @ 만... 이메일 형식 체크
+        * 유효성 검사 체크
+
+        input.type="url" > url 형식을 맞춰라
+
+        input.type="tel" > 전화번호 형식을 맞춰라
+
+        input.type="number" > 숫자전용, 편의성, 위,아래 화살표 생겨서 숫자를 변경할 수 있다.
+        min="0" max="100" step="10" > 범위 : 최소, 최대, 증감치 
+            STEP이 10인데 35입력하면 유효성 검사한다. 서버로 전송을 못한다. 
+        input.type="range"
+        min="50" max="500" step="50"    
+        *> 근데 이게 브라우저에 따라 받아들이는게 다르다.
+        input type="color"
+            #RGB값 찍어준다.
+
+        input type="text" list="datalist의 id"
+
+        datalist 
+            option으로 여러개 지정 가능
+
+        firefox는 우리나라에서 5퍼쓰는데
+        전세계에서 점유율이 높다. 우리나라는 
+        크롬기준에서 쓰면 된다. 
+    -->
+
+    <h1>HTML5</h1>
+    <form method="post" action="ex20.jsp">
+        <input type="submit" value="보내기">
+        <hr>
+        <details>
+            <summary>자바?</summary>
+            <p>자바는 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 </p>
+        </details>
+        <hr>
+        수치:
+        <br>
+        <meter value="0"></meter>
+        <br>
+        <meter value="0.5"></meter>
+        <br>
+        <meter value="1"></meter>
+        <br>
+        <meter value="-50" min="-100" max="100"></meter>
+        <meter value="0" min="-100" max="100"></meter>
+        <meter min="-100" max="100"></meter>
+        <br>
+        low and high
+        <br> 허용범위 벗어남
+        <meter min="0" max="100" value="20" low="30" high="80"></meter>
+        <br> 허용범위 포함시
+        <meter min="0" max="100" value="70" low="30" high="80"></meter>
+        <br> 허용범위 벗어남
+        <meter min="0" max="100" value="90" low="30" high="80"></meter>
+        <br>
+
+        <hr>
+        진행률: 기본값(0~1)
+        <br>
+        <progress></progress>
+        <br>
+        <progress value="0"></progress>
+        <br>
+        <progress value="0.2"></progress>
+        <br>
+        <progress value="0.4"></progress>
+        <br>
+        <progress value="0.6"></progress>
+        <br>
+        <progress value="0.8"></progress>
+        <br>
+        <progress value="1"></progress>
+        <br>
+        max치를 설정하고 value를 설정하면 된다.<br>
+        <progress max="100" value="65"></progress>
+        <hr>
+
+        데이터 리스트:
+        <input type="text" list="list1">
+
+        <datalist id="list1"> 
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+        </datalist>
+
+        <hr>
+
+        날짜시간: 
+        <input type="date"> 년/월/일
+        <hr>
+        <input type="month"> 월까지만, 날짜가 없다.
+        <hr>
+        <input type="week"> 주단위로 선택
+        <hr>
+        <input type="time"> am/pm시간
+        <hr>
+        <input type="datetime"> 지원을 안한다. 문법은 있는데...
+        <hr>
+        <input type="datetime-local"> 시간 + 날짜 동시에 확인     
+
+        <hr>
+        색상: <input type="color" onchange="document.getElementById('txt3').value = this.value; document.body.bgColor = this.value;">
+        <input type="text" id="txt3" size="10">
+
+        <hr>
+        범위(숫자입력): <input type="range" onchange="document.getElementById('txt2').value = this.value;" min="50" max="500" step="50">
+
+        <input type="text" id="txt2" size="10">
+        <hr>
+
+        숫자: <input type="number" min="0" max="100" step="10">
+
+        <hr>
+
+        전화: <input type="tel">
+
+        <hr>
+
+        URL: <input type="url">
+
+        <hr>
+
+        이메일: <input type="email">
+
+        <hr>
+
+        <input type="text" placeholder="아이디를 꼭 입력하세요." required value="hong"> ** 필수 입력 Not Null 컬럼은 이거 꼭 서라
+
+        <hr>
+
+        <label for="txt1">이름: </label><input type="text" id="txt1">
+
+        <hr>
+
+        <input type="text" value="이름을 입력하세요." onclick="this.value='';" >
+
+        <input type="password" value="암호를 입력하세요." onclick="this.value='';">
+
+        <hr>
+
+        <input type="text" placeholder="이름을 입력하세요.">
+        <input type="password" placeholder="암호를 입력하세요.">
+    </form>
+
+</body>
+</html>

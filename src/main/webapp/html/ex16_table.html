@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex16_table.html -->
+    <h1>주소록</h1>
+    <table border="1" width="600">
+        <!-- 테이블 헤더 -->
+        <!-- <tr bgColor="#DDDDDD">
+            <td align="center" width="60"><b>번호</b></td>
+            <td align="center" width="80"><b>이름</b></td>
+            <td align="center" width="60"><b>나이</b></td>
+            <td align="center" width="70"><b>성별</b></td>
+            <td align="center" width="330"><b>주소</b></td>
+        </tr> -->
+        
+        <!-- 테이블 데이터 
+            1. 고정 : 왼쪽 or 가운데 
+            2. 가변 : 왼쪽 
+        -->
+        <tbody>
+            <tr>
+                <td align ="center">1</td>
+                <td align ="center">홍길동</td>
+                <td align ="center">22</td>
+                <td align ="center">남자</td>
+                <!-- <td>서울시 강남구 대치동 OO아파</td> -->
+                <td>서울시 강남구 대치동</td> <!-- 공간 없으면 개행 -->
+            </tr>
+
+            <tr>
+                <td align ="center">1</td>
+                <td align ="center">홍길동</td>
+                <td align ="center">22</td>
+                <td align ="center">남자</td>
+                <!-- <td>서울시 강남구 대치동 OO아파</td> -->
+                <td>서울시 강남구 대치동</td> <!-- 공간 없으면 개행 -->
+            </tr>
+            <tr>
+                <td align ="center">1</td>
+                <td align ="center">홍길동</td>
+                <td align ="center">22</td>
+                <td align ="center">남자</td>
+                <!-- <td>서울시 강남구 대치동 OO아파</td> -->
+                <td>서울시 강남구 대치동</td> <!-- 공간 없으면 개행 -->
+            </tr>
+
+            <tr>
+                <td align ="center">1</td>
+                <td align ="center">홍길동</td>
+                <td align ="center">22</td>
+                <td align ="center">남자</td>
+                <!-- <td>서울시 강남구 대치동 OO아파</td> -->
+                <td>서울시 강남구 대치동</td> <!-- 공간 없으면 개행 -->
+            </tr>
+
+            <tr>
+                <td align ="center">1</td>
+                <td align ="center">홍길동</td>
+                <td align ="center">22</td>
+                <td align ="center">남자</td>
+                <!-- <td>서울시 강남구 대치동 OO아파</td> -->
+                <td>서울시 강남구 대치동</td> <!-- 공간 없으면 개행 -->
+            </tr>
+
+            <tr>
+                <td align ="center">1</td>
+                <td align ="center">홍길동</td>
+                <td align ="center">22</td>
+                <td align ="center">남자</td>
+                <!-- <td>서울시 강남구 대치동 OO아파</td> -->
+                <td>서울시 강남구 대치동</td> <!-- 공간 없으면 개행 -->
+            </tr>
+        </tbody>
+        <tfoot> <!-- 얘네는 딱히 안써도 되는데 써야하는 경우가 가끔씩 나온다. 의미론적, 관리를 위해서 쓰는 것이다. -->
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+        </tfoot>
+        <thead>
+            <tr bgColor="#DDDDDD"> <!-- 위에 thead를 빼고 아래로 내려도 위쪽으로 위치를 맞춰준다. -->
+                <th width="60">번호</th>
+                <th width="80">이름</th>
+                <th width="60">나이</th>
+                <th width="70">성별</th>
+                <th width="330">주소</th>
+            </tr>
+        </thead>
+    </table>
+
+    <hr>
+    <marquee> 뉴스 속보입니다. 현재 어쩌구 저쩌구 현장에 나가 있는 김기자를 연결합니다. </marquee>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex13_image.html -->
+    <!--
+        이미지, Image
+        - <img>
+        - 단독태그
+
+        img.src
+        - source
+        - 이미지 파일 URL 작성
+        - 필수값 
+
+        필수속성 > 무조건 태그 쓰려면 반드시 적어
+        선택속성 > 적고싶으면 적어
+
+        img.alt
+        - alternate text > 대체 문자열 
+        - 이미지가 올바르게 표시되지 않았을 때 대신 보여주는 문자열 
+        - 필수값 
+        - 시각장애인이 이미지를 볼 수 없으니까 그 컨텐츠를 보게 하려고 이걸 고려한다. 
+        ★ 정부기관 프로젝트할 때는 이런 것도 무조건 적어야 하는 필수 값이다.
+        ★ 이런 기본적은 것도 지켜야 한다.
+
+
+        img.width
+
+        img.height
+
+    상대경로 
+    -->
+    <img src="images/cat01.jpg">
+
+    <!-- 절대경로 -->
+    <img src="/html/images/cat02.jpg">
+
+    <!-- 깨진 이미지 -->
+    <img src="images/cat01.jp">
+
+    <hr>
+    <!-- 깨진 이미지 -->
+    <img src="images/dog01.jpg" alt="강아지 오형제">
+    <hr>
+    <img src="images/dog02.jpg">
+    <img src="images/dog02.jpg" width="250" height="188">
+    <img src="images/dog02.jpg" width="500" height="376">
+    <img src="images/dog02.jpg" width="25" height="18">
+    <img src="images/dog02.jpg" width="250" height="94">
+    <img src="images/dog02.jpg" width="125" height="188">
+    <!-- 물리적인 정보는 변함없이 크지만 변화 -->
+    <!-- 종횡비 > 유지(X) -->
+    <!-- 하나만 쓰고 나머지는 종횡비를 유지함 
+    계산하기 귀찮으면 둘중에 하남나 써라 -->
+    <img src="images/dog02.jpg" width="500" >
+    <img src="images/dog02.jpg" height="300" >
+
+</body>
+</html>
