@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            8. 인접 형제 선택자, Adjacent Sibling Selector
+                - 선택자 + 선택자 
+                - 정밀도 높음 + 범위 좁음
+                - 자식 선택자 느낌
+
+            9. ★ 형제 선택자, Sibling Selector 같은 부모 레벨 앞에서 다음에 뒤에거 찾아줘
+                - 선택자 ~ 선택자 
+                - 정밀도 낮음 + 범위 높음 
+                - 자손 선택자 느낌 
+                - 이거 구조가 조금 바뀌면 다 틀어 엎어진다.
+                - 쓰기 애매하다.
+        */
+
+        /* span { color : red ;} */
+
+        /* p + span { color : red ;} p 다음의 span을 찾아줘 */
+
+        /* div + span { color : blue ;} div 다음의 span을 찾아줘 */
+
+        div ~ span { color : orange; } /* 인접하지 않더라도 내 주변에 div가 있더라면 찾아줘 */
+
+    </style>
+</head>
+<body>
+    <!-- ex07_selector.html -->
+    <p>p 태그</p>
+    <p>p 태그</p>
+    <p>p 태그</p>
+    <span>span 태그</span>
+
+    <div>div 태그</div>
+
+    <p>p 태그</p>
+    <span>span 태그</span>
+    <p>p 태그</p>
+
+    <div>div 태그</div>
+    <div>div 태그</div>
+    <span>span 태그</span>
+</body>
+</html>

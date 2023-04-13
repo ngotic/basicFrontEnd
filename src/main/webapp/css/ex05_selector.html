@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        이름에서 둘은 비슷하다. 약간의 디테일이 다를뿐... 거의 비슷 
+
+        자식 선택자 + 자손선택자를 둘중에 하나 골라서 쓴다. 
+        
+            6. 자식 선택자, Child Selector
+                - 선택자 > 선택자 {}  ( 꺽쇠 방법 )
+                - 부모를 조건으로 자식 선택 
+                - 구체적 
+                - 정밀도 높음 + 범위 좁음 
+
+            7. 자손 선택자, Descendant Selector
+                - 선택자 선택자 {}    ( 스페이스 넣는 방법 )
+                - 조상을 조건으로 자식 선택 
+                - 정밀도 낮음 + 범위 넓음 
+
+            커리큘럼의 각 과목에다가 칠하고 싶음 5개 li임
+            1. 태그 선택자? > 탈락
+            2. ID 선택자? > 탈락 > 유일!!해야해
+            3. Class 선택자? > 내가 원하는 여러개를 잡아줄 순 있지만 ... 즉 식별자를 계속 붙이는게 문제다. 
+
+        */
+        ol > li { color : orange;} /* 부모를 조건으로 자식을 찾는다. 무조건 li를 찾는다. ol을 찾는게 아니다. ol은 조건이다. 이름이 '자식선택자'다. */
+        /* ul > li { color : blue; } */
+
+        /* span { color:blue; } */
+
+        /* li > span { color:blue; } 이러면 동일 부모를 가진 span태그이다. */
+
+        /* ol > li > span { color:blue; } 한세대를 더 끌어온다. 할아버지! */
+
+        /* html > body > ol > li > span { color:blue; }  이렇게 너무 많이 쓸 필요도 없는 것 클래스 선택자는 편하면서도 귀찮다. */
+
+        ol > li > span { color:blue; }
+
+        ol span { color:blue; } /* 중간과정을 생략하고 공백으로 연결한다. 이걸 '자손선택자'라고 한다. */
+
+    </style>
+</head>
+<body>
+    <!-- ex05_selector.html -->
+
+    <h1>커리큘럼</h1>
+
+    <ol>
+        <li class="item">Java <span>Programming</span></li>
+        <li class="item">Oracle Database</li>
+        <li>JDBC <span>Programming</span></li>
+        <li>Client <span>Programming(<b>HTML</b>)</span></li>
+        <li>Client <span>Programming(<b>HTML</b>)</span></li>
+    </ol>
+
+    <h2>주의 사항</h2>
+
+    <ul>
+        <li>구글 드라이브에 백업본을 다운로드 받으세요.</li>
+        <li>과제는 금요일까찌 제출하세요.</li>
+        <li>VS code 설치 바랍니다.</li>
+    </ul>
+</body>
+</html>

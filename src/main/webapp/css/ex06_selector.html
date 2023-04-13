@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* td { color : blue; } */
+        /* table > tbody> tr > td { color : orange; } 찾아질까? No */
+        /* table tr > td { color : orange; } /* 섞어서 생략도 가능 */
+        /* table  td { color : orange; }     자손선택자로 생략  */
+        /* body table tr > td { color : blue; }  두 테이블이 동일 둘중 하나를 못찾아 > 두개 다 찾음 */
+        /* 클래스를 걸어야 햔다. 내가 찾고자 하는 50개의 td에게 동일한 클래스 이름을 적는다. */
+        #tbl1 td { color : blue; } /* 테이블 자체에 id 걸고, 자손 태그 잡는다. */
+
+
+    </style>
+</head>
+<body>
+    <!-- ex06_selector.html -->
+    <h1>테이블</h1>
+    <table border="1" width="500" id="tbl1">
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+    </table>
+
+    <h1>테이블</h1>
+    <table border="1" width="500">
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+        <tr>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+            <td>데이터</td>
+        </tr>
+    </table>
+</body>
+</html>

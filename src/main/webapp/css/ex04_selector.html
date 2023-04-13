@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            5. 그룹 선택자
+            - 2개 이상의 선택자를 한번에 적용하는 방법
+            - 선택자, 선택자, 선택자 { 구현부; }
+        */
+        /* 문서내의 모든 제목을 오렌지로 할건데!? 하나하나 만드는게 아니라 '그룹'으로 통합하고 싶다.*/
+        /* h1 { color : orange; }
+        h2 { color : orange; } */
+
+        /* h1, h2 { color:orange; } */
+        /* 컴마(,)로 묶인다. !! */
+        /* p, h2#title, li.item { text-decoration: underline; } */
+        /*         
+        h2#title{}
+        #title{}  앞에 생략하면 별표가 붙은 것과 동일하게 인식한다. 문서상에서 존재하는 모든 태그들 중에서 title아이디를 갖는걸 찾아주세요.  ★ #title{} = *#title{} 어차피 유일하니까
+        *#title{} */
+        #title { color : orange; }
+
+        /* 얘는 조금 다르다.
+        li.item {}
+        .item {}
+        *.item{} 
+
+        ★ .item{} = *.item{}
+        근데 클래스는 태그를 앞에 붙인 경우는 다르다. li.item{}은 다르다.
+        li.item{}을 선언했는데 만약에 p태그에 item이 있으면 선택을 못받음 
+        */
+
+        li.item { color : greenyellow; }
+    </style>
+</head>
+<body>
+    <!-- ex04_selector.html -->
+    <!--동일 클래스라도 서로다른 클래스에 붙인다. -->
+    <h1 >수업 일지</h1>
+    <p class="item">오늘은 HTML 수업을 합니다.</p>
+    <p>HTML 수업이 끝나면 CSS 수업으로 넘어갑니다. </p>
+
+    <h2 id="title">수업 내용</h2>
+    <ol>
+        <li class="item">문단 태그</li>
+        <li class="item">목록 태그</li>
+        <li class="item">테이블 태그</li>
+        <li class="item">이미지 태그</li>
+        <li class="item">링크 태그</li>
+    </ol>
+
+    <h2 id="title">복습할 내용</h2>
+    <ul>
+        <li>테이블 셀 병합하기</li>
+        <li>이미지 사이즈 변경하기</li>
+        <li>내부 링크 생성하기</li>
+    </ul>
+
+</body>
+</html>

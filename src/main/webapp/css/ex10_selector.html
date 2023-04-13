@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 선택자 충돌 (OK) */
+        /* div { color : red; }  */
+        /* 선택자는 중복이 되어도 된다. 좋은 방법은 아니다. */
+        /* div { font-style: italic;} */
+
+        /* 선택자 충돌 + 속성 충돌 
+        div { color: red; }     > 우선순위 점수가 동일 
+        div { color: yellow; }  > 우선순위 점수가 동일 
+        */
+        /* 동일 우선순위에선 위에거 실행, 아래거 나중에 */
+
+        /* 선택자가 다르지만 충돌이 난다. */
+
+        /*
+            충돌 
+            - 선택자 충돌
+            - 동일한 태그를 서로 다른 선택자가 동시에 선택했을 때
+
+            선택자 우선 순위가 이미 정해져 있다.
+            - 충돌이 발생하면 우선 순위가 가장 높은 선택자가 적용
+            - 점수 계산 
+
+            선택자 점수 계산
+            1. 태그 선택자   > 1점   > all > "사람"   
+            2. 클래스 선택자 > 10점  > 그룹으로 묶어서 > "남자" 라고 찾는다. 
+            3. 아아디 선택자 > 100점 >  콕  > "홍길동" 하고 걔를 찾는다. 
+            ★★★ 더 구체적인 애한테 힘을 실어준다. ★★★
+
+            점수가 동일한 애들끼리의 충돌은 먼저나온 애 것을
+            나중에 나온 애가 덮어 쓴다.
+        */
+
+        /* #box1{ color :olivedrab; } 100점
+        .box { color : yellow; }   점수가 높은 놈이 이긴다. 10점
+        div  { color : red; }      1점 */
+
+        /* html > body > div { color : blue; } 3점 : */
+        /* div{ color : red; }
+        div{ color : blue; }         1점 : 구체적인 표현
+        body > div { color : red; } 2점 : 눈에보이는 태그 2개니까 더함 */
+
+        div{}
+
+        /* 101점 */
+        div#box1 { color : red; }
+
+        /* 100점 */
+        #box1 { color : blue; }
+
+        /* 10점 */
+        .box {} 
+
+        /* 11점 */
+        div.box {}
+
+        /* 111점 */
+        div#box1.box {}
+
+        /* 131점 */
+        div#box1.box.one.two {}
+    </style>
+</head>
+<body>
+    <!-- ex10_selector.html -->
+    <div id="box1" class="box">상자</div>
+
+    <div id="box1" class="box one two">상자2</div>
+
+</body>
+</html>
