@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-
+    <style> 
+        .one { /*최후의 방법*/
+            color : yellow !important; 
+        }
         /* 선택자 충돌 (OK) */
         /* div { color : red; }  */
         /* 선택자는 중복이 되어도 된다. 좋은 방법은 아니다. */
@@ -37,6 +39,9 @@
 
             점수가 동일한 애들끼리의 충돌은 먼저나온 애 것을
             나중에 나온 애가 덮어 쓴다.
+
+            태그 11개가 클래스를 못이긴다. 클래스 11개가 아이디 선택자 못이긴다.
+            태그가 아무리 모이더라도 클래스를 못이긴다. 
         */
 
         /* #box1{ color :olivedrab; } 100점
@@ -48,32 +53,77 @@
         div{ color : blue; }         1점 : 구체적인 표현
         body > div { color : red; } 2점 : 눈에보이는 태그 2개니까 더함 */
 
-        div{}
+        /* div{} */
 
         /* 101점 */
-        div#box1 { color : red; }
+        /* div#box1 { color : red; } */
 
         /* 100점 */
-        #box1 { color : blue; }
+        /* #box1 { color : blue; } */
 
         /* 10점 */
-        .box {} 
+        /* .box {}  */
 
         /* 11점 */
-        div.box {}
+        /* div.box {} */
 
         /* 111점 */
-        div#box1.box {}
+        /* div#box1.box {} */
 
         /* 131점 */
-        div#box1.box.one.two {}
+        /* div#box1.box.one.two {} */
+
+
+        /* 자리수가 다르다. 0, 1, 0 */
+        /* .box2 {
+            color: red;
+        } */
+        /* 절대로 뒷자리 애들이 앞자리 애들을 이길 수가 없다. */
+        /* (0,1,0) vs (0,0,11) */
+        /* 자리수가 다르다. 0, 0, 11 */
+        div > div > div > div > div > div > div > div > div > div > div {
+            color:blue;
+        }
+        
+        /* #box1 {
+            color : blue;
+        } */
+
+        /* .one{
+            color : yellow;
+        } /* 얘기 적용이 안되면 누군가에 의해 밀린 것이다. 
+        해결방법 : 우선순위를 바꾼다. */ 
+        /* #box1.one{
+            color : yellow;
+        } */
+       
+
     </style>
 </head>
-<body>
-    <!-- ex10_selector.html -->
-    <div id="box1" class="box">상자</div>
-
-    <div id="box1" class="box one two">상자2</div>
-
-</body>
+    <body>
+        <!-- ex10_selector.html -->
+        <!-- <div id="box1" class="box">상자</div> -->
+        <div id="box1" class="one two three">상자2</div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div>
+                                                <div class="box2">상자</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

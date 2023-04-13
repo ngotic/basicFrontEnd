@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- ex11_emmet.html -->
+	<!-- 
+		Emmet, Zen-Coding
+		- CSS 선택자 문법을 사용해서, HTML/CSS 코드를 손쉽게 작성하는 기능
+		- 생산성 도구 
+		- https://emmet.io/
+		이클립스 : div 쓰고 컨트롤 E ( Emmet )
+	 -->
+	 <div></div>
+	 <!-- 태그 선택자 -->
+	 div{}
+
+	 <div></div>
+
+	 <div></div>
+
+	 p
+	 <p></p>
+
+	 a치고 엔터 : 필수속성도 같이 만들어준다. 
+	 a치고 엔터 URL쓰고 탭누르고 내용물 입력하고 end 끝
+	 <a href="URL">PCDATA</a>
+	 
+	 img
+	 <img src="images/dog.jpg" alt="강아지">
+	 <img src="images/dog.jpg" alt="강아지">	 
+
+	 input 엔터치면 바로나오는건 text, checkbox를 새로 입력해도 되고 
+	 <input type="text">
+	 <input type="checkbox">
+
+	 <!-- ID 선택자 -->
+	 div#box1{} 이거 쓰고 엔터 
+	 <div id="box1"></div>
+
+	 <h1 id="title"></h1>
+	 css를 알고 있으면 emmet을 충분히 사용이 가능하다.
+
+	 <!-- 클래스 선택자 -->
+	 div.item
+	 <div class="item"></div>
+
+	 a.link
+	 <a href="URL" class="link">문자열</a>
+
+	 img.cat
+	 <img src="URL" alt="고양이" class="cat">
+
+	 div.one.two.three
+	 <div class="one two three"></div>
+
+	 div#box1.box
+	 <div id="box1" class="box"></div>
+
+	 img#cat1.pic.animal
+	 <img src="" alt="" id="cat1" class="pic animal">
+
+
+	 <!-- 속성 선택자 -->
+	 div[title] {}
+	 <div title=""></div>
+
+	div[title]
+	<div title=""></div>
+
+	div[title=상자]
+	<div title="상자"></div>
+
+	img[width]
+	<img src="" alt="" width="">
+
+	img[width height]
+	<img src="" alt="" height="" width="">
+
+	img[width=200 height=150]
+	<img src="" alt="" width="200" height="150">
+
+	img[src=cat.jpg alt=고양이 width=200 height=150]
+	<img src="cat.jpg" alt="고양이" width="200" height="150">
+
+	<!-- PCDATA -->
+
+	 div{내용}
+	 <div>내용</div>
+
+	 div#box1.box[title=상자]{상자입니다.}
+	 <div id="box1" class="box" title="상자">상자입니다.</div>
+
+	 --------------------------------------------------------------
+
+	 <div></div>
+	 <div></div>
+	 <div></div>
+	 <div></div>
+	 <div></div>
+
+	 div
+	 div*5
+	 <div></div>
+	 <div></div>
+	 <div></div>
+	 <div></div>
+	 <div></div>
+
+	 <div>망아지</div>
+	 <div>송아지</div>
+
+	 div.item
+	 div.item*5
+	 <div class="item"></div>
+	 <div class="item"></div>
+	 <div class="item"></div>
+	 <div class="item"></div>
+	 <div class="item"></div>
+
+	 div.item[title]{아이템}
+	 div.item[title]{아이템}*5
+	 <div class="item" title="">아이템</div>
+	 <div class="item" title="">아이템</div>
+	 <div class="item" title="">아이템</div>
+	 <div class="item" title="">아이템</div>
+	 <div class="item" title="">아이템</div>
+
+	 div#box1{상자}*5
+	 <div id="box1">상자</div>
+	 <div id="box1">상자</div>
+	 <div id="box1">상자</div>
+	 <div id="box1">상자</div>
+	 <div id="box1">상자</div>
+
+	 div#box${상자}*5
+	 <div id="box1">상자</div>
+	 <div id="box2">상자</div>
+	 <div id="box3">상자</div>
+	 <div id="box4">상자</div>
+	 <div id="box5">상자</div>
+
+	 div#box$${상자}*5
+	 <div id="box01">상자</div>
+	 <div id="box02">상자</div>
+	 <div id="box03">상자</div>
+	 <div id="box04">상자</div>
+	 <div id="box05">상자</div>
+
+	 div#box$$${상자}*5
+	 <div id="box001">상자</div>
+	 <div id="box002">상자</div>
+	 <div id="box003">상자</div>
+	 <div id="box004">상자</div>
+	 <div id="box005">상자</div>
+
+	 div#box${상자$}*5       증가되는 숫자 달러로 적는다.
+	 <div id="box1">상자1</div>
+	 <div id="box2">상자2</div>
+	 <div id="box3">상자3</div>
+	 <div id="box4">상자4</div>
+	 <div id="box5">상자5</div>
+
+	h$*6
+	 <h1></h1>
+	 <h2></h2>
+	 <h3></h3>
+	 <h4></h4>
+	 <h5></h5>
+	 <h6></h6>
+
+	 <!-- 형제 선택자 -->
+	 a + b : 바로 위의 형제  > 지원 O
+	 a ~ b : 위의 형제       > 지원 X
+
+	 div+p
+	 <div></div>
+	 <p></p>
+
+	div~p
+	div~<p></p>
+
+	
+	div+div+div
+	<div></div>
+	<div></div>
+	<div></div>
+
+	h1+p+p+p
+	<h1></h1>
+	<p></p>
+	<p></p>
+	<p></p>
+
+	h1+p*3 곱하기는 바로 앞의 요소한테만 적용이 된다. 
+	<h1></h1>
+	<p></p>
+	<p></p>
+	<p></p>
+
+	(h1+p)*3 괄호를 어떻게 붙이냐에 따라 결과가 완전 달라진다.
+	 <h1></h1>
+	 <p></p>
+	 <h1></h1>
+	 <p></p>
+	 <h1></h1>
+	 <p></p>
+
+	 h1#title1.title{제목입니다.}+p.content{설명입니다.}*3
+	 <h1 id="title1" class="title">제목입니다.</h1>
+	 <p class="content">설명입니다.</p>
+	 <p class="content">설명입니다.</p>
+	 <p class="content">설명입니다.</p>
+
+	 <!-- cat01.jpg ~ cat06.jpg -->
+	 <img src="images/cat01.jpg" alt="고양이1" title="고양이1" width="250">
+	 <br>
+	 <img src="images/cat02.jpg" alt="고양이1" title="고양이2" width="250">
+	 <br>
+	 
+	 img[src=images/cat$$.jpg alt=고양이$ title=고양이$ width=250]+br
+
+	 img[src=images/cat$$.jpg alt=고양이$ title=고양이$ width=250]+br
+	 <img src="images/cat01.jpg" alt="고양이1" title="고양이1" width="250"><br>
+
+
+	 img[src=images/cat$$.jpg alt=고양이$ title=고양이$ width=250]+br*6
+	 <img src="images/cat01.jpg" alt="고양이1" title="고양이1" width="250"><br><br><br><br><br><br>
+
+
+	 (img[src=images/cat$$.jpg alt=고양이$ title=고양이$ width=250]+br)*6
+	 <img src="images/cat01.jpg" alt="고양이1" title="고양이1" width="250"><br>
+	 <img src="images/cat02.jpg" alt="고양이2" title="고양이2" width="250"><br>
+	 <img src="images/cat03.jpg" alt="고양이3" title="고양이3" width="250"><br>
+	 <img src="images/cat04.jpg" alt="고양이4" title="고양이4" width="250"><br>
+	 <img src="images/cat05.jpg" alt="고양이5" title="고양이5" width="250"><br>
+	 <img src="images/cat06.jpg" alt="고양이6" title="고양이6" width="250"><br>
+
+	 <!-- 자식 선택자 -->
+	 a > b : 자식 > 지원(O)
+	 a b : 자손 > 지원(X)
+
+	 div>a : div 바로 밑에 a태그가 있다.
+	 <div><a href=""></a></div>
+
+
+	div a : 이래버리면 이 중간에 다른 태그가 있을 수 있다. 중간에 누군지 추측할 수 있는 방법이 없다.
+
+	div>a
+	<div><a href=""></a></div>
+
+	div>div
+	<div>
+		<div></div>
+	</div>
+
+	ul>li
+	ul>li*5
+	ul>li.item*5
+	<ul>
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+	</ul>
+	ul>li.item{항목$}*5
+	<ul>
+		<li class="item">항목1</li>
+		<li class="item">항목2</li>
+		<li class="item">항목3</li>
+		<li class="item">항목4</li>
+		<li class="item">항목5</li>
+	</ul>
+
+	ul#list1>li.item{항목$}*5
+	<ul id="list1">
+		<li class="item">항목1</li>
+		<li class="item">항목2</li>
+		<li class="item">항목3</li>
+		<li class="item">항목4</li>
+		<li class="item">항목5</li>
+	</ul>
+
+	table>tr>td
+	<table>
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+
+	table>tr*10>td*5 : 10행 5열
+	<table>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+	table#tbl1>tr*10>td.cell${항목$}*5
+	<table id="tbl1">
+		<tr>
+			<td class="cell1">항목1</td>
+			<td class="cell2">항목2</td>
+			<td class="cell3">항목3</td>
+			<td class="cell4">항목4</td>
+			<td class="cell5">항목5</td>
+		</tr>
+		<tr>
+			<td class="cell1">항목1</td>
+			<td class="cell2">항목2</td>
+			<td class="cell3">항목3</td>
+			<td class="cell4">항목4</td>
+			<td class="cell5">항목5</td>
+		</tr>
+		<tr>
+			<td class="cell1">항목1</td>
+			<td class="cell2">항목2</td>
+			<td class="cell3">항목3</td>
+			<td class="cell4">항목4</td>
+			<td class="cell5">항목5</td>
+		</tr>
+		<tr>
+			<td class="cell1">항목1</td>
+			<td class="cell2">항목2</td>
+			<td class="cell3">항목3</td>
+			<td class="cell4">항목4</td>
+			<td class="cell5">항목5</td>
+		</tr>
+		<tr>
+			<td class="cell1">항목1</td>
+			<td class="cell2">항목2</td>
+			<td class="cell3">항목3</td>
+			<td class="cell4">항목4</td>
+			<td class="cell5">항목5</td>
+		</tr>
+		<tr>
+			<td class="cell1">항목1</td>
+			<td class="cell2">항목2</td>
+			<td class="cell3">항목3</td>
+			<td class="cell4">항목4</td>
+			<td class="cell5">항목5</td>
+		</tr>
+		<tr>
+			<td class="cell1">항목1</td>
+			<td class="cell2">항목2</td>
+			<td class="cell3">항목3</td>
+			<td class="cell4">항목4</td>
+			<td class="cell5">항목5</td>
+		</tr>
+		<tr>
+			<td class="cell1">항목1</td>
+			<td class="cell2">항목2</td>
+			<td class="cell3">항목3</td>
+			<td class="cell4">항목4</td>
+			<td class="cell5">항목5</td>
+		</tr>
+		<tr>
+			<td class="cell1">항목1</td>
+			<td class="cell2">항목2</td>
+			<td class="cell3">항목3</td>
+			<td class="cell4">항목4</td>
+			<td class="cell5">항목5</td>
+		</tr>
+		<tr>
+			<td class="cell1">항목1</td>
+			<td class="cell2">항목2</td>
+			<td class="cell3">항목3</td>
+			<td class="cell4">항목4</td>
+			<td class="cell5">항목5</td>
+		</tr>
+	</table>
+
+	Lorem Ipsum : 더미 만들어주는 기능이다. > emmet의 기능은 아닌데 별도의 기능인데 에밋에서 넣어둠
+
+	h1{제목입니다.}
+	<h1>제목입니다.</h1>
+
+	얘는 pcdata인데 부모 자식형태로 호출해야 한다.
+	h1>lorem
+	일련의 문장이 만들어진다. 
+	<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fugit temporibus perferendis vel eum, laborum dolorem recusandae nemo. Tenetur maxime eum quos harum, reiciendis cupiditate provident quas minima sapiente voluptate?</h1>
+	h1>lorem5
+	<h1>Lorem ipsum dolor sit amet.</h1>
+	h1>lorem1
+	<h1>Lorem.</h1>
+	h1>lorem10
+	<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, quam.</h1>
+	일련의 더미데이터를 만드는 기능이다. 사람이 편하게 데이터를 생성하도록 도와줌
+	<h1>자바가 오늘을 아주 배가 날씨는 아버지 자동차 내일 모래 즐거워~</h1>
+
+	(h1>lorem8)+(p>lorem50)*3
+	<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum illum corrupti blanditiis est distinctio quo, ullam fugiat architecto quod inventore provident reiciendis fugit minus tempore unde quas hic nemo veritatis nisi id voluptas illo velit? Corporis asperiores non obcaecati, provident ducimus doloremque iure nemo! Ullam quos omnis perferendis error molestiae!</p>
+	<p>Aliquam exercitationem quam cupiditate architecto ab inventore beatae magni, amet accusamus rerum dolorum blanditiis iste, dicta doloribus facere odio quisquam tempore, vero vitae maiores? Repudiandae sint corporis veniam quos facilis provident adipisci omnis. Culpa odio minima cum debitis laudantium a quasi ratione beatae ab distinctio, sed delectus cumque unde. Vitae.</p>
+	<p>Pariatur assumenda ex blanditiis, perferendis temporibus impedit officia quasi vitae! Perferendis, nihil? Dolore molestias ad, eum non labore assumenda culpa, saepe eveniet odio distinctio provident deleniti nihil, laudantium accusantium mollitia itaque rerum. Id blanditiis consequuntur expedita autem quibusdam aspernatur et, sed distinctio, rerum, sunt in. Dicta temporibus odit praesentium expedita!</p>
+
+
+</body>
+</html>

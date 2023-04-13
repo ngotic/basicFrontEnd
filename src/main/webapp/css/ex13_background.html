@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 텍스트 박스에도 배경이미지가 들어간다. */
+        #search{
+            background-image: url(images/hangame.png);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* 입력창에 글자가 포커스 가있으면 파랑색이고 포커스가 벗아나면 검은색이다. */
+        /* #search:focus {
+            color:blue;
+        } */
+
+        /* 입력창을 클릭하려 글을 쓰려하면 포커스가 맞춰지고 배경이미지가 사라짐 */
+        #search:focus {
+            background-image: url();
+        }
+
+        /* 이거 아웃라인으로 테두리가 반짝이지 않는다. */
+        .data {
+            outline: none;
+        }
+
+        /* 우리가 직접 indicator를 만드는 것도 가능하다. ! 조금 아쉬운 것은 모양이 바뀐다. */
+        /* 텍스트 박스의 원래 모습이 각진 상자이다. 근데 개발자들이 모양을 css로 고쳐놓은 것이다. */
+        /* 사용자가 명시적으로 서식을 주면 원래 줬던것이 풀린다. 그래서 그런 서식을 내가 직접짜야 한다. */
+        .data:focus{
+            background-color: yellow;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- ex13_background.html -->
+
+    <h1>네이버</h1>
+
+    <input type="text" id="search">
+    <input type="button" value="검색하기">
+
+    <hr>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+</body>
+</html>

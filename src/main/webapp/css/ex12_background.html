@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        /*
+
+            HTML/CSS
+            - 케밥 표기법 많이 사용
+            - aaa-bbb-cc    -기호로 연결하는 표기법, 자바에선 이게 연산자였는데 
+            - HTML/CSS는 연산자가 없다.
+
+            *** CSS의 대부분의 속성은 모든 태그에 적용이 가능하다!!!! (태그에 종속적이지 않다.)
+
+            배경
+            1. 배경색
+            - background-color
+
+            2. 배경 이미지
+            - background-image
+
+            CSS 색상 표현법 
+            1. Color name : red, yellow, blue...
+            2. RGB Color(HEX)  :  #FF0055            16진수   
+            3. RGB Color(DEC)  :  rgb(255, 0, 128) : 10진수는 함수형태
+            4. RGBA Color(DEC) :  rgba(255, 255, 255, 1)
+                                  a(alpha channel - 불투명도(0~1))
+
+
+        */
+        body {
+            /* background-color: yellow; */
+            /* background-color: rgb(122, 86, 103); */
+            /* background-color: rgba(0, 0, 255, .1); 맨 뒤에 숫자가 0에 가까워지면 투명해진다. */
+            background-image: url(images/cat01.jpg);
+            /*가로세로 좌우 상하 반복*/
+            /* background-repeat: repeat;  */
+
+            /* x축으로 반복*/
+            /* background-repeat: repeat-x; */
+
+            /* y축으로 반복*/
+            /* background-repeat: repeat-y; */
+
+            /* 반복 안함 */
+            background-repeat: no-repeat;
+
+            /* 
+                수평 : left|center|right
+                수직 : top|center|bottom
+                수치(px) : 절대위치
+                수치(%) : 상대위치
+            */
+            /* background-position: right top; */
+            /* 바디에 내용물 없으면 위쪽에 걸친다. */
+            /* background-position: center center; */
+            /* 좌측 상단으로 들러붙는다. */
+            /* background-position: 0px 0px;  */
+
+            /* 5시 방향 */
+            /* background-position: 200px 200px;  */
+
+            /* 현재 영역의 끝 */
+            /* background-position: 100% 100%;  */
+
+            /* 중앙 */
+            background-position: 50% 50%; 
+            /* 기본값 > 배경이미지가 position 위치에 있다. */
+
+            /* background-attachment: scroll; */
+            /* 이름그대로 스크롤이 움직여도 배경이미지는 고정이 된다.  */
+            background-attachment: fixed;
+        }
+
+        h1 {  /* 색깔 지정이 가능함 */
+            background-color: blue;
+        }
+
+        input{ /* 심지어 인풋태그에도 색깔 지정이 가능함 */
+            background-color: aquamarine;
+        }
+
+        /*
+            <html>, <body>
+            - 블럭 태그
+            - 블럭 태그의 영역
+                - 너비 : 100%
+                - 
+
+            body는 내용물까지만 바디다. 
+        */
+
+
+    </style>
+<body>
+    <!-- ex12_background.html bgColor는 body 테그 이런데 붙임 h1칼라에 정의 안됨 -->
+    <!-- <h1 bgColor="blue">제목입니다.</h1> -->
+
+    <h1>aaaaa.</h1>
+
+    <!-- <input type="text"> -->
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+    <p>문단입니다.</p>
+</body>
+</html>
