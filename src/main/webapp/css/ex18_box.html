@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* #list{ table에다가 css입힘, 회색은 gray, grey 둘 다 가능 */
+        .table {
+            border: 1px solid gray; 
+            border-collapse: separate; /* 합친거다 */
+            width : 800px;
+            margin-top: 10px;
+        }
+
+        .table th,  /* 얘는 101점             */
+        .table td{        /* 얘는 1점               */
+                   /* th, td 에다가 css 입힘 */
+            border: 1px solid gray;
+            padding:5px;
+            /* color: blue; */
+        }
+        /* 안쪽에 내용물과 테두리가 붙었다 > padding */
+        /* 컬럼의 너비를 픽스시켜야 한다. */
+
+        .table .cols1 { width : 50px; }
+        .table .cols2 { width : 500px; }
+        .table .cols3 { width : 100px; }
+        .table .cols4 { width : 120px; }
+        .table .cols5 { width : 50px; }
+
+        .table th {
+            background-color: #EEE;
+        }
+
+        h1, .table, th, .table td {
+            color: #444; /* 테이블 자체가 한결 부드럽다. */
+        }
+
+        /* #list .cell1 { text-align: center; } 이러면 하나만 바꾸는데 싹다 바꿀려면 아래처럼 한다. 와따리 가짜리는 가독성이 떨어진다. */
+        .table td { text-align: center; } 
+        .table .cell2 { 
+            text-align: left;
+            padding-left: 15px;
+        } 
+
+        /* 얘는 21점이다. */
+        /* .table.blue td{ 
+            color: blue;
+        } */
+
+        .table.striped {
+            border-left : 0px;
+            border-right : 0px;
+        }
+        .table.striped th, 
+        .table.striped td {
+            border-left:0px;
+            border-right:0px;
+        }
+
+        .table.dark {
+            border-color: white;
+            background-color: black;
+            color:white;
+        }   
+
+        .table.dark th, table.dark td {
+            border-color: white;
+            background-color: #333;
+            color: white;
+        }
+
+        .table.hovertable tr:hover td{
+            background-color: yellow;
+            color : #444;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex18_box.html -->
+    <!-- 여기서 html의 할 일은 끝이다.
+         이제 css를 붙여서 그럴싸하게 만든다. -->
+    <h1>게시판</h1>
+    <!-- table>tr*20>td*5 -->
+    <!-- table#list.table -->
+    <table id="list" class="table hovertable">
+
+        <!-- tr>th#cols$*5 -->
+        <tr>
+            <th class="cols1">번호</th>
+            <th class="cols2">제목</th>
+            <th class="cols3">이름</th>
+            <th class="cols4">날짜</th>
+            <th class="cols5">읽음</th>
+        </tr>
+
+        <!-- (tr>td.cell$*5)*20 -->
+        <!-- (tr>(td.cell1{$$})+(td.cell2>lorem5)+(td.cell3>lorem1)+(td.cell4>2023-04-$$)+(td.cell5{$$}))*20 -->
+
+        <tr>
+            <td class="cell1">01</td>
+            <td class="cell2">Lorem ipsum dolor sit amet.sdsds adsads adsadda dasda sdsad asdasd asdas dsda </td>
+            <td class="cell3">Lorem.</td>
+            <td class="cell4">
+                <2023-04-01></2023-04-01>
+            </td>
+            <td class="cell5">01</td>
+        </tr>
+        <tr>
+            <td class="cell1">02</td>
+            <td class="cell2">Odio, rerum! Eaque, corrupti optio.</td>
+            <td class="cell3">Porro.</td>
+            <td class="cell4">
+                <2023-04-02></2023-04-02>
+            </td>
+            <td class="cell5">02</td>
+        </tr>
+        <tr>
+            <td class="cell1">03</td>
+            <td class="cell2">Sint, similique. Impedit, laboriosam dignissimos.</td>
+            <td class="cell3">Quis.</td>
+            <td class="cell4">
+                <2023-04-03></2023-04-03>
+            </td>
+            <td class="cell5">03</td>
+        </tr>
+        <tr>
+            <td class="cell1">04</td>
+            <td class="cell2">Animi tempora distinctio tempore nam!</td>
+            <td class="cell3">Veritatis!</td>
+            <td class="cell4">
+                <2023-04-04></2023-04-04>
+            </td>
+            <td class="cell5">04</td>
+        </tr>
+        <tr>
+            <td class="cell1">05</td>
+            <td class="cell2">Commodi rem minima eaque repellendus?</td>
+            <td class="cell3">Minima!</td>
+            <td class="cell4">
+                <2023-04-05></2023-04-05>
+            </td>
+            <td class="cell5">05</td>
+        </tr>
+        <tr>
+            <td class="cell1">06</td>
+            <td class="cell2">Suscipit sit reprehenderit hic molestias.</td>
+            <td class="cell3">Dolores.</td>
+            <td class="cell4">
+                <2023-04-06></2023-04-06>
+            </td>
+            <td class="cell5">06</td>
+        </tr>
+        <tr>
+            <td class="cell1">07</td>
+            <td class="cell2">Optio quis saepe autem laboriosam!</td>
+            <td class="cell3">Harum.</td>
+            <td class="cell4">
+                <2023-04-07></2023-04-07>
+            </td>
+            <td class="cell5">07</td>
+        </tr>
+        <tr>
+            <td class="cell1">08</td>
+            <td class="cell2">Doloremque necessitatibus numquam quam hic!</td>
+            <td class="cell3">Perferendis.</td>
+            <td class="cell4">
+                <2023-04-08></2023-04-08>
+            </td>
+            <td class="cell5">08</td>
+        </tr>
+        <tr>
+            <td class="cell1">09</td>
+            <td class="cell2">Voluptatem repellendus ratione recusandae non!</td>
+            <td class="cell3">Odit!</td>
+            <td class="cell4">
+                <2023-04-09></2023-04-09>
+            </td>
+            <td class="cell5">09</td>
+        </tr>
+        <tr>
+            <td class="cell1">10</td>
+            <td class="cell2">Deleniti quo ut aspernatur a!</td>
+            <td class="cell3">Voluptatibus?</td>
+            <td class="cell4">
+                <2023-04-10></2023-04-10>
+            </td>
+            <td class="cell5">10</td>
+        </tr>
+        <tr>
+            <td class="cell1">11</td>
+            <td class="cell2">Eius soluta minus odit error!</td>
+            <td class="cell3">Sequi.</td>
+            <td class="cell4">
+                <2023-04-11></2023-04-11>
+            </td>
+            <td class="cell5">11</td>
+        </tr>
+        <tr>
+            <td class="cell1">12</td>
+            <td class="cell2">Itaque enim autem quasi beatae?</td>
+            <td class="cell3">Dolor!</td>
+            <td class="cell4">
+                <2023-04-12></2023-04-12>
+            </td>
+            <td class="cell5">12</td>
+        </tr>
+        <tr>
+            <td class="cell1">13</td>
+            <td class="cell2">Aspernatur, quae. Excepturi, nulla error.</td>
+            <td class="cell3">Repudiandae.</td>
+            <td class="cell4">
+                <2023-04-13></2023-04-13>
+            </td>
+            <td class="cell5">13</td>
+        </tr>
+        <tr>
+            <td class="cell1">14</td>
+            <td class="cell2">A vero quidem doloremque nemo.</td>
+            <td class="cell3">Officiis.</td>
+            <td class="cell4">
+                <2023-04-14></2023-04-14>
+            </td>
+            <td class="cell5">14</td>
+        </tr>
+        <tr>
+            <td class="cell1">15</td>
+            <td class="cell2">Sit deserunt hic rem deleniti.</td>
+            <td class="cell3">Enim?</td>
+            <td class="cell4">
+                <2023-04-15></2023-04-15>
+            </td>
+            <td class="cell5">15</td>
+        </tr>
+        <tr>
+            <td class="cell1">16</td>
+            <td class="cell2">Illo vitae officia veritatis quas!</td>
+            <td class="cell3">Quibusdam?</td>
+            <td class="cell4">
+                <2023-04-16></2023-04-16>
+            </td>
+            <td class="cell5">16</td>
+        </tr>
+        <tr>
+            <td class="cell1">17</td>
+            <td class="cell2">Iste illum sequi magnam in.</td>
+            <td class="cell3">Fuga!</td>
+            <td class="cell4">
+                <2023-04-17></2023-04-17>
+            </td>
+            <td class="cell5">17</td>
+        </tr>
+        <tr>
+            <td class="cell1">18</td>
+            <td class="cell2">Dolorum id itaque repellendus soluta.</td>
+            <td class="cell3">Libero?</td>
+            <td class="cell4">
+                <2023-04-18></2023-04-18>
+            </td>
+            <td class="cell5">18</td>
+        </tr>
+        <tr>
+            <td class="cell1">19</td>
+            <td class="cell2">Earum dolorum perspiciatis in eius.</td>
+            <td class="cell3">Possimus?</td>
+            <td class="cell4">
+                <2023-04-19></2023-04-19>
+            </td>
+            <td class="cell5">19</td>
+        </tr>
+        <tr>
+            <td class="cell1">20</td>
+            <td class="cell2">Id beatae est natus quae.</td>
+            <td class="cell3">Voluptas.</td>
+            <td class="cell4">
+                <2023-04-20></2023-04-20>
+            </td>
+            <td class="cell5">20</td>
+        </tr>
+    </table>
+
+
+    <h1>게시판</h1>
+
+    <!-- table>tr*20>td*5 -->
+    <!-- table#list.table -->
+    <table id="list2" class="table hovertable striped">
+
+        <!-- tr>th#cols$*5  id를쓸지 클래스를 쓸지 결정 잘해야 한다. -->
+        <tr>
+            <th class="cols1">번호</th>
+            <th class="cols2">제목</th>
+            <th class="cols3">이름</th>
+            <th class="cols4">날짜</th>
+            <th class="cols5">읽음</th>
+        </tr>
+
+        <!-- (tr>td.cell$*5)*20 -->
+        <!-- (tr>(td.cell1{$$})+(td.cell2>lorem5)+(td.cell3>lorem1)+(td.cell4>2023-04-$$)+(td.cell5{$$}))*20 -->
+
+        <tr>
+            <td class="cell1">01</td>
+            <td class="cell2">Lorem ipsum dolor sit amet.sdsds adsads adsadda dasda sdsad asdasd asdas dsda </td>
+            <td class="cell3">Lorem.</td>
+            <td class="cell4">
+                <2023-04-01></2023-04-01>
+            </td>
+            <td class="cell5">01</td>
+        </tr>
+        <tr>
+            <td class="cell1">02</td>
+            <td class="cell2">Odio, rerum! Eaque, corrupti optio.</td>
+            <td class="cell3">Porro.</td>
+            <td class="cell4">
+                <2023-04-02></2023-04-02>
+            </td>
+            <td class="cell5">02</td>
+        </tr>
+        <tr>
+            <td class="cell1">03</td>
+            <td class="cell2">Sint, similique. Impedit, laboriosam dignissimos.</td>
+            <td class="cell3">Quis.</td>
+            <td class="cell4">
+                <2023-04-03></2023-04-03>
+            </td>
+            <td class="cell5">03</td>
+        </tr>
+        <tr>
+            <td class="cell1">04</td>
+            <td class="cell2">Animi tempora distinctio tempore nam!</td>
+            <td class="cell3">Veritatis!</td>
+            <td class="cell4">
+                <2023-04-04></2023-04-04>
+            </td>
+            <td class="cell5">04</td>
+        </tr>
+        <tr>
+            <td class="cell1">05</td>
+            <td class="cell2">Commodi rem minima eaque repellendus?</td>
+            <td class="cell3">Minima!</td>
+            <td class="cell4">
+                <2023-04-05></2023-04-05>
+            </td>
+            <td class="cell5">05</td>
+        </tr>
+        <tr>
+            <td class="cell1">06</td>
+            <td class="cell2">Suscipit sit reprehenderit hic molestias.</td>
+            <td class="cell3">Dolores.</td>
+            <td class="cell4">
+                <2023-04-06></2023-04-06>
+            </td>
+            <td class="cell5">06</td>
+        </tr>
+        <tr>
+            <td class="cell1">07</td>
+            <td class="cell2">Optio quis saepe autem laboriosam!</td>
+            <td class="cell3">Harum.</td>
+            <td class="cell4">
+                <2023-04-07></2023-04-07>
+            </td>
+            <td class="cell5">07</td>
+        </tr>
+        <tr>
+            <td class="cell1">08</td>
+            <td class="cell2">Doloremque necessitatibus numquam quam hic!</td>
+            <td class="cell3">Perferendis.</td>
+            <td class="cell4">
+                <2023-04-08></2023-04-08>
+            </td>
+            <td class="cell5">08</td>
+        </tr>
+        <tr>
+            <td class="cell1">09</td>
+            <td class="cell2">Voluptatem repellendus ratione recusandae non!</td>
+            <td class="cell3">Odit!</td>
+            <td class="cell4">
+                <2023-04-09></2023-04-09>
+            </td>
+            <td class="cell5">09</td>
+        </tr>
+        <tr>
+            <td class="cell1">10</td>
+            <td class="cell2">Deleniti quo ut aspernatur a!</td>
+            <td class="cell3">Voluptatibus?</td>
+            <td class="cell4">
+                <2023-04-10></2023-04-10>
+            </td>
+            <td class="cell5">10</td>
+        </tr>
+        <tr>
+            <td class="cell1">11</td>
+            <td class="cell2">Eius soluta minus odit error!</td>
+            <td class="cell3">Sequi.</td>
+            <td class="cell4">
+                <2023-04-11></2023-04-11>
+            </td>
+            <td class="cell5">11</td>
+        </tr>
+        <tr>
+            <td class="cell1">12</td>
+            <td class="cell2">Itaque enim autem quasi beatae?</td>
+            <td class="cell3">Dolor!</td>
+            <td class="cell4">
+                <2023-04-12></2023-04-12>
+            </td>
+            <td class="cell5">12</td>
+        </tr>
+        <tr>
+            <td class="cell1">13</td>
+            <td class="cell2">Aspernatur, quae. Excepturi, nulla error.</td>
+            <td class="cell3">Repudiandae.</td>
+            <td class="cell4">
+                <2023-04-13></2023-04-13>
+            </td>
+            <td class="cell5">13</td>
+        </tr>
+        <tr>
+            <td class="cell1">14</td>
+            <td class="cell2">A vero quidem doloremque nemo.</td>
+            <td class="cell3">Officiis.</td>
+            <td class="cell4">
+                <2023-04-14></2023-04-14>
+            </td>
+            <td class="cell5">14</td>
+        </tr>
+        <tr>
+            <td class="cell1">15</td>
+            <td class="cell2">Sit deserunt hic rem deleniti.</td>
+            <td class="cell3">Enim?</td>
+            <td class="cell4">
+                <2023-04-15></2023-04-15>
+            </td>
+            <td class="cell5">15</td>
+        </tr>
+        <tr>
+            <td class="cell1">16</td>
+            <td class="cell2">Illo vitae officia veritatis quas!</td>
+            <td class="cell3">Quibusdam?</td>
+            <td class="cell4">
+                <2023-04-16></2023-04-16>
+            </td>
+            <td class="cell5">16</td>
+        </tr>
+        <tr>
+            <td class="cell1">17</td>
+            <td class="cell2">Iste illum sequi magnam in.</td>
+            <td class="cell3">Fuga!</td>
+            <td class="cell4">
+                <2023-04-17></2023-04-17>
+            </td>
+            <td class="cell5">17</td>
+        </tr>
+        <tr>
+            <td class="cell1">18</td>
+            <td class="cell2">Dolorum id itaque repellendus soluta.</td>
+            <td class="cell3">Libero?</td>
+            <td class="cell4">
+                <2023-04-18></2023-04-18>
+            </td>
+            <td class="cell5">18</td>
+        </tr>
+        <tr>
+            <td class="cell1">19</td>
+            <td class="cell2">Earum dolorum perspiciatis in eius.</td>
+            <td class="cell3">Possimus?</td>
+            <td class="cell4">
+                <2023-04-19></2023-04-19>
+            </td>
+            <td class="cell5">19</td>
+        </tr>
+        <tr>
+            <td class="cell1">20</td>
+            <td class="cell2">Id beatae est natus quae.</td>
+            <td class="cell3">Voluptas.</td>
+            <td class="cell4">
+                <2023-04-20></2023-04-20>
+            </td>
+            <td class="cell5">20</td>
+        </tr>
+    </table>
+
+    <h1>게시판</h1>
+    <table id="list2" class="table dark hovertable ">
+        <!-- tr>th#cols$*5  id를쓸지 클래스를 쓸지 결정 잘해야 한다. -->
+        <tr>
+            <th class="cols1">번호</th>
+            <th class="cols2">제목</th>
+            <th class="cols3">이름</th>
+            <th class="cols4">날짜</th>
+            <th class="cols5">읽음</th>
+        </tr>
+
+        <!-- (tr>td.cell$*5)*20 -->
+        <!-- (tr>(td.cell1{$$})+(td.cell2>lorem5)+(td.cell3>lorem1)+(td.cell4>2023-04-$$)+(td.cell5{$$}))*20 -->
+
+        <tr>
+            <td class="cell1">01</td>
+            <td class="cell2">Lorem ipsum dolor sit amet.sdsds adsads adsadda dasda sdsad asdasd asdas dsda </td>
+            <td class="cell3">Lorem.</td>
+            <td class="cell4">
+                <2023-04-01></2023-04-01>
+            </td>
+            <td class="cell5">01</td>
+        </tr>
+        <tr>
+            <td class="cell1">02</td>
+            <td class="cell2">Odio, rerum! Eaque, corrupti optio.</td>
+            <td class="cell3">Porro.</td>
+            <td class="cell4">
+                <2023-04-02></2023-04-02>
+            </td>
+            <td class="cell5">02</td>
+        </tr>
+        <tr>
+            <td class="cell1">03</td>
+            <td class="cell2">Sint, similique. Impedit, laboriosam dignissimos.</td>
+            <td class="cell3">Quis.</td>
+            <td class="cell4">
+                <2023-04-03></2023-04-03>
+            </td>
+            <td class="cell5">03</td>
+        </tr>
+        <tr>
+            <td class="cell1">04</td>
+            <td class="cell2">Animi tempora distinctio tempore nam!</td>
+            <td class="cell3">Veritatis!</td>
+            <td class="cell4">
+                <2023-04-04></2023-04-04>
+            </td>
+            <td class="cell5">04</td>
+        </tr>
+        <tr>
+            <td class="cell1">05</td>
+            <td class="cell2">Commodi rem minima eaque repellendus?</td>
+            <td class="cell3">Minima!</td>
+            <td class="cell4">
+                <2023-04-05></2023-04-05>
+            </td>
+            <td class="cell5">05</td>
+        </tr>
+        <tr>
+            <td class="cell1">06</td>
+            <td class="cell2">Suscipit sit reprehenderit hic molestias.</td>
+            <td class="cell3">Dolores.</td>
+            <td class="cell4">
+                <2023-04-06></2023-04-06>
+            </td>
+            <td class="cell5">06</td>
+        </tr>
+        <tr>
+            <td class="cell1">07</td>
+            <td class="cell2">Optio quis saepe autem laboriosam!</td>
+            <td class="cell3">Harum.</td>
+            <td class="cell4">
+                <2023-04-07></2023-04-07>
+            </td>
+            <td class="cell5">07</td>
+        </tr>
+        <tr>
+            <td class="cell1">08</td>
+            <td class="cell2">Doloremque necessitatibus numquam quam hic!</td>
+            <td class="cell3">Perferendis.</td>
+            <td class="cell4">
+                <2023-04-08></2023-04-08>
+            </td>
+            <td class="cell5">08</td>
+        </tr>
+        <tr>
+            <td class="cell1">09</td>
+            <td class="cell2">Voluptatem repellendus ratione recusandae non!</td>
+            <td class="cell3">Odit!</td>
+            <td class="cell4">
+                <2023-04-09></2023-04-09>
+            </td>
+            <td class="cell5">09</td>
+        </tr>
+        <tr>
+            <td class="cell1">10</td>
+            <td class="cell2">Deleniti quo ut aspernatur a!</td>
+            <td class="cell3">Voluptatibus?</td>
+            <td class="cell4">
+                <2023-04-10></2023-04-10>
+            </td>
+            <td class="cell5">10</td>
+        </tr>
+        <tr>
+            <td class="cell1">11</td>
+            <td class="cell2">Eius soluta minus odit error!</td>
+            <td class="cell3">Sequi.</td>
+            <td class="cell4">
+                <2023-04-11></2023-04-11>
+            </td>
+            <td class="cell5">11</td>
+        </tr>
+        <tr>
+            <td class="cell1">12</td>
+            <td class="cell2">Itaque enim autem quasi beatae?</td>
+            <td class="cell3">Dolor!</td>
+            <td class="cell4">
+                <2023-04-12></2023-04-12>
+            </td>
+            <td class="cell5">12</td>
+        </tr>
+        <tr>
+            <td class="cell1">13</td>
+            <td class="cell2">Aspernatur, quae. Excepturi, nulla error.</td>
+            <td class="cell3">Repudiandae.</td>
+            <td class="cell4">
+                <2023-04-13></2023-04-13>
+            </td>
+            <td class="cell5">13</td>
+        </tr>
+        <tr>
+            <td class="cell1">14</td>
+            <td class="cell2">A vero quidem doloremque nemo.</td>
+            <td class="cell3">Officiis.</td>
+            <td class="cell4">
+                <2023-04-14></2023-04-14>
+            </td>
+            <td class="cell5">14</td>
+        </tr>
+        <tr>
+            <td class="cell1">15</td>
+            <td class="cell2">Sit deserunt hic rem deleniti.</td>
+            <td class="cell3">Enim?</td>
+            <td class="cell4">
+                <2023-04-15></2023-04-15>
+            </td>
+            <td class="cell5">15</td>
+        </tr>
+        <tr>
+            <td class="cell1">16</td>
+            <td class="cell2">Illo vitae officia veritatis quas!</td>
+            <td class="cell3">Quibusdam?</td>
+            <td class="cell4">
+                <2023-04-16></2023-04-16>
+            </td>
+            <td class="cell5">16</td>
+        </tr>
+        <tr>
+            <td class="cell1">17</td>
+            <td class="cell2">Iste illum sequi magnam in.</td>
+            <td class="cell3">Fuga!</td>
+            <td class="cell4">
+                <2023-04-17></2023-04-17>
+            </td>
+            <td class="cell5">17</td>
+        </tr>
+        <tr>
+            <td class="cell1">18</td>
+            <td class="cell2">Dolorum id itaque repellendus soluta.</td>
+            <td class="cell3">Libero?</td>
+            <td class="cell4">
+                <2023-04-18></2023-04-18>
+            </td>
+            <td class="cell5">18</td>
+        </tr>
+        <tr>
+            <td class="cell1">19</td>
+            <td class="cell2">Earum dolorum perspiciatis in eius.</td>
+            <td class="cell3">Possimus?</td>
+            <td class="cell4">
+                <2023-04-19></2023-04-19>
+            </td>
+            <td class="cell5">19</td>
+        </tr>
+        <tr>
+            <td class="cell1">20</td>
+            <td class="cell2">Id beatae est natus quae.</td>
+            <td class="cell3">Voluptas.</td>
+            <td class="cell4">
+                <2023-04-20></2023-04-20>
+            </td>
+            <td class="cell5">20</td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+
+            박스 모델
+            (이 5개 속성을 연습을 잘하다.)
+
+            1. border
+            2. width, height
+            3. padding, margin
+
+            padding, margin
+            - 여백
+            
+            padding
+            - 테두리 > 안쪽 여백
+
+            margin 
+            - 테두리> 바깥쪽 여백 : 마진은 내 주변에 다른 애들이랑 거리를 띄우려고 쓴다. 
+            - 블럭태그의 거리는 마진으로 조절한다. 
+
+        */
+
+        .box {
+            border:1px solid black;
+            width : 200px;
+            height: 150px;
+        }
+        #box2 {
+            /* padding: 20px; */
+            /* padding-top : 0px;
+            padding-right : 0px;
+            padding-bottom : 0px;
+            padding-left : 20px; */
+            /* margin: 20px; */
+            /* margin-top: 3px;
+            margin-bottom: 3px; */
+            border-width : 10px;
+            /* padding : 20px;
+            margin:  0 ; */
+            /* 
+            width + height : 컨텐츠의 영역의 크기가(O), 상자의 크기(X) 
+            실제 보이는건 border 크기도 양쪽으로 붙는다. 172 */
+            padding : 20px;
+            /*여기서 패딩이 더붙는다. 
+            패딩과 border를 항상 생각해야 한다. 
+
+            202/152를 60씩 뺴는 것 그래야 맞다. 
+
+            20+20+10+10 */
+            width  : 142px;
+            height : 92px;
+
+            /* width, height를 내용물 메꾸고 padding과 margin을 넣음 공간배치가 중요하다. */
+
+        }
+
+        /*padding부분은 내용이 침범 못한다. 하얀색 영역은 컨텐츠 영역이다.*/
+
+        /* .txt {
+            padding: 10px 20px 0px 20px;
+        } */
+
+    </style>
+</head>
+<body>
+    <!-- ex17_box.html -->
+    <h1>박스모델</h1>
+    <!-- 블럭태그의 간격을 조절할때 : <br> 사용 금지 -->
+    <!-- 인라인태그의 간격을 조절할때 : <br> 사용 -->
+    <!-- 블럭태그의 간격을 조절할때 : margin 사용 -->
+
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">상자3</div>
+    <hr>
+
+    <input type="text" class="txt">
+
+</body>
+</html>

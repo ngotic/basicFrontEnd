@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: verdana;
+            margin-top: 40px;
+            margin-bottom: 100px;
+        }
+
+        .container{
+
+            /* 이방법을 쓰기엔 콘텐츠 사이즈를 고려하지 않아 짤리는 부분은 인위적으로 맞춰야함 별로임
+            position: absolute;
+            top:120%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            margin-top:100px;
+            margin-bottom:100px; */
+            margin: auto;
+            width:800px; /* 너비부분을 확실히 지정해야 함!! 지정 안하면 횡 전체차지해서... margin auto가 안먹힘*/
+        }
+
+        .table{
+            color:#444;
+            border: 1px solid #CCCCCC;
+            text-align: center;
+            width:800px;
+            border-collapse: collapse; 
+            /*이걸로 해결 seper는 분리*/
+        }   
+        .table th,
+        .table td{
+            border: 1px solid #CCCCCC;
+            padding:5px;
+        }
+        .table th {
+            background-color: #DDDDDD;
+        }
+
+        .table .cols1 { width: 60px;}
+        .table .cols2 { width: 100px;}
+        .table .cols3 { width: 60px;}
+        .table .cols4 { width: 150px;}
+        .table .cols5 { width: 530px;}
+        .table .cell5 {
+            text-align: left;
+        }
+        
+        .title {
+            border-bottom: 1px dashed #777;
+            width: 800px;
+            color:#444;
+            font-weight: 900;
+        }
+
+        .title>span.init1{
+            color:cornflowerblue;
+            font-size: 1.3em;
+        }
+
+        .title>span.init2{
+            color:#FFD700;
+            font-size: 1.3em;
+        }
+
+        .title>span.init3{
+            color:#C3E871;
+            font-size: 1.3em;
+        }
+
+        .title>span.init4{
+            color:#C792EA;
+            font-size: 1.3em;
+        }
+
+        .title>span.init5{
+            color:#73B5AF;
+            font-size: 1.3em;
+        }
+
+        h2>#left {
+            padding-top: 13px;
+            float: right;
+            font-size: 0.7em;
+        }
+        h2>#left .left {
+            padding-top: 9px;
+            font-size: 1.2em;
+        }
+
+        /* 두번째 테이블 장식 */
+        .row2,.row4,.row6,.row8,.row10{
+            background-color: #EEE;
+        }
+
+        /* 세번째 테이블 장식 */
+        .table.hovertable tr:hover td{
+            background-color: #EEE;
+        }
+
+        /* 네번째 테이블 장식 */
+        .table.left_right_white,
+        .table.left_right_white tr td,
+        .table.left_right_white tr th{
+            border-right: 0px;
+            border-left: 0px;
+        }
+
+        /* 다섯번째 테이블 장식 */
+        .table.borderseparate{
+            border: 1px solid #FFF;
+            border-collapse: separate; 
+        }
+
+        .borderseparate tr .cols1,
+        .borderseparate tr .cols2,
+        .borderseparate tr .cols3,
+        .borderseparate tr .cols4,
+        .borderseparate tr .cell1, 
+        .borderseparate tr .cell2, 
+        .borderseparate tr .cell3, 
+        .borderseparate tr .cell4
+        {
+            border-right:0px solid #FFF;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <!-- 재사용 가능성 있는 태그는 섯불리 css를 만들어버리면 안될듯 ? -->
+    <h2 class="title">
+        <span class="init1">M</span>EMBER LIST 
+        <span id="left">
+            <span class="left">T</span>ABLE <span class="left">D</span>ESIGN
+        </span>
+    </h2>
+    <table border="1" class="table">
+        <tr>
+            <th class="cols1">No</th>
+            <th class="cols2">Name</th>
+            <th class="cols3">Age</th>
+            <th class="cols4">ID</th>
+            <th class="cols5">Description</th>
+        </tr>
+
+        <tr>
+            <td class="cell1">01</td>
+            <td class="cell2">Lorem</td>
+            <td class="cell3">21</td>
+            <td class="cell4">Lorem</td>
+            <td class="cell5">Lorem ipsum dolor sit amet</td>
+        </tr>
+        <tr>
+            <td class="cell1">02</td>
+            <td class="cell2">In</td>
+            <td class="cell3">22</td>
+            <td class="cell4">Vitae</td>
+            <td class="cell5">Aliquid pariatur totam optio suscipit</td>
+        </tr>
+        <tr>
+            <td class="cell1">03</td>
+            <td class="cell2">A</td>
+            <td class="cell3">23</td>
+            <td class="cell4">Blanditiis</td>
+            <td class="cell5">Id ut architecto mollitia sapiente</td>
+        </tr>
+        <tr>
+            <td class="cell1">04</td>
+            <td class="cell2">Voluptates</td>
+            <td class="cell3">24</td>
+            <td class="cell4">Temporibus</td>
+            <td class="cell5">Architecto magnam suscipit voluptatum sed</td>
+        </tr>
+        <tr>
+            <td class="cell1">05</td>
+            <td class="cell2">Pariatur</td>
+            <td class="cell3">25</td>
+            <td class="cell4">Unde</td>
+            <td class="cell5">Dolorem aperiam mollitia voluptas illum</td>
+        </tr>
+        <tr>
+            <td class="cell1">06</td>
+            <td class="cell2">Expedita</td>
+            <td class="cell3">26</td>
+            <td class="cell4">Amet</td>
+            <td class="cell5">Sequi officia ea eum voluptates</td>
+        </tr>
+        <tr>
+            <td class="cell1">07</td>
+            <td class="cell2">Corporis</td>
+            <td class="cell3">27</td>
+            <td class="cell4">Odio</td>
+            <td class="cell5">Fugiat nesciunt ipsa consequuntur odio</td>
+        </tr>
+        <tr>
+            <td class="cell1">08</td>
+            <td class="cell2">Culpa</td>
+            <td class="cell3">28</td>
+            <td class="cell4">Est</td>
+            <td class="cell5">Repellat magnam fugiat inventore dolorum</td>
+        </tr>
+        <tr>
+            <td class="cell1">09</td>
+            <td class="cell2">Illo</td>
+            <td class="cell3">29</td>
+            <td class="cell4">Alias</td>
+            <td class="cell5">Minima reprehenderit dolore mollitia molestias</td>
+        </tr>
+        <tr>
+            <td class="cell1">10</td>
+            <td class="cell2">Repellat</td>
+            <td class="cell3">21</td>
+            <td class="cell4">Dolorem</td>
+            <td class="cell5">Velit voluptatibus inventore deserunt voluptate</td>
+        </tr>
+    </table>
+
+    <h2 class="title">
+        <span class="init2">M</span>EMBER LIST 
+    </h2>
+    <table border="1" class="table">
+        <tr>
+            <th class="cols1">No</th>
+            <th class="cols2">Name</th>
+            <th class="cols3">Age</th>
+            <th class="cols4">ID</th>
+            <th class="cols5">Description</th>
+        </tr>
+        <tr>
+            <td class="cell1">01</td>
+            <td class="cell2">Lorem</td>
+            <td class="cell3">21</td>
+            <td class="cell4">Lorem</td>
+            <td class="cell5">Lorem ipsum dolor sit amet</td>
+        </tr>
+        <tr  class="row2">
+            <td class="cell1">02</td>
+            <td class="cell2">In</td>
+            <td class="cell3">22</td>
+            <td class="cell4">Vitae</td>
+            <td class="cell5">Aliquid pariatur totam optio suscipit</td>
+        </tr>
+        <tr>
+            <td class="cell1">03</td>
+            <td class="cell2">A</td>
+            <td class="cell3">23</td>
+            <td class="cell4">Blanditiis</td>
+            <td class="cell5">Id ut architecto mollitia sapiente</td>
+        </tr>
+        <tr class="row4">
+            <td class="cell1">04</td>
+            <td class="cell2">Voluptates</td>
+            <td class="cell3">24</td>
+            <td class="cell4">Temporibus</td>
+            <td class="cell5">Architecto magnam suscipit voluptatum sed</td>
+        </tr>
+        <tr>
+            <td class="cell1">05</td>
+            <td class="cell2">Pariatur</td>
+            <td class="cell3">25</td>
+            <td class="cell4">Unde</td>
+            <td class="cell5">Dolorem aperiam mollitia voluptas illum</td>
+        </tr>
+        <tr class="row6">
+            <td class="cell1">06</td>
+            <td class="cell2">Expedita</td>
+            <td class="cell3">26</td>
+            <td class="cell4">Amet</td>
+            <td class="cell5">Sequi officia ea eum voluptates</td>
+        </tr>
+        <tr>
+            <td class="cell1">07</td>
+            <td class="cell2">Corporis</td>
+            <td class="cell3">27</td>
+            <td class="cell4">Odio</td>
+            <td class="cell5">Fugiat nesciunt ipsa consequuntur odio</td>
+        </tr>
+        <tr class="row8">
+            <td class="cell1">08</td>
+            <td class="cell2">Culpa</td>
+            <td class="cell3">28</td>
+            <td class="cell4">Est</td>
+            <td class="cell5">Repellat magnam fugiat inventore dolorum</td>
+        </tr>
+        <tr>
+            <td class="cell1">09</td>
+            <td class="cell2">Illo</td>
+            <td class="cell3">29</td>
+            <td class="cell4">Alias</td>
+            <td class="cell5">Minima reprehenderit dolore mollitia molestias</td>
+        </tr>
+        <tr class="row10">
+            <td class="cell1">10</td>
+            <td class="cell2">Repellat</td>
+            <td class="cell3">21</td>
+            <td class="cell4">Dolorem</td>
+            <td class="cell5">Velit voluptatibus inventore deserunt voluptate</td>
+        </tr>
+    </table>
+
+    <h2 class="title">
+        <span class="init3">M</span>EMBER LIST 
+    </h2>
+    <table border="1" class="table hovertable">
+        <tr>
+            <th class="cols1">No</th>
+            <th class="cols2">Name</th>
+            <th class="cols3">Age</th>
+            <th class="cols4">ID</th>
+            <th class="cols5">Description</th>
+        </tr>
+        <tr>
+            <td class="cell1">01</td>
+            <td class="cell2">Lorem</td>
+            <td class="cell3">21</td>
+            <td class="cell4">Lorem</td>
+            <td class="cell5">Lorem ipsum dolor sit amet</td>
+        </tr>
+        <tr>
+            <td class="cell1">02</td>
+            <td class="cell2">In</td>
+            <td class="cell3">22</td>
+            <td class="cell4">Vitae</td>
+            <td class="cell5">Aliquid pariatur totam optio suscipit</td>
+        </tr>
+        <tr>
+            <td class="cell1">03</td>
+            <td class="cell2">A</td>
+            <td class="cell3">23</td>
+            <td class="cell4">Blanditiis</td>
+            <td class="cell5">Id ut architecto mollitia sapiente</td>
+        </tr>
+        <tr>
+            <td class="cell1">04</td>
+            <td class="cell2">Voluptates</td>
+            <td class="cell3">24</td>
+            <td class="cell4">Temporibus</td>
+            <td class="cell5">Architecto magnam suscipit voluptatum sed</td>
+        </tr>
+        <tr>
+            <td class="cell1">05</td>
+            <td class="cell2">Pariatur</td>
+            <td class="cell3">25</td>
+            <td class="cell4">Unde</td>
+            <td class="cell5">Dolorem aperiam mollitia voluptas illum</td>
+        </tr>
+        <tr>
+            <td class="cell1">06</td>
+            <td class="cell2">Expedita</td>
+            <td class="cell3">26</td>
+            <td class="cell4">Amet</td>
+            <td class="cell5">Sequi officia ea eum voluptates</td>
+        </tr>
+        <tr>
+            <td class="cell1">07</td>
+            <td class="cell2">Corporis</td>
+            <td class="cell3">27</td>
+            <td class="cell4">Odio</td>
+            <td class="cell5">Fugiat nesciunt ipsa consequuntur odio</td>
+        </tr>
+        <tr>
+            <td class="cell1">08</td>
+            <td class="cell2">Culpa</td>
+            <td class="cell3">28</td>
+            <td class="cell4">Est</td>
+            <td class="cell5">Repellat magnam fugiat inventore dolorum</td>
+        </tr>
+        <tr>
+            <td class="cell1">09</td>
+            <td class="cell2">Illo</td>
+            <td class="cell3">29</td>
+            <td class="cell4">Alias</td>
+            <td class="cell5">Minima reprehenderit dolore mollitia molestias</td>
+        </tr>
+        <tr>
+            <td class="cell1">10</td>
+            <td class="cell2">Repellat</td>
+            <td class="cell3">21</td>
+            <td class="cell4">Dolorem</td>
+            <td class="cell5">Velit voluptatibus inventore deserunt voluptate</td>
+        </tr>
+    </table>
+
+    <h2 class="title">
+        <span class="init4">M</span>EMBER LIST 
+    </h2>
+    <table border="1" class="table left_right_white">
+        <tr>
+            <th class="cols1">No</th>
+            <th class="cols2">Name</th>
+            <th class="cols3">Age</th>
+            <th class="cols4">ID</th>
+            <th class="cols5">Description</th>
+        </tr>
+        <tr>
+            <td class="cell1">01</td>
+            <td class="cell2">Lorem</td>
+            <td class="cell3">21</td>
+            <td class="cell4">Lorem</td>
+            <td class="cell5">Lorem ipsum dolor sit amet</td>
+        </tr>
+        <tr>
+            <td class="cell1">02</td>
+            <td class="cell2">In</td>
+            <td class="cell3">22</td>
+            <td class="cell4">Vitae</td>
+            <td class="cell5">Aliquid pariatur totam optio suscipit</td>
+        </tr>
+        <tr>
+            <td class="cell1">03</td>
+            <td class="cell2">A</td>
+            <td class="cell3">23</td>
+            <td class="cell4">Blanditiis</td>
+            <td class="cell5">Id ut architecto mollitia sapiente</td>
+        </tr>
+        <tr>
+            <td class="cell1">04</td>
+            <td class="cell2">Voluptates</td>
+            <td class="cell3">24</td>
+            <td class="cell4">Temporibus</td>
+            <td class="cell5">Architecto magnam suscipit voluptatum sed</td>
+        </tr>
+        <tr>
+            <td class="cell1">05</td>
+            <td class="cell2">Pariatur</td>
+            <td class="cell3">25</td>
+            <td class="cell4">Unde</td>
+            <td class="cell5">Dolorem aperiam mollitia voluptas illum</td>
+        </tr>
+        <tr>
+            <td class="cell1">06</td>
+            <td class="cell2">Expedita</td>
+            <td class="cell3">26</td>
+            <td class="cell4">Amet</td>
+            <td class="cell5">Sequi officia ea eum voluptates</td>
+        </tr>
+        <tr>
+            <td class="cell1">07</td>
+            <td class="cell2">Corporis</td>
+            <td class="cell3">27</td>
+            <td class="cell4">Odio</td>
+            <td class="cell5">Fugiat nesciunt ipsa consequuntur odio</td>
+        </tr>
+        <tr>
+            <td class="cell1">08</td>
+            <td class="cell2">Culpa</td>
+            <td class="cell3">28</td>
+            <td class="cell4">Est</td>
+            <td class="cell5">Repellat magnam fugiat inventore dolorum</td>
+        </tr>
+        <tr>
+            <td class="cell1">09</td>
+            <td class="cell2">Illo</td>
+            <td class="cell3">29</td>
+            <td class="cell4">Alias</td>
+            <td class="cell5">Minima reprehenderit dolore mollitia molestias</td>
+        </tr>
+        <tr>
+            <td class="cell1">10</td>
+            <td class="cell2">Repellat</td>
+            <td class="cell3">21</td>
+            <td class="cell4">Dolorem</td>
+            <td class="cell5">Velit voluptatibus inventore deserunt voluptate</td>
+        </tr>
+    </table>
+
+    <h2 class="title">
+        <span class="init5">M</span>EMBER LIST 
+    </h2>
+    <table border="1" class="table borderseparate">
+        <tr>
+            <th class="cols1">No</th>
+            <th class="cols2">Name</th>
+            <th class="cols3">Age</th>
+            <th class="cols4">ID</th>
+            <th class="cols5">Description</th>
+        </tr>
+        <tr>
+            <td class="cell1">01</td>
+            <td class="cell2">Lorem</td>
+            <td class="cell3">21</td>
+            <td class="cell4">Lorem</td>
+            <td class="cell5">Lorem ipsum dolor sit amet</td>
+        </tr>
+        <tr>
+            <td class="cell1">02</td>
+            <td class="cell2">In</td>
+            <td class="cell3">22</td>
+            <td class="cell4">Vitae</td>
+            <td class="cell5">Aliquid pariatur totam optio suscipit</td>
+        </tr>
+        <tr>
+            <td class="cell1">03</td>
+            <td class="cell2">A</td>
+            <td class="cell3">23</td>
+            <td class="cell4">Blanditiis</td>
+            <td class="cell5">Id ut architecto mollitia sapiente</td>
+        </tr>
+        <tr>
+            <td class="cell1">04</td>
+            <td class="cell2">Voluptates</td>
+            <td class="cell3">24</td>
+            <td class="cell4">Temporibus</td>
+            <td class="cell5">Architecto magnam suscipit voluptatum sed</td>
+        </tr>
+        <tr>
+            <td class="cell1">05</td>
+            <td class="cell2">Pariatur</td>
+            <td class="cell3">25</td>
+            <td class="cell4">Unde</td>
+            <td class="cell5">Dolorem aperiam mollitia voluptas illum</td>
+        </tr>
+        <tr>
+            <td class="cell1">06</td>
+            <td class="cell2">Expedita</td>
+            <td class="cell3">26</td>
+            <td class="cell4">Amet</td>
+            <td class="cell5">Sequi officia ea eum voluptates</td>
+        </tr>
+        <tr>
+            <td class="cell1">07</td>
+            <td class="cell2">Corporis</td>
+            <td class="cell3">27</td>
+            <td class="cell4">Odio</td>
+            <td class="cell5">Fugiat nesciunt ipsa consequuntur odio</td>
+        </tr>
+        <tr>
+            <td class="cell1">08</td>
+            <td class="cell2">Culpa</td>
+            <td class="cell3">28</td>
+            <td class="cell4">Est</td>
+            <td class="cell5">Repellat magnam fugiat inventore dolorum</td>
+        </tr>
+        <tr>
+            <td class="cell1">09</td>
+            <td class="cell2">Illo</td>
+            <td class="cell3">29</td>
+            <td class="cell4">Alias</td>
+            <td class="cell5">Minima reprehenderit dolore mollitia molestias</td>
+        </tr>
+        <tr>
+            <td class="cell1">10</td>
+            <td class="cell2">Repellat</td>
+            <td class="cell3">21</td>
+            <td class="cell4">Dolorem</td>
+            <td class="cell5">Velit voluptatibus inventore deserunt voluptate</td>
+        </tr>
+    </table>
+    </div>
+</body>
+</html>
