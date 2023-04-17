@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            태그의 수평 정렬
+            - 인라인 태그와 블럭 태그의 수평 정렬
+
+            수평 정렬(내용물의 정렬)
+            - text-align
+            1. 인라인 태그
+                - 불가능 > 여백(공백)이 없어서..
+            2. 블럭 태그
+                - 가능 > 여백(공백)이 있어서..> text-align속성은 블럭 태그에서만 적용이 가능하다. 
+
+            수평 정렬(태그 스스로의 정렬) > 불가능(지원하는 속성 없음)
+            1. 인라인 태그< 스스로 정렬은 못하지만.... 
+            - 스스로는 못하지만 부모블럭태그의 text-align을 사용해서 정렬 가능하다.
+
+            2. 블럭 태그 
+            - 불가능 > 부모 영역과 자식 영역이 일치하기 때문에 > 좌우에 공간이 없다. 
+            > 가능? > 자식 영역의 너비를 줄인다. > 좌우 마진을 동일하게 auto를 준다. 
+
+        */
+        #span1, #div1 {
+            background-color: yellow;
+        }
+
+        #span1 {
+            /* 인라인은 꼼짝달싹 못하고 이상태다. 내용만큼 이동할 공간 있다. */
+            text-align: right; 
+        }
+
+        #div1 {
+            /* 블록태그 안에서는 공간이 남으니까 오른쪽으로 붙는다. */
+            /* text-align: right; */
+            width:200px;
+            margin-left: 260px; /*이러면 중앙에 맞을까?? No*/
+            /*왼쪽 마진과 오른쪽 마진을 일부러 같은 숫자를 준다. 중앙 맞추려고*/
+            /*margin left, right를 auto로 주면 된다. 그러면 한 가운데 위치 한다. */
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex28_align.html -->
+    <h1>인라인 태그</h1>
+    <div style="background-color: aquamarine; padding: 10px; text-align: center;">
+        <span id="span1">인라인 태그</span>
+    </div>
+    <h1>블럭 태그</h1>
+
+    <div style="background-color: aquamarine; padding: 10px; text-align: center;">
+        <div id="div1">블럭 태그</div>
+    </div>
+    
+
+</body>
+</html>

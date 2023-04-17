@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    
+    .container .content .item{
+        width:320px;
+        
+    }
+
+    .container .content .item .newContent{
+        float:left;
+        width:200px;
+        border-bottom: 1px solid #DDD;
+        padding:10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+                        /* 계층 구조가 깨져서 이런식으로 써야 함*/
+    .container .content .item:last-child .newContent { 
+        /* 마지막 요소에를 접근 :last-child 이렇게 한다. */
+        border-bottom: 0px;
+        
+    }
+    
+    .container .content .item .newContent .desc{
+        font-size: 12px;
+        color:#303038;
+    }
+  
+    .container .content .item .newContent .logo img{
+        border-radius: 50%;
+        width:15px;
+        height: 15px;
+        border: 1px solid #e2e6e9;
+        
+    }
+    /* 
+    이미지는 인라인 블록 요소다.
+    하나는 블럭요소, 하나는 인라인요소인 경우에 라인이 안맞는다. 
+    하나는 위쪽, 하나는 아래쪽으로 붙음 > 이때 margin이 안먹힘 
+
+    인라인은 바닥에서 붙어서 글이 써짐*/
+    .container .content .item .newContent .logo .company{
+        /* 문제 상황 파악하기 > 좌측 상단위치부터 시작하려고 > 이거 써먹음*/
+        position:absolute;
+        margin-top: 1px;
+        margin-left: 5px;
+        /* 이걸 안쓰는 경우에 마진이 안들어간다. */
+
+        font-size: 12px;
+        color:#888;
+        display: inline;
+        padding-bottom: 1px;
+    }
+
+    .container .content .item .pic{
+        padding:5px;
+        float:right;
+        width: 88px;
+        height:60px;
+    }
+</style>
+</head>
+<body>
+    <!-- 
+        웹 이미지 포맷
+        1. gif
+            - 아이콘, 그래프 등 
+            - 최대 256색
+            - Animated gif > 움짤
+
+        2. jpg(jpeg)
+            - 압축률 높지 않음..
+            - 사진 저장
+            - 16비트 색상수
+
+        3. png
+            - 압축률 높음??(무손실) X
+            - 이미지, 사진 등...
+
+        다운로드.jfif
+
+    -->
+    <!-- ex31.html -->
+    <!-- 네이버 뉴스 기사 -->
+    <div class="container">
+        <div class="content">
+            <div class="item">
+                <div class="newContent">
+                    <div class="desc">
+                        엄마 타있는데…추락 방충망, 칼처럼 벤츠에 꽂혔다 [포착]
+                    </div>
+                    <div class="logo">
+                        <img src="images/news_icon1.png" class="icon">                
+                        <div class="company">국민일보</div>
+                    </div>
+                </div>
+                <img src="images/news_1_01.jpg" class="pic"></img>
+                <div style="clear:right"></div>
+            </div>
+
+            <div class="item">
+                <div class="newContent">
+                    <div class="desc">
+                        [인터뷰] 29세에 스타벅스 이사회 입성한 테크우먼...  …
+                    </div>
+                    <div class="logo">
+                        <img src="images/news_icon2.png" class="icon">
+                        <div class="company">조선비스</div>
+                    </div>
+                </div>
+                <img src="images/news_1_02.jpg" class="pic"></img>
+            </div>
+
+            <div class="item">
+                <div class="newContent">
+                    <div class="desc">
+                        "짧지만 열정적 삶 산 아들"…'근이양증' 27세 청년,  …
+                    </div>
+                    <div class="logo">
+                        <img src="images/news_icon3.png" class="icon">
+                        <div class="company">JTBC</div>
+                    </div>
+                </div>
+                <img src="images/news_1_03.jpg" class="pic"></img>
+            </div>
+
+            <div class="item">
+                <div class="newContent">
+                    <div class="desc">
+                        "삼각김밥에 컵라면? 사치네요"...MZ에 뜨는 '거지방' …
+                    </div>
+                    <div class="logo">
+                        <img src="images/news_icon4.png" class="icon">
+                        <div class="company">파이낸셜뉴스</div>
+                    </div>
+                </div>
+                <img src="images/news_1_04.jpg" class="pic"></img>         
+            </div>
+
+            <div class="item">
+                <div class="newContent">
+                    <div class="desc">
+                        고교생 집단폭행으로 숨진 30대 가장…피고인들 '감형'
+                    </div>
+                    <div class="logo">
+                        <img src="images/news_icon5.png" class="icon">
+                        <div class="company">SBS</div>
+                    </div>
+                </div>
+                <img src="images/news_1_05.jpg" class="pic"></img>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 이미지는 상하마진 가짐 > 인라인 -블록이다. -->
+    <!-- <div >
+        <img src="images/news_icon5.png"> 
+        <span>ddd</span>  
+    </div>  -->
+    <!-- 마진이 안걸리는 케이스 > 인라인은 상하 마진을 가질 수 없나-->
+    <div >
+        <img src="images/news_icon5.png">
+        <span style="position: absolute;">ddd</span> 
+    </div>
+
+    <!-- position: absolute; left right top 이런거 없으면 부모기준으로 자신의 위치 결정 -->
+    <div >
+        <img src="images/news_icon5.png">
+        <span style="position: absolute; left:0px; right:0px">ddd</span> 
+      
+    </div>
+      <!-- 해결하는 케이스 그럼 position: absolute;로 풀어버리면 인라인인데 블럭요소 처럼 되는가? -->
+    <!-- <div >
+        <img src="images/news_icon5.png" style="display:block">
+        <div style="position: absolute;">ddd</div> 
+    </img> -->
+    <!-- 해결하는 케이스 그럼 position: absolute;로 풀어버리면 인라인인데 블럭요소 처럼 되는가? -->
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box { 
+            border:10px solid black; 
+        }
+        #box > img {
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex30_float.html -->
+    <div id="box">
+        <img src="images/catty01.png">
+        <img src="images/catty02.png">
+        <img src="images/catty03.png">
+        <img src="images/catty04.png">
+        <img src="images/catty05.png">
+        <div style="clear:left"></div>  
+        <div> float는 형제요소한테 속성을 전이시킨다. 그래서 그걸 막으려고 clear 쓰는데
+              div를 만들어서 거기다가 쓰는 방법이 있고 직접적인
+              float를 하지 않았찌만 전염된 요소에 clear를 건다. 
+        </div>
+    </div>
+    
+</body>
+</html>

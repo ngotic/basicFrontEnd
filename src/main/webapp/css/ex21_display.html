@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+    .box{
+        border: 1px solid black;
+        /* display: block; >기본값*/
+         display: inline;  /*블록을 인라인으로 하면 너비가 내용만큼으로 바뀐다.*/
+    }    
+    .link {
+        border : 1px solid black;
+        /* display: inline; >기본값*/
+        display: block; /*원래 인라인인데 블록으로 잡으면 블록처럼 랜더링이 된다. 그리고 아래 width와 height가 들어간다. */
+        width: 200px;
+        height:100px;
+    }
+
+    /* 메뉴를 줄려면 라인 하나에 나열 하고 싶음 */
+    /* 배경색을 주거나 테두리를 주는게 좋다. li는 블럭 태그 였다. */
+    #menu {
+        /* border : 5px solid blue; 일단주석 원래 보이면 안되는 애라서 */
+        padding: 0px;
+    }
+
+    #menu li {
+        border : 3px solid red;
+        display: inline; /*너비 높이 지정이 안된다.!*/
+        display: inline-block; 
+        /*얘를 쓰면 한줄로 나오면서도 overflow나서 요소 한개가 다음라인함 > 인라인 태그처럼 출력 + 너비/높이 지정가능 */
+        width : 20%; /* width가 컨텐츠 영역의 크기다. 100%+30px이 더해진거다. 한놈당 좌우 6px이 더 붙어서 그래
+        18%로 하면 한 라인에 다 들어온다. */
+        width : 18%; 
+        width : calc(20% - 6px); 
+        /* calc 이라는 함수는 계산을 해준다. 
+        꼭!! 20%띄어쓰기-띄어쓰기6px  */
+        text-align: center;
+        padding : 5px; /*패딩을 주면 늘어나니까 또 양 사이드 10만큼 뺀다.*/
+        width : calc(20% - 16px); 
+        cursor:pointer;   /* ★ 커서모양을 바꿀 수 있다. !! */
+        cursor:crosshair; /* ★ 십자모양 */
+        cursor:ew-resize; /* ★ 리사이즈할 때 모양 */
+        cursor:progress ; /* ★ 진행중 ~ */
+        /* 커서쓸 때 조심해야 한다. 포인터가 무난하다. */
+    }
+
+    #menu li:hover {
+        background-color: yellow;
+    }
+
+/*
+    display
+    - 요소의 출력 방식
+    1. none > display:none : 안보이게 만든다. 
+    2. inline 
+    3. block
+    4. inline-block : 둘을 합침
+    굉장히 중요하다. 이개념은
+*/
+
+
+</style>
+<body>
+    <!-- width, height는 블록에는 줄수 있으나 인라인은 못준다. -->
+    <!-- ex21_display.html-->
+
+    <!-- 메뉴 만들기 : 메뉴도 집합이다. 그래서 ul이나 ol을 쓴다. -->
+    <ul id="menu">
+        <li>메뉴</li><li>메뉴</li><li>메뉴</li><li>메뉴</li><li>메뉴</li>
+    </ul>
+
+    <h1>블럭 태그는 너비가 100% 인라인이나 블록 모두 높이는 내용물 크기 만큼</h1>
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">상자3</div>
+
+    <h1>인라인 태그</h1>
+    <a href="#" id="link1" class="link">링크1</a>
+    <a href="#" id="link2" class="link">링크2</a>
+    <a href="#" id="link3" class="link">링크3</a>
+</body>
+</html>

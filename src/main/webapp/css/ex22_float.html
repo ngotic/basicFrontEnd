@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        /*
+            float 
+            - 원래 출력되던 위치를 벗어나, 라인의 맨 왼쪽(오른쪽) 끝으로 이동한다.
+            - 주변에 뭐가 같이 있어도 float를 하면 지혼자만 빠져 나온다. 
+            - none(default), left, right
+        */
+
+        /* #name1 {
+            color:blue;
+            background-color: yellow;
+            float: none; /* float의 기본값은 none이다.!!! none이 기본값이다. */
+            /* float: left;
+            float: right; */
+        /* }
+
+        #name2 {
+            color:blue;
+            background-color: yellow;
+            float: left;
+            float: right;
+        }  */
+        #pic {
+            float: left;
+        }
+        #title {
+            color: #555;
+            font-variant: small-caps; 
+            /*★ 제목 같은 곳에 쓴다.  
+            전부다 대분자 출력인데 소문자는 작게, 대문자는 크게 나온다. */
+            border-bottom: 1px dashed #999;
+            /* text-align: center; 이거 안된다. 다 중앙이다. */
+            background-color: red;
+        }
+        #title>span {
+            color : tomato;
+        }
+        #title>small {
+            font-size: 1rem;
+            /* text-align: right; 
+            background-color: yellow; */
+            /* 여기서 정렬? 안된다 >> background-color해보면 안다.
+            정렬이라하면 넓은 공간안에 들어있는 요소하나가 이동되는 건데 이부분은 좌우로 해봤자 여백이 없다. */
+            background-color: yellow; 
+            float: right; 
+            /* ★ float를 해버리면 위쪽 끝으로 붙는다. */
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">
+        <span class="first">M</span>ember list
+        <small>Table Design</small>
+    </h1>
+    <!-- ex22_float.html -->
+    <p>안녕하세요. <span id="name1">홍길동</span>입니다. 더미 데이터. 더미 데이터. 더미 데이터.  더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. @<span id="name2">아무개</span>@ 더미 데이터. 더미 데이터. 더미 데이터. <img src="images/man_01.png" id="pic">더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터. 더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.더미 데이터.</p>
+
+
+</body>
+</html>

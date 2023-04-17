@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .news {
+            width: 800px;
+        }
+
+        .news .header {
+            font-size: 14px;
+            color:#3f63bf;
+            font-weight: bold;
+            letter-spacing: -1;
+            margin: 16px 5px;
+        }
+
+        .news .content .item {
+            margin-bottom: 20px;
+            /* border: 1px solid red; */
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #DDD;
+        }
+
+        .news .content .item:last-child { /* 마지막 요소에를 접근 :last-child 이렇게 한다. */
+            border-bottom: 0px;
+        }
+        
+
+        .news .content .item img {
+            float: left;
+            border: 1px solid #CCC;
+            margin-right: 15px;
+        }
+
+        .news .content .item > newsContent {
+            float:left;
+            width : 450px;
+        }
+
+        .news .content .item .title {
+            font-size: 15px;
+            color : #000;
+            letter-spacing: -1px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .news .content .item .desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 20px;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+            
+        }
+        .news .content .item .author {
+            font-size: 12px;
+            color:#888;
+            letter-spacing: -1;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex29.html -->
+    <div class="news">
+        <div class="header">
+        스페이스X 스타쉽 발사 승인
+        "17일 비행 목표"        
+        </div>
+        <div class="content">
+
+            <div class="item">
+                <img src="images/news_01.jpg">
+                <div class="newsContent">
+                    <div class="title">화성 개철 눈앞에... 스페이스X스타쉽, 오늘 첫 완전체 발사</div>
+                    <div class="desc">기사내용 요약 스페이스X 17일 스타쉽 슈퍼 헤비 로켓 첫 궤도 비행테스트</div>
+                    <div class="author">뉴시스</div>
+                </div>
+                <div style="clear:left;"></div> <!--
+                     clear + float 동시에 쓸 수 없다. 동시 적용이다. float 걸린 애한테 clear를 줄 수 없다.  
+                     자기 자신한테 clear를 주고 탈출 시킨다. > newsContent에도
+                    -->
+            </div> <!-- 한줄 출력 끊기 위해서 여기다가 넣는다. -->
+
+            <!-- <hr style="border: 0px; border-top:1px solid #DDD; margin-bottom: 20px;" > 이렇게 만들던가 -->
+            
+
+            <div class="item">
+                <img src="images/news_02.jpg">
+                <div class="newsContent">
+                    <div class="title">마지막 관문 통과했다.</div>
+                    <div class="desc">미국의 민간 우주탐사 기업 스페이스X가 달과 심우주 여행에 투입하기 위해 온 우주선 스타쉽이 지구궤도 시험 비행을 위한 마지..</div>
+                    <div class="author">중앙일보</div>
+                </div>
+                <div style="clear:left;"></div>
+            </div> <!-- 아이템의 아랬족 보더만 만들던가 -->
+
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #menu {
+        background-color: orange;
+        width:600px;
+        height:50px;
+    }
+    #submenu {
+        background-color: gold;
+        display: inline-block;
+        width: 150px;
+        height:300px;
+        float:left;
+    }
+    #content {
+        background-color: cornflowerblue;
+        display: inline-block;
+        width: 450px;
+        height:300px;
+        float:right;
+    }
+    #footer {
+        background-color: greenyellow;
+        clear:left; 
+        /*clear는 공간을 못파고 들게 한다. > 왼쪽으로 붙어! 탈출시킴,
+        근데 clear는 블록테그만 먹히니까 조심하자!*/
+        width:600px;
+        height:50px;
+    }
+    #main{
+        border:10px solid black;
+        width:600px; 
+        /* float는 빈공간이 있으면 파고든다. 그래서
+        공간을 픽스한 것이다. */
+    }
+
+    img {
+        float:left; /* float를 써버리면 사이사이 엔터스페이스 같은 공백을 다 없애버린다. 
+        float left가 되어서 화면 왼쪽으로 가려다가 
+        겹칠 수가 없어서 착 달라붙는다. */
+    }
+    </style>
+</head>
+<body>
+    <h1>페이지 레이이웃</h1>
+    <div id="main">  <!-- container를 만든다. -->
+        <div id="menu">주메뉴(orange)</div>
+        <div id="submenu">보조메뉴(yellow)</div><div id="content">콘텐츠(blue)</div>
+        <div id="footer">하단(green)</div>
+    </div>
+    <h1>인라인 요소 배치</h1>
+    <img src="images/rect_icon01.png">
+    <img src="images/rect_icon02.png">
+    <img src="images/rect_icon03.png">
+    <img src="images/rect_icon04.png">
+    <img src="images/rect_icon05.png">
+
+    <!-- clear는 float의 성질을 제거한다. 빈 블록으로 float를 제거해버리면 
+    한 라인을 차지한다. 그래서 다음 요소는 처음부터 시작되는 것이다. 개행을 시키는 느낌이다.  -->
+    <!-- float의 성질 제거 > 빈 div 태그로 clear를 줘서 -->
+    <div style="clear:left"></div>
+
+    <button>버튼1</button>
+    <button>버튼2</button>
+
+    <br><br><br><br>
+</body>
+</html>
+
+
