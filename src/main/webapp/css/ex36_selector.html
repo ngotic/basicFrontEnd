@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .list input[type=text] {
+            display: block;
+            border : 1px solid #555;
+            padding: 3px;
+            margin-bottom: 3px;
+            background-color: #fff;
+            color:#444;
+            outline: none;
+        } *//* 이거쓰면 클릭했을 때 윤곽이 안보인다. */
+
+        /* required만 찾는다. */
+        /* .list input[type=text]:required {
+            background-color: gold;
+        } */
+
+
+        /* required의 반대인 애들만 찾는다. */
+        /* .list input[type=text]:optional {
+            background-color: #CCC;
+        } */
+        /* disabled 애들만 찾는다. */
+        /* .list input[type=text]:disabled {
+            background-color: #999;
+        }  */
+        /* enabled만 찾는다.  */
+        /* .list input[type=text]:enabled {
+            background-color: gold;
+        }  */
+
+        /* not-allowed는 금지모양의 커서가 생긴다 !!! */
+        /* .list input[type=text]:read-only {
+            cursor:not-allowed;
+            background-color: blue;
+        }  */
+
+        /* .list input[type=text]:read-write {
+            background-color: red;
+        }  */
+
+        input [type=checkbox ] {
+            /* 
+            border : 1px solid black;
+            width:200px; */
+            opacity: 1; /* 투명도임 */
+        }
+
+        input[type=checkbox]:checked {
+            opacity: 1;
+        } 
+        
+        .cb-cat + .cat {
+            visibility: hidden;
+        }
+        .cb-cat:checked + .cat {
+            visibility: visible;
+        } /* 체크함녀 고양이가 나타난다. */
+        /*visibility 와 display 차이 비교 */
+        .cb1 + div { 
+            /* visibility: hidden; */
+            display: none;
+        }
+        .cb1:checked + div {
+            /* visibility: visible; */
+            display: block;
+        }
+
+        .item {
+            border : 1px solid #555;
+            width : 200px;
+        }
+
+        .item #cb2 {
+            display: none;
+            /* 안보이는데도 라벨이랑 역여서 라벨 클릭하면 체크박스 해제,체크 된다. */
+        }
+
+        .item label {
+            font-size : 1.5rem;
+            font-family: Arial;
+            font-variant: small-caps;
+            display: block;
+            padding: 10px;
+            background-color: greenyellow;
+            cursor: pointer;
+        }
+
+        .item div {
+            padding: 12px;
+            border-top: 1px solid #555;
+            display: none;
+        }
+        .item #cb2:checked + label  {
+            background-color: gold;
+         
+        }
+
+        .item #cb2:checked + label  + div{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!--
+         ex36_selector.html
+         form과 관련된 태그들이 브라우저가 뭔지에 따라 다르다. 
+         체크박스, 라디오버튼 이런게 디자인을 건들기기 힘들다. 
+         border 속성을 줘도 안먹는다. 
+         ★ 폼 컨트롤은 너비높이 먹는다. > 입력을 위한 특수한 상황을 위해 만듬 > 편의상 인라인 태그쪽에 편입이 되었지만... 너비 높이 마진도 예외적으로 먹는다. 인라인이면서 성질은 블럭에 가깝다.
+         인라인은 너비높이 안먹는다. 
+    -->
+
+    <div class="item">
+        <input type="checkbox" class="cb2" id="cb2">
+        <label for="cb2">HTML</label>
+        <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio cupiditate corporis suscipit quos eum. Enim minima debitis libero quo vel repellat exercitationem qui recusandae necessitatibus provident veritatis laudantium porro, rerum iure nam asperiores possimus numquam. Nesciunt tenetur aperiam totam accusantium!</div>
+    </div>
+
+
+    제목 <input type="checkbox" class="cb1">
+    <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum provident esse voluptatum facilis! Illo incidunt perferendis quisquam. Repellat quod dolorem laboriosam explicabo voluptatum facilis dolores accusantium alias enim. Officiis, error?</div>
+
+    <details>
+        <summary>제목</summary>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam velit veritatis beatae dolorem deserunt vitae rerum ducimus quia cum non, nisi fugiat, debitis impedit laboriosam officia aliquam deleniti dolor rem.</p>
+    </details>
+    <div>
+        <input type="checkbox" class="cb-cat">
+        <img src="images/catty01.png" class="cat">
+        <!-- <input type="checkbox">
+        <input type="checkbox"> -->
+    </div>
+
+    <div class="list">
+        <input type="text" value="1" required>
+        <input type="text" value="2" readonly>
+        <input type="text" value="3" readonly>
+        <input type="text" value="4">
+        <input type="text" value="5" required>
+        <input type="text" value="6" disabled>
+        <input type="text" value="7" disabled>
+        <input type="text" value="8">
+        <input type="text" value="9">
+        <input type="text" value="10"required>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #logo{
+            /* border: 1px solid black; */
+            width: 450px;
+            height: 110px;
+            background-image: url("images/sp_main_947f65.png");
+            /* 구멍을 뚫고 내가 보고 싶은게 눈에 보이게 끔 하려고 처리하는 것이다.*/
+            background-position: 0px -312px;
+        }
+        /*  
+
+            디자이너 보유 회사
+            1. 사람(인력)
+                - 디자니어 -> (이미지) -> 개발자
+                - 1개 전달 vs 5000개 전달 
+                - 파일명 구분 도 귀찮 
+
+            2. 성능 
+                그만큼 왔다갔다 하기 귀찬.... 느려 > 많이 많이 왔다갔다 
+                근데 1개에다가 다 박으면 그거 있으니까 따로 요청 안해도됨 
+
+        */
+        #btn {
+            width: 270px;
+            height: 110px;
+            background-image: url("images/sp_main_947f65.png");
+            background-position: -540px -110px;
+            
+            
+        }
+        #btn:hover {
+            background-position: -540px -220px;
+        }
+        .btnicon {    
+        transform: scale(0.5);
+        }
+    </style>
+</head>
+<body>
+    <!--
+        background
+        1. background-color
+        2. background-image
+        3. background-repeat
+        4. background-position
+        5. background-attachment
+        
+        통짜이미지를 잘라서 씀 "네이버 로고"
+        naver.com 에서 네이버 주소는 img로 구현된게 아니라 배경이미지로 구현된거 
+    -->
+    <!-- <img src="images/sp_main_947f65.png"> -->
+    <!-- <div id="logo"></div> -->
+
+    <h1>고양이</h1>
+    <img src="images/catty01.png">
+    <img src="images/catty02.png">
+    <img src="images/catty03.png">
+    <div class="btnicon">
+        <div id="btn"></div>
+    </div>
+</body>
+</html>

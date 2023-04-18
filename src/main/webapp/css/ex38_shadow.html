@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div:nth-child(1){ 
+            /* 컬러는 그림자 색, 3번쨰는 뿌연정도, 1번쨰2번째는 광원인 그림자의 방향을 나타낸다. */
+            text-shadow: 2px 2px 10px #999;
+            text-shadow: -2px -2px 10px #999;
+            text-shadow: 0px -2px 10px #999;
+        }
+
+        div:nth-child(2){
+            border : 1px solid black;
+            width : 100px;
+            height: 100px;
+            margin: 20px;
+            box-shadow: 5px 2px 2px gray;
+        }
+
+        div:nth-child(2):hover{
+            box-shadow: 5px 5px 2px gray;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- ex38_shadow.html > 입체감이 드는 화면을 만들 떄 text나 box -shadow를 쓴다. 
+        여기에 샘플을 제공한다. 이런거 뜯어와서 쓰자! 
+    https://getcssscan.com/css-box-shadow-examples
+-->
+    <div class="item">빨강</div>
+    <div class="item">노랑</div>
+    <div class="item">파랑</div>
+</body>
+</html>

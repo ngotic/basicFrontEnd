@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<style>
+
+    #box {
+        border: 1px solid black;
+        width: 300px;
+        height: 200px;
+        /*
+
+        모서리 둥글기 
+        - border-radius : px, % 
+        - 단축의 길이 1/2 - 최댓값
+
+        */
+        /*  padding : 20px
+            border-radius:10px;
+        */
+
+        /* border-radius: 50px; 반지름이 얘다. */
+        border-top-left-radius: 30px ;
+        border-bottom-right-radius: 30px ;
+        border-top-right-radius: 100px ;
+        border-bottom-left-radius: 100px ;
+    }
+
+    #btn-search span{
+        font-size: 1rem;
+        color : blue ; /* 폰트라서 색깔을 바꿀 수 있다. */
+    }
+    /* #list{    
+        
+        box-sizing : border-box;
+        border-radius: 50px;
+    } */
+
+    #bar-search::after{
+        content: '';
+        display: block;
+        clear:left;
+    }
+
+    #txt-search, #btn-search {
+        float: left;
+        margin:0;
+        padding: 0;
+        border: 0;
+        background-color: white;
+        outline: none;
+    }
+
+    #txt-search {
+        border : 5px solid #19ce60;
+        font-size: 1.5rem;
+        padding: 5px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        /* border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px; */
+        border-right: 0px;
+    }   
+
+    #btn-search {
+        background-color: #19ce60;
+        width: 50px;
+        height: 47px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    #btn-search span {
+        color:white;
+        font-size: 30px;
+        text-shadow: 2px 2px 2px gray;
+    }
+
+
+</style>
+
+<body>
+    <img src="images/dog01.jpg" style="border-radius: 50%;">
+
+    <h1>검색</h1>
+
+    <input type="text" id="txt-search">
+    <div id="bar-search">
+        <button id="btn-search">
+            
+            <span class="material-symbols-outlined">search</span>
+        </button>
+    </div>
+        <!-- search는 여기에 들가는 단어가 예약어다. 그림으로도 폰트를 만들 수 있다. 
+        이렇게 나타나는 돋보기가 font취급받는다. -->
+    <hr>
+
+    <div id="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro delectus error quas, placeat in consequuntur obcaecati debitis libero rerum. Quidem, repellendus magnam dicta architecto cumque a asperiores minima eos nihil?</div>
+
+    <div id="list">
+        <div class="item">빨강</div>
+        <div class="item">노랑</div>
+        <div class="item">파랑</div>
+        <div class="item">빨강</div>
+    </div>
+</body>
+</html>

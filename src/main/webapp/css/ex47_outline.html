@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 150px;
+        }
+        #box1 {
+            border: 10px solid tomato;
+        }
+        #box2 {
+            /* border: 10px solid cornflowerblue; */
+            /* outline: 10px solid cornflowerblue; */
+            background-color: cornflowerblue;
+        }
+    
+        #box2:hover {
+            /* border: 10px solid black; */
+            /* outline: 10px solid black;  */
+            /*outline은 테두리가 위아래 좌우로 생긴다. */
+            /*
+                테두리: border 사용 > 주변 영역을 침범한다. 
+
+                테두리 표현O, 주변에 영역 침범 X; outline 사용
+
+                이건 인풋 텍스트 박스 이런데에 사용될 수 있다. 
+                인풋 입력할 때 객체선택했는데 밀어냄을 안씀 outline이 왜 필요한지 이해를 해야함
+            */
+
+            /*
+            안쪽 으로 안전하게
+             box-sizing: border-box;
+            border: 10px solid black; */
+            outline: 10px solid black;
+            /*바깥쪽으로 테두리 생긴다. 대신 안전 */
+        }
+        #box3 {
+            background-color:gold;
+        }
+
+        input[type=text]{
+            display: block;
+            margin-bottom: 5px;
+            outline : none;
+            border-width: 5px;
+        }
+
+        input[type=text]:focus{
+            /* border: 3px solid red;  들쑥날쑥한다. 원래 border 두께보다 지금이 부껍다. 평상시 두께는 5이나. 포커스시에도 5로 해버림  */
+            /* border: 5px solid red; */
+            /* outline: 5px solid red; */
+            /* outline과 border는 별개다.★ 밀어나는 테두리 막기위햇 안정적인 테두리를 만들기 위해서 만든다. 나타났다 사라지는 테두리를 만들 때 쓴다. 
+            메인은 border임  */
+
+            border-color: red; /*이렇게 border-color만 넣는 경우를 많이 쓴다. */
+            background-color: rgba(255, 0, 0, 0.2);
+            padding:5px;
+            border-radius: 3px;
+        }
+
+        #box4 { 
+            background-color: orange;
+            position : absolute;
+            left : 20px;
+            top : 850px;
+            z-index : 1;
+        }
+        #box5 { 
+            background-color: olivedrab;
+            position: absolute;
+            left: 100px;
+            top: 900px;
+            z-index : 2; /*가장 높은 숫자 가진애가 가장 위에 올라온다. */
+            /* 검색결과 같은것들 다 띄우너다. * /
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex47_outline.html -->
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">상자3</div>
+    <hr>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+
+    <hr>
+
+    <div id="box4" class="box">상자4</div>
+    <div id="box5" class="box">상자5</div>
+    
+</body>
+</html>

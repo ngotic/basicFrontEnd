@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1, #box2 {
+            border : 1px solid black;
+            width : 400px;
+            height : 400px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        #box1 {
+            background-image: url(images/cat01.jpg);
+            /* background-size: 400px 400px; */
+            /* 250px : 188px = 400px : x > 이래서 높이는 auto를 주자 */
+            /* background-size: 400px auto; */
+            background-size: auto 100%;
+        }
+
+        /* 종횡비가 깨지지 않는 경우를 고려하자 */
+
+        #box2 {
+            background-image: url(images/wall01.jpg);
+            /* background-size: 400px 400px; */
+            background-size: contain;
+
+
+            /* background-color: auto 100%; */
+            /* background-size: cover; 짤려도 좋으니까 다 채워넣어라 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ex40_background.html -->
+
+    <div id="box1"></div>
+    <hr>
+    <div id="box2"></div>
+
+</body>
+</html>

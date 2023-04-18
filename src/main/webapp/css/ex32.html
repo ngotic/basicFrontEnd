@@ -30,16 +30,22 @@
         float:left;
         width  : 16px;
         height : 16px;
-        margin-top: 2px;
+        margin-top: 4px;
         margin-right: 5px;
     }
 
+    .container .item .newsContents .info_group{
+        margin-bottom: 5px;
+    }
+
     .container .item .newsContents .info_group .press{
+        
+        height:20px;
         color:#505050;
         font-size: 13px;
-        display: inline-block;
         cursor:pointer;
-        margin: 5px;
+        margin: 5px -20px 0 5px;
+        display: inline-block;
     }
 
     .container .item .newsContents .title{
@@ -58,7 +64,6 @@
     }
 
     .container .item .newslink {
-  
         font-size: 13px;
         display: inline-block;
         list-style-type: none;
@@ -70,7 +75,6 @@
         color:#0c43b7;
         margin-right:3px ;
     }
-
                                 /* 자식 요소에 nth-child 걸어버리면 된다.*/
     .container .item .newslink .sub_info .sub_info_link:hover{
         text-decoration: underline;
@@ -82,16 +86,11 @@
         width  : 132px;
         height : 90px;
     }
-   
-    .info_group .press .pick{
-        font-size: 13px;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
     .info_group .press .pressname{
+        margin-left: 2px;
+        margin-top: 5px;
+        float:left;
         font-size: 13px;
-        text-decoration: none;
     }
     .info_group .press .pressname:hover{
         font-size: 13px;
@@ -103,6 +102,17 @@
     }
     .weather {
         font-weight: bold;
+    }
+
+    .info_group .press .pick{
+        float: left;
+        margin-left: -10px;
+        width: 61px;
+        height: 30px;
+        background-image: url("images/naver_icon.png");
+        background-position: -411px -510px; /*음수꼮!!!*/
+        font-weight: bold;
+        transform: scale(0.5,0.5); 
     }
 
     .split{
@@ -117,7 +127,13 @@
         text-decoration: none;
         color:#808080;
     }
-    
+
+    .navernews::after{
+        content:'';
+        display: block;
+        clear :left;
+    }
+
     .navernews:hover{
         text-decoration: underline;
     }
@@ -143,15 +159,16 @@
         <div class="item">
             <div class="newsContents">
                 <div class="info_group">
-                    <a class="press">
+                    <div class="press" >
                         <img src="images/newslogo0.jfif" class="newslogo">
-                        <span class="pressname">세계일보</span>
-                        <span class="pick">pick</span>
-                    </a>
+                        <span class="pressname"> 세계일보</span>
+                        <span class="pick"></span>
+                    </div>
                     <span class="split">l</span>
                     <span class="time">1시간 전</span>
                     <span class="split">l</span>
                     <a href="#" class="navernews">네이버뉴스</a>
+                    
                 </div>
                 <a class="title" href="#">[내일<b>날씨</b>] 전국 흐리고 비…해상에선 돌풍에 천둥·번개도</a>
                 <div class="content">화요일인 18일 전국이 대체로 흐리고 비가 내리겠다. 기상청은 이날 전국에 비가 내리고 낮에 중부지방부터 그치겠다고 예보했다. 늦은 오후에는 남부지방에서도..</div>
@@ -165,11 +182,11 @@
         <div class="item">
             <div class="newsContents">
                 <div class="info_group">
-                    <a class="press">
+                    <div class="press">
                         <img src="images/newslogo1.jfif" class="newslogo">
                         <span class="pressname">KBS</span>
-                        <span class="pick">pick</span>
-                    </a>
+                        <span class="pick"></span>
+                    </div>
                     <span class="split">l</span>
                     <span class="time">11시간 전</span>
                     <span class="split">l</span>
@@ -216,11 +233,11 @@
         <div class="item" >
             <div class="newsContents">
                 <div class="info_group">
-                    <a class="press">
+                    <div class="press">
                         <img src="images/newslogo2.jfif" class="newslogo">
                         <span class="pressname">연합뉴스</span>
-                        <span class="pick">pick</span>
-                    </a>
+                        <span class="pick"></span>
+                    </div>
                     <span class="split">l</span>
                     <span class="time">20시간 전</span>
                     <span class="split">l</span>
@@ -236,11 +253,11 @@
         <div class="item" >
             <div class="newsContents">
                 <div class="info_group">
-                    <a class="press">
+                    <div class="press">
                         <img src="images/newslogo3.jfif" class="newslogo">
                         <span class="pressname">YTN</span>
-                        <span class="pick">pick</span>
-                    </a>
+                        <span class="pick"></span>
+                    </div>
                     <span class="split">l</span>
                     <span class="time">9시간 전</span>
                     <span class="split">l</span>

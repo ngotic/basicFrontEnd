@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+
+        가상클래스
+        1. :first-child > 자신이 자신의 그룹에서 첫번째 자식인지?
+        li태그를 찾는데~~ li는 자식이 없음 이 가상 필터는 앞에 있는 애에 대한 성질을 부여한다. 모든 li들 중에서 본인 스스로가 첫째인지?
+        ' 형제들중에서~~~~ ' 나눈 몇번짼가? 라는 말이 숨어있다. 
+        2. :last-child
+        3. :nth-child(n)
+        4. :nth-last-child(n)
+
+        n
+        1. 숫자 : index(위치) > 1부터 시작
+        2. 수열 : 2n 짝수번째를 찾는다. 2n+1 홀수번째 찾는다. 
+        3. 수열: even, odd라고 직접 짝수 홀수 이렇게 써서 찾는 것도 가능하다.
+
+        */
+
+        li:nth-child(even){
+            color:orange;
+        }
+
+        li:nth-child(odd){
+            color:orange;
+        }
+
+        li:nth-child(n){
+            color:red;
+        }
+
+        li:nth-child(2n+1){
+            color:orange;
+        }
+
+        /* li:first-child {
+            color : orange;
+        }
+
+        li:last-child {
+            color : coral;
+        }
+
+        li:nth-child(3){
+            color : blue;
+        }
+
+        li:nth-last-child(3){
+            color:gold;
+        } */
+        .tbl {
+            border: 1px solid black;
+            border-collapse : collapse;
+        }
+        .tbl td {
+            border : 1px solid black;
+            padding : 5px;
+        }
+        /* 첫번째 tr이 선택되나 그아래 td도 다 선택된다. */
+        /* .tbl tr:first-child {
+            background-color: gold;
+        } */
+        /* 형제들 중에 본인은 첫번째다. */
+        /* .tbl td:first-child {
+            background-color: tomato;
+        } */
+
+        /* .tbl td:nth-child(5) {
+            background-color: tomato;
+        } */
+        .tbl td:nth-child(even) {
+            background-color: #EEE;
+        } 
+
+        /* 부모의 tr이 짝수만 체크 */
+        .tbl tr:nth-child(even) td:nth-child(odd){
+            background-color: gold;
+        }
+        .tbl tr:nth-child(odd) td:nth-child(even){
+            background-color: red;
+        }
+        /* 선택자로 해결이 가능하다. */
+        /* 체크무늬 테이블을 이거로 구현이 가능 */
+
+    </style>
+</head>
+<body>
+    <h1>목록</h1>
+    <!-- 강아지를 찾고 싶을때 형제도 안되고 id나 class를 붙이기 싫을 때 -->
+    <ul class="list1">
+        <li>강아지</li>
+        <li>고양이</li>
+        <li>다람쥐</li>
+        <li>소</li>
+        <li>돼지</li>
+        <li>말</li>
+        <li>코끼리</li>
+        <li>사자</li>
+        <li>호랑이</li>
+        <li>늑대</li>
+    </ul>
+    <table class="tbl">
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+    </table>
+</body>
+</html>
