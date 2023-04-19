@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,..48,100..700,0..1,-50..200"/>
+    <title>Document</title>
+    <style>
+        #box {
+            border :20px solid black;
+            width  : 400px;
+            height : 600px;
+        }
+
+        #ball {
+            background-color: coral;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: auto;
+
+            /* transform: translate(0px, 550px); */
+            animation-name: key-ball;
+            animation-duration: .5s;
+
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes key-ball {
+            0% { transform: translate(0px, 0px);}
+            100% { transform: translate(0px, 550px);}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ex53_animation.html -->
+    <div id="box">
+        <div id="ball">Ball</div>
+    </div>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 20px solid black;
+            width: 400px;
+            height: 600px;
+        }
+
+        #ball {
+            background-color: coral;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 0 auto;
+            
+            animation-name: key-ball;
+            animation-duration: .5s;
+
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes key-ball {
+            0% {  transform: translate(0px, 0px); }
+            100% { transform: translate(0px, 550px); }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex53_animation.html -->
+    <div id="box">
+        <div id="ball"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 770px;
+            height: 900px;
+            margin: auto;
+            font-size: 0;
+        }
+
+        .number{
+            display: inline-block;
+            border: 1px solid black;
+            width: 150px;   
+            /* height: 50px; > 글씨가 내용을 채우므로 굳이 안줄거임 */
+            border-radius: 5px; 
+            font-size: 35px;
+            text-align: center;
+            
+        }
+        /* rect_icon07.png */
+        .pixel{
+            float:left;
+            box-sizing: border-box;
+            border: 1px solid black;
+            width: 76px;
+            height: 76px;
+            /* transform: scale(0.6, 0.6); 이거 해버리면 강제 여백 생긴다.*/
+            background-image: url("../images/rect_icon07.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            /* 배경이미지 꿀팁 > ★★ 가운데로 크롭 하고 background-size로 100% 100% 맞추면 된다. */
+            transition-duration: 0.5s;
+            overflow: hidden;
+        }
+
+        #one:hover~.one{
+            /* 배경 위치를 건드린다. */
+            background-position: 0 76px; /* 이걸 돌리네 */
+            /* background-repeat: no-repeat; 로 가야함 이거 없으면 흰색 배경 안나옴 */
+        }
+
+        #two:hover~.two{
+            /* 배경 위치를 건드린다. */
+            background-position: 0 -76px; /* 이걸 돌리네 */
+            /* background-repeat: no-repeat; 로 가야함 이거 없으면 흰색 배경 안나옴 */
+        }
+
+        #three:hover~.three{
+            /* 배경 위치를 건드린다. */
+            background-position: 0 76px; /* 이걸 돌리네 */
+            /* background-repeat: no-repeat; 로 가야함 이거 없으면 흰색 배경 안나옴 */
+        }
+
+        #four:hover~.four{
+            /* 배경 위치를 건드린다. */
+            background-position: 0 -76px; /* 이걸 돌리네 */
+            /* background-repeat: no-repeat; 로 가야함 이거 없으면 흰색 배경 안나옴 */
+        }
+
+        #five:hover~.five{
+            /* 배경 위치를 건드린다. */
+            background-position: 0 76px; /* 이걸 돌리네 */
+            /* background-repeat: no-repeat; 로 가야함 이거 없으면 흰색 배경 안나옴 */
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    
+
+<div id="main">
+	<div id="one" class="number">1</div>
+	<div id="two" class="number">2</div>
+	<div id="three" class="number">3</div>
+	<div id="four" class="number">4</div>
+	<div id="five" class="number">5</div>
+	<div style="clear:both;"></div>
+	<hr style="margin:6px 0 6px 0">
+
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div style="clear:both;"></div>
+
+	<div class="pixel"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel one two three five"></div>
+	<div class="pixel one two three five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel"></div>
+	<div style="clear:both;"></div>
+
+	<div class="pixel"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel one two three five"></div>
+	<div class="pixel one two three five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel"></div>
+	<div style="clear:both;"></div>
+
+	<div class="pixel"></div>
+	<div class="pixel four five"></div>
+	<div class="pixel four five"></div>
+	<div class="pixel"></div>
+	<div class="pixel one"></div>
+	<div class="pixel one"></div>
+	<div class="pixel four"></div>
+	<div class="pixel two three four"></div>
+	<div class="pixel two three"></div>
+	<div class="pixel"></div>
+	<div style="clear:both;"></div>
+
+	<div class="pixel"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel one two three five"></div>
+	<div class="pixel one two three five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel"></div>
+	<div style="clear:both;"></div>
+
+	<div class="pixel"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel one two three four five"></div>
+	<div class="pixel one two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel"></div>
+	<div style="clear:both;"></div>
+
+	<div class="pixel"></div>
+	<div class="pixel two four four"></div>
+	<div class="pixel two four four"></div>
+	<div class="pixel four"></div>
+	<div class="pixel one four"></div>
+	<div class="pixel one four"></div>
+	<div class="pixel four"></div>
+	<div class="pixel three four five"></div>
+	<div class="pixel three four five"></div>
+	<div class="pixel"></div>
+	<div style="clear:both;"></div>
+
+	<div class="pixel"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel one two three five"></div>
+	<div class="pixel one two three five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel"></div>
+	<div style="clear:both;"></div>
+
+	<div class="pixel"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel one two three five"></div>
+	<div class="pixel one two three five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three four five"></div>
+	<div class="pixel two three five"></div>
+	<div class="pixel"></div>
+	<div style="clear:both;"></div>
+
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div class="pixel"></div>
+	<div style="clear:both;"></div>
+
+</div>	    
+</body>
+</html>
+

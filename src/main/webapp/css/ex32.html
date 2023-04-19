@@ -104,13 +104,23 @@
         font-weight: bold;
     }
 
+    /*
+    
+        사이즈가 불균일한 인라인 요소를 한 라인에 다 맞추려면 여러개 요소 한 div에 다넣고 float left로 정렬하고 상하 마진은
+        float가 되는 순간 인라인 요소도 상하 margin이 생긴다.
+
+    */
+
     .info_group .press .pick{
         float: left;
         margin-left: -10px;
         width: 61px;
         height: 30px;
         background-image: url("images/naver_icon.png");
-        background-position: -411px -510px; /*음수꼮!!!*/
+        background-repeat: no-repeat;
+        background-position: -411px -510px; 
+        /*음수꼮!!! 중심축 기준 이정도 계산하면 원점으로 돌아갈수 있다는 지표다. */
+        /* background-size: 100% 100%; */
         font-weight: bold;
         transform: scale(0.5,0.5); 
     }

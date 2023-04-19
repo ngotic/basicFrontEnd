@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .box{
+            height: 140px;
+            border: solid black;
+            border-width: 10px 0px 10px 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .box:last-child{
+            border-right: 10px solid black;
+        }
+
+        .square {
+            width: 600px;
+            display: flex;
+            flex-wrap:wrap;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        .row{
+            display: flex;
+            flex-direction :row;
+        }
+
+        .line2{
+            display: flex;
+            flex-direction :row;
+        }
+
+        .line3{
+            display: flex;
+            flex-direction :row;
+        }
+
+        .line4{
+            display: flex;
+            flex-direction :row;
+        }
+    
+        .row .box img{
+            transition-duration: 0.5s;
+        }
+        .row .box > img {
+            transform: translate(-137px, 0px);
+        }
+        .row .box:hover img{
+            transform: translate(0px, 0px);
+        }
+
+        .line2 .box img{
+            transition-duration: 0.5s;
+            opacity: 0;
+        }
+
+        .line2 .box:hover img{
+            opacity: 1;
+        }
+
+        .line3 .box img{
+            transition-duration: 0.5s;
+            opacity: 0;
+            transform: scale(.1, 0.1);
+        }
+
+        .line3 .box:hover img{
+            opacity: 1;
+            transform: scale(100%, 100%);
+        }
+
+        .line4 .box img {
+            transform: translate(0px, -126px) scale(0.1, 0.1) rotate(0deg); 
+            transition: all .5s;
+        }
+       
+        .line4 .box:hover img{ 
+            transform: translate(0px, 0px) scale(1, 1) rotate(360deg);
+            opacity: 1;
+        }
+     
+    </style>
+</head>
+<body>
+ 
+
+    <div class="square">
+        <div class="row">
+            <div class="box">
+                <img src="../images/rect_icon01.png">
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon02.png">
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon03.png">
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon04.png">
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon05.png">
+            </div>
+        </div>
+
+
+        
+        <div class="line2">
+            <div class="box">
+                <img src="../images/rect_icon01.png" >
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon02.png" >
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon03.png" >
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon04.png" >
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon05.png" >
+            </div>
+        </div>
+
+
+       <div class="line3">
+            <div class="box">
+                <img src="../images/rect_icon01.png" >
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon02.png" >
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon03.png" >
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon04.png" >
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon05.png" >
+            </div>
+        </div>
+
+        <div class="line4">
+            <div class="box">
+                <img src="../images/rect_icon01.png">
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon02.png">
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon03.png">
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon04.png">
+            </div>
+            <div class="box">
+                <img src="../images/rect_icon05.png">
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

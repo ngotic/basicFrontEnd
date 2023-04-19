@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            transition, 변환
+            - 객체의 속성(상태)값이 변화되는 과정을 시간 순서대로 보여주는 속성
+            - 수치형 속성에만 적용 가능(숫자, 색상)
+            hover를 적용하면 마우스 대면 변하게 보여줄 수 있는데 
+            transition을 써도 이런 효과낸다. 
+
+        */
+        #box {
+            border: 10px solid black;
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            margin: 100px;
+
+            /* transition-property: width, height; */
+            transition-duration: 1s; /*단위는 1ms, 1s 등등*/
+            transition-property:all;
+            /* 
+            변화를 주는데 뭘로 주냐? 
+            얼마나 변하니?>단위 1s 
+            이러한 효과를 css에서 애니메이션이라고 한다.
+            조금 더 역동적이다. 
+            width와 height가 별개의 요소라서 
+            width 하나만 관리하면 height는 갑자기 팍 늘어난다. 
+            근데 이거 목록관리가 귀찮다면? all을 쓴다.
+            */
+            
+
+
+            /* position: relative;
+            left: 0px;
+            top: 0px; */
+
+        }
+
+        body{
+            /* border: 10px solid blue; */
+        }
+    
+        body:hover #box{
+            /* width: 400px; */
+            /* height:400px; */
+            /* background-color: tomato; */
+            /* font-size: 10rem; */
+            /* font-family: '궁서체'; */
+            /* opacity: 0; */
+            /* border-radius: 50%; */
+            /* box-shadow: 10px 10px 5px #555; */
+            /* margin-left: 200px;
+            padding: 100px; */
+            /* border-width: 50px; */
+            /* box-sizing: border-box; */
+            /* left:400px;
+            top:300px; */
+
+            /* transform: translate(500px, 0); */
+            /* transform: scale(-1, 1); */
+            transform: rotate(360deg);
+        }
+        #cat img {
+            transition: .5s all;
+            /* 접두어가 동일하나면 하나로 통일해서 쓰기가 가능하다. */
+        }
+        #cat img:hover {
+            /* transform: translate(0px, -15px); */
+            /* transform: rotate(360deg); */
+            transform: translate(0px, -50px) scale(-1.4, 1.4);
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box">상자</div>
+
+    <h1>고양이</h1>
+
+    <div id="cat">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty02.png" alt="">
+        <img src="images/catty03.png" alt="">
+        <img src="images/catty04.png" alt="">
+        <img src="images/catty05.png" alt="">
+    </div>
+</body>
+</html>

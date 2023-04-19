@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #box{
+        border : 10px solid #000;
+    }
+    #box .item {
+        font-size: 2rem;
+    }
+
+    #box .item:nth-child(5n+1) {background-color: tomato;}
+    #box .item:nth-child(5n+2) {background-color: gold;}
+    #box .item:nth-child(5n+3) {background-color: cornflowerblue;}
+    #box .item:nth-child(5n+4) {background-color: orange;}
+    #box .item:nth-child(5n+5) {background-color: greenyellow;}
+    #box{
+        /*
+            flexiable : 자동으로 맞춰진다. 
+            display : flex;>간단하다.
+            - flex box, flexiable box > CSS3부터 나옴
+            - 레이아웃 구성 > 내부 요소의 배치
+            - float / position / margin 
+        */
+        width : 600px;
+        height: 600px; 
+
+        display: flex; 
+        /*
+        > 가로방향 콘텐츠, 수직방향 박스사이즈
+        높이가 기본적으로 부모를 꽉채운다. > 조절도 가능하긴함
+        */
+        
+        /*
+            ★★기본 상태(display: flex)★★
+            - 메인축 방향 : 가로(아이템이 나열되는 방향)
+            - 수직축 방향 : 세로
+
+            - 아이템 크기 : 너비(요소 크기만큼)
+            - 아이템 크기 : 높이(부모 크기만큼)
+
+            - 아이템 크기 : 메인축(요소 크기만큼)
+            - 아이템 크기 : 수직축(부모 크기만큼)
+
+            row방향으로 item을 넣어줘, column 방향으로 넣어줘!~
+
+            이상태에서 방향을 row으로 바꾸면
+            flex-direction: row;
+
+            이상태에서 방향을 column으로 바꾸면
+            flex-direction: column;
+        */
+
+        /*
+            flex-direction 
+            - 메인축 방향을 지정하는 속성
+           
+        */
+        
+        /* flex-direction: row;  
+        row 왼쪽에서 오른쪽 방향으로 나열해주세요.*/
+        /* 왼에서 오른쪽으로 아이템 나열방향 */
+        /* flex-direction: column; */
+        /* row일 때에서 방향만 달라진다. */
+        /* flex-direction: row-reverse; */
+        /* flex-direction: column-reverse; 
+        nowrap은 줄바꿈 안한다.
+        내용물이 적어서 일단 내용물늘리다.
+        */
+
+        /* flex-wrap:wrap; 다음줄 공간으로 보낸다. */
+        /*아래공간 방향부터 채움*/
+        /* flex-wrap:wrap-reverse;  */
+
+        /*  
+            메인축 속성이겠구나 수직축 속성이겠구나 ~ 
+            flex 속성명
+            1. justify-XXX
+                - 메인축 방향 관련된 속성
+            2. align-XXX
+                - 수직축 방향 관련된 속성
+        */
+        /*
+            justify-content: ; 
+            - 메인축 방향 > 아이템 정렬
+        */
+
+        /* justify-content: flex-start; */
+        /* justify-content: flex-end;  메인축 방향 가로 방향으로 수평정렬을 한 것이다. 
+        left-right라는 표현을 쓰면 안된다. */
+        /* justify-content: right; */
+        /* flex-direction: row-reverse; */
+        /* justify-content: flex-start;
+        justify-content: left; */
+        /* 메인쪽 방향의 시작하는 쪽부터 정렬해주라 */
+        /* 끝나는 방향쪽으로 정렬해줘 */
+        /* justify-content: flex-end; */
+        /* justify-content: right; */
+        /* 딸기가 오른쪽 첫번쨰로 온다. 뒤집는다. */
+        /* flex-direction: row-reverse; */
+        /* 방향은 안바뀌고 귤이 오른쪽 끝에 붙는다. */
+        /* justify-content: flex-end; */
+
+        /*결론은 left, right을 잘안쓴다. flex-start, end는 상대값 같은 것이다. 메인축을 기준으로 한다. */
+
+        /* 축을 바꾸니까 left, right라는 것은 먹히지 않는다. 그래서 start, end는 먹히니까 이런 상대적인 표현이 자연스럽다.*/
+        /* flex-direction: column; 
+        justify-content: flex-start; */
+        /* justify-content: center; */
+        /* justify-content: space-between; 균등배치*/
+        /* justify-content: space-around;  */
+        /* 균등배치 살짝 다르다. 간격이 */ 
+        /* justify-content: space-evenly; 이건 간격까지 동일하다. */
+
+        /*
+            align-items
+            - 수직축의 방향으로 > 아이템 정렬
+            - justify-content 동일
+            -> 기본값은 stretch이다. 그래서 수직축은 꽉채워진 것이다.
+        */
+
+        /* 시작부분, 끝부분, 중앙부분 */
+        /* align-items: stretch; */
+        /* align-items : flex-start; */
+        /* align-items: flex-end; */
+        align-items: center;
+
+    }
+
+     /* #box .item{
+        float: left;
+        width: 100px;
+        height : 100px;
+    } 
+    #box::after {
+        content: '';
+        display: block;
+        clear:left;
+    } 
+    */
+    /* 사이사이의 스페이스 */
+
+    /* #box {
+        font-size: 0;
+    }
+    #box .item{
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+    } */
+
+body{
+
+    margin-bottom: 200px;
+}
+
+h1{
+    font-variant: small-caps;
+    width: 600px;
+    border-bottom: 1px dashed gray;
+}
+h1 > small {
+    font-size: 18px;
+}
+
+#title1 small{
+    float: right;
+    margin-top: 18px;
+    /*위쪽으로 붙어서 마직을 줘야 한다. */
+}
+
+#title2 small{
+    position: relative;
+    left: 372px;
+}
+
+#title3{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    /* 균등배치 했는데 두개뿐이라 한놈은 끝, 끝 */
+}
+    #title3 small {
+        /* background-color: yellow; */
+        margin-bottom: 5px;
+    }
+
+    #parent {
+        width: 400px;
+        height: 500px;
+        background-color: gold;
+        /* text-align: center; 블록 태그는 정렬이 안된다. 
+        내용물 자식이 
+        > 인라인일 때 text-align center가 가능하다. 
+        */
+        /* box-sizing: border-box; */
+        /* padding-top: 150px; */
+         /*
+         패딩을 준다. border box주면 패딩이 상자 크기에 영향X 결과론적으로 가운데 정렬된 것이 맞으나 ... 유지보수에 취약하다.  
+         */
+
+         /* 이러면 쉽게 센터정렬 가능하다. : 그리고 변화에 맞게 반응이 잘된다. */
+         display: flex;
+         justify-content: center;
+         align-items: center;
+
+
+    }
+
+    #child {
+        width: 100px;
+        height: 100px;
+        background-color: cornflowerblue;
+        /* margin: 0 auto; */
+        /* margin-top: 200px; 자식한테 margin탑을 줫는데 왜 부모가 이동함???? */
+/*       이 방법도 부모의 변화에 반응을 못한다. 
+        position: relative;
+        left: 150px;
+        top: 150px; */
+
+        /* 
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        */
+        
+    }
+
+</style>
+</head>
+<body>
+    <div id="box">
+        <div class="item">1.딸기</div>
+        <div class="item">2.바나나</div>
+        <div class="item">포도</div>
+        <div class="item">파인애플</div>
+        <div class="item">귤</div>
+    </div>
+    <hr>
+    <h1 id="title1">Main Title <small> Sub Title</small></h1>
+    <h1 id="title2">Main Title <small> Sub Title</small></h1>
+    <h1 id="title3">Main Title <small> Sub Title</small></h1>
+
+    <hr>
+    <div id="parent">
+        <div id="child">    
+        </div>
+    </div>
+</body>
+</html>

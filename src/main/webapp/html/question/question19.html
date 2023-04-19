@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    /*부모는 relative, 자식은 absolute*/
+
+    #clock{
+        position: relative;
+        width: 700px;
+        height: 700px;
+        border: 10px dashed gray;
+        z-index: 0;
+    }
+    #sec{
+        padding: 10px;
+        font-variant: small-caps;
+        font-weight: bold;
+        color: white;
+        box-sizing: border-box;
+        position: absolute;
+        top:50px;
+        left:48%;
+        width: 70px;
+        height: 300px;
+        border: 10px solid gray;
+        border-radius: 50px;
+        background-color: #FFD700;
+        text-align: center;
+        z-index: 3;
+    }
+    #min{
+        padding: 10px;
+        font-variant: small-caps;
+        font-weight: bold;
+
+        color: white;
+        box-sizing: border-box;
+        position: absolute;
+        top:150px;
+        left:48%;
+        width: 70px;
+        height: 200px;
+        border: 10px solid gray;
+        border-radius: 50px;
+        background-color: #6495ED;
+        z-index: 2;
+        text-align: center;
+
+    }
+    #hour{
+        padding: 10px;
+        font-variant: small-caps;
+        font-weight: bold;
+        color: white;
+        box-sizing: border-box;
+        position: absolute;
+        top:200px;
+        left:48%;
+        width: 70px;
+        height: 150px;
+        border: 10px solid gray;
+        text-align: center;
+        border-radius: 50px;
+        background-color: #FF6347;
+        
+        z-index: 1;
+        transition-duration: 4s;
+        
+    }
+    @keyframes rota {
+        0% {
+            transform-origin: center bottom;
+            transform : rotate(0deg);
+        }
+        100% {
+            transform-origin:center bottom;
+            transform : rotate(360deg);
+        }   
+    }
+    #clock:hover #hour{
+        animation:rota 3600s linear infinite;
+    }
+
+    #clock:hover #min{
+        animation:rota 60s linear infinite;
+    }
+
+    #clock:hover #sec{
+        animation:rota 1s linear infinite;
+    }
+    /* #FF6347 빨강 */
+    /* #6495ED 파랑 */ 
+
+
+</style>
+<body>
+    <div style="width: 700px; ">
+        <div style="margin: 20px 0px; border-left: 3px dotted gray; padding-left: 10px;">
+        </div>
+        <div id="clock">
+            
+            <div id="hour">
+                <div>Hour</div>
+            </div>
+            
+            
+            <div id="min">
+                <div>Min</div>
+            </div>
+
+            <div id="sec">
+                <div>Sec</div>
+            </div>
+
+        </div>
+    </div>	
+</body>
+</html>
+

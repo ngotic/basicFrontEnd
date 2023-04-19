@@ -15,8 +15,9 @@
         transform: translate(0px, -100px); /* 마이너스는 위로 올라감 */
     }
     /* #main-menu:hover {
-        transform: translate(0px, -10px); /* 90차이! */
+        transform: translate(0px, -10px); 
     } */
+    /* 90차이! */
 
     #main-menu > img:hover {
         transform: translate(0px, 90px); /* 자식만! */
@@ -30,6 +31,10 @@
         position: fixed;
         bottom:0; /* 아래쪾으로 잘내려온다.*/
         left  : calc(50% - 315px);
+    }
+
+    #main-menu > img, #foot-menu > img {
+        transition: all 1s;
     }
 
     #main-menu > img:hover {

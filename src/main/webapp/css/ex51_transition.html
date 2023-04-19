@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border : 10px solid orange;
+            width : 250px;
+            height: 188px;
+            overflow: hidden; /*overflow되었을 때 보이게 할지 아니게 할지 스크롤바 하게 할지?*/
+        }
+
+        #box:hover > div {
+            /* 왼쪽으로 두번째 고양이로 이동한다. hidden을 키면 고양이만 바뀐다. */
+            /* overflow : hidden이 느낌을 달라지게 한다. */
+            /* transform: translate(-250px, 0px); 
+            transform: translate(-500px, 0px);
+            transform: translate(-750px, 0px); */
+            transform: translate(-1000px, 0px);
+        }
+
+        #box > div {
+            outline : 5px solid blue;
+            width : 1250px;
+            display: flex;
+            transition: all 1s;
+        }
+        /* 자식 요소들에 대한 배치를 건드린다. */
+        /*할아버지가 쫍아도 아버지가 넓으면 자식들을 바로 부모의 영향을 받는다. */
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div>
+            <img src="images/cat01.jpg"> <!-- inline-block-->
+            <img src="images/cat02.jpg">
+            <img src="images/cat03.jpg">
+            <img src="images/cat04.jpg">
+            <img src="images/cat05.jpg">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<style>
+		body {
+			background-color: #222;
+			overflow: hidden;
+		}
+		#text {
+			text-align: center;
+			margin-top: 400px;
+			font-variant: small-caps;
+		}
+		#text span {
+			color: white;
+			font-size: 7em;
+			font-family: Arial;
+			display: inline-block;
+            animation-name: key-logo;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
+		}
+
+
+		.fa-html5 {
+            color:#FFD700;
+        }
+
+
+        @keyframes key-logo {
+            /* 텍스트가 커졋다가 작아지는 효과를 준다. */
+            from { transform: scale(50, 50); opacity: 0;} 
+            /* 중간을 더 만들 수 있다. ! 0.2 정도 opacity를 주던가 */
+            to   { transform: scale(1, 1); opacity: 1;}
+        }
+
+
+        /* delay를 주어 시간차이를 내서 보여준다. */
+        #text span:nth-child(1) {
+            animation-delay: 0s; 
+        }
+        #text span:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+        #text span:nth-child(3) { 
+            animation-delay: 0.3s;
+        }
+
+        #text span:nth-child(4) {
+            animation-delay: 0.45s; 
+        }
+        #text span:nth-child(5) {
+            animation-delay: 0.6s;
+        }
+        #text span:nth-child(6) { 
+            animation-delay: 0.75s;
+        }
+
+        #text span:nth-child(7) {
+            animation-delay: 0.9s; 
+        }
+        #text span:nth-child(8) {
+            animation-delay: 1.05s;
+        }
+        #text span:nth-child(9) { 
+            animation-delay: 1.2s;
+        }
+
+        #text span:nth-child(10) {
+            animation-delay: 1.35s; 
+        }
+        #text span:nth-child(11) {
+            animation-delay: 1.5s;
+        }
+        #text span:nth-child(12) { 
+            animation-delay: 1.75s;
+        }
+
+	</style>
+</head>
+
+<body>
+	<div id="text">
+		<span>H</span>
+		<span>e</span>
+		<span>l</span>
+		<span>l</span>
+		<span>o</span>
+		<span>!</span>
+		<span></span>
+		<span>H</span>
+		<span>T</span>
+		<span>M</span>
+		<span>L</span>
+		<span><i class="fab fa-html5"></i></span>
+	</div>
+	
+</body>
+
+</html>

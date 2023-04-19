@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<style>
+    body{
+        background-color:#8FD1D8;
+    }
+
+    #main{
+        width: 1000px;
+        margin: auto;
+        
+    }
+    #main h1{
+        color: #4E4E4E;
+        font-variant: small-caps;
+    }
+
+    #tape{
+        position: relative;
+        width: 570px;
+        height: 370px;
+        background-image: url("../images/tape.png");
+        display: flex;    
+    }
+
+    /* position: relative_부, position: absolute_자 */
+    #tape #lefthole{
+        position: absolute;
+        top: 120px;
+        left: 125px;
+        animation-name: rotate-hole;
+        animation-duration: 10s;
+        animation-delay: .1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear; 
+    }
+
+    #tape #righthole{
+        position: absolute;
+        top: 120px;
+        left: 362px;
+        animation-name: rotate-hole;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear; 
+    }
+
+    @keyframes rotate-hole {
+        from{ transform: rotate(0deg);}
+        to  { transform: rotate(3600deg);}
+    }
+
+    #tape #line {
+        position: absolute;
+        width:132px;
+        height: 63px;
+        left: 218px;
+        top: 128px;
+        background-image: url("../images/tapeline.png");
+        background-position: center; 
+        /*
+        내부 부분만 움직일 때 background-position을 쓴다. 
+        */
+        background-size: 100% 100%;
+        z-index: 1;
+
+        animation-name: moveLine;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes moveLine {
+        0% {background-position: center;}
+        50%{background-position: -30px 0;}
+        75%{background-position: 5px 0;}
+        100% {background-position: center;}   
+    }
+
+</style>
+<body>
+    <div id="main">
+        <h1><i class="fas fa-headphones-alt"></i> Music</h1>
+        <div id="tape">
+            <img id="lefthole" src="../images/tapehole.png">
+            <img id="righthole" src="../images/tapehole.png">
+            <div id="line"></div> 
+        </div>
+    </div>		       
+</body>
+</html>
+
+<!-- "../images/tapeline.png" -->
+<!-- "../images/tape.png -->

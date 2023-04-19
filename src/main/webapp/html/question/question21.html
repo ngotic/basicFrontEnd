@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<style>
+    /* 
+    해당 문제를 
+    animation으로 풀었음 animation의 특징은 취소시 바로 원래 자리로 간다.
+    transition은 취소시에 역순으로 진행한다.
+    */
+    
+    .main{
+        width: 1400px;
+        height: 800px;
+        transition: step-end;
+    }
+
+    .box{
+        font-size: 4.4em;
+        font-weight: bold;
+        text-align: center;
+
+        position: relative;
+        border: 1px solid black;
+        width: 1400px;
+        height: 150px;
+    }
+
+
+    .main:hover #ball1{
+        animation-name: key-ball;
+        animation-duration: 7s;
+        animation-iteration-count: 1;
+        animation-direction: alternate;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+    }
+
+    .main:hover #ball2{
+        animation-name: key-ball;
+        animation-duration: 4s;
+        animation-iteration-count: 1;
+        animation-direction: alternate;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+    }
+
+    .main:hover #ball3{
+        animation-name: key-ball;
+        animation-duration: 5s;
+        animation-iteration-count: 1;
+        animation-direction: alternate;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+    }
+
+    .main:hover #ball4{
+        animation-name: key-ball;
+        animation-duration: 8s;
+        animation-iteration-count: 1;
+        animation-direction: alternate;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+    }
+
+    .main:hover #ball5{
+        animation-name: key-ball;
+        animation-duration: 4.5s;
+        animation-iteration-count: 1;
+        animation-direction: alternate;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+    }
+
+
+    .main #ball1 {
+        border: 1px solid black;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+
+        background-color: #FF6347;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        
+    }
+
+    .main #ball2 {
+        border: 1px solid black;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+
+        background-color: #FFD700;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        
+    }
+
+    .main #ball3 {
+        border: 1px solid black;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+
+        background-color: #FFA500;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+    .main #ball4 {
+        border: 1px solid black;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+
+        background-color: #ADFF2F;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;    
+    }
+
+    .main #ball5 {
+        border: 1px solid black;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+
+        background-color: #6495ED;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+
+    @keyframes key-ball {
+        
+            from {
+                /* transform: translate(0px, 0px); */
+                left: 0px;
+                transform: rotate(0deg);
+            }
+            to {
+                /* transform: translate(1300px, 0px); 쭉돌려, 
+                상태의 변화> 위치값 left!  */
+                left : 1300px;
+                transform: rotate(3600deg);
+            }
+            
+
+            /* 나눌 필요가 없음 
+            0% {
+                transform: translate(0px, 0px);
+                transform-origin: center center; 
+                transform: rotate(60deg);
+            }
+            25% {
+                transform: translate(300px, 0px); 
+                transform: rotate(120deg);
+            }
+            50% {
+                transform: translate(600px, 0px);
+                transform: rotate(180deg);
+            }
+            75% {
+                transform: translate(1000px, 0px);
+                transform: rotate(240deg);
+            }   
+            100% {
+                transform: translate(1300px, 0px);
+                transform: rotate(360deg);
+            } */
+        }
+</style>
+
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <div id="ball1">A</div>
+        </div>
+        <div class="box">
+            <div id="ball2">B</div>
+        </div>
+        <div class="box">
+            <div id="ball3">C</div>
+        </div>
+        <div class="box">
+            <div id="ball4">D</div>
+        </div>
+        <div class="box">
+            <div id="ball5">E</div>
+        </div>
+    </div>
+</body>
+</html>

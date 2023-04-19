@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            width:400px;
+            margin: 0 auto;
+        }
+
+        #main h1{
+            display: inline-block;
+        }
+        #main .item{
+            width: 350px;
+            border: 1px solid #777;
+            display: flex;
+            border-radius: 5px;
+        }
+
+        .disc{
+            width: 150px;
+            height: 150px;
+            background-position: center center;
+            background-size: 100% 100%;
+            border-radius: 50%;
+            margin: 0 20px 0 20px;
+        }
+
+        #disc1{
+            background-image: url("../images/lp01.png");
+        }
+        #disc2{
+            background-image: url("../images/lp02.png");
+        }
+        #disc3{
+            background-image: url("../images/lp03.png");
+        }   
+        #disc4{
+            background-image: url("../images/lp04.png");
+        }
+        /* label과 radio버튼 그룹화 */
+        input[type=radio]#rb1,
+        input[type=radio]#rb2,
+        input[type=radio]#rb3,
+        input[type=radio]#rb4 {
+            display:none;
+        }
+        #main .item label[for=rb1],
+        #main .item label[for=rb2],
+        #main .item label[for=rb3],
+        #main .item label[for=rb4]{
+            font-variant: small-caps;
+            width:150px;
+            height:150px;
+            font-size: 40px;
+            display: inline-block;
+            text-align: center;
+            line-height: 6rem;
+            font-weight: bold;
+            background-color: #eee;
+            cursor: pointer;
+        }
+
+        /*
+        ★ input이 checked되고 옆에 라벨이 있다.
+        input을 고르는게 아니라 label을 고를 때 쓴다.  */
+        #main .item input:checked+label {
+            background-color: #FF6347;
+            color: white;
+        }
+
+        #main .item input:checked~.disc {
+            
+            animation-name: rotateLp;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear; 
+            /*리니어로 일정속도 지속*/
+            z-index: -1; /* 아래쪽에서 돌게함 */
+            /* 입체적으로 z-index로 해결한다. */
+        }
+
+        @keyframes rotateLp {
+            to   { transform: rotate(0deg);    }
+            from { transform: rotate(-3600deg);}
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>Music</h1>
+        <div class="item">
+            <input type="radio" name="rb" id="rb1">
+            <label for="rb1">Play</label>
+            <div class="disc" id="disc1"></div>
+        </div>
+        <div class="item">
+            <input type="radio" name="rb" id="rb2">
+            <label for="rb2">Play</label>
+            <div class="disc" id="disc2"></div>
+        </div>
+        <div class="item">
+            <input type="radio" name="rb" id="rb3">
+            <label for="rb3">Play</label>
+            <div class="disc" id="disc3"></div>
+        </div>
+        <div class="item">
+            <input type="radio" name="rb" id="rb4">
+            <label for="rb4">Play</label>
+            <div class="disc" id="disc4"></div>
+        </div>
+    </div>		
+    
+</body>
+</html>
