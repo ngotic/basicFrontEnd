@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Mobile 우선으로 고치자 */
+        main {
+            
+            border: 10px solid cornflowerblue;
+            margin: 0 auto;
+            /* 고해상도 사용자를 위해선 가운데 정렬을 쓰는 경우가 있다. margin: 0 auto*/
+            padding : 20px;
+        }
+        header {
+            padding : 20px;
+            border: 10px solid orange;
+            margin-bottom: 20px;
+        }
+
+        section{
+            border: 10px solid tomato; 
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        aside{
+            border: 10px solid skyblue;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /*너비를 픽스 해놓은게 걸림돌된다. */
+        footer {
+            border : 10px solid greenyellow;
+            padding : 20px;
+        }
+        /* 최소 이정도 너비 이상은 보라 
+        > 너비 재정의를 하고 float와 clear를 넣어주자. */
+        @media screen and (min-width : 640px) { 
+            main {
+                width : 1000px;
+            }
+            section {
+                width: 650px;
+                float: left;
+            }
+            aside {
+                width: 220px;
+                float: right;
+            }
+            footer {
+                clear: both;
+            }
+        }
+        /*
+         모바일을 먼저 만들고 PC를 만드는게 난이도가 낮다. 
+        > 반응형을 만들지?
+             스마트폰, 테브릿, PC
+        > PC우선 or 모바일 우선? 
+
+        */
+        body {
+            background-color: gold;
+        }
+        /* landscape : 눕혀서 가로모드 */
+
+        /* portrait : 세로모드 */
+        
+        /* @media screen and (orientation : landscape) {
+            body {
+                background-color: darkturquoise;
+            }
+        }
+        가로 세로도 더 구분하면 어렵다.
+             */
+        /*
+            [ 미디어 종류 ] , Media Type
+            1. screen > 모니터, 테블릿, 스마트폰 화면 등
+            2. print > 프린터 장치, 인쇄용 CSS > 인쇄를 고려
+            인쇄 > 배경그래픽 설정 > 미리보기 아래 색깔 나옴
+
+        */
+        @media print {
+            body {
+                background-color: chartreuse;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!--
+        ex58_reponsive.html
+    -->
+    <main>
+        <header>
+            <h1>Responsive Layout</h1>
+        </header>
+        <section>
+            <h2>Main Content</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In facilis magni quibusdam odit rem quidem! Impedit quisquam reprehenderit provident necessitatibus repudiandae accusantium natus vitae fugiat. Ipsam nesciunt eaque vitae optio.</p>
+        </section>
+       <aside>
+            <h3>SideBar</h3>
+            <div>item</div>
+            <div>item</div>
+            <div>item</div>
+       </aside> 
+       <footer>
+        &copy;Copyright test.com 2023 All rights reserved.
+       </footer>    
+    </main>
+
+</body>
+</html>

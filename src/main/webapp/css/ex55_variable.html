@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/mycss.css">
+    <title>Document</title>
+    <style>
+        /*
+            CSS 변수
+            
+            변수 선언
+            - --변수명 : 값; 
+
+            변수값 
+            1. 열거형(색상)
+            2. 열거형(그외, left, center, solid, dashed..)
+            3. 수치(10px)
+
+            변수 사용(호출)
+            - var(--변수명)
+
+            가끔씩 페이지 전체를 전역으로 만드는 변수가 있다. 
+            ★ html로도 생각할 수 있는데 이럴 때 :root를 사용하여 문서전역으로 참조하는 변수를 만든다.
+            :root { 
+                --background-color: skyblue;
+            }
+
+        */
+        /* 문서 전역변수가. 내가 scope 관리를 잘 
+           못할거 같으면 여기다가 선언해라 > 팀 작업을 할 때 색깔은
+           정하고 가라 ... 뚜렷하게 차이가 나는 것은 색깔이다.  
+           어디에다가 어떻게 쓰는 변수인지 미리 만들어라 
+           */
+
+
+        /* https://coolors.co/palettes/trending */
+        /* 색깔, 사이즈 등 정의한다. > 자주 반복될거 같은 애들 골라냄 */
+        /* :root {  */
+                /* --background-color: skyblue; */
+                /* --main-background-color : #dad7cd;
+                --main-text-color: #344e41;
+                --main-title-color:#588157;
+
+                --main-title-size: 20px;
+                --main-text-size: 14px; */
+
+                /*
+                이렇게 만들면 안된다. 링크로 인식을 못함
+                --logo: 'images/catty01.png';
+                url에 넣어야 한다.  
+                */
+                /* --logo: url(images/catty01.png);
+                --link: url(https://naver.com);
+
+            } */
+
+        /* #list { */
+            /* 부모속성의 좌표를 얻어올 수 있음 */
+            /* --main-color: gold;
+        } */
+
+        /* #box1 { */
+            /* 변수 선언 얘는 이 안에서만 쓰이는 지역변수다. */
+            /* --fore-color: blue; */
+            /* color : orange; */
+            /* color: var(--main-color) */
+        /* } */
+
+
+        /* 선언되지 않은 변수 > 초기값(기본값) 적용*/
+            /* color : orange; */
+        /* #box2 {
+            color: var(--main-color)
+        } */
+/* 
+        #box3 {
+            color : var(--main-color)
+        }
+
+        body {
+            background-image: var(--logo);
+            background-repeat: no-repeat;
+            background-color: var(--main-background-color);
+        }
+
+        h1.title{
+            color: var(--main-title-color);
+            font-size: var(--main-title-size);
+        }
+
+        p.content {
+            color : var(--main-text-color);
+            font-size: var(--main-text-size);
+        } */
+
+        p{
+            color : var(--main-text-color);
+            font-size: var(--main-text-size);
+        } 
+
+    </style>
+</head>
+<body>
+    <!-- ex55_variable.html -->
+    <div id="list">
+        <div id="box1" class="box">상자1</div>
+        <div id="box2" class="box">상자2</div>
+        <div id="box3" class="box">상자3</div>
+    </div>
+
+    <!-- ((h1.title>lorem10)+(p.content>lorem)*5)*3 -->
+    <h1 class="title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, distinctio!</h1>
+    <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus exercitationem, laboriosam, culpa harum amet iusto incidunt corporis sequi excepturi, iste nemo molestias? Aperiam quos minus ipsam ipsa officia dignissimos nostrum!</p>
+    <p class="content">Impedit, error esse nesciunt dolores in accusantium dolor eius amet rem, nobis sequi veritatis facilis nulla, nostrum tempore recusandae delectus aperiam dolorem repellendus facere ipsum mollitia suscipit velit. Voluptate, fugiat!</p>
+    <p class="content">Corrupti harum nesciunt voluptatem nostrum voluptates magni eaque optio numquam ad! Sit voluptas ducimus autem ad corporis ratione mollitia, exercitationem repellat deserunt dignissimos est odio, aperiam dolore beatae! Impedit, possimus.</p>
+    <p class="content">Ut reprehenderit, aspernatur a repudiandae porro earum architecto sed ratione doloribus placeat et aliquam expedita, nam accusamus. Praesentium odit animi provident vitae. Reiciendis quidem laudantium aspernatur, accusamus quos dolorem hic.</p>
+    <p class="content">Provident commodi sapiente quisquam nam dolorum, numquam dolore aut illo dicta earum fuga dolores totam laborum, eligendi est quia quo hic non tempora? Beatae suscipit quod adipisci. Similique, optio quaerat!</p>
+    <h1 class="title">Animi nemo culpa accusantium error hic magni laborum maxime voluptas!</h1>
+    <p class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, et. Soluta nisi deleniti magnam similique exercitationem nihil ea laudantium, libero unde, ipsum velit dignissimos perspiciatis architecto nostrum! Consequatur, repellendus minima!</p>
+    <p class="content">Consectetur molestias maiores itaque. Temporibus rem corporis eum fugit vitae, dolor consectetur doloremque sint ipsa rerum aut id distinctio accusantium neque aliquid quas sit nisi, earum quaerat laborum. Dolore, pariatur?</p>
+    <p class="content">Saepe maxime hic deleniti obcaecati distinctio harum aliquid repellat commodi ab veritatis at totam quas dolorem et fuga voluptate nemo tempore, doloribus vero perspiciatis nulla? Sit dolorum architecto doloribus dicta!</p>
+    <p class="content">Voluptatum alias sit ipsa deleniti dolore natus nihil unde explicabo nobis recusandae, distinctio officia cupiditate eaque libero consectetur ipsum quidem praesentium! Sint nam ab voluptas nobis alias eveniet quae cupiditate!</p>
+    <p class="content">Quae dolore facilis aspernatur voluptatum? Soluta voluptatem unde nihil magni quo nisi eaque dolor, facilis harum praesentium beatae labore nesciunt aut aspernatur exercitationem voluptatibus a ad numquam rem fugiat quos?</p>
+    <h1 class="title">Quo harum voluptas accusamus reiciendis omnis accusantium nulla saepe ea?</h1>
+    <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id incidunt totam temporibus sapiente magni nostrum necessitatibus ut, exercitationem maxime illum corrupti nobis, eaque similique quisquam harum alias voluptatum dolor corporis?</p>
+    <p class="content">Necessitatibus voluptatibus distinctio aliquid. Ducimus, quod quas fugit quisquam magni dicta dolorum eveniet minima itaque explicabo ipsum incidunt dignissimos non. Fugiat, explicabo similique nobis quibusdam et omnis ipsum laboriosam sapiente?</p>
+    <p class="content">Delectus quae fuga illum, debitis doloremque natus quidem unde voluptatibus magni explicabo minima asperiores, dolorem architecto nihil corrupti consectetur vitae eius corporis illo neque maxime. Officiis vero perspiciatis quo dignissimos.</p>
+    <p class="content">Possimus id tempora aspernatur rerum architecto. Accusantium officiis neque dolorem possimus quam maiores amet facilis voluptatibus aliquid recusandae, id, atque expedita iusto optio, inventore totam ea quaerat ipsa. Id, ea.</p>
+    <p class="content">Tempora, ducimus accusamus cum, unde earum et officiis adipisci molestias fuga neque vel. Perspiciatis nisi nihil, accusamus tenetur adipisci pariatur, id numquam voluptatibus veniam, beatae non expedita illum sapiente quisquam.</p>
+</body>
+</html>

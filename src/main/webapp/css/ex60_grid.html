@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding : 0;
+        }
+
+        main {
+            /* border : 10px solid black; 문서 마진, 패딩 없어진거 확인*/
+            display: grid;
+            grid-template-columns: 200px 1fr ;
+            grid-template-rows: 50px 200px 1fr ;
+            /* grid-template-rows: 50px 200px 1fr 1fr ; */
+        }
+
+        .menu {
+            background-color: tomato;
+            grid-row : 1/4;
+            text-align: center;
+            color: white;
+        }
+
+       
+        .menu ul {
+            list-style-type: none;
+            padding : 0;
+        }
+
+        .menu h1 {
+            font-variant: small-caps;
+        }
+
+
+        .menu div {
+            font-size: 12px;
+        }
+
+        .menu hr{
+            border: 0;
+            border-top: 1px dashed white;
+        }
+
+        .search {
+            background-color: gold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search input {
+            border: 1px solid yellow;
+            width : 400px;
+            padding : 4px;
+            outline: none;
+        }
+
+        .search button {
+            border:  1px solid yellow;
+            width: 100px;
+            height: 25px;
+            background-color: rgba(255, 255, 0, .5);
+            margin-left: 3px;
+        }
+
+        .banner {
+            background-color: yellowgreen;
+        }
+
+       
+
+        .banner img {
+            /* width:100px;
+            height: 100px; */
+            object-fit: cover;
+            /* 눈에 보이는 태그의 사이즈를 가로세로 보면서 맞춤*/
+            width :  100%;
+            height : 100%;
+            /* width, height만 100퍼로 맞추면 종횡비가 안맞는데 이럴 때 object-fit : cover 을 준다. */
+            
+            /* object-fit: contain;  contain을 주면 좌우 양 사이드가 빈다.*/
+        }
+
+        .list {
+            background-color: dodgerblue;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+             /* 4번 반복하겠다. 근데 1fr로 4번 */
+            /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+            /* grid-gap 이게 초기이름이다. gap 써라 둘다 먹히긴함*/
+            gap : 20px;
+            padding : 20px;
+        }
+        .list div {
+            /* display: block; */
+            background-color: turquoise;
+        }
+
+
+        .list div img {
+            display: block;
+            margin: 20px auto;
+            border: 3px solid white;
+            padding: 3px;
+        }
+
+        .list div div {
+            margin: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        @media screen and (max-width: 768px) {
+                /*   */
+                main {
+                /* border : 10px solid black; 문서 마진, 패딩 없어진거 확인 */
+                grid-template-columns: 1fr ;
+                grid-template-rows: 200px 50px 200px 1fr ;
+                }
+                .menu {
+                    grid-row:auto;
+                }
+                .menu ul {
+                    display: flex;
+                    justify-content: center;
+                    margin: 0;
+                }
+                .menu li {
+                    margin:  0 7px;
+                }
+                .menu hr {
+                    display: none;
+                }
+                .menu div {
+                    margin-top: 12px;
+                }
+                .list {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+        }
+    </style>
+</head>
+<body>
+    <!-- ex60_grid.html -->
+    <main>
+        <div class="menu">
+            <h1>Study</h1>
+            <ul>
+                <li>JDK</li>
+                <li>Java</li>
+                <li>Oracle</li>
+                <li>SQL</li>
+                <li>JDBC</li>
+            </ul>
+            <hr>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>JQuery</li>
+            </ul>
+            <hr>
+            <div>
+                &copy: Copyright test.com 2023 <br>All rights reserved.
+            </div>
+        </div>
+        <div class="search">
+            <input type="text">
+            <button>Search</button>
+        </div>
+        <div class="banner">
+            <img src="images/gimbal.jpg">
+        </div>
+        <div class="list">
+            <!-- (div>(img[src=images/rect_icon0$.png]+(div>lorem)))*6 -->
+            <!-- (div>(img[src=images/rect_icon0$.png]+(div>lorem)))*6 -->
+            <div>
+                <img src="images/rect_icon01.png" alt="">
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero ullam dolorem quo molestiae? Enim quidem quas deserunt minus id? Dolore consequuntur odio quae soluta, illum officia minus quia eos in.</div>
+            </div>
+            <div>
+                <img src="images/rect_icon02.png" alt="">
+                <div>Ea minima, quasi dolorem molestiae tempore quis, odit, soluta id ad consequatur iure. Harum quis itaque consequuntur quibusdam provident iure! Eligendi, iste! Mollitia culpa placeat vitae beatae, eos autem ut.</div>
+            </div>
+            <div>
+                <img src="images/rect_icon03.png" alt="">
+                <div>Veritatis reprehenderit error qui dolor alias ad adipisci magni omnis ratione harum esse, modi accusantium quos eveniet autem. Quasi, repellat tenetur! Voluptates suscipit veniam natus optio iusto esse quibusdam sint.</div>
+            </div>
+            <div>
+                <img src="images/rect_icon04.png" alt="">
+                <div>Suscipit doloribus exercitationem repudiandae laudantium, nihil ratione, eaque ex modi officiis consectetur possimus quidem libero eos debitis quae porro laborum? Obcaecati doloribus cupiditate quidem quam totam voluptatibus aliquam dolor culpa.</div>
+            </div>
+            <div>
+                <img src="images/rect_icon05.png" alt="">
+                <div>Error labore fuga praesentium obcaecati distinctio consequatur nobis. Earum libero voluptatum veritatis debitis quia cumque quo autem minima praesentium, quam ipsam exercitationem sint ea alias mollitia molestias expedita ipsa illo.</div>
+            </div>
+            <div>
+                <img src="images/rect_icon06.png" alt="">
+                <div>Expedita cumque explicabo repellat asperiores tenetur quia blanditiis ullam voluptatum assumenda vel alias a, eaque ipsa nam fuga iste dignissimos libero reiciendis, laborum facere. Perferendis nulla a quae ad voluptate.</div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

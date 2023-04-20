@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /*
+        ex59_grid.html
+        CSS > 레이아웃 > flex(선형 레아이웃), grid(평면 레이아웃)
+        옛날엔 표가 레아이웃 만드는데 썻다. 
+        표는 힘든게.. talbe tr td이런게 겹치는게 지저분하다. 
+        flex, grid > 이 grid가 어떻게 잡아주는지? 보자
+    */
+    .container {
+        display: grid;
+    }
+
+
+    .container .item:nth-child(1) { background-color: tomato; }
+    .container .item:nth-child(2) { background-color: orange; }
+    .container .item:nth-child(3) { background-color: gold; }
+    .container .item:nth-child(4) { background-color: greenyellow; }
+    .container .item:nth-child(5) { background-color: dodgerblue; }
+    .container .item:nth-child(6) { background-color: violet; }
+
+    .container {
+
+        /* 
+            행과 열의 개수 + 크기 
+                       몇행 몇열?
+
+                       값을 2개가짐 > 2개넣고
+                       값을 2개가지면 > 3개넣고 
+        */
+
+        /*
+        행과 열의 개수 + 크기 
+        > 3행 2열 > 부족한 공간이 생겨도 아무 상관이 없다. 
+        선언한 행렬보다 넣는 개수가 부족하면 행열에 공간다 다 못넣음
+        여기도 셀병합 개념이 있다. 
+        번호가 셀한테 안붙고 라인에 붙음 > 우리가 이 번호로 코딩을 한다. 
+        이건 셀번호가 아니다. 
+        */
+        /* grid-template-rows: 100px 100px 100px;
+        grid-template-columns: 100px 100px 100px 100px; */
+
+        /* grid-template-columns: 100px 20%; */
+        /* 정의를 안해도 나머지 row들의 높이는 auto로 된다. */
+        /* 1열은 그대로 2열은 유동적 */
+
+
+        /* fraction > 1/n 분수인데 */
+        grid-template-columns: 1fr 1fr 1fr; 
+        /* 이러면 3분의 1이 된다. 칼럼을 3 등분으로 나눈다. */
+
+        grid-template-columns: 3fr 1fr; 
+        /* 이러면 3분의 1이 된다. 칼럼을 3 등분으로 나눈다. */
+
+        grid-template-columns:33.333% 33.333% 33.333% ;
+        /* 이런 표현 대신에 fr을 쓰는 것 */
+        
+        width : 450px;
+        height: 300px;
+
+        grid-template-columns: repeat(5, 100px); 
+        grid-template-rows: 1fr 1fr 1fr; 
+        grid-template-columns: 1fr 1fr 1fr;
+        /* 
+        이때 정의한 행에서 벗어난 행은 관리되지 않은 셀로 지정된다.
+        너비나 높이가 오토로 지정 
+         */
+
+        }   
+
+
+        .container .item:nth-child(1) {
+            /* 셀병합 해당 
+            셀을 1번라인에서 3번 라인으로 늘려라 그리그 포인트 그거 기준임*/
+            /* grid-column-start: 1;
+            grid-column-end: 3; */
+            /* 여기의 번호는 셀기준이 아니다. 라인 기준으로 정의하는 것이다. */
+            /* grid-column-end: 4; 이렇게 적어야 행전체 셀병합이다. */
+            /* grid-column-end: span 3;  */
+            /* cell 3개만큼 병합해주세요. */
+            grid-column: 1/4; 
+            /* 컬럼은 1~4 열을 합치겠다.*/
+        }
+
+        .container .item:nth-child(2) {
+            grid-row-start: 2; /* grid 라인 2번에서 4로, grid line번호만 헷갈리지 말자*/
+            grid-row-end: 4;
+            /* grid-row-end: span 2;  */
+            /* cell 2개만큼 병합해주세요. */
+            grid-row: 2/4;
+            /* 컬럼은 2~4 행을 합치겠다.*/
+        }
+    /*
+        Grid Container 
+        - Grid 전체 영역
+
+        Grid Item 
+        - 내부 요소
+        - <div class="item">
+
+        Grid Cell 
+        - Grid의 한칸
+        
+        Grid Line
+        - Grid Cell을 구분하는 각각의 선
+
+        Grid Number
+        - Grid Line 번호
+
+        Grid Gap
+        - Grid Cell 사이의 간격 
+
+    */
+</style>
+<body>
+    <div class="container">
+        <div class="item">가</div>
+        <div class="item">나</div>
+        <div class="item">다</div>
+        <div class="item">라</div>
+        <div class="item">마</div>
+        <div class="item">바</div>
+        
+    </div>
+</body>
+</html>

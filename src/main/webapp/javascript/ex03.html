@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            자바스크립트 구문의 실행 순서 
+            - 위 > 아래 
+            - 문장 단위로 
+            - 연산자 우선순위 
+
+            -*** HTML과 Javascript 구문이 동시에 실행된다. 
+            이질 적인 언어가 중간에 껴있는데 html 태그와 자바 스크립트 
+            코드는 위에서부터 내려올 때 같이 실행된다. 혼합 실행
+
+        */
+        // window.document.all.txt1.value = new Date();
+
+    </script>
+
+</head>
+<body>
+    <!--
+        ex03.html
+    -->
+    <input type="text" size="50" name="txt1">
+
+    <script>
+        // window.document.all.txt1.value = new Date();
+
+        // 자바스크립트 디버깅 > 값 확인
+        // 1. alert(값);
+        // alert(new Date()); 
+
+        // 개발자도구의 콘솔이다. > 개발자 도구가 원래 브라우저에 없었다. chrome이 만듬
+        // 원래 있었는데 추가로 설치했어야 했음 확장 프로그램으로 ~ 크롬이 과감하게 개발자도구를
+        // 내장으로 넣음 > 기본 탑재 > 크롬이 넣어서 반응이 좋으니까 다른 브라우저도 
+        // 개발자도구를 내장했다.
+        
+        // 2. console.log(값) 
+        // console.log(new Date);
+
+        // 3. 사용금지!!
+        // window.document.all.txt1.value = new Date();
+
+    </script>
+
+</body>
+</html>

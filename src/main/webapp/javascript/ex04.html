@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex04_datatype.html -->
+    <script>
+        /*
+            JavaScript 자료형
+            1. number 
+                - 숫자형 (정수, 실수)
+
+            2. string 
+                - 문자, 문자열
+            
+            3. boolean
+                - 논리형
+            
+            4. object
+                - 객체형
+                - Javascript에는 클래스가 없다. 하지만 객체는 있다.
+                - Javascript에서 미리 정의 타입 객체는 없다. 개발자가 클래스는 선언할 수 없다. 
+                - 자바 > 객체지향 프로그래밍 언어
+                - 자바스크립트 > 객체 기반 프로그래밍 언어
+
+            5. 기타(=상수)
+                a. null
+                b. undefined
+                c. Nan(Not a Number)
+
+            변수, 상수(리터럴)
+            - JavaScript는 변수의 타입이 없다.
+            - var 변수명;
+            - 변수는 모든 자료형의 데이터를 수납할 수 있다. (= 자바의 Object 변수 )
+        */
+
+        var num= 10;
+        var num2 = 3.14;
+        var name = "홍길동";
+        var name2 = "홍길동";
+        var flag = true;
+        var now = new Date();
+        console.log(num);
+        num = " 안녕하세요. ";  
+        //  이전에 숫자를 넣고
+        //  지금은 문자열을?? > 쓰지마라
+        console.log(num);
+
+        console.log(num); // 나중에 만났을 때 뭐가 들은지 모른다. > 가독성이 최악이다. 
+
+        // JavaScript > MS > TypeScript > 자바스크립트 느낌인데 자료형 개념에 엄격한 문법을 추가함
+
+        // 현재 변수나 상수의 자료형을 확인?
+        console.clear(); // 여태까지 콘솔에 출력한 명령을 지운다. 
+
+        console.log(typeof 100);        // 뒤에 있는 숫자 100은 number 타입이다. 
+        console.log(typeof 3.14);       // 뒤에 있는 숫자 3.14은 number 타입이다. 
+        console.log(typeof num2);       // 뒤에 있는 num2는 number 타입
+
+        console.log(typeof "홍길동");    //string
+        console.log(typeof "홍길동");    //string
+        console.log(typeof name);       //string
+
+        console.log(typeof true)        // boolean;입니다.
+        console.log(typeof new Date()); // object라고 찍힌다.
+
+        console.log(typeof null);       // object
+        console.log(typeof undefined);  // undefined
+        console.log(typeof NaN);        // number
+
+        // console.log(number); // number 라는 예약어가 없다. 자료형이 없다.  
+
+        // 자료형 사용 용도
+        // 1. 변수 var num;
+        // 2. (형변환) > 형변환 함수 
+        // 3. 반환타입 > 생략
+
+        // 연산자 
+        // - 자바와 동일
+        
+        // 제어문 
+        // - 자바와 동일
+
+        // Java         > Strong Type  > 타입에 엄격하다.
+        // SQL          > Week Type  > 타입에 유연하다.  > 연산시 자동형변환 문자열*2 등등 
+        // JavaScript는 > Week Type이다. 
+
+        console.log('10' + 2); //'102'
+        console.log(2 + '10'); // 210 > 한 놈 이상이 문자열이면 문자열 연산을 한다. !!
+        console.log('10' * 2); // 20 
+        // 문자 escape 
+        // - 자바와 동일
+        console.log('C:\class\client\javascript'); // 에러는 안나는대 \ 이 사라진다. > 'C:classclientjavascript'이 나온다. 차라리 에러가 나는데 나음 
+        console.log('C:\\class\\client\\javascript'); // 'C:\class\client\javascript'
+
+    </script>
+</body>
+</html>

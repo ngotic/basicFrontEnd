@@ -1,0 +1,40 @@
+@import url('./test.css');
+
+#list {
+    /* 부모속성의 좌표를 얻어올 수 있음 */
+    --main-color: gold;
+}
+
+#box1 {
+    /* 변수 선언 얘는 이 안에서만 쓰이는 지역변수다. */
+    --fore-color: blue;
+    /* color : orange; */
+    color: var(--main-color)
+}
+
+
+
+#box2 {
+    /* 선언되지 않은 변수 > 초기값(기본값) 적용*/
+    /* color : orange; */
+    color: var(--main-color)
+}
+
+#box3 {
+    color : var(--main-color)
+}
+
+
+body {
+    background-color: var(--main-background-color);
+}
+
+h1.title{
+    color: var(--main-title-color);
+    font-size: var(--main-title-size);
+}
+
+p.content {
+    color : var(--main-text-color);
+    font-size: var(--main-text-size);
+}

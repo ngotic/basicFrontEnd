@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            프로젝트 > 반응형 레이아웃 결정!!
+            1. 데스크톱 우선 vs 모바일 우션
+                a. 데스크톱 우선
+                    - 큰 가로폭부터 디자인 > 작은 가로폭으로 제작하는 방법 
+                b. 모바일 우선 
+                    - 작은 가로폭부터 > 큰 가로폭으로 제작하는 방법
+                    
+            2. 모바일 어디까지 지원? 
+                - 스마트폰(가로/세로) 구분? 
+                - 테블릿 별도 지원? PC 포함? 
+                - PC > (HD, FHD, 4K, 8K)
+
+        */
+        /* PC 우선 > pc를 본다는 가정하에 디자인을 한다. */
+        main {
+            width: 1000px;
+            border: 10px solid cornflowerblue;
+            margin: 0 auto;
+            /* 고해상도 사용자를 위해선 가운데 정렬을 쓰는 경우가 있다. margin: 0 auto*/
+            padding : 20px;
+        }
+        header {
+            padding : 20px;
+            border: 10px solid orange;
+            margin-bottom: 20px;
+        }
+
+        section{
+            float: left;
+            width: 650px;
+            border: 10px solid tomato; 
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        aside{
+            border: 10px solid skyblue;
+            width: 220px;
+            padding: 20px;
+            float: right;
+        }
+
+        /*너비를 픽스 해놓은게 걸림돌된다. */
+        
+
+        footer {
+            border : 10px solid greenyellow;
+            padding : 20px;
+            /* clear : right; */
+            clear : both; /* 양쪽 내용의 사이즈크기가 애매한데 right, left 잘못 정하면 크기가 겹친다 그래서 both라고 지정함 애매하면 both */
+        }
+
+        /* 모바일 작업 */
+        @media screen and (max-width: 640px) { /* 640까진 이거 */
+
+            /* 작은 해상도에 대한 내용을 재정의 한다. */
+
+            main{
+                width : auto;
+            }
+            
+            section {
+                width: auto;
+                float: none;
+            }
+
+            aside {
+                width: auto;
+                float: none;
+                margin-bottom: 20px; /* 이부분에서 크기 줄이고 마진 바텀도 추가 */
+                display: none; /* display none으로 아예 안보여줄 수도 있다. */
+            }
+        }
+
+        /* 모바일 우선 방식은 모바일 먼저 만들고 PC를 고려해서 화면 키웠을 때 재정의를 한다. */
+        
+
+    </style>
+</head>
+<body>
+    <!-- ex57_responsive.html -->
+    <main>
+        <header>
+            <h1>Responsive Layout</h1>
+        </header>
+        <section>
+            <h2>Main Content</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In facilis magni quibusdam odit rem quidem! Impedit quisquam reprehenderit provident necessitatibus repudiandae accusantium natus vitae fugiat. Ipsam nesciunt eaque vitae optio.</p>
+        </section>
+       <aside>
+            <h3>SideBar</h3>
+            <div>item</div>
+            <div>item</div>
+            <div>item</div>
+       </aside> 
+       <footer>
+        &copy;Copyright test.com 2023 All rights reserved.
+       </footer>    
+    </main>
+</body>
+</html>

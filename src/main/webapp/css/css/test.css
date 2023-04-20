@@ -1,0 +1,9 @@
+:root { 
+    /* --background-color: skyblue; */
+    --main-background-color : #dad7cd;
+    --main-text-color: #344e41;
+    --main-title-color:#588157;
+
+    --main-title-size: 20px;
+    --main-text-size: 14px;
+}
