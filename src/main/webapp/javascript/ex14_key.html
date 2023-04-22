@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input, textarea {
+            display: block;
+            margin-bottom: 10px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex14_key.html -->
+    <h1>키 이벤트</h1>
+    <form name="form1">
+        <input type="text" name="txt1" autocomplete="off"> <!-- 자동완성 off는 autocomplete="off -->
+        <input type="text" name="txt2">
+        <textarea name = "txt3"></textarea>
+    </form>
+    <script>
+        var txt1 = window.document.form1.txt1;
+        var txt2 = window.document.form1.txt2;
+        var txt3 = window.document.form1.txt3;
+
+        /*
+         키 관련 이벤트 
+
+         - onKeyXXX
+         - 포커스를 가지는 태그에서만 발생 > 무언가를 입력할 수 있는 애들한테 거는 이벤트다.
+           [텍스트 박스, 체크 박스 등]
+        - 발생순서 : keydown > keypress > keyup
+
+        - keyup은 마지막
+        요즘 키보드 > 연속입력(O)
+        평상시 키 이벤트 > keydown을 쓴다. 
+        * 특별히 누른 키가 관여된 작업 > keyup을 쓰라 
+
+            * onkeydown과 onkeypress는 비슷함
+           1. onkeydown ( 모든 키에 반응 )
+            - 키를 눌렀을 때 발생
+            - 문자에 반응하는 이벤트(X) > 어떤 문자가 입력되는지 중요 X
+            - 물리키에 반응하는 이벤트 > 어떤 키를 눌렀는지 중요(O)
+            - 키보드에 존재하는 모든 키에 반응(*******) > 물리적으로 존재하는 모든 키에 다 반응한다. 
+            - 방금 입력한 문자는 필요없을 때 사용한다.! > 방금 입력한 이벤트가 뭔지 모르면 이걸 쓰면 안된다.
+
+           2. onkeyup ( KEY 관련된 이벤트를 쓴다고 하면 onkeydown, onkeyup을 쓴다. )
+            - 키를 뗏을 떼 발생
+            - 얘도 물리키에 반응한다. 다 받음
+            - 방금 입력한 문자가 필요한 경우에 사용한다. 
+            
+           3. onkeypress ( 일부키에 반응 )
+            - 키를 눌렀을 때 발생
+            - 문자에 반응하는 이벤트다. 
+            - 문자가 아닌 키는 반응하지 않는다.(*****)
+            - 잘 사용 안한다. 
+        */    
+       txt1.onkeydown  = m1;
+       txt1.onkeyup    = m2;
+       txt1.onkeypress = m3;
+
+    function m1(evt) {
+        // console.log('keydown');
+        // event.keyCode;// 키보드에 대한 입력을 제공해준다.
+        // console.log(event.keyCode);
+        //소문자a든 대문자A든 65찍힌다. 문자에 반응하는게 아니라 > 물리키에 반응하는 이벤트다.
+        // console.log(event.keyCode); // 비표준 방법
+        // console.log(evt.keyCode);      // 표준 방법 > 웬만하면 이방법을 쓰는게 낫다.
+        // 방향키
+        // - 좌(37), 상(38), 우(39), 하(40) > 이건 keydown으로 가능하다. keypress로는 안된다. 
+        txt2.value = evt.keyCode; 
+        if(evt.keyCode == 37) {
+            txt3.cols--;
+        } else if (evt.keyCode == 39) {
+            txt3.cols++;
+        } else if (evt.keyCode == 38 ){
+
+        } else if (evt.keyCode == 40 ){
+        }
+        
+        // txt2.value = txt1.value; 
+        // 글자수가 하나씩 차이가 난다.
+        // txt1에서 마지막에 입력한개 txt2로 복사가 안된다. 
+        // 키를 누르는 행위가 끝난 다음에야 텍스트 박스에 전달이 된다. 
+    }
+
+    // 이벤트가 끝난다음에 텍스트 박스로 전달이 된다.
+
+    // [ 키 입력 ]
+    // 1. keydown 발생 > 2. 실제 문자 입력 > 3. keyup 발생 : 순서가 중요하다. 
+
+    function m2() {
+        // console.log('keyup');
+        // console.log(event.keyCode);
+        txt2.value = txt1.value; 
+        // keyup에 넣으면 키복사가 자연스럽다. 처리순서 때문이다. 
+    }
+
+    function m3() {
+        // console.log('keypress');
+        console.log(event.keyCode);
+    }
+    </script>
+</body>
+</html>

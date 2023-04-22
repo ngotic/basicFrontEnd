@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 자바 스크립트 배열
+        // -Array(외형) + ArrayList(길이 가변, 자료형 자유)
+        // int[] nums = new int[3];
+        // var nums = new int[3]; 자료형을 못만듬
+        var nums = new Array(); // 클래스 만드는거 처럼 만든다.
+
+        nums[0] = 100;
+        nums[1] = 200;
+        nums[2] = 300;
+        // 이 빠진방은 undefined가 나온다. 
+        nums[5] = 500; // 그런데 이렇게 이빠진방은 사용금지
+        for (var i=0; i<nums.length; i++){
+            console.log(i, nums[i]);
+        }
+
+        if (nums[3]==undefined )
+            console.log('언디')
+
+        // 초기화 리스트            
+        // int[] nums = new int[] {100, 200, 300};
+        // int[] nums = {100, 200, 300};
+       var nums2 = new Array(100, 200, 300) ; // 생성자식 표현
+       var nums3 = [100, 200, 300];  // 생성자도 필요없이 [ ]로
+
+       console.log(nums2);
+       console.log(nums3);
+
+
+       var num4 =new Array();
+       var num5 = [];
+
+       // 배열 > 스텍처럼 활용
+       var list = [];
+
+       //list[0] = 10;
+       list.push(10);
+       console.log(list);
+       list.push(20);
+       console.log(list);
+       list.push(30);
+       console.log(list);
+       console.log(list.pop());
+       console.log(list); // stack이 된다. 
+       
+    //예외처리> 자바스크립트는 정수 실수 개념이
+    //없어서 0으로 나눠도 에러쪽으로 안간다.
+
+    // 예외처리 > 자바랑 비슷함
+    try {
+        var m = 0;
+        console.log( 100 / m ); // 에러아니다
+        console.log(n);         // n is not defined 이거로는 에러로 빠진다.
+    } catch (e) { 
+        console.log('왜 안나옴??');
+    } // 
+
+    </script>
+</body>
+</html>

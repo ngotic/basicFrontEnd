@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 내장 객체
+        // - Date
+
+        // 현재 시각
+        var now = new Date();
+        console.log(now);
+        console.log(now.toString());
+
+        //요소 추출
+        // 년, 월, 일, 시, 분, 초 : 숫자 > 1부터시작
+        // 월, 요일 : 배열 > 0부터 시작
+
+        //- c.get(Calendar.YEAR);
+        console.log(now.getYear()); //원랜 23 이렇게 두자리로 나왔음 > 어느샌가 2천년대에 2자리만 표기했다가 1900년대인지 2000년대인지 알수 없게 되어 2자리에서 4자리로 올림
+        console.log(now.getFullYear());
+        console.log(now.getMonth()); // 0부터 시작해서 3인데 4월
+        console.log(now.getDate());  // 21일
+        console.log(now.getDay());   // 0(일), 5(금), 6(토)
+        console.log(now.getHours()); // 10시 
+        console.log(now.getMinutes()); // 26분
+        console.log(now.getSeconds()); // 58초
+        console.log(now.getMilliseconds()); //435
+        console.log(now.getTime()); // 틱값
+
+        // 출력 > %tF, %tT, %tA
+        console.log(now.toLocaleString());     // 다! 2023. 4. 21. 오전 10:27:49
+        console.log(now.toLocaleDateString()); // 2023. 4. 21.
+        console.log(now.toLocaleTimeString()); // 오전 10:27:19
+
+        // 특정 시각 만들기 > set으로 각 요소에 담음
+        var chrismas = new Date();
+        chrismas.setFullYear(2023);
+        chrismas.setMonth(11);
+        chrismas.setDate(25);
+        console.log(chrismas.toLocaleDateString()); // 2023.12.25
+
+        // 연산
+        // 시각 - 시각 
+        console.log(chrismas - now); // 21427200001ms
+
+        console.log((chrismas - now)/ 1000/ 60 /60/ 24); //248.0000000347222
+
+        // 시각 + 시간
+        // 시각 - 시간 
+        now.setTime(now.getTime() + (100*24*60*60*1000)); //100일* 시*분*초*1000(밀리단위)
+        console.log(now.toLocaleDateString()); // 100일 후 > 2023. 7. 30.
+        
+    </script>
+
+</body>
+</html>

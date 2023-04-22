@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>데이터 입력</h1>
+    <form name="form1">
+        <div>
+            이름: <input type="text" name="name">
+        </div>
+        <div>
+            나이: <input type="text" name="age">
+        </div>
+        <div>
+            별명: <input type="text" name="nickname">
+        </div>
+        <input type="button" name="btn1" value="Long">
+        <input type="button" name="btn2" value="Short">
+    </form>
+    <script>
+        // 상속이다. 
+        var name = window.document.form1.name.size ;
+        var age = window.document.form1.age.size;
+        var nickname = window.document.form1.nickname.size;
+        
+    
+        window.document.form1.btn1.onclick = L;
+        window.document.form1.btn2.onclick = S;
+        function L(){
+            
+            window.document.form1.name.size=100;
+            window.document.form1.age.size=100;
+            window.document.form1.nickname.size=100;   
+        }
+        function S(){
+            window.document.form1.name.size=name;
+            window.document.form1.age.size=age;
+            window.document.form1.nickname.size=nickname;  
+        }
+    </script> 
+</body>
+
+</html>

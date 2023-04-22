@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width  : 500px;
+            height : 300px;
+            outline: none;
+            resize : none; /* 이거걸면 사이즈 조절이 안됨 */
+        }
+    </style>
+</head>
+<body>
+    <!-- ex13_mouseevent.html -->
+    <h1>마우스 관련 이벤트</h1>
+
+    <form name="form1">
+        <textarea name="txt1"></textarea>
+        <input type="button" value="확인" name="btn1">
+    </form>
+
+    <script>
+
+        var txt1 = window.document.form1.txt1;
+        var btn1 = window.document.form1.btn1;
+
+       /* 
+            마우스 관련 이벤트 : 마우스와 관련된 이벤트는 이름이 마우스와 관련이 됨
+            - onmouseXXX 
+                            // 괄호에 있는데 더 쌔거다.
+            1. onmouseover(= onmouseenter)
+                해당 객체의 영역에 마우스커서가 진입하는 순간 발생하는 이벤트다. 
+            2. onmouseout (= onmouseleave)
+                해당 객체의 영역에 마우스커서가 빠져나가는 순간 발생하는 이벤트다. 
+            3. onmousedown
+                해당 객체의 영역에서 마우스 버튼을 누르는 순간 발생
+            4. onmouseup
+                해당 객체의 영역에서 마우스 버튼을 떼는 순간 발생
+            5. onmousemove  
+                해당 객체의 영역에서 마우스가 움직였을 떄 
+       */  
+       // onmouseover 해당 객체의 영역에 마우스커서가 진입하는 순간 발생하는 이벤트다. 
+       txt1.onmouseover = m1;
+        
+    //    function m1() {
+    //        var now = new Date();
+    //        txt1.value = now.toLocaleTimeString();
+    //    }
+
+       function message(txt){
+           var now = new Date();
+           txt1.value= txt +'-'+ now.toLocaleTimeString() + '\r\n' + txt1.value;
+       }
+       txt1.onmouseout = m2;
+
+       function m1(){
+            
+            // message('mouseover');
+            // window.document.body.bgColor = 'gold'; // ' ' 형태로 넣어야 한다.
+            
+            // 다른 태그들은 이름을 적어서 이름으로 접근해야 하는데 body 태그만 유일하다.
+            // 자바스크립트에서 바로 접근하는 표현을 제공해준다.
+
+       }
+       function m2(){
+            // message('mouseout');
+            // window.document.body.bgColor = 'white'; // ' ' 형태로 넣어야 한다.
+       }
+       
+       txt1.onmousedown = m3;
+       function m3() {
+            // message('mousedown'); 
+            // window.document.body.bgColor='tomato';
+            // 마우스 버튼을 클릭하면 사건이 발생한다. 왼,오,우 버튼 다 해당된다.
+            // 내가 눌렀는데 아무런 반응이 없다!? 버튼이 아니다. 
+
+            // 마우스 어떤 버튼?
+            // event.buttons;
+
+            // 왼쪽(1), 오른쪽(2), 왼쪽+오른쪾(3), 휠버튼(4)
+            message(event.buttons);
+
+            if(event.buttons == 2) alert('오른쪽 마우스 버튼 클릭 금지!!!');
+            // ★ onclick은 마우스 이벤트가 아니다. 마우스 이벤트는 아래 5 종류
+
+            // 마우스 커서 좌표 
+            // 1. x, y
+            // - 문서 좌측 상단을 기준 
+            // - 비표준(MS-IE) > 비권장
+
+            // 2. clientX, clientY **** 많이씀
+            // - 문서 좌측 상단을 기준
+            // - 표준 > 권장
+            // - CSS> position : absolute;
+
+            // 3. screenX, screenY
+            // - 모니터 좌측 상단 기준
+            // - 쓰기가 어렵다. 
+
+            // 4. offsetX, offsetY **** 많이씀
+            // - 이벤트 객체의 좌측 상단을 기준
+            // - 나 자신이 기준이 됨
+            // - CSS > position : relative 
+
+            // message(event.x + ',' +event.y);             //1. x, y
+            // message(event.clientX + ',' +event.clientY); //2. clientX, clientY > 화면 페이지 좌측 상단기준
+            // message(event.screenX + ',' +event.screenY); //3. screenX, screenY > 내 모니터 화면 좌측 상단
+            message(event.offsetX + ',' +event.offsetY);    //4. offsetX, offsetY > 이벤트 객체의 좌측 상단을 기준
+
+
+       }
+       txt1.onmouseup = m4;
+       function m4() {
+            // console.log(this);
+            // message('onmouseup'); // 눌렀다가 뗏을 때 이벤트 발생
+            // window.document.body.bgColor='white';
+       }
+       txt1.onmousemove = m5;
+       var n =1;
+       function m5(){
+        // console.log(this);
+            // message('mousemove - ' + n);
+            // n++;
+
+       }
+       // onclick > 은 마우스 이벤트가 아니다. > 독립적으로 있는 이벤트다. 
+       // 탭을 누르고 포커스가 버튼한테 갈 때까지 누른다.
+       // 이상태에서 엔터나 스페이스 누르면 클릭된다.
+       btn1.onclick = m6;
+       function m6 (){
+            message('click'+ event.buttons); 
+       } // onclick 이벤트에서는 마우스에 대한 정보를 알 수 없다. 
+    </script>
+</body>
+</html>

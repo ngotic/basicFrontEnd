@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="images/catty01.png" name="cat1">
+    <img src="images/catty02.png" name="cat2">
+    <img src="images/catty03.png" name="cat3">
+
+    <script>
+        // 페이지 내에 모든 것들 중에 얘를 찾아줘 
+        // all에서 ! 
+        // window.document.all.txt1
+        // window.document.all.btn1
+        // window.document.all.cat1.width  = 300; // 건드릴 수 있다. 
+        // window.document.all.cat2.height = 64; // 건드릴 수 있다. 
+        // images 라는 배열이 있다. 이건 표준이다. 문서내의 모든 이미지가 이안에 있다.
+        //배열이라 대괄호 인덱스를 사용가능하다. , index로!
+        // window.document.images[2].width = 300; 
+        window.document.images['cat3'].width = 300; // hashmap처럼 키로도 접근이 가능하다. name key로! 
+
+        // 문서상에 모든 애들을 접근할 수 있는 가상의 배열이다. 비표준이다.
+        // 이미지도 이렇게 바로 찾아진다. 
+    </script>
+</body>
+</html>

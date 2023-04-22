@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>고양이</h1>
+    <img src="../images/catty01.png" name="cat1">
+    <img src="../images/catty02.png" name="cat2">
+    <img src="../images/catty03.png" name="cat3">
+    <img src="../images/catty04.png" name="cat4">
+    <img src="../images/catty05.png" name="cat5">
+    <script>
+
+        document.all.cat1.onmouseover = catOverMouse;
+        document.all.cat1.onclick = catClickMouse;
+        document.all.cat2.onmouseover = catOverMouse;
+        document.all.cat2.onclick = catClickMouse;
+        document.all.cat3.onmouseover = catOverMouse;
+        document.all.cat3.onclick = catClickMouse;
+        document.all.cat4.onmouseover = catOverMouse;
+        document.all.cat4.onclick = catClickMouse;
+        document.all.cat5.onmouseover = catOverMouse;
+        document.all.cat5.onclick = catClickMouse;
+
+
+        
+        document.onkeydown = escKey; // 해당 문서에서 onkeydown을 가져온다. 
+        // 개발자 도구창에서 keyEvent가 찍히는 것 확인 
+        // 매개변수로 가져와서 ▶ console.log()를 찍어보고 그 안에 객체를 확인
+        function escKey(evt){
+            // console.log(evt)
+            if ( evt.keyCode== 27){
+                document.all.cat1.width=128;
+                document.all.cat2.width=128;
+                document.all.cat3.width=128;
+                document.all.cat4.width=128;
+                document.all.cat5.width=128;
+            }
+        }
+
+        
+        function catOverMouse (evn){
+            // console.log(evn);
+            if ( this.name=='cat1')
+                document.all.cat1.width=document.all.cat1.width+5;
+            else if ( this.name=='cat2')
+                document.all.cat2.width=document.all.cat2.width+5;
+            else if ( this.name=='cat3')
+                document.all.cat3.width=document.all.cat3.width+5;
+            else if ( this.name=='cat4')
+                document.all.cat4.width=document.all.cat4.width+5;
+            else if ( this.name=='cat5')
+                document.all.cat5.width=document.all.cat5.width+5;
+        }
+        function catClickMouse (){  
+
+            // BOM으로는 이미지가 로딩하고 잡히는 
+            // 너비를 얻어올 수 없다. > 그 너비 값을 미리 얻어올 수가 없다. 
+            
+            if ( this.name == 'cat1')
+                document.all.cat1.width=128;
+            else if ( this.name == 'cat2')
+                document.all.cat2.width=128;
+            else if ( this.name == 'cat3')
+                document.all.cat3.width=128;
+            else if ( this.name == 'cat4')
+                document.all.cat4.width=128;
+            else if ( this.name == 'cat5')
+                document.all.cat5.width=128;
+        }
+    </script>
+</body>
+</html>

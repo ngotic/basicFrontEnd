@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> JavaScript로 HTML 태그의 속성을 제어하기 </h1>
+    <form name="form1">
+        <input type="text" name="txt1">
+        <input type="button" value="확인" name="btn1">
+        <hr>
+        <input type="button" value="끄기" name="btn2">
+    </form>
+    <script>
+        var txt1 = window.document.form1.txt1;
+        var btn1 = window.document.form1.btn1;
+        var btn2 = window.document.form1.btn2;
+
+        btn1.onclick = m1;
+        btn2.onclick = m2;
+
+        function m2(){
+
+            // 하나의 버튼(스위치) > On/Off > 토글 버튼(Toggle Button)
+            // window.document.body.bgColor = 'black';
+            // alert(window.document.body.bgColor);
+            // 켜져있을 땐 올바른 메세지 꺼져있을떈 X 
+            // if (window.document.body.bgColor != 'black') {
+            if(btn2.value == '끄기'){
+                window.document.body.bgColor = 'black';
+                btn2.value = '켜기';
+            } else {
+                window.document.body.bgColor = 'white';
+                btn2.value = '끄기';
+            }
+        }
+
+        function m1(){
+            /*
+                Javascript로 HTML의 속성 제어하기   
+
+                1. HTML 태그의 대부분의 속성은 JavaScript에서 Property를 제공해준다.
+                    - HTML : <input type="text" size="10"> //HTML 속성
+                    - JavaScript : txt1.size    // 자바스크립트의 Property
+                    - 헷갈리지 말라고 자바스크립트의 Property를 HTML의 속성과 동일하게 만들어줌
+                    - 대부분의 html의 속성은 자바스크립트에서 .찍으면 나타남
+                2. HTML 태그의 속성명을 그대로 JavaScript 프로퍼티명으로 사용된다. 
+                3. 대부분 읽기/쓰기 모두 지원한다. 일부 쓰기 or 읽기 전용이 있다. 
+                4. 태그의 식별자 혹은 근본적인 속성은 조작하지 말것!
+                5. 플래그 타입의 속성은 boolean으로 조작한다. 근데 안먹음
+                6. HTML 속성명 복합어면 read와 only가 합쳐짐 > 카멜표기법으로 작성한다.
+
+            */
+           // <input type="text" size="10"
+           //    txt1.size = 200;
+           // 자바 스크립트로 property를 이렇게 조작을 하니까
+           // 최종적으로 html의 속성이 조작된다. 서로 연결이 되어 있따. 
+           // 그러면 모든 속성을 다 건드릴 수 있다. 
+           //    txt1.value = '홍길동';// 쓰기 작업
+           // alert(txt1.value); // 사용자가 입력한 값을 value라는 property로 접근하였다. // 읽기 작업 
+            //    txt1.type = 'radio'; // 속성의 타입을 바꿈  > 너무 심한 조작이다. 
+            // txt1.name = "txt3"; // 이것도 먹힌다. 근데 누가 식별자를 바꿈?  > 식별자 바꾸는 짓은 하지마라
+            // txt1.readonly = true; (X 이거안댐)
+            // txt1.readOnly = true; // 이건 OK 
+            window.document.body.bgColor='gold';
+        }// btn1.onclick
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex07_casting.html -->
+    <script>
+        // 형변환 > 함수 제공
+        // 1. number parseInt(value)
+        // 2. number parseFloat(value)
+
+        var n1 = 3.14;
+        console.log(parseInt(n1)); // 3이다.
+
+        n1 = 3.99;
+        console.log(parseInt(n1));
+
+        var n2 = '300';
+        console.log(parseInt(n2), typeof parseInt(n2)); //number
+        console.log(n2, typeof n2); //string
+
+        var n3 = 100;
+        console.log(parseFloat(n3));
+
+        var n4 = '3.14';
+        console.log(parseFloat(n4));
+       
+        
+        var n5 = '100점';
+        console.log(parseInt(n5)); //100 연속숫자는 추출 숫자가 아닌거 버린다.
+
+        var n6 = '점수100';
+        console.log(parseInt(n6)); // NaN
+        // 처음보는 것만 기준으로 형변환하는데 String이 앞에 있어서 NaN
+        var n7 = '100점이 아니라 50점입니다.';
+        console.log(parseInt(n7));
+
+        //JavaScript > CSS 조작
+        var width = '200px';
+
+        console.log(width+100); // 200px100 > 300을 하고 시픈데..
+        // 아까 상황을 이용해서 오히려 앞에 200만 꺼낸다.
+        console.log(parseInt(width)+100);
+
+        // -------------------------------------------------------
+
+        // boolean isNaN(value)
+        // is not a number?
+        // value가 숫자가 아닙니까? 
+        // 자료형 검사(X), 데이터 형식만 검사(O)
+
+        // 사용자 입력 <input type='txt'> : 나이임력
+        var age = '20';
+        var age = 20;
+        var age = '20세';
+
+        if(isNaN(age)){
+            console.log('나이가 올바르지 않습니다.');
+        } else {
+            console.log('올바른 나이 입력.');
+        }
+
+    </script>
+</body>
+</html>

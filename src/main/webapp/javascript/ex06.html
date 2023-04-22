@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/* 
+    변수 영역 
+
+    자바 > 클래스 안에서 이루어진다.
+    1. 멤버 변수 > 클래스 전역
+    2. 지역 변수 > 메소드 or 제어문
+
+    자바스크립트 > 클래스가 없음
+    1. 전역 변수 > HTML 페이지 전역 > 선언문 실행(생성) ~ 페이지 종료(소멸) > 눈에 보이는 문서와 생명주기가 같다.
+    2. 지역 변수 > 
+
+*/
+var num1 = 100; // 전역 변수. <script> 태그내에서 직접 선언
+function m1() {
+    var num2 = 200; // 지역 변수. m1
+    console.log('m1', num2); // 지역내 + 지역변수 접근 O
+    console.log('m1', num1); // 지역내 + 전역변수 접근 O
+
+    if ( true ){ // 제어문에 들어가는 지역변수는 존재 X
+        var num3 = 300;
+        console.log('if', num3);
+    }
+    console.log('m', num3); // num2는 바깥으로 나가면 죽, num3는 바깥으로 나가면 산다.
+    // 자바 스크립트 지역변수는 다르다.
+    // 자바는 메서드와 제어문을 자기 영역이라 인식 > 블록 스코프 변수
+    // 자바스크립트는 블럭영영 변수가아니라 함수 영역 변수다. 함수만 지역으로 인식하고 제어문을 인식하지 못한다. ★
+
+
+
+}
+
+m1();
+
+// console.log('전역', num2); // num2 is not defined
+// console.log('전역', num3); // num3 is not defined
+
+
+var a = 10;
+var a = 20; // 재정의(O) > 하지말것 // 에러는 안남
+console.log('a', a);
+
+var b = 30; // 선언문인 var을 붙이자 
+c = 40;     // 변수 선언문(var)을 사용하지 않고, 변수 생성이 가능하다. 사용금지!!
+
+console.log('c', c);
+
+
+function m2() {
+    var d = 50;
+    e = 60; // 변수 선언문(var)을 사용하지 않은 변수는, 선언 위치 무관 > 전역변수!!!!!!!!!!!! > 이걸 여기저기 남용하면 알아보기 힘든코드가 된다. 
+}
+
+// var붙여라 안붙이면 구분도 안감 안붙이고 함수안에서 보면 전역변수인데 ...
+
+m2();
+
+// console.log(d); // d is not defined
+console.log(e);
+
+
+</script>
+</body>
+</html>
