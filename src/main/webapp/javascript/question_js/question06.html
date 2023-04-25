@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            width: 530px;
+            padding: 5px;
+            flex-direction: column;
+        }
+        #container input {
+            padding: 10px;
+            border: 0px solid white;
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        #imgContainer{
+            width: 530px;
+            border : 1px solid #EEE;
+            padding: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="imgContainer">
+            <img src="../images/rollover3/img01.jpg" name="img">
+            <img src="../images/rollover3/img02.jpg" name="img">
+            <img src="../images/rollover3/img03.jpg" name="img">
+        </div>
+        <input type="text" name="textbox" >
+    </div>
+<script>
+    for(var i = 0 ;i < document.all.img.length; i++){
+        document.all.img[i].onmouseover = m1;
+        document.all.img[i].onmouseout = m2;
+    }
+    
+    function m1() {
+        // alert(event.target.src);
+        if(event.target.src.indexOf('img01')!=-1){
+            event.target.src = "../images/rollover3/img04.jpg";
+            document.all.textbox.value="'스키'타는 사람이 '당근'으로 변했습니다.";
+        }
+        else if(event.target.src.indexOf('img02')!=-1){
+            event.target.src = "../images/rollover3/img05.jpg";
+            document.all.textbox.value="'해바라기'가 '피망'으로 변했습니다.";
+        }
+        else if(event.target.src.indexOf('img03')!=-1){
+            event.target.src = "../images/rollover3/img06.jpg";
+            document.all.textbox.value="'나무'가 '개'가 됬습니다.";
+        }
+    }
+
+    function m2(){
+        if(event.target.src.indexOf('img04')!=-1){
+            event.target.src = "../images/rollover3/img01.jpg";
+            document.all.textbox.value='';
+        }
+        else if(event.target.src.indexOf('img05')!=-1){
+            event.target.src = "../images/rollover3/img02.jpg";
+            document.all.textbox.value='';
+        }
+        else if(event.target.src.indexOf('img06')!=-1){
+            event.target.src = "../images/rollover3/img03.jpg";
+            document.all.textbox.value='';
+        }
+    }
+
+</script>
+</body>
+</html>

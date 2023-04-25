@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="form1">
+        <input type="button" name="btn1" value="버튼1">
+        <input type="button" name="btn2" value="버튼2">
+        <input type="button" name="btn3" value="버튼3">
+    </form>
+    <script>
+        document.form1.btn1.onclick = m1;
+        document.form1.btn2.onclick = m2;
+        document.form1.btn3.onclick = m3;
+
+        // 메세지 박스, 대화 상자(Dialog Box)
+        // 1. void alert(message); 메세지 전달용이다.
+        // 2. boolean confirm(message);
+        // ---------------------------------
+        // 3. string prompt(message, value);
+
+
+        function m1(){
+            // alert();
+            // alert(100);
+            // alert('문자열'); // > 버튼이 하나다. 확인 버튼뿐
+        }
+        function m2(){
+            if( confirm('정말 삭제하겠습니까?')) {
+                document.body.bgColor = 'blue';
+            } else {
+                document.body.bgColor = 'white';
+            }; // 버튼이 두개다. 확인, 취소
+        }
+        function m3(){
+            // var input = prompt('메세지', '초깃값');
+            var input = prompt('이름을 입력하시오.', '');
+            console.log('출력: '+input);
+        }
+
+
+
+
+    </script>
+</body>
+</html>

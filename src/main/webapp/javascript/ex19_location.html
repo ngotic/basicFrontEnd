@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex19_location.html -->
+    <form name="form1">
+        <input type="button" name="btn1" value="확인">
+        
+    </form>
+
+    <script>
+
+        window.document.form1.btn1.onclick = m1;
+
+        function m1(){
+            //location 객체
+            // - window의 자식
+            // - 현재 창의 페이지(URL)와 과녈ㄴ된 조작
+
+            // href > reference a hyperlink
+
+            // console.log(window.location.href); 
+            // 주소창에 적힌주소를 그대로 가져온다.
+            // window.location.href = "https://naver.com"; // 얘는 많이 쓴다. 
+            console.log(window.location.host); //127.0.0.1:5500
+            console.log(window.location.hostname); //127,0,0,1
+            console.log(window.location.protocol); //http:
+            console.log(window.location.port); //5501
+
+            window.location.href = 'ex19_location.html'; // 새로고침
+            window.location.reload();
+        }
+        //
+        // location.assign
+        // location.replace
+    </script>
+</body>
+</html>

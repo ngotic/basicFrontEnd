@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #container{
+        width: 400px;
+        display: flex;
+        
+    }
+    #left {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-evenly;
+        border : 1px solid black;
+    }
+    #img-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 230px;
+        width:600px;
+        border : 1px solid black;
+        
+    }
+    #left input {
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <!-- <div>
+        <img src="../images/dog01.jpg" name="cat">
+    </div>
+    <div>
+        <img src="../images/dog02.jpg" name="cat">
+    </div>
+    <div>
+        <img src="../images/dog03.jpg" name="cat">
+    </div>
+    <div>
+        <img src="../images/dog04.jpg" name="cat">
+    </div>
+    <div>
+        <img src="../images/dog05.jpg" name="cat">
+    </div> -->
+    <div id="container">
+        <div id="left">
+            <input type="button" name="btn" value="강아지1" data-color="red"> 
+            <input type="button" name="btn" value="강아지2" data-color="red"> 
+            <input type="button" name="btn" value="강아지3" data-color="red"> 
+            <input type="button" name="btn" value="강아지4" data-color="red"> 
+            <input type="button" name="btn" value="강아지5" data-color="red"> 
+        </div>
+        <div id="img-container">
+            <img src="../images/dog01.jpg" name="dog">
+        </div>
+    </div>
+    <script>
+        // 강아지1을 선택했다하면?
+        // 강아지2를 선택했다하면?
+        // alert(document.all.btn[0].value);
+        for(var i=0 ;i <document.all.btn.length; i++ ){
+            document.all.btn[i].onmouseover= m1;
+            document.all.btn[i].onclick = m2;
+        }
+
+        function m1(){
+            if ( event.target.value=='강아지1')
+                document.images['dog'].src ="../images/dog01.jpg" ;
+            else if( event.target.value=='강아지2')
+            document.images['dog'].src ="../images/dog02.jpg" ;
+            else if( event.target.value=='강아지3')
+            document.images['dog'].src ="../images/dog03.jpg" ;
+            else if( event.target.value=='강아지4')
+            document.images['dog'].src ="../images/dog04.jpg" ;
+            else 
+            document.images['dog'].src ="../images/dog05.jpg" ;
+        }
+
+        function m2(){
+            var filename;
+            if ( event.target.value=='강아지1')
+            filename ="../images/dog01_big.jpg" ;
+            else if( event.target.value=='강아지2')
+            filename ="../images/dog02_big.jpg" ;
+            else if( event.target.value=='강아지3')
+            filename ="../images/dog03_big.jpg" ;
+            else if( event.target.value=='강아지4')
+            filename ="../images/dog04_big.jpg" ;
+            else 
+            filename ="../images/dog05_big.jpg" ;
+            window.open(filename, 'check', 'width=1600, height=1200');
+        }
+    </script>
+</body>
+</html>

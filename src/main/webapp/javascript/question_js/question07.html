@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            position: relative;
+            margin: auto;
+            width: 510px;
+        }
+       
+        #btn #reset{
+            outline: none;
+            box-sizing: border-box;
+            border: 10px solid gray;
+            float: left;
+            line-height: 34px;
+            width:235px;
+            height:60px;
+            text-align: center;
+        }
+        #btn #input{
+            outline: none;
+            box-sizing: border-box;
+            border: 10px solid gray;
+            float: right;
+            line-height: 34px;
+            width:235px;
+            height:60px;
+            text-align: center;
+        }
+
+        #container img{
+            margin: 10px;
+            box-sizing: border-box;
+            border: 10px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pattern Lock</h1>
+    <div id="container">
+        
+        <img src="../images/rect_icon01.png" name="block">
+        <img src="../images/rect_icon02.png" name="block">
+        <img src="../images/rect_icon03.png" name="block">
+        <img src="../images/rect_icon04.png" name="block">
+        <img src="../images/rect_icon05.png" name="block">
+        <img src="../images/rect_icon06.png" name="block">
+        <img src="../images/rect_icon07.png" name="block">
+        <img src="../images/rect_icon08.png" name="block">
+        <img src="../images/rect_icon09.png" name="block">
+        <div></div>
+        <div id="btn">
+            <input id="reset" name="resetBtn" value="RESET" readonly>
+            <input id="input" name="inputBtn" value="INPUT" readonly> 
+        </div>
+    </div>
+
+    <script>
+        for(var i=0; i<document.all.block.length; i++)
+            document.all.block[i].onmouseover = fnmouseover;
+        
+        document.all.resetBtn.onclick = reset;
+        document.all.inputBtn.onclick = input;
+
+        var sol='14789';
+
+        function fnmouseover(){
+            event.target.src = "../images/rect_icon10.png";
+        }
+
+        function reset() {
+            
+            for(var i=0; i<document.all.block.length; i++){
+                document.all.block[i].src = "../images/rect_icon0"+ (i+1) +".png";
+            }
+
+        }
+        var str ="";
+        function input() {
+            // alert(document.all.block.length);    
+            for(var i=0; i<document.all.block.length; i++){
+                if ( document.all.block[i].src.indexOf("rect_icon10.png") != -1){
+                    str += (i+1);
+                }
+            }
+            if(str == sol)
+                window.location.href="https://www.google.com";
+                
+        }
+
+    </script>
+</body>
+</html>

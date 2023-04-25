@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item {
+            border : 1px solid #CCC;
+            background-color: #EEE;
+            padding : 10px;
+            margin : 15px;
+            width: 400px;
+            text-align: center;
+        }
+        .item > input[type=button] {
+            border: 1px solid ;
+            width : 100px;
+            height: 50px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex26_event.html -->
+    <h1>다량의 요소(태그)의 (일괄) 이벤터 처리</h1>
+
+    <div class="item">
+        <input type="button" name="btnRed" value="빨강" onclick="m1();">
+        <input type="button" name="btnYellow" value="노랑" onclick="m2();">
+        <input type="button" name="btnBlue" value="파랑" onclick="m3();">
+    </div>
+
+    <div class="item">
+        <input type="button" name="btnRed2" value="빨강">
+        <input type="button" name="btnYellow2" value="노랑">
+        <input type="button" name="btnBlue2" value="파랑">
+    </div>
+
+    <div class="item"> <!-- 함수 하나로 퉁친다. -->
+        <input type="button" value="빨강" onclick="m7('red');">
+        <input type="button" value="노랑" onclick="m7('yellow');">
+        <input type="button" value="파랑" onclick="m7('blue');">
+    </div>
+
+    <div class="item"> 
+        <!-- this : 이벤트 주체(이벤트가 걸린 태그)-->
+        <input type="button" value="빨강" onclick="m8(this);">
+        <input type="button" value="노랑" onclick="m8(this);">
+        <input type="button" value="파랑" onclick="m8(this);">
+    </div>
+
+
+    <div class="item"> 
+        <!-- this : 이벤트 주체(이벤트가 걸린 태그)-->
+        <input type="button" name="btnRed" value="빨강" onclick="m9(this);">
+        <input type="button" name="btnYellow" value="노랑" onclick="m9(this);">
+        <input type="button" name="btnBlue" value="파랑" onclick="m9(this);">
+    </div>
+
+    <div class="item"> 
+        <!-- this : 이벤트 주체(이벤트가 걸린 태그)-->
+        <input type="button" name="btnRed" value="빨강" onclick="m9(this);">
+        <input type="button" name="btnYellow" value="노랑" onclick="m9(this);">
+        <input type="button" name="btnBlue" value="파랑" onclick="m9(this);">
+    </div>
+
+    <div class="item"> 
+        <!-- this : 이벤트 주체(이벤트가 걸린 태그)-->
+        <input type="button" name="btnRed" value="빨강" onclick="m10(this);"    data-color="red"> 
+        <!-- 사용자 정의 속성이다. data-이름 -->
+        <input type="button" name="btnYellow" value="노랑" onclick="m10(this);" data-color="yellow">
+        <input type="button" name="btnBlue" value="파랑" onclick="m10(this);"   data-color="blue">
+    </div>
+
+    <div class="item"> 
+        <!-- this : 이벤트 주체(이벤트가 걸린 태그) this가 없는데 눌린버튼이 뭔지 어떻게 알아? -->
+        <input type="button" name="btnRed" value="빨강" onclick="m11();"    data-color="red"> 
+        <!-- 사용자 정의 속성이다. data-이름 -->
+        <input type="button" name="btnYellow" value="노랑" onclick="m11();" data-color="yellow">
+        <input type="button" name="btnBlue" value="파랑" onclick="m11();"   data-color="blue">
+    </div>
+
+
+    <!-- this : 이벤트 주체(이벤트가 걸린 태그) this가 없는데 눌린버튼이 뭔지 어떻게 알아? -->
+    <div class="item"> 
+        <input type="button" name="btnRed3"    value="빨강"  data-color="red"> 
+        <input type="button" name="btnYellow3" value="노랑"  data-color="yellow">
+        <input type="button" name="btnBlue3"   value="파랑"  data-color="blue">
+    </div>
+
+    <div class="item"> 
+        <input type="button" name="btn" value="빨강" data-color="red"> 
+        <input type="button" name="btn" value="노랑" data-color="yellow">
+        <input type="button" name="btn" value="파랑" data-color="blue">
+    </div>
+    <hr>
+
+    <div>
+        <img src="images/catty01.png" name="cat">
+        <img src="images/catty02.png" name="cat">
+        <img src="images/catty03.png" name="cat">
+        <img src="images/catty04.png" name="cat">
+        <img src="images/catty05.png" name="cat">
+    </div>
+    <!-- <div src="images/0.png"></div> -->
+    <script>
+        // alert(document.images.length); //"images/0.png" 이것도 포함
+        // alert(document.images['cat'].length); // 이건 한놈만 찾아줌 자동으로 배열이 안됨 
+        // alert(document.images['cat'].src); // images에서 찾으면 한놈이다.
+        alert(document.all.cat.length);
+
+        for( var i=0; i<document.images.length; i++){
+            document.all.cat[i].onclick = m14;
+        }
+
+        function m14() {
+            event.target.width = 300;
+        }
+
+        function m1(){
+            document.body.bgColor = 'red';
+        }
+        function m2(){
+            document.body.bgColor = 'yellow';
+        }
+        function m3(){
+            document.body.bgColor = 'blue';
+        }
+
+        document.all.btnRed2.onclick = m4;
+        document.all.btnYellow2.onclick = m5;
+        document.all.btnBlue2.onclick = m6;
+        
+        function m4() {
+            document.body.bgColor = 'red';
+        }
+
+        function m5() {
+            document.body.bgColor = 'yellow';
+        }
+
+        function m6() {
+            document.body.bgColor = 'blue';
+        }
+
+        function m7(color){
+            document.body.bgColor = color;
+        }
+
+        function m8(btn){
+            // this를 넘겨주니까 
+            alert(this.value); //object Window
+            // alert(btn.value);
+            // alert(this); //object Window
+        }
+
+        function m9(btn){
+
+            if( btn.value=='빨강' ){
+                document.body.bgColor = 'red';
+            }
+            else if(btn.value=='노랑') {
+                document.body.bgColor = 'yellow';
+            } else {
+                document.body.bgColor = 'blue';
+            }
+        }
+
+        function m9(btn) {
+            // alert(btn.name);  
+            document.body.bgColor = btn.name.substring(3);
+        }
+
+        function m10(btn) {
+            // <input data-color="red">
+            // data 뒤에 붙은데 key이다.이러면 3개 다 반환된다. 
+            // alert(btn.dataset['color']);
+            document.body.bgColor = btn.dataset['color'];
+        }
+        function m11() {
+            // 어떤 버튼이 눌렸는지?
+            // - event 객체 > 눌린 버튼을 제공한다. 
+
+            // 이벤트 발생 주체(태그) > m11(this)
+            // alert(event.srcElement);  //동일 MS꺼
+            // alert(event.target);      //동일 표준
+
+            // alert(event.target.dataset['color']); // event 객체로도 꺼내온다. ! 
+            document.body.bgColor=event.target.dataset['color'];
+        }
+        
+        document.all.btnRed3.onclick = m12;
+        document.all.btnYellow3.onclick = m12;
+        document.all.btnBlue3.onclick = m12;
+
+        function m12(){
+            document.body.bgColor = event.target.dataset['color'];
+        }
+        // alert(document.all.btn);  //[object HTMLCollection]
+        // name ='btn' 배열
+        // 1. name 유일 > 단일 객체
+        // 2. name 중복 > 배열
+        // alert(document.all.btn.length);  //3 93번줄 item안에 btn 3개다.
+        for(var i=0; i<document.all.btn.length ; i++){
+            document.all.btn[i].onclick = m13;
+        }
+        function m13() {
+            document.body.bgColor = event.target.dataset['color'];
+        }
+
+       
+
+    </script>
+</body>
+</html>

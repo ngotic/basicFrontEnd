@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex22_link.html -->
+    <h1>링크</h1>
+    <a href="http://naver.com" name="link1">네이버</a>
+    <hr>
+    <button type="button" name="btn1">확인</button>
+
+    <script>
+        document.all.btn1.onclick = m1; // all로 꺼냄
+        // form을 안만들면 저 버튼을 꺼내올 수 없다.
+        function m1(){
+            // 저거 네이버 PCDATA를 건드리고 싶은데 BOM으로는 못바꿈
+            document.links['link1'].href= 'http://google.com';
+            document.links['link1'].target = '_blank';
+            document.links['link1'].title = '구글로 이동합니다.';
+
+            //DOM
+            // document.links['link1'].innerText = '구글'; (MS) 비표준
+            document.links['link1'].textContent = '구글'; // 표준
+        }
+
+    </script>
+</body>
+</html>

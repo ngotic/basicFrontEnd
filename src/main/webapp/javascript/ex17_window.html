@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex17_window.html -->
+    <h1>window 객체</h1>
+    <form name="form1">
+        <fieldset>
+            <legend>창 제어</legend>
+            <input type="button" name="btn1" value="자식창 띄우기">
+            <input type="button" name="btn2" value="자식창 닫기">
+            <input type="button" name="btn3" value="자식창 조작하기">
+        </fieldset> <!-- 필드셋은 입력폼을 집합짓는 태그임 -->
+        <fieldset>
+            <legend>아이디</legend>
+            <input type="text" name="txtid" size="10">
+            <input type="button" value="중복검사" name="btncheck">
+        </fieldset>
+
+    </form>
+    <script>
+        var btn1 = window.document.form1.btn1;
+        var btn2 = window.document.form1.btn2;
+        var btn3 = window.document.form1.btn3;
+        var btncheck = window.document.form1;
+        var child;
+
+        btn1.onclick = m1;
+        btn2.onclick = m2;
+        btn3.onclick = m3;
+        btncheck.onclick = m4;
+
+        function m4(){
+            window.open('ex17_idcheck.html', 'check', 'width=300, height=300');
+        }
+        function m3(){
+            child.document.form1.txt1.value='부모창에서 왔습니다.';
+        }
+
+        function m1() {
+            // window 객체
+            // - BOM 최상위 객체 
+            // - 유일 > 브라우저 창을 창조하는 객체
+            // - window 객체 조작 > 브라우저 창 조작
+            // - 열기, 닫기, 이동하기, 사이즈 조절 등..
+            //window.open(); // 자기가 자기 자신을 열 수는 없다. 
+                             // 부모창 > 자식창 생성
+            // window.close();// 자기 스스로 종료 
+
+            // window.open(URL, Name, Options)
+            // 1. URL : 새창의 URL
+            // 2. Name : 새창 이름
+            // 3. Options: 옵션들 ..
+            // window.open('https://naver.com', 'naver', null);
+            // 탭 브라우저라서 탭으로 뜬다. 
+            // 이건 다른 html 문서를 띄움
+            // window.open('./ex17_child.html', 'child', '');
+            // window.open('./ex17_child.html', 
+            // 'child', 
+            // 'width=300, height=200, left=0, top=0');
+            // 이거 다시 창 띄우기 버튼 누르면 새로 고침이 된다.
+            // > child가 이미 떠있으면 새로고침이 된다. 
+            // 부모 자식 일대 다른 창의 참조 객체를 가져올 수 있다. 
+            child = window.open('./ex17_child.html', 
+            '',  // 이름을 안주면 새창이 계속 뜬다. 
+            'width=300, height=200, left=0, top=0')
+            // alert(child);// 자식 페이지의 window 참조 객체
+        }
+
+        function m2(){
+            // 자식창 닫기 
+            // window.close();
+            child.close();
+        }
+        
+
+    </script>
+</body>
+</html>

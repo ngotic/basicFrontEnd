@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex29_radio.html -->
+    <h1>라디오 버튼</h1>
+    <label><input type="radio" name="rb">흰색</label>
+    <label><input type="radio" name="rb">빨간색</label>
+    <label><input type="radio" name="rb">노란색</label>
+    <label><input type="radio" name="rb">파란색</label>
+    <label><input type="radio" name="rb">검은색</label>
+    <!-- 같은 ㄴname을 가져야 한놈이 선택이 되고 같지 않으면 따로따로 논다. -->
+
+    <script>
+        var rb = document.all.rb;
+
+        // console.log(rb[0]); // alert(rb[0]);        
+
+        for ( var i=0; i<rb.length; i++){
+            rb[i].onchange = m1;
+        }
+
+        function m1() {
+            // 5개의 라디오 버튼 중 누가 나를 불렀는지? 
+        }
+
+    </script>
+</body>
+</html>

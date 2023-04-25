@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex18_screen.html -->
+
+    <script>
+        //screen 객체 
+        // - window 객체의 자식
+        // - 화면 정보 제공 
+        console.log(window.screen.availWidth);//1536 > 1920
+        console.log(window.screen.availHeight);//824 > 1040
+        // 작업 표시줄은 제외한다. 그래서 available이다. 그리고 배율이 125%이다.
+        console.log(window.screen.colorDepth);  // 24bit Color 
+        console.log(window.screen.orientation); // ScreenOrientation {angle: 0, type: 'portrait-primary', onchange: null}
+        // type: 'landscape-primary' > 이거 잘 안씀 
+        
+    </script>
+</body>
+</html>
