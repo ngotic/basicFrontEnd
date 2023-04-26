@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>주민번호</th>
+            <td>
+                <input type="text" name="jumin1" size="6" maxlength="6">
+                <input type="text" name="jumin2" size="7" maxlength="7">
+            </td>
+        <tr>
+        <tr>
+            <th>생년월일</th>
+            <td>
+                <input type="text" name="year" size="4" maxlength="4">년
+                <input type="text" name="month" size="2" maxlength="2">월
+                <input type="text" name="date" size="2" maxlength="2">일
+            </td>
+        </tr>
+        <tr>
+            <th>성별</th>
+            <td>
+                <label><input type="radio" name="gender">남자</label>
+                <label><input type="radio" name="gender">여자</label>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var jumin1 = document.all.jumin1;
+        var jumin2 = document.all.jumin2;
+        var year = document.all.year;
+        var month = document.all.month;
+        var date = document.all.date;
+        var gender = document.all.gender;
+
+        jumin1.onkeyup = m1;
+        
+    </script>
+</body>
+</html>

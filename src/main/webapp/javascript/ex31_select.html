@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- BOM의 한계다... 선택한 요소의 자식요소나 부모요소는 찾아가지 못한다. -->
+
+    <!-- ex31_select.html-->
+    <select name="sell" multiple size="7"> <!-- 다중선택 -->
+        <option value="a1">강아지</option>
+        <option value="a2">고양이</option>
+        <option value="a3">돼지</option>
+        <option value="a4">닭</option>
+        <option value="a5">사자</option>
+        <option value="a6">호랑이</option>
+        <option value="a7">낙타</option>
+    </select>
+    <hr>
+    <input type="button" value="선택한 항목 확인하기" name="btn1">
+    <input type="button" value="선택한 항목 확인하기"  name="btn2">
+    <input type="button" value="항목추가하기" name="btn3">
+    <input type="button" value="항목삭제하기" name="btn4">
+    <input type="button" value="다중 선택 항목 확인하기" name="btn5">
+    <hr>
+    
+        태어난 년도: 
+        <!-- <select>
+            <option>1980</option>
+            <option>1981</option>
+        </select> 사실은 옵션은 안만든다. -->
+        <select name="selyear"></select>
+    <script>
+        var sell = document.all.sell;
+
+        document.all.btn1.onclick = m1;
+        document.all.btn2.onclick = m2;
+        document.all.btn3.onclick = m3;
+        document.all.btn4.onclick = m4;
+        document.all.btn5.onclick = m5;
+
+        function m1(){
+            // 읽기
+            alert(sell.value);
+            // sell.value='홍길동' (X) > 존재하는 value 중 하나를 넣어야 한다. 
+            sell.value = 'a3'; // 이러면 선택된 항목이 강아지 > 돼지로 된다. 
+        }
+        function m2(){
+            // 프로퍼티
+            // 1. HTML 속성을 그대로 똑같이 만들어 놓은 프로퍼티
+            // 2. Javascript가 독자적으로 만들어 놓은 프로퍼티
+            //alert(sell.selectedIndex); // 선택한 애의 인덱스를 입출력인데 0부터 시작
+            sell.selectedIndex = 2; // 이거는 인덱스로 해서 바꾼다. 
+        }
+
+        function m3(){
+            // 동적으로 <option> 생성하기
+
+            //<option> 중복검사
+            for( var i=0; i<sell.options.length; i++){
+                if(sell.options[i].text == '도마뱀')
+                    return;
+            }
+
+            // - <option value='a8'>도마뱀</option>
+            var op = new Option(); //<option></option>
+            op.value = 'a8';       //<option value="a8"></option> 
+            op.text = '도마뱀';    //<option value="a8">도마뱀</option> 
+            // 새로만든건데 아직 추가가 안됨 메모리상에만 잡힌것
+
+            //<select> + <option>
+            sell.options.add(op);  // 내장 메서드가 있다. select box가 
+            // 이래야 동적으로 추가된다.
+        }
+
+        function m4(){
+            //<option> 삭제 > index shift 발생!!
+            // sell.options.remove(3);
+            // 선택한 동물을 삭제하기
+            sell.options.remove(sell.selectedIndex);
+        }
+
+        function m5(){
+            // 단일 선택
+            // alert(sell.value); > 다중선택 컨트롤로 바뀌었다고 해도 
+            // value는 첫번째 항목만 선택한다. 
+            // for ( var i=0; i<sell.options.length ; i++){
+            //     // 각 옵션이 > true, false 값이 나온다.
+            //     if(sell.options[i].selected){
+            //         // alert(sell.options[i].selected); 
+            //         console.log(sell.options[i].text
+            //                     ,sell.options[i].value);
+            //     }
+            // }
+            // console.log('---');
+            // 요거 3개가 true다.
+            
+            sell.options[0].selected = true;
+            sell.options[1].selected = true;
+            sell.options[5].selected = true;
+
+        }
+
+        var selyear = document.all.selyear;
+
+        // 1960 ~ 2010
+        for(var i=1960; i< 2010; i++) {
+            var op = new Option(i+'년', i);// string은 1990년, value는 1990
+            selyear.options.add(op);
+        }
+
+        selyear.value = '1990';
+
+    </script>
+</body>
+</html>

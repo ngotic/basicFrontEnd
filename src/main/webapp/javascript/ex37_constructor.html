@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex37_constructor.html -->
+    <button name="btn1" type="button">버튼</button>
+
+    <script>
+        // 생성자 함수
+        // - 멤버 초기화
+        // - 같은 구조(*)의 객체를 생성하는 것이 목표!!
+        const m1 = {
+            name : '홍길동',
+            age : 20
+        };
+
+        const m2 = {
+            name : '아무개',
+            age : 22
+        };
+
+        // '생성자 함수'의 이름은 대문자로 시작한다.(관습) > 일반함수와 구분!! 
+        // 파스칼 표기법을 쓰고 Camel은 안쓴다.
+        function User(name, age) {
+            this.name = name;
+            this.age = age;
+            this.hello = function(){
+                console.log(' 내이름은 '  + this.name);
+            }
+        };
+
+        // 생성자 함수를 일반 함수처럼 호출하지 않는다.!
+        // 자바스크립트의 '생성자함수'도 new 연산자와 함께 호출해야 한다. 
+        // new User('홍길동', 20);
+
+        const m3 = new User('홍길동', 20); // 이런 표현이 원래 진짜인데
+        console.log(m3); // new라는 것 
+        // > this와 연결되고 this.으로 안쪽에 값이 대입 
+
+        // 모양만 보면 자바의 생성자 느낌으로 만들어 놓았다.
+
+        // new > 빈 객체를 생성! > 아예 빈객체
+        const m4 = {};
+
+        //User('홍길동'. 20) > 왼쪾에서 new가 만든 빈객체를 초기화 역할
+        m4.name = '홍길동';
+        m4.age =20;
+
+
+        const m5 = new User('이순신', 25); // ★ 이것이 생성자 함수!
+        console.log(m5);
+
+        document.all.btn1.onclick = f2;
+        // document.all.btn1.onclick = function() {
+        function f2() {
+            // this == 버튼
+            // event.target == event.srcElement == this;
+            alert(this.name);
+        };
+
+        // f2(); // 암것도 안뜬다. > name에 암것도 없음
+
+        function f1() {
+            // 이 함수를 누가 호출했는지? 누가 소유주인지?
+            // this == window 객체
+            // this == 버튼
+            alert(this);
+        }; // No event
+
+
+        // f1(); // 이러면 this는 window 객체이다.
+        // document.all.btn1.onclick = f1; > 이렇게 하면 this가
+        // 이렇게 나온다. [object HTMLButtonElement]
+        // 전역 변수와 전역 함수는 무조건 window 객체의 프로피티가 된다. 
+        // window.f1(); ★ 이벤트를 등록하지 않으면 소유주가 window다.
+        // 근데 이벤트를 
+        // document.all.btn1.onclick = f1;
+        // ★ 이렇게 넣으면 소유주가 버튼이 된다.
+
+
+        const now = new Date(); // 얘도 사실은 생성자 함수다. 
+        const list = [];
+
+        console.log(typeof m5); //object
+        console.log(typeof now); //object
+        console.log(typeof list); //object
+
+        // 객체, 배열 new로 만든 생성자함수
+        // 다 object이다. 
+                             // now나 list도 왜 name으로 넣었나? 
+        console.log(typeof m5, m5.constructor.name); //object User
+        console.log(typeof now, now.constructor.name); //object Date
+        console.log(typeof list, list.constructor.name); //object Array
+
+
+    </script>
+</body>
+</html>

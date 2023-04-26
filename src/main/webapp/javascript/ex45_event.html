@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex45_event.html -->
+    <h1>Dom Event</h1>
+    <input type="button" value="BOM" id="btn1" name="btn1">
+    <input type="button" value="DOM" id="btn2" name="btn2">
+
+    <script>
+
+        // BOM Event 
+        window.document.all.btn1.onclick = function() {
+            alert('BOM');
+        };
+
+        // BOM 이벤트 - DOM 이벤트 차이가 있다. 
+
+        // DOM Event;                                     on을 뺴랑
+        document.getElementById('btn2').addEventListener('click', function(){
+            alert('DOM');
+        });
+
+
+        const btn1 = document.getElementById('btn1');
+        const btn2 = document.getElementById('btn2');
+
+        // 이벤트 매핑 관리 불가능
+        btn1.onclick = m1;
+        btn1.onclick = m2; // m1은 사라지고 m2만 남았는데 이건 ★덮어쓰기 된 것이다.
+        // onclick에라는 속성에 m2라는 함수 이름이 저장됨
+
+        // BOM의 이벤트제거 
+        btn1.onclick = null; // 이벤트 제거
+
+
+
+        // 이벤트 매핑을 관리할 수 있다. > Invocation List ( 이벤트 함수 목록 )
+        btn2.addEventListener('click', m1);
+        btn2.addEventListener('click', m2); // 누적된다. > m1, m2 둘다 동작된다.
+        // 하나의 이벤트에 여러 함수 등록가능
+        btn2.removeEventListener('click', m1);// 이벤트 제거
+
+
+        function m1(){
+            alert('1');
+        }
+
+        function m2(){
+            alert('2');
+        }
+
+    </script>
+</body>
+</html>

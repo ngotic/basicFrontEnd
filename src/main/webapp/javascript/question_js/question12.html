@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+
+    body{
+        color:#777;
+        font-size: 12px;
+        letter-spacing: -2px;
+    }
+
+    #tbl tr td input{
+        width:95%;
+        box-sizing: border-box;
+        outline: none;
+        
+    }
+
+    #tbl{
+        font-weight: bold;
+        width:450px;
+    }
+
+    #tbl tr{
+        text-align: center;
+    }
+
+    #tbl tr input.txt:read-only{
+        cursor: not-allowed;
+        background-color: #EEE;
+        outline: none;
+        box-sizing: border-box;
+    }
+
+    #tbl tr input[type=checkbox]:checked{
+        color: #444;
+        background-color: #444;
+        accent-color: #777;
+        
+    }
+
+</style>
+</head>
+
+<body>
+    <h2>입력하기</h2>
+    <table id="tbl">
+        <tr>
+            <th>번호</th>
+            <th>입력</th>
+            <th>잠금</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td id="test">
+                <input class="txt" type="text" name="inp" data-cno="0">
+            </td>
+            <td><input type="checkbox" name="cb" readonly=false></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>
+                <input class="txt" type="text" name="inp" data-cno="1">
+            </td>
+            <td><input type="checkbox" name="cb"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>
+                <input class="txt" type="text" name="inp" data-cno="2">
+            </td>
+            <td><input type="checkbox" name="cb"></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>
+                <input class="txt" type="text" name="inp" data-cno="3">
+            </td>
+            <td><input type="checkbox" name="cb"></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>
+                <input class="txt" type="text" name="inp" data-cno="4">
+            </td>
+            <td><input type="checkbox" name="cb"></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>
+                <input class="txt" type="text" name="inp" data-cno="5">
+            </td>
+            <td><input type="checkbox" name="cb"></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>
+                <input class="txt" type="text" name="inp" data-cno="6">
+            </td>
+            <td><input type="checkbox" name="cb"></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>
+                <input class="txt" type="text" name="inp" data-cno="7">
+            </td>
+            <td><input type="checkbox" name="cb"></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>
+                <input class="txt" type="text" name="inp" data-cno="8">
+            </td>
+            <td><input type="checkbox" name="cb"></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>
+                <input class="txt" type="text" name="inp" data-cno="9">
+            </td>
+            <td><input type="checkbox" name="cb"></td>
+        </tr>
+    </table>
+<script>
+
+    
+
+    for (var i =0 ; i < document.all.cb.length ; i++) {
+        document.all.cb[i].onclick = checkBox;
+        document.all.inp[i].ondblclick = inputClick;
+        document.all.inp[i].onkeydown = fnkeydown;
+    }
+
+    function fnkeydown() {
+        let no = event.target.dataset["cno"];// dataset을 쓰자
+        if(event.keyCode ==13 ) {
+            document.all.cb[no].checked = !document.all.cb[no].checked;
+            document.all.inp[no].readOnly = !document.all.inp[no].readOnly;
+        }
+    }
+
+    function inputClick() {
+        let no = event.target.dataset["cno"];// dataset을 쓰자
+        event.target.readOnly = !event.target.readOnly;
+        document.all.cb[no].checked = !document.all.cb[no].checked
+    }
+
+    function checkBox() {
+        for(var i=0 ; i < document.all.cb.length ; i++) {
+            if( document.all.cb[i].checked ){
+                document.all.inp[i].readOnly = true;
+            } else {
+                document.all.inp[i].readOnly = false;
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>

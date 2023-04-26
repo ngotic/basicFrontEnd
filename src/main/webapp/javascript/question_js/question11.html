@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+
+            color:#777;
+            font-weight: bold;
+
+        }
+
+        #tbl{
+            border-collapse: collapse;
+        }
+
+        #tbl td:nth-child(1){
+            width:200px;
+            padding: 20px 0 ;
+            text-align: center;
+        }
+
+        #tbl td:nth-child(2){
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        #tbl td:nth-child(3){
+            text-align: center;
+            width:200px;
+        }
+
+        #tbl tr td input {
+            color:#777;
+            margin: 10px;
+            width: 120px;
+            display: block;
+        }
+
+        #tbl tr td select {
+            width: 130px;
+            height: 340px;
+            font-size: 12px;
+            color:#777;
+            font-weight: bold;
+        }
+        #tbl tr td .btn {
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1px solid black" id="tbl">
+        <tr>
+            <td><h4 style="margin-top:0;">차단된 친구</h4>
+                <select name="sell1" size="14"> <!-- 다중선택 -->
+                    <option>권예진</option>
+                    <option>권준혁</option>
+                    <option>김동식</option>
+                    <option>김세진</option>
+                    <option>김여정</option>
+                    <option>노형준</option>
+                    <option>박민선</option>
+                    <option>백강현</option>
+                    <option>변기현</option>
+                </select>
+
+            </td>
+            <td>
+                <input type="button" value="Add ▷" class="btn" name="add">
+                <input type="button" value="◁ Remove" class="btn" name="remove">
+                <input type="button" value="Add All ▷" class="btn" name="addall">
+                <input type="button" value="◁ ◁ Remove All" class="btn" name="removeall">
+            </td>
+            <td>
+                <h4 style="margin-top:0;">허용된 친구</h4>
+                <select name="sell2" size="14"> 
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        // 왼 -> 오
+        document.all.add.onclick = add;
+        // 오 -> 왼
+        document.all.remove.onclick = remove;
+        // 왼 -> 오
+        document.all.addall.onclick = addAll;
+        // 오 -> 왼
+        document.all.removeall.onclick = removeAll;
+
+
+        document.all.sell1.ondblclick = add;
+        document.all.sell2.ondblclick = remove;
+
+
+        function add(){
+            for(var i=0 ; i<document.all.sell1.options.length ; i++  ){
+                if(document.all.sell1.options[i].selected){
+                    document.all.sell2.options.add(new Option(document.all.sell1.options[i].text));
+                    document.all.sell1.options.remove(document.all.sell1.options.selectedIndex);// 잘지워짐
+                    return;
+                }
+            }
+        }
+
+        function remove(){
+            for(var i=0 ; i<document.all.sell2.options.length ; i++  ){
+                if(document.all.sell2.options[i].selected){
+                    var temp = document.all.sell2.options[i].text;
+                    document.all.sell2.options.remove(document.all.sell2.options.selectedIndex);// 잘지워짐
+                    document.all.sell1.options.add(new Option(temp));
+                    return;
+                }
+            }
+        }
+
+        function addAll(){
+
+            list = [];
+
+            for(var i=0 ; i<document.all.sell1.options.length ; i++  ){
+                list.push(document.all.sell1.options[i].text);
+            }
+            for(var i=0 ; i < list.length ; i++  ){
+                document.all.sell1.options.remove(0);
+                document.all.sell2.options.add(new Option(list[i]));
+            }
+        }
+
+        function removeAll(){
+            list = [];
+            for(var i=0 ; i<document.all.sell2.options.length ; i++  ){
+                list.push(document.all.sell2.options[i].text);
+            }
+            for(var i=0 ; i < list.length ; i++  ){
+                document.all.sell2.options.remove(0);
+                document.all.sell1.options.add(new Option(list[i]));
+            }
+        }
+
+
+    </script>
+</body>
+</html>

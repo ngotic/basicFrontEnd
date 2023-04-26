@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+        #me {
+            outline: 5px solid black;
+        }
+        .check {
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex43_axis.html -->
+    <h1>Axis</h1>
+    <input type="button" value="버튼" id="btn">
+    <hr>
+    <div>
+        할아버지
+        <div>
+            큰아버지
+            <div>사촌</div>
+        </div>
+        <div>
+            아버지
+            <div>
+                큰형
+                <div>조카</div>
+            </div>
+            <div>
+                작은형
+            </div>
+            <div id="me">
+                나
+                <div class="dsd">큰애</div>
+                <div>둘째
+                    <div>손자</div>
+                </div>
+                <div>막내</div>
+            </div>
+            <div>
+                동생
+            </div>
+            <div>
+                막내동생
+                <div>조카</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // DOM > id, class, name, tagname
+        // - 식별자로 검색하는 도구
+
+        // DOM > Axis(Traversing)
+        // - 본인을 기준으로 주변의 요소(부모, 자식, 형제)를 검색하는 도구 
+
+        document.getElementById('btn').onclick = function() {
+            const me = document.getElementById('me');
+            // 나로부터 다른 사람 검색
+            // me.className = 'check';  // <div id="me" class="check">
+            // className으로 넣는데
+
+            // 자식 태그
+            // - me.childNodes : 자식노드들
+            // - me.firstChild:첫번째 자식 노드  me.childNodes[0]
+            // - me.lastChild: 마지막 자식 노드 > me.childNodes[me.childNodes.length-1]
+
+            // - me.children : 자식 태그들> 배열이다.
+            // - me.firstElementChild  > 첫번쨰
+            // - me.lastElementChild   > 마지막
+
+            // alert(me.childNodes.length); // 7뜬다.
+            // DOM에서는 문자열도 자식으로 인정을 한다.
+            // for(let i=0; i< me.childNodes.length; i++){
+                // DOM 트리 구성 요소(노드)
+                // - 태그뿐만 아니라 다른 요소도 포함
+                // - 구성요소 > 태그, PCDATE, 주석, 엔티티, 선언문, 속성 등...
+                // 1. 태그(1)
+                // 2. 속성(2)
+                // 3. PCDATA(3)
+                // -----------
+                // 4. 주석(8)
+                // 5. 선언문(13)
+                // DOM 트리구성노드의 프로퍼티
+                // 1. nodeType > 해당 노드가 어떤 형식 > 열거형(숫자)
+                // 2. nodeName > 태그(태그명:대문자다). 속성(속성명), PCDATA(#text)
+                // 3. nodeValue> 태그(null), 속성(속성값), PCDATA(문자열)
+
+
+                // console.log(me.childNodes[i].nodeType); // 7명들에게 타입을 물어봄, 3은 문자열, 1은 태그
+                // console.log(me.childNodes[i]);
+                // console.log(me.childNodes[i].nodeType,
+                //             me.childNodes[i].nodeName);  
+                // if(me.childNodes[i].nodeType == 1 && me.childNodes[i].nodeName =='DIV') {
+                //         me.childNodes[i].className = 'check';
+                // } // 
+            //}
+            //alert(me.children.length); // 자식 태그들이라는 뜻이다. 
+
+            // me.firstElementChild.className = 'check';
+            // me.lastElementChild.className = 'check';
+
+            // for(let i=0 ; i<me.children.length ; i++){
+            //     me.children[i].className = 'check';
+            // }
+
+            //손자
+            // me.children[1].firstElementChild.className = 'check';
+            // me.children[1].children[0].className = 'check';
+
+
+            //부모 & 조상 
+            //- me.parentNode : 태그가 아닌것도
+            //- me.parentElement : 태그일 때만 : 태그가 아닌건 부모가 될 수 없다. > 이 두개는 동일하다.
+            // me.parentNode.className = 'check';
+            // me.parentElement.className = 'check';
+
+            //me.parentNode.parentNode.className = 'check'; // 할아버지
+
+            // body
+            // me.parentNode.parentNode.parentNode.className = 'check'; // body태그까지 찾음 문서전체에 적용
+
+            // html
+            // me.parentNode.parentNode.parentNode.parentNode.className = 'check';
+
+            // 누군가 있는데 눈에보이는 테그가 아닐뿐
+            // me.parentNode.parentNode.parentNode.parentNode.parentNode.className = 'check';
+            
+            console.log(me.parentNode.parentNode.parentNode.parentNode.nodeName);// HTML
+            console.log(me.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName);
+            console.log(me.parentNode.parentNode.parentNode.parentNode.parentNode === window.document); // 동일하다.
+            //#document > window.document
+            
+            //caught TypeError: Cannot read properties of null (reading 'nodeName')
+            // console.log(me.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName); 
+            // document 위에는 아무것도 없다.
+
+            // document의 부모 > window::BOM모델에서
+            // document의 최상위 객체::DOM모델에서
+
+            // 형제 찾기
+            // me.parentElement.firstElementChild.className = 'check';
+
+            // // 작은형
+            // me.parentElement.children[1].className = 'check';
+
+
+            // me.parentElement.children[3].className = 'check';
+
+            // me.parentElement.lastElementChild.className = 'check';
+
+            // 부모와 자식 찾으면 형제도 가능하다. 형제를 직접적으로 탐색할수잇다.
+            
+            // 바로 위의 형제
+            // me.previousSibling
+            // me.previousElementSibling
+
+            // 바로 밑의 형제 
+            // me.nextSibling
+            // me.nextElementSibling
+
+            // me.previousElementSibling.className = 'check';
+            me.previousElementSibling.previousElementSibling.className ='check';
+                                  // 전 > 전
+        } //btn.onclick
+
+    </script>
+</body>
+</html>

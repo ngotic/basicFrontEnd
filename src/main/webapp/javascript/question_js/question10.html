@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: #666;
+            font-weight: 800;
+        }
+        #tbl{
+            
+            border-collapse: collapse;
+        }
+
+        #tbl tr td{
+            padding: 6px;
+        }
+
+        #tbl tr td:nth-child(1){
+            font-size: 14px;
+            padding : 6px 20px 6px 20px;
+            width: 100px;
+            text-align: center;
+            background-color: #eee;
+            font-weight: 900;
+        }
+        #tbl tr td:nth-child(2){
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <table border="1px solid grey" id="tbl">
+        <tr>
+            <td>주민번호</td>
+            <td><input type="text" style="width:50px" name="frontnum"> 
+            - <input type="text"style="width:70px" name="rearnum"></td>
+        </tr>
+        <tr>
+            <td>생년월일</td>
+            <td><input type="text" style="width:40px" name="year"> 년 <input type="text" style="width:30px" name="month"> 월 <input type="text" style="width:30px" name="day"> 일</td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td>
+                <input type="radio" name="gender" value='m'>남자
+                <input type="radio" name="gender" value='f'>여자
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        document.all.frontnum.onkeyup = m1;
+        document.all.rearnum.onkeyup = m2;
+
+
+        function m1(){
+            if(event.target.value.length == 6) {   
+                document.all.year.value = '19'+document.all.frontnum.value.substring(0,2);
+                document.all.month.value = document.all.frontnum.value.substring(2,4);
+                document.all.day.value = document.all.frontnum.value.substring(4,6);
+                document.all.rearnum.focus();
+            }
+        }
+
+        function m2(){
+            if ( event.target.value== '1') {
+                document.all.gender[0].checked=true;
+            }
+            else if ( event.target.value== '2') {
+                document.all.gender[1].checked=true;
+            }
+        }
+
+    </script>
+</body>
+</html>

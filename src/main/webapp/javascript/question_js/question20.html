@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color:#444;
+        }
+        #tbl{
+            border-collapse: collapse;
+            margin-top: 10px;
+            border: 1px solid gray;
+            width: 300px;
+        }
+        #tbl th{
+            border: 0;
+        }
+        #tbl tr td{
+            text-align: center;
+            border: 1px solid gray;
+        }
+        fieldset{
+            color:#444;
+            width:200px;
+        }
+
+        fieldset div{
+            padding: 2px;
+        }
+
+    </style>
+</head>
+<body>
+    <!--  -->
+    <h1>테이블</h1>
+    <fieldset>
+        <legend>색상입력</legend>
+        <div>
+            색상: <input type="color" id="color">
+        </div>
+        <div>
+            이름:
+        </div> 
+        <div>
+            <input type="text" id="txt1" required>
+        </div>
+        <div>
+            <input type="button" value="추가하기" id="btn1">
+        </div>
+    </fieldset>
+    <table id="tbl" border="1">
+        <tr>
+            <th>색상명</th>
+            <th>미리보기</th>
+        </tr>
+        <tr>
+            <td>노랑</td>
+            <td class="c">#FFFF00</td>
+        </tr>
+        <tr>
+            <td>풀색</td>
+            <td class="c">#ACEF12</td>
+        </tr>
+    </table>
+    <script>
+        
+        let rgb = document.getElementById('color');
+        let txt1 = document.getElementById('txt1');
+        let btn1 = document.getElementById('btn1');
+
+        colorFill();
+        
+        function colorFill(){
+            for(let i=0 ; i<document.getElementsByClassName('c').length;i++){
+            document.getElementsByClassName('c')[i].bgColor =  document.getElementsByClassName('c')[i].innerHTML;
+            }
+        }
+        
+        btn1.onclick = function() {
+            let a = txt1.value;
+            let b = rgb.value.toUpperCase(); 
+            let tbl = document.getElementById('tbl');
+            tbl.innerHTML=tbl.innerHTML+'<tr> <td>'+a+'</td> <td class="c">'+b+'</td> <tr>';
+            colorFill();
+        }
+        
+    </script>
+</body>
+</html>

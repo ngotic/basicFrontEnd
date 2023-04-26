@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex38_dom.html -->
+    <h2>DOM</h2>
+    <form name="form1">
+        <h2 id="title">Control</h2>
+        <div>
+            <input type="text" name="txt1" id="txt1" class="txt" >
+            <input type="text" name="txt2" id="txt2" class="txt" >
+            <input type="text" name="txt3" id="txt3" class="txt" >
+            <input type="button" value="확인" name="btn1" id="btn1">
+        </div>
+    </form>
+    <script>
+        // BOM > name 사용, id/class 인식 불가능
+        // DOM > name/id/class 모두 사용.(name 비권장)
+
+        /*
+            DOM, Document Object Model 
+            - BOM 다음 버전
+            - 모든 태그 조작 가능
+            - 기능 풍부
+            - 태그 검색 도구 > 풍부
+            - DOM Level 1 > DOM Level 2 > DOM Level 3(우리가 쓰는거)
+            - DOM Level 0(일부 사람들이 이렇게 부른다. BOM을 DOM Level 0라고 부름)
+
+
+            // BOM은 트리구조로 짜져있었고 그거 기준으로 찾아갔음 > 그게 길고 불편함
+
+            DOM > BOM 확장
+            - *** DOM의 모든 기능을 BOM의 document 내부에 구현해놨다. 
+
+            DOM > 태그 검색(식별자 검색으로 direct하게 찾는다.)
+        
+            1. id 검색            > document.getElementById('id') // 복수일 때 맨 위에것만 찾아준다. 
+            2. class 검색         > document.getElementsByClassName('class')
+            3. name 검색          > document.getElementsByName('name')
+            4. 태그명 검색         > document.getElementsTagName('tag')
+            5. CSS 선택자 검색 >>>>> 이것도 ES6에서 생긴것이다. 이거 좋다. 
+               > 태그 찾는데 편한데, BOM은 성능이 떨어지는 검색도구 
+                                //> document.querySelector('selector')
+                                //> document.querySelectorAll('selector')
+
+        */
+
+        // <input type="text" name="txt1" id="txt1" class="txt">
+        // BOM 
+        window.document.form1.txt1.value = 'BOM';
+        
+
+        // 1. ID 검색
+        // DOM > BOM보다 좋은점은 족보 따질일이 없다는 것
+        document.getElementById('txt2').value = 'DOM';
+        // alert(document.getElementById('txt1').value);
+
+        // 태그를 BOM으로 검색하던, DOM으로 검색하던, 검색 결과는 동일하다. 
+        // alert(document.form1.txt1 == document.getElementById('txt1'));
+        // > true뜬다.
+        // BOM이나 DOM이나 검색 결과는 동일하다. > 뭘로 찾든 동일하다!! 
+
+
+        // 2. 클래스 검색 
+        let txt = document.getElementsByClassName('txt');
+        // console.log(txt.length); // 3개를 찾음 
+
+        for ( let i = 0; i< txt.length; i++){
+            txt[i].value = i;
+        }
+
+        // 3. name 검색
+        //document.getElementsByName('txt1').value = '홍길동'; // (X)
+        // getElements라서 리턴값이 배열이다. 0번
+        document.getElementsByName('txt1')[0].value = '홍길동'; // (O)
+        // 0번 인덱스를 반드시 붙여라 !!
+
+        // 4. 태그명 검색
+        let input = document.getElementsByTagName('input');
+
+        for(let i= 0; i< input.length ; i++){
+            input[i].value = i;
+        }
+
+
+        // 5. CSS 선택자를 사용
+        document.querySelector('.txt').value = 'CSS';
+        alert(document.querySelectorAll('.txt').length);
+    </script>
+</body>
+</html>

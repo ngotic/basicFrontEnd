@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'BRRA_R';
+        }
+        #main {
+            /* padding: 30px; */
+            width:800px;
+            
+            
+        }
+
+        .clone{
+            font-size: 10rem;
+            margin-bottom: 60px;
+        }
+
+        #main #timer {
+            height:160px;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items :center;
+            border: 1px solid #333;
+        }
+        #main #timer img{
+            width : 100px;
+        }
+
+        #main #buttons{
+            margin: 10px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #main #buttons input{
+            border: 1px solid #777;
+            box-sizing: border-box;
+            /* letter-spacing: -1px; */
+            border-radius: 0px;
+            font-family: 'BRRA_R';
+            width:30%;
+            height:21%;
+            margin:2px;
+            padding: 10px;
+            font-size: 13px;
+            font-weight: bold;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        #main #buttons input:disabled{
+            color:#333;
+            background-color: #EEE;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!--  -->
+        <div id="main">
+            <div id="timer">
+                <img src="../images/0.png" alt="" name="img">
+                <img src="../images/0.png" alt="" name="img">
+                <span class="clone">:</span>
+                <img src="../images/0.png" alt="" name="img">
+                <img src="../images/0.png" alt="" name="img">
+                <span class="clone">:</span>
+                <img src="../images/0.png" alt="" name="img">
+                <img src="../images/0.png" alt="" name="img">
+            </div>
+            <div id="buttons">
+                <input type="button" value="시작" name="start">
+                <input type="button" value="멈춤" name="stop">
+                <input type="button" value="종료" name="end">
+            </div>
+        </div>
+      
+    <script>
+        document.all.stop.disabled = true;
+        document.all.end.disabled = true; 
+        
+        let min = 0;
+        let timer = 0;
+        let tick = 0;
+
+        document.all.start.onclick = fnStart;
+        document.all.stop.onclick = fnStop;
+        document.all.end.onclick = fnEnd;
+
+
+        function fnStart(){
+            document.all.start.disabled=true;
+            document.all.stop.disabled=false;
+            document.all.end.disabled=false;
+            if(timer == 0) {
+                timer = setInterval(() => {
+                    tick++;
+                    str = tick+'';
+                    if( tick == 6000 ) tick = (++min)*10000;
+                    if ( tick == 595999 ){
+                        tick=0;
+                    }
+                    timestr = '0'.repeat(6-str.length)+tick;
+
+                    document.all.img[0].src = "../images/"+timestr.charAt(0)+".png"
+                    document.all.img[1].src = "../images/"+timestr.charAt(1)+".png"
+                    document.all.img[2].src = "../images/"+timestr.charAt(2)+".png"
+                    document.all.img[3].src = "../images/"+timestr.charAt(3)+".png"
+                    document.all.img[4].src = "../images/"+timestr.charAt(4)+".png"
+                    document.all.img[5].src = "../images/"+timestr.charAt(5)+".png"
+
+                }, 50);
+            }
+        }
+
+        function fnStop(){
+            document.all.start.disabled=false;
+            document.all.stop.disabled=true;
+            document.all.end.disabled=false;
+            clearInterval(timer);
+            timer = 0;
+        }
+
+        function fnEnd(){
+            document.all.start.disabled=false;
+            document.all.stop.disabled=true;
+            document.all.end.disabled=true;
+            document.all.img[0].src = "../images/0.png"
+            document.all.img[1].src = "../images/0.png"
+            document.all.img[2].src = "../images/0.png"
+            document.all.img[3].src = "../images/0.png"
+            document.all.img[4].src = "../images/0.png"
+            document.all.img[5].src = "../images/0.png"
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- e35_object.html -->
+
+    <script>
+    /*
+        객체, Object
+        - JavaSript에는 클래스가 없다. 하지만 내장 객체를 제공한다. 
+        1. 내장 객체
+            - Date, Array, Math, Object, Option 등.. 
+            - new Date()
+            - new Array()
+
+        2. BOM객체
+            - window, document, form, txt, button 등..
+            - BOM 트리 구성요소들 .. 
+            
+        3. DOM객체
+            - element, attribute, text 등..
+
+        4. 사용자 정의 객체(***)
+            - Javascript에는 클래스가 없다. 원하는 형태(구조)의 객체를 만들 수 있다.
+            - ES6에서 클래스 문법이 만들어짐 > 진짜 class가 아니라, 진짜 class 처럼 흉내낸 문법을 도입
+
+
+        class User {
+
+            public String name;
+            public int age;
+            public String address;
+
+        }   
+        
+        User hong = new User();
+
+        hong.name = "홍길동";
+        hong.age = 20;
+        hong.address = "서울시 강남구";
+
+    */
+        // var hong = new Object();
+        // let hong = new Object();
+        const hong = new Object();
+        // Java의 HashMap과 유사
+        // Javascript 이게 property로 추가하는 방법이다. 
+        hong.name = "홍길동";
+        hong.age = 20;
+
+        hong.address = '서울시 강남구';    // 작성이 편함, 가독성 좋음
+        hong['address'] = '서울시 강동구'; // 
+        console.log(hong.name);
+
+        let p = 'address';
+        console.log(hong.p); // undefined이다. 
+        console.log(hong[p]); 
+
+        const lee = new Object();
+        lee.name = '이순신';
+        lee.age = 25;
+        lee.addrss = '서울시 동대문구'; // 오타임 > 근데 객체 안에 들어간다. 이걸 관리할 만한 방법이 없다. 
+        lee.address = '서울시 동대문구';
+
+        console.log(lee);
+
+
+
+        // -------------------------------------------------------
+        const you = {
+            name : '유재석',
+            age : 30,
+            address : '서울시 은평구'
+        };
+        // you.name = '유재석';
+        // you.age= 30;
+        // you.address = '서울시 은평구';
+
+        you.email = 'you@gmail.com'; // 이것도 잘된다. 
+        console.log(you);
+
+        // 객체 안에 객체를 넣는 것도 잘된다.
+
+        const address = {
+            sido : '서울시',
+            gugun : '강남구',
+            dong  : '역삼동'
+        };
+
+
+        const jo = {
+            name : '조세호',
+            age : 28,
+            address : address
+        };
+
+        const yang = {
+            name : '양세찬',
+            age : 29,
+            address : {
+                sido : '서울시',
+                gugun : '강남구',
+                dong  : '역삼동'
+            }
+        };
+
+        console.log(yang.address.dong);
+        
+    </script>
+</body>
+</html>

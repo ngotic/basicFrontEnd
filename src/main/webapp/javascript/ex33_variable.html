@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex33_variable.html -->
+    <input type="text" name="txt1">
+
+    <script>
+    /*       
+        1. Core
+        2. BOM
+        3. Core
+        4. DOM
+
+        변수 선언하기
+        1. var > 별로 안좋음
+            - BOM ~ DOM ~ ES6
+            - function-scoped
+            - 중복 선언 가능
+            - 상수 선언 불가능
+
+        2. let 
+            - ES6
+            - block-scoped
+            - 중복 선언 불가능
+            - 변수
+
+        3. const 
+            - ES6
+            - block-scoped
+            - 중복 선언 불가능
+            - 상수(final 변수 느낌 )
+    */
+    // var a = 10;
+    // console.log(a);
+
+    // var a = 10; // 똑같은 애가 있는데 이게 어떻게 재선언 됨????
+    // console.log(a);
+
+
+
+    // /* 자바스크립트 향상된 for문? */
+    // // for ( 변수 in 배열) {
+    // // }
+
+
+    // var list = [10, 20, 30];
+    // // 이건 우리가 알던 향상된 for문이 아님
+    // for ( var n in list){
+    //     console.log(n); // 0 1 2 출력
+    // }
+    // console.log('----------------');
+    // for ( var p in screen ) {
+    //     console.log(p);
+    // } // 뭔가 뽑아오고 이게 단어가 나오는데 availWidth availHeight .... 프로퍼티 이름들이 나온다.
+    // console.log('----------------');
+    // var m=0;
+    // for (var p in document.all.txt1){
+    //     console.log(p);
+    //     m++;
+    // }
+
+
+    //*** 전역 멤버(전역변수, 함수)는 자동으로 window 객체의 멤버(프로퍼티)가 된다. 
+
+    var a = 10; // a; 전역변수
+    var a = 20; // 사실은 변수가 아닌 속성이라서 재정의가 되는 것이다. 
+    for ( var p in window ){ // p; 전역변수
+        console.log(p);
+    }
+
+    let b = 20;
+    console.log(b);
+    // let b = 30; // 33_variable.html:82 Uncaught SyntaxError: Identifier 'b' has already been declared > 재정의 불가
+
+
+    if(true) {
+        var c = 30; // 전역변수
+        let d = 40; // 지역변수
+    }
+
+    console.log(c);  // 얘는 벗어난다.
+    // console.log(d); // 얘는 지역변수 역할을 제대로한다.
+
+    for(var i=0; i<5; i++){
+
+    }
+    console.log(i); // i가 전역변수라서 살아있다. > 우리가알던 for문의 i는 
+    // 지역변수 역할인데!? 
+
+    for(let j=0 ; j<5; j++){
+
+    }
+    //console.log(j); //33_variable.html:102 Uncaught ReferenceError: j is not defined
+ 
+    const e = 10;
+    //e = 20; //33_variable.html:105 Uncaught TypeError: Assignment to constant variable.
+ 
+
+    </script>   
+</body>
+</html>

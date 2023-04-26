@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        color: #777;
+    }
+    
+    #tbl{
+        border-collapse: collapse;
+    }
+
+
+    #tbl tr:nth-child(1) td input:nth-child(1){
+        width: 60px;
+        margin-right: 2px;
+    }
+
+
+
+    #tbl tr td input{
+        outline: none;
+    }
+    #tbl tr td:nth-child(1) {
+        width: 120px;
+        font-size: 16px;
+        letter-spacing: -1px;
+        background-color: #DEDEDE;
+        color: #777;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    #tbl tr td:nth-child(2){
+        width:480px;
+        padding: 10px;
+    }
+
+    #tbl tr td {
+        padding: 5px;
+    }
+
+    #tbl tr:nth-child(2) td:nth-child(2) input,
+    #tbl tr:nth-child(3) td:nth-child(2) input{
+        width:99%;
+    }
+
+</style>
+<body>
+    <h1>우편 번호 검색</h1>
+    <table border="1" id="tbl">
+        <tr>
+            <td>우편번호</td>
+            <td><input type="text" name="addressnum" readonly><input type="button" value="우편번호검사하기" name="check" style="font-weight: bold; font-size: 12px; color:#777"></td>
+        </tr>
+        <tr>
+            <td>주소</td>
+            <td><input type="text" name="address" readonly></td>
+        </tr>
+        <tr>
+            <td>상세주소</td>
+            <td><input type="text" name="detailAddress" readonly></td>
+        </tr>
+    </table>
+    <script>
+        document.all.check.onclick = m1;
+
+        function m1(){
+            window.open('./question08_search.html','search','width=300, height=200');
+        }
+        
+
+    
+    </script>
+</body>
+</html>

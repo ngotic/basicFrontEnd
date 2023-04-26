@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex39_content.html -->
+    <h1>Cotent</h1>
+
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2" name="btn2">
+    <hr>
+
+    <div id="div1"></div>
+    <div id="div2"></div> <!-- name을 가질 수 있는 태그, 가질 수 없는 태그 나뉜다.name이 있으면 그걸로 접근하면 된다. -->
+
+    <script>
+
+        // BOM, DOM > 태그 조작
+        // 1. 태그 검색(BOM, DOM)
+        // 2. 속성 조작(BOM)
+        // 3. PCDATA 조작(DOM) > innerText, textContent
+
+        /*
+            콘텐츠 조작 
+            - 시작 태그와 끝 태그 사이의 내용물 조작
+
+            1. innerText
+                - 시작 태그와 끝 태그 사이에 문자열 읽기/쓰기 프로퍼티
+            2. innerHTML
+                - 시작 태그와 끝 내그 사이의 문자열 읽기쓰기 프로퍼티
+                - 문자열+태그
+                - 태그인식함
+            3. outerText
+                - 사용안함
+
+            4. outerHTML
+
+            5. textContent 
+                표준
+
+        */
+
+        // document.getElementById
+        const btn1 = document.getElementById('btn1');
+        // getElementById
+        const div1 = document.getElementById('div1');
+        
+        // BOM은 족보에 포함되지 않았떤 태그들은 인식이 불가능했었다.
+
+        let n = 1;
+        btn1.onclick = function() {
+            // div1.innerText = '홍기르동';
+            // alert(div1.innerText);
+            // div1.innerHTML = '<i>홍기르동</i>';
+            // div1.textContent = '<i>홍길동</i>';
+            // div1.innerHTML = '홍길동';
+            // 동적으로 테그생성
+            // div1.innerHTML = '<input type="text">'; 
+
+            // for(let i=0; i<10; i++){
+            //     div1.innerHTML += '<input type="text"><br>';
+            // }
+            div1.innerHTML += '<img src="images/catty0' +n+ '.png">';
+            n++;
+
+            if(n > 9) n=1;
+        };
+
+        // form 이미지 링크는 자체적으로 기능이 있는데 div는 속성 기능이 없어서 
+        // BOM이 접근하는 태그목록에서는 제외가 됨
+
+        document.getElementById('btn2').onclick = function() {
+            div1.innerHTML = '';
+        };
+
+    </script>
+</body>
+</html>

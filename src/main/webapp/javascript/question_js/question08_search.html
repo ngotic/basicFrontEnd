@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          body{
+            color: #777;
+        }
+        input {
+            padding: 2px;
+            display: block;
+            margin: 10px;
+            font-weight: bold;
+            color : #777;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" name = "address" value="서울시 강남구 역삼동">
+    <input type="button" name = "address" value="서울시 강남구 대치동">
+    <input type="button" name = "address" value="서울시 강남구 도곡동">
+
+    <script>
+        for(var i=0; i<document.all.address.length; i++){
+            document.all.address[i].onclick = m1;
+        }
+
+        function m1(){
+
+            if ( event.target.value.indexOf('역삼동') !=-1 ){
+                opener.document.all.addressnum.value = '06232';
+                opener.document.all.address.value = '서울시 강남구 역삼동';
+            } else if ( event.target.value.indexOf('대치동') !=-1 ){
+                opener.document.all.addressnum.value = '06291';
+                opener.document.all.address.value = '서울시 강남구 대치동';
+            } else if ( event.target.value.indexOf('도곡동')  !=-1 ){
+                opener.document.all.addressnum.value = '06267';
+                opener.document.all.address.value = '서울시 강남구 도곡동';
+            }
+            window.close();
+            opener.document.all.detailAddress.readOnly=false;
+            opener.document.all.detailAddress.focus();
+        }
+    </script>
+</body>
+</html>

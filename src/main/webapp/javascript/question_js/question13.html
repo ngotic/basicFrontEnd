@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            
+            color: #333;
+            font-weight: 900;
+        }
+
+        input{
+            outline: none;
+            color: #333;
+            margin-top: 100px;
+            width: 200px;
+            height: 200px;
+            font-size: 100px;
+            font-weight: bold;
+            text-align: center;
+            border: 0px solid white;
+        }
+
+        input:focus{
+            outline: none;
+            border: 0px solid white;
+        }
+
+        #main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+        <div id="main">
+            <input type="text" value="10" name="cnt" readonly>
+        </div>
+        <br>    
+            &lt;input type='text'&gt;입니다.
+    <script>
+        
+        var cnt = 10;
+        
+        window.onkeydown = m2;
+        let timer = 0;
+        m1();
+        function m1() {
+            document.all.cnt.value = cnt;   
+            if(timer ==0 ){
+                timer = setInterval(f1, 1000);
+            }
+        }
+        function f1(){
+            cnt--;
+            document.all.cnt.value = cnt;   
+            if(cnt == 0)
+                window.location.href = "https://www.google.com/";
+        }
+
+        function m2(){
+            
+            if (event.keyCode == 27) {
+                document.body.bgColor = '#FF6347';
+                clearInterval(timer);
+            }
+        }
+
+    </script>
+</body>
+</html>

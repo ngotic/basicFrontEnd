@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            border : 1px solid black;
+            min-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!--  -->
+        <div id="main">
+
+        </div>
+    <script>
+        let text = document.getElementById('main');
+        window.onkeydown = function (){
+            
+
+            if( event.keyCode >= 48 && event.keyCode <= 57 ){
+                let num = event.keyCode - 48;
+                text.innerHTML += '<img src="../images/'+num+'.png">';
+            }
+        };
+    </script>
+</body>
+</html>
+
+
+<!-- 48 0 
+49 1
+50 2
+51 3
+52 4
+53 5
+54 6
+55 7
+56 8
+57 9 -->

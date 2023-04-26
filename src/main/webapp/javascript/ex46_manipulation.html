@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex46_manipulation.html -->
+    <h1>DOM - 태그/속성/텍스트 조작</h1>
+    <input type="button" value="확인1" id="btn1">
+    <input type="button" value="확인2" id="btn2">
+    <input type="button" value="확인3" id="btn3">
+    <hr>
+    <div id="div1"></div>
+
+    <script>
+        const btn1 = document.getElementById('btn1');
+        const btn2 = document.getElementById('btn2');
+        const btn3 = document.getElementById('btn3');
+        const div1 = document.getElementById('div1');
+
+        btn1.addEventListener('click', function() {
+            // innerHTML > 이거 귀찮다.  > 문제점 모든걸 문자열로처리 
+            //1. 문자열로 넣어버리기 
+            //1. innerHTML = '<input type="text" size="10">';
+            // div1.innerHTML = '<input type="text" size="10">';
+            
+            //2. 속성도 같이 넣기
+            //2.1 태그생성
+            const input = document.createElement('input'); //<input>
+            console.log(input.nodeType);
+            console.log(input.nodeName);
+            
+            //2.2 속 성 추 가 >> 속성을 노드로 넣어준다. 
+            const type = document.createAttribute('type'); //type=""
+            type.value = 'text'; // type="text"
+            input.setAttributeNode(type);
+            const size = document.createAttribute('size');
+            size.value = '10';
+            input.setAttributeNode(size); // <input type='text' size='10'>
+            //2.3 div1의 자식으로 추가
+            div1.appendChild(input);
+
+
+        });
+
+        btn2.addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'text');
+            input.setAttribute('size', '10');
+            div1.appendChild(input);
+        });
+
+        btn3.addEventListener('click', function() {
+            
+        });
+    </script>
+</body>
+</html>

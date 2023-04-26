@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <style>
+        #list {
+            margin:100px;
+        }
+        #list button{
+            height:100px;
+            width:100px;
+            font-size: 40px;
+            background-color: #fff;
+            color:#333;
+            border: 1px solid #AAA;
+        }
+
+        #list button:disabled{
+            background-color: #AAA;
+            color:#333;
+            
+        }
+    </style>
+</head>
+<body>
+    <!--  -->
+    <div id="list">
+		<button type="button" name="btn"><i class="fas fa-dog"></i></button>
+		<button type="button" name="btn" disabled><i class="fas fa-paw"></i></button>
+		<button type="button" name="btn" disabled><i class="fas fa-bone"></i></button>
+		<button type="button" name="btn" disabled><i class="fas fa-frog"></i></button>
+		<button type="button" name="btn" disabled><i class="fas fa-cat"></i></button>
+		<button type="button" name="btn" disabled><i class="fas fa-piggy-bank"></i></button>
+		<button type="button" name="btn" disabled><i class="fas fa-horse"></i></button>
+		<button type="button" name="btn" disabled><i class="fas fa-dove"></i></button>
+		<button type="button" name="btn" disabled><i class="fas fa-drumstick-bite"></i></button>
+		<button type="button" name="btn" disabled><i class="fas fa-fish"></i></button>
+	</div>
+
+    <script>
+        let timer = 0;
+        let point = 0;
+        for(let i=0; i<document.all.btn.length;i++){
+            document.all.btn[i].onclick = fnClick;
+        }
+
+        function fnClick(){
+            document.body.bgColor='#6495ED';
+            clearInterval(timer);
+        }
+
+        function fnTimer() {
+            timer = setInterval(() => {
+                for(let i=0; i<document.all.btn.length;i++){
+                    if( point == i )
+                        document.all.btn[i].disabled = false;
+                    else 
+                        document.all.btn[i].disabled = true;
+                }
+                point++;
+                if( point == document.all.btn.length)
+                    point = 0;
+            }, 500);
+        }
+        fnTimer();
+    </script>
+</body>
+</html>

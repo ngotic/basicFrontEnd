@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+            color: #666;
+            letter-spacing: -1px;
+            font-weight: 600;
+        }
+        fieldset{
+            padding: 15px 10px 15px 10px;
+        }
+
+        /* 
+        컨트롤 태그안으로 들어오는 글꼴은 상속이 불가능하다. 그래서 직접 스타일링을 해야 한다. 
+        */
+        fieldset div input{
+            color: #666;
+            letter-spacing: -1px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h2>주문하기</h2>
+    <fieldset>
+        <legend>주문하시는 분</legend>
+        <div>
+            이름 : <input type="text" name="name">
+        </div>
+        <div>
+            주소 : <input type="text" name="address">
+        </div>
+    </fieldset>
+    <br>
+    <input type="checkbox" name=check>주문하시는 분과 정보가 동일합니다.
+    <br><br>
+    <fieldset>
+        <legend>받으시는 분</legend>
+        <div>
+            이름 : <input type="text" name="nameTo">
+        </div>
+        <div>
+            주소 : <input type="text" name="addressTo" >
+        </div>
+    </fieldset>
+    <script>
+        document.all.check.onchange = m2;
+
+        function m2() {
+            
+            if ( event.target.checked==true ) {
+                document.all.nameTo.value = document.all.name.value;
+                document.all.addressTo.value = document.all.address.value;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            border: 1px solid #777;
+            padding: 20px;
+            margin: 20px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>타이머</h1>
+    <form name="form1">
+        <fieldset>
+            <input type="button" value="확인" name="btn1">
+            <input type="text" name="txt1">
+        </fieldset>
+        <fieldset>
+            <input type="button" value="확인" name="btn2">
+            <input type="text" name="txt2">
+        </fieldset>
+        <!-- <fieldset>
+            <input type="button" value="확인" name="btn3">
+            <input type="text" name="txt3">
+        </fieldset> -->
+
+        <fieldset>
+            <input type="button" value="시작" name="btn3">
+            <input type="button" value="멈춤" name="btn4">
+            <input type="text" name="txt3">
+        </fieldset>
+
+
+        <img src="images/catty01.png" name="cat">
+
+
+    </form>
+    <script>
+
+        /*
+
+            > 타이머, Timer
+
+            1. setTimeout() 몇초지나면 한번 호출해줘
+                - 1회성 타이머
+            
+            2. setInterval()
+                - 반복성 타이머
+
+            타이머 종료
+            1. clearTimeout(id)
+
+            2. claerInterval(id)
+            id는 타이머가 생성할 때 얘네들이 반환해준 숫자다.
+
+        */
+        var btn1 = document.form1.btn1;
+        var btn2 = document.form1.btn2;
+        var btn3 = document.form1.btn3;
+        var btn4 = document.form1.btn4;
+
+        var txt1 = document.form1.txt1;
+        var txt2 = document.form1.txt2;
+        var txt3 = document.form1.txt3;
+
+        btn1.onclick = m1;
+        function m1() {
+            // setTimeout(f1, 3000);
+            //function setTimeout(handler: TimerHandler, timeout?: number, ...arguments: any[]): number
+            f1();
+        }
+
+        function f1() {
+            // alert('따르릉');
+            txt1.value = (new Date()).toLocaleTimeString();
+            setTimeout(f1, 1000); // 재귀호출 + 무한루프
+        }
+        btn2.onclick = m2;
+        function m2() {
+            setInterval(f2, 1000);
+        }
+
+        function f2(){
+            // alert('띵동');
+            txt2.value=(new Date()).toLocaleTimeString();
+        }
+        var n = 1;
+        btn3.onclick = m3;
+        var timer =0;
+        timerlist = [];
+        function m3() { // 한번 호출하고 또 호출하면 더 빨라진다. 
+
+            // if( timer == 0 ) {
+                //  timer = setInterval(f3, 100);
+                //  alert(timer); // 1반환> +1씩 증가한다.
+            // }   
+
+            // alert(timer);
+
+            // timer = setInterval(f3, 100);
+            // timerlist.push(timer);
+        }
+
+        function f3(){
+            txt3.value = n;
+            n++;
+        }
+        
+        btn4.onclick = m4;
+        function m4() {
+            // clearInterval(timer);
+            // timer = 0;
+
+            // clearInterval(timerlist.pop());
+            // 순자적으로 중지
+            // 일괄 중지
+            for(var i=0; i<timerlist.length ;i++){
+                clearInterval(timerlist[i]);
+            }
+
+        }
+        // 시작 2번 멈춤 한번 누르면 에러다. 그래서 께속 돈다. 
+        
+
+        var cat = document.images['cat'];
+        var m = 1;
+        var ctimer = 0;
+
+        cat.onclick = m5;
+
+        function m5() {
+            // 0일떄만 실행해서 중복실행 안되게 한다.
+            if(ctimer == 0) {
+                ctimer = setInterval(f5, 100); // 한번 누르면 동작 
+            } else {
+                clearInterval(ctimer);          // 또 누르면 멈추고 ctimer 초기화
+                ctimer=0;
+            }
+        }
+        function f5(){
+            // cat.width++;
+            m++;
+            if(m > 9) m = 1;
+                cat.src = 'images/catty0'+m+'.png';
+        }
+
+    </script>
+</body>
+</html>

@@ -9,11 +9,11 @@
 <body>
     <!-- ex29_radio.html -->
     <h1>라디오 버튼</h1>
-    <label><input type="radio" name="rb">흰색</label>
-    <label><input type="radio" name="rb">빨간색</label>
-    <label><input type="radio" name="rb">노란색</label>
-    <label><input type="radio" name="rb">파란색</label>
-    <label><input type="radio" name="rb">검은색</label>
+    <label><input type="radio" name="rb" value="white">흰색</label>
+    <label><input type="radio" name="rb" value="red">빨간색</label>
+    <label><input type="radio" name="rb" value="yellow">노란색</label>
+    <label><input type="radio" name="rb" value="blue">파란색</label>
+    <label><input type="radio" name="rb" value="black">검은색</label>
     <!-- 같은 ㄴname을 가져야 한놈이 선택이 되고 같지 않으면 따로따로 논다. -->
 
     <script>
@@ -27,6 +27,20 @@
 
         function m1() {
             // 5개의 라디오 버튼 중 누가 나를 불렀는지? 
+            // alert(event.target.value);
+            // alert(event.target.innerText);
+
+            // event.target 고른다음에 부모요소 자식요소 > DOM 객체 못찾아가나??
+
+            document.body.bgColor = event.target.value; // 
+
+            if(event.target.value == 'black'
+            || event.target.value == 'red' 
+            || event.target.value == 'blue') {
+                document.body.text = 'white';
+            } else {
+                document.body.text = 'black';
+            }
         }
 
     </script>

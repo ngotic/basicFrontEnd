@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex36_function.html -->
+    
+    <input type="button" name="btn1" value="버튼">
+    <input type="button" name="btn2" value="버튼">
+
+    <script>
+    /*
+        Javascript Function
+        - "함수는 1급 객체이다." First class object
+        - 함수를 객체처럼 취급한다. 함수를 값처럼 취급할 수 있다.
+         
+        1. 함수를 변수에 담을 수 있다.(저장)
+        2. 함수를 매개변수에 전달할 수 있다.
+        3. 함수를 반환값으로 사용할 수 있다.
+    */
+   let n1;
+   function f1(){
+      console.log('f1');
+   }
+
+   console.log(typeof n1); // undefined  > 아직 값이 초기화되지 않아서 그렇다.
+   console.log(typeof f1); // function   > 자바스크립트는 다르다!
+
+   n = 10;
+   console.log(typeof n1); // number
+
+   n1 = 'AAA';
+   console.log(typeof n1); //string
+
+   // n1 = f1(); 이건 호출
+   console.log(typeof n1);
+   n1 = f1; // 함수명이 가지고 있는 주소값을 복사
+   console.log(typeof n1); // function
+
+   n1(); // 이상하게보이는 구문?? >> n1은 변수인데? 
+   // onclick > 프로퍼티(= 멤버변수)
+   // btn1.onclick = m1;
+
+   //Javascript에서 함수를 만드는법
+   // 1. 함수 선언문
+
+   // 2. 함수 표현식(리터럴) = 익명함수(Anonymous Function)
+
+   // 함수 선언문 
+   function m1() {
+        console.log('m1');
+   }
+
+   m1();
+   
+
+   // 함수 표현식(리터럴)
+   function m2() {
+    console.log('m2');
+   }
+   let n2 =m2;
+
+   m2(); // 변수에 넣기도하고 독립적으로도 호출도하겠다.
+   // 이 형태는 목적이 > 함수를 변수에 넣기 위해서 선언!
+   //                 > 함수를 독립적으로 사용할 의도가 전혀 없음
+   let n3 = function m3(){ // 만들자마자 변수에 집어넣었다. 
+        console.log('m3');
+   }
+
+   n3();
+   //m3();>에러!! //Uncaught ReferenceError: m3 is not defined
+   
+
+   // 이름이 있어도 의미가 없다보니 이렇게 이름을 안적는다.
+   // 함수 리터럴 = 익명함수 
+   let n4 = function() {
+        console.log('익명함수');
+   }; 
+
+   n4();
+
+   // 익명함수 호출2 > 익명함수인데 변수에 안넣으면 에러가 난다.
+   (function() {
+        console.log('익명함수2');
+   })(); // 바로 붙여버린다. > 즉시호출(재사용 없이 1회성 조작)
+   // 만들자마자 바로 호출하고 버려 버린다.
+
+   document.all.btn1.onclick = m5;
+
+
+   // 버튼의 클릭을 위해서 만든 전용함수라 이건 따른데다가 쓰면 안된다. 
+   function m5(){
+        // alert('click');
+        console.log(event == null);
+   } // 버튼을 누를 떈 event가 false, 아래처럼 독립적으로 호출하면 true
+
+
+   // 독립적으로 호출 > 이벤트를 위해서 만든 함수인데 이걸 독립적으로 쓰면 문제가 됨
+//    m5();
+
+   
+// document.all.btn2.onmousedown = m5;
+
+document.all.btn2.onmousedown = function () {
+    alert(event.button)
+}; // 이걸 단독으론 호출이 안된다. 이게 진짜 태생이 이벤트를 위해서 태어남
+// 그렇다고 진짜 익명함수 넣는게 답은 안니다.
+// 근데 익명함수로 이벤트거는게 더 대중적으로 
+// 이벤트 함수를 독립적으로 호출되는걸 막으니까
+
+
+function a6(){
+    console.log('a6');
+}
+
+function a7(temp){
+    console.log('a7');
+    temp();
+}
+
+// 매개변수로 함수(a6) 전달
+a7(a6);
+
+// setTimeout(m8, 1000);
+// function m8(){
+//     alert('beep');
+// } // ↓
+
+// setTimeout(function() {
+//     alert('beep!!');
+// }, 1000); // 이게 낫긴함
+
+function a9() {
+    console.log('a9');
+}
+function a10() {
+    return a9; // 함수이름으로만 셋팅
+}
+let result = a10(); // 함수이름으로 ~ 복사!!!
+
+result(); // a9();
+a10();       //
+
+// 사용자 정의 객체
+
+let hong = {
+    name:'홍길동', // 객체 멤버 변수
+    age : 20,
+    address: '서울시 강남구',
+    hello: function(){
+        // 객체 메서드
+        // console.log('안녕하세요 저는' + name + '입니다.');
+                                    // 이거 name은 위와 다르다 !!> 그래서 얘를 접근하려면 this를 붙여라 
+         console.log('안녕하세요 저는 ' + this.name + '입니다.');
+    }
+}
+
+console.log(hong.name);
+hong.hello();
+
+   </script>
+</body>
+</html>

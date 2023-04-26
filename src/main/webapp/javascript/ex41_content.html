@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl1{
+            border : 1px solid gray;
+            border-collapse: collapse;
+
+        }
+        #tbl1 td {
+            border: 1px solid gray;
+            width: 126px;
+            height: 126px;
+            font-size: 0;
+        }
+        #tbl1 img{
+            display: block;
+        }
+    </style>
+</head>
+<!-- 앞으로 일어날일을 취소하라 ~ 이걸로 우클릭 창뜨는거 취소한다.  -->
+<body oncontextmenu="return false;"> 
+    <!-- ex41_content.html -->
+        <!-- table#tbl1>tr*5>td*5 -->
+        <table id="tbl1">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    <script>
+        //<td> x 25 > 이벤트 추가 > 이미지 동적 추가
+            
+        const list = document.getElementsByTagName('td');
+
+        for ( let i = 0; i<list.length ; i++ ){
+            // ★ onclick은 우클릭 좌클릭에선 구분못함
+            // list[i].onclick = function() {
+            //     // 클릭한 <td> ? 
+            //     // event.target.bgColor = 'gold'; // 확인
+            //     event.target.innerHTML = '<img src="images/rect_icon01.png">';
+            // };
+            // ★ onmousedown으로  event.buttons로 우클릭, 좌클릭을 구분한다.
+            list[i].onmousedown = function() {
+                // 클릭한 <td> ? 
+                if(event.buttons == 1){
+                    event.target.innerHTML = '<img src="images/rect_icon01.png">';
+                } else if (event.buttons == 2){
+                    event.target.innerHTML = '<img src="images/rect_icon02.png">';
+                }
+            };
+        }
+    </script>
+</body>
+</html>
