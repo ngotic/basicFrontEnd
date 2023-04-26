@@ -54,22 +54,28 @@
         }
         
         btncreate.onclick = function() {
-            
+
             let temp = ''; // 누적변수 
             for(let i=0; i<selrow.value; i++){
 
                 temp += '<tr>';
                 for(let j=0; j<selcolumn.value; j++){
                     temp += '<td>';
+                    // temp += '<td onclick="changeColor();">';
                     temp += i + ',' + j;
                     temp += '</td>';
                 }
                 temp += '</tr>'
 
-            }
-            
+            }     
             tbl1.innerHTML= temp;
         } 
+
+        function changeColor(){
+            event.target.bgColor='red';
+        }
+
+
     </script>
 </body>
 </html>

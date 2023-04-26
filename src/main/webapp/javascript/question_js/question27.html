@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            color: #777;
+        }
+        #tbl{
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        #tbl th {
+            background-color: #444;
+            color: #fff;
+            width:120px;
+            height:28px;
+        }
+
+        #tbl td {
+            position: relative;
+            height:110px;
+            font-size: 15px;
+            padding: 0 20px;
+        }
+        
+        #tbl td div {
+            
+            font-size: 13px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        #tbl td .sat{
+            position: absolute;
+            right:5px;
+            top:5px;
+            float: right;
+            color: #64A2F2;
+        }
+
+        #tbl td .sun{
+            position: absolute;
+            right:5px;
+            top:5px;
+            float: right;
+            color:#FF2800;
+        }   
+
+        #tbl td .weekdays{
+            position: absolute;
+            right:5px;
+            top:5px;
+            float: right;
+            color: #777;
+        }
+
+        #main {
+            width:820px;
+        }
+
+        #yearmonth{
+            margin-bottom: 20px;
+            font-size: 40px;
+            float:left;
+            font-weight: bold;
+        }
+        #buttons{
+            margin-top: 25px;
+            float:right;
+        }
+        #buttons input{
+            padding: 2px;
+            color: #777;
+            font-weight: bold;
+        }
+
+        /* 나중에 자바스크립에서 추가할 속성을 미리 style에서 정의해놓는다.
+        //  그러면 나중에 자바스크립트에서 insert하면 그게 적용이 된다.*/
+    </style>
+</head>
+<body>
+    <!--  -->
+    
+    <div id="main">
+        <div id="yearmonth"></div>
+        <div id="buttons">
+            <input type="button" value="이전달" id="prev">
+            <input type="button" value="이번달" id="curr">
+            <input type="button" value="다음달" id="next">
+        </div>
+        <div style="clear:both"></div>
+        <table border="1" id="tbl">
+            <tr>
+                <th>SUN</th>
+                <th>MON</th>
+                <th>TUE</th>
+                <th>WED</th>
+                <th>THU</th>
+                <th>FRI</th>
+                <th>SAT</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+
+        let table = document.getElementById('tbl');
+        let firstSetting = table.innerHTML;
+        let ym= document.getElementById('yearmonth');
+
+        let defaultDate = new Date();
+        // 일단 setting;
+        let year = defaultDate.getFullYear();
+        let month = defaultDate.getMonth(); // -1한 상태임
+        updateTitle();
+        function updateTitle(){
+            ym.innerText = year+'.'+(month+1);
+        }
+
+
+
+        // new Date(2023,2)
+        // Wed Mar 01 2023 00:00:00 GMT+0900 (한국 표준시) 
+        // new Date(2023,2,-1)
+        // Mon Feb 27 2023 00:00:00 GMT+0900 (한국 표준시)
+        // 00시 기준이라 이게 -1을 해버리는 순간 마지막 날의 -1도 되버림 이것을 주의하자 
+
+        // ★★★★ 결론은 new Date(2023,2,0).getDate(); // > 이게 3월의 마지막날이다.
+
+
+        drawCalendar();
+        //new Date(year, month-1, 1).getDay()// 이번달의 첫요일은?
+        //new Date(year, month,-1).getDate() // 이번달 몇일까진지
+        // 열은 기본으로 7줄씩이고
+        // 1. for문을 몇번 돌지 계산 > 행을 계산 > 몇행인지? 
+        // let h = new Date(year, month,-1).getDate()/4;
+        function drawCalendar() {
+            table.innerHTML=firstSetting;
+            let tr;
+            let td;
+            let p = new Date(year, month, 1).getDay();
+            // alert(month);
+            let enddate = new Date(year, month+1,0).getDate();// 실제로 +1을 해야한다. 0부터다.
+            let num=0;
+            let day;
+            // alert(enddate);
+            while(true){
+                tr = document.createElement('tr');
+                for(let j=0; j<7; j++){
+                    td = document.createElement('td');
+                    day = num-new Date(year, month, 1).getDay()+1;
+                    day = day> 0 ? day : 1;
+                    if(p<=num && enddate>=day) {
+                        // td.textContent = day;
+                        let dayEle;
+                        if( p % 7 == 6)
+                            dayEle = '<span class="sat">'+day+'</span>';
+                        else if( p % 7 == 0)
+                            dayEle = '<span class="sun">'+day+'</span>';
+                        else 
+                            dayEle = '<span class="weekdays">'+day+'</span>';
+
+                        td.innerHTML=dayEle+'<div>할 일</div><div>또 할일</div><div>더 많은 할일</div>'
+                        p++;
+                    } else {
+                        td.textContent =' ';
+                    }
+                    num++;
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+                if(enddate <= day){
+                    break;
+                }
+            }
+        }
+
+        let prevbtn = document.getElementById('prev');
+        let currbtn = document.getElementById('curr');
+        let nextbtn = document.getElementById('next');
+
+        prevbtn.addEventListener('click', function(){
+            defaultDate.setMonth(defaultDate.getMonth()-1);
+            year  = defaultDate.getFullYear();
+            month = defaultDate.getMonth();
+            drawCalendar();
+            updateTitle();
+        });
+
+        currbtn.addEventListener('click', function(){
+            year  = new Date().getFullYear();
+            month = new Date().getMonth();
+            drawCalendar();
+            updateTitle();
+        });
+
+        nextbtn.addEventListener('click', function(){
+            defaultDate.setMonth(defaultDate.getMonth()+1);
+            year  = defaultDate.getFullYear();
+            month = defaultDate.getMonth();
+            drawCalendar();
+            updateTitle();
+        });
+
+    </script>
+</body>
+</html>

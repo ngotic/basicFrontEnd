@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #tbl {
+            border-collapse: collapse;
+        }
+
+        #tbl td {
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            font-size: 50px;
+            font-family: 'BRRA_R';
+            font-weight: bold;
+            cursor: pointer;
+            color: #333;
+        }
+
+        #tbl td.cell {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <!--  -->
+    <table border="1" id="tbl">
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </table>
+    <script>
+        let td = document.getElementsByTagName('td');
+        for(let i=0; i<td.length;i++){
+            // console.log(.textContent);
+            td[i].addEventListener('mousedown', function(){
+                if( event.buttons==1 ){
+
+                    if( event.target.getAttribute('class') == 'cell')
+                        return ;
+                    event.target.textContent = parseInt(event.target.textContent)+1;
+
+                }else if( event.buttons == 2){
+
+                    if(parseInt(event.target.textContent) <= 0  ){
+                        event.target.setAttribute('class', 'cell');
+                        return;
+                    }
+                    event.target.textContent = parseInt(event.target.textContent)-1;
+                    if(parseInt(event.target.textContent) == 0  ){
+                        event.target.setAttribute('class', 'cell');
+                    }
+
+                }
+            });
+        }
+    </script>
+</body>
+</html>

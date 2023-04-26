@@ -15,6 +15,7 @@
     <input type="button" value="확인1" id="btn1">
     <input type="button" value="확인2" id="btn2">
     <input type="button" value="확인3" id="btn3">
+    <input type="button" value="확인4" id="btn4">
     <hr>
     <div id="div1"></div>
 
@@ -22,7 +23,9 @@
         const btn1 = document.getElementById('btn1');
         const btn2 = document.getElementById('btn2');
         const btn3 = document.getElementById('btn3');
+        const btn4 = document.getElementById('btn4');
         const div1 = document.getElementById('div1');
+
 
         btn1.addEventListener('click', function() {
             // innerHTML > 이거 귀찮다.  > 문제점 모든걸 문자열로처리 
@@ -35,7 +38,7 @@
             const input = document.createElement('input'); //<input>
             console.log(input.nodeType);
             console.log(input.nodeName);
-            
+
             //2.2 속 성 추 가 >> 속성을 노드로 넣어준다. 
             const type = document.createAttribute('type'); //type=""
             type.value = 'text'; // type="text"
@@ -57,8 +60,58 @@
         });
 
         btn3.addEventListener('click', function() {
-            
+
+            //<h1>제목입니다.</h1>
+            //<p>문단입니다.</p>
+
+
+            // 정석대로 
+            const h1 = document.createElement('h1');
+            const txt = document.createTextNode('제목입니다.');        
+            h1.appendChild(txt); // 
+            // 태그만 자식이 아니고 문자열도 자식이다. 그래서 이렇게 넣음
+
+
+            // 줄임
+            const p = document.createElement('p');
+            // ♣ 텍스트 > 내용물 채울 때
+            p.textContent = '문단입니다.'; // <p>문단입니다.</p>
+
+            // div1.appendChild(h1); // ★ 이걸로 우선적으로 연습해라
+            // div1.appendChild(p);
+
+            // append는 뒤에다가 넣고 prepend는 앞에다가 넣는다.
+            // ★ 넣는 순서가 반대다. 위랑 
+
+            // div1.prepend(h1);
+            // div1.prepend(p);
+
+            div1.append(h1); // 이거로도 쓴다.
+            div1.append(p);
         });
+
+        btn4.addEventListener('click', function() {
+            // 동적으로 테이블 생성하기
+            // - 5x5 테이블
+
+            const table = document.createElement('table');
+            table.setAttribute('border', '1');
+
+            for(let i=0; i<5; i++){
+                const tr= document.createElement('tr');
+                for(let j =0 ; j<5 ; j++){
+                    const td = document.createElement('td');
+                    td.textContent = i + ',' + j;
+                    tr.appendChild(td);
+                    td.onclick = function() { // 여기서 바로 onclick 이벤트를 건다. 
+                        event.target.bgColor = 'gold';
+                    }
+                }
+                table.appendChild(tr);
+            }
+            div1.appendChild(table);
+        });
+
     </script>
 </body>
 </html>

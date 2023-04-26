@@ -14,9 +14,16 @@
 
         // 현재 시각
         var now = new Date();
+
         console.log(now);
         console.log(now.toString());
-
+        // 일요일	0
+        // 월요일	1
+        // 화요일	2
+        // 수요일	3
+        // 목요일	4
+        // 금요일	5
+        // 토요일	6
         //요소 추출
         // 년, 월, 일, 시, 분, 초 : 숫자 > 1부터시작
         // 월, 요일 : 배열 > 0부터 시작
@@ -24,7 +31,7 @@
         //- c.get(Calendar.YEAR);
         console.log(now.getYear()); //원랜 23 이렇게 두자리로 나왔음 > 어느샌가 2천년대에 2자리만 표기했다가 1900년대인지 2000년대인지 알수 없게 되어 2자리에서 4자리로 올림
         console.log(now.getFullYear());
-        console.log(now.getMonth()); // 0부터 시작해서 3인데 4월
+        console.log(now.getMonth()); // ★0부터 시작해서 3인데 4월
         console.log(now.getDate());  // 21일
         console.log(now.getDay());   // 0(일), 5(금), 6(토)
         console.log(now.getHours()); // 10시 

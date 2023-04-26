@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       #tbl1{
+            border : 1px solid gray;
+            border-collapse: collapse;
+
+        }
+        #tbl1 td {
+            border: 1px solid gray;
+            width: 126px;
+            height: 126px;
+            font-size: 0;
+        }
+        #tbl1 .disabled{
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex42_axis.html -->
+    <table id="tbl1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        disabledlist = [2, 10, 13, 17, 24];
+        let index = 0;
+        const list = document.getElementsByTagName('td');
+
+        for(let i =0 ; i< disabledlist.length; i++){
+            list[disabledlist[i]].setAttribute('class','disabled');
+        }
+
+        list[index].bgColor = '#6495ED';
+
+        // 전역으로 걸 때 window에 이벤트 걸어버림
+        window.onkeydown = function() {
+
+            for(let i=0; i<list.length ; i++){
+                list[i].bgColor = 'transparent';
+            }
+            let prev = index;
+            if(event.keyCode == 39){
+                // 우측 방향키
+                if( index%5 == 4){
+                    list[index].bgColor = '#6495ED';
+                    return;
+                }
+                index++;
+
+            } else if (event.keyCode == 37) {
+                if(index%5==0){
+                    
+                    list[index].bgColor = '#6495ED';
+                    return;
+                }
+                index--;
+
+            } else if (event.keyCode == 40) { // 아래
+                if( (index + 5) > 24){
+                    list[index].bgColor = '#6495ED';
+                    return;
+                }
+                index+=5;
+
+            } else if (event.keyCode == 38) {
+                if( (index - 5) < 0){
+                    list[index].bgColor = '#6495ED';
+                    return;
+                }
+                index-=5;
+            }
+            
+            if (validCheck(index) == false){ index = prev }
+
+            list[index].bgColor = '#6495ED';
+        };
+
+        function validCheck(index){
+            for(let i =0 ; i< disabledlist.length; i++){
+                if (index ==disabledlist[i])
+                    return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

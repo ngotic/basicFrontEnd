@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'BRRA_R';
+        }
+        fieldset{
+            color:#777;
+            width:300px;
+            font-size: 14px;
+            letter-spacing: -1px;
+            font-weight: bold;
+            padding: 15px;
+        }
+        fieldset div{ 
+            padding: 3px;
+        }
+
+        fieldset div label input{ 
+            accent-color: gray;
+        }
+        fieldset div input {
+            color:#777;
+            font-weight: bold;
+        }
+        #tbl{
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 20px;
+            color:#777;
+            border-collapse: collapse;
+        }
+        #tbl tr th{
+            background-color: #ddd;
+        }
+        #tbl tr td{
+            padding: 5px;
+            font-size: 12px;
+        }
+
+        #tbl tr th:nth-child(1){ width: 50px; }
+        #tbl tr th:nth-child(2){ width: 70px; }
+        #tbl tr th:nth-child(3){ width: 50px; }
+        #tbl tr th:nth-child(4){ width: 120px; }
+        #tbl tr th:nth-child(5){ width: 200px; }
+
+    </style>
+</head>
+<body>
+    <!--  -->
+    <fieldset>
+        <legend>입력 항목</legend>
+        <div>
+            <label for="name">이름 : <input id="name"></label>
+        </div>
+        <div>
+            <label for="name">나이 : <select id="age"></select></label>
+        </div>
+        <div>
+            성별 : <label for="m"><input type="radio" name="gender" id="m" checked>남자</label>
+                   <label for="f"><input type="radio" name="gender" id="f">여자</label>
+        </div>
+        <div>
+            <label for="address">주소 : <input id="address"></label>
+        </div>
+        <div>
+            <input type="button" value="추가하기" id="addbtn">
+        </div>
+    </fieldset>
+    <table border="1" id="tbl">
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <!-- <th>이름</th> -->
+            <th>나이</th>
+            <th>성별</th>
+            <!-- <th>성별</th> -->
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td colspan="5">등록된 항목이 없습니다.</td>
+        </tr>
+    </table>
+    <script>
+        for(let i=20;i<=60;i++) document.all.age.options.add(new Option(i));
+        const addbtn = document.getElementById('addbtn');
+        const tbl = document.getElementById('tbl');
+        
+        let cnt = 0;
+        
+        function validCheck(){
+            if( document.getElementById('address').value.length==0
+            || document.getElementById('name').value.length==0)
+                return false;
+            else
+                return true;
+        }
+
+        addbtn.addEventListener('click', function(){    
+            if(!validCheck()){
+                return;
+            }
+            const sell = document.getElementById('age');
+            let genderChecked = document.getElementById('m').checked;
+
+            if(cnt == 0) {
+                cnt++;
+                tbl.children[0].children[1].remove(); // 그냥 본인을 지움
+            }
+            let tr = document.createElement('tr');
+            let td = document.createElement('td');
+            td.textContent = cnt;                
+            tr.appendChild(td);
+            td = document.createElement('td');
+            td.textContent = document.getElementById('name').value;
+            tr.appendChild(td);
+            td = document.createElement('td');
+            for( var i=0; i< sell.length; i++){
+                if ( sell[i].selected ){
+                    td.textContent = sell[i].value;
+                    break;
+                }
+            }
+            tr.appendChild(td);
+            td = document.createElement('td');
+            if ( genderChecked ) {
+                td.innerHTML = '<img src="../images/gender_m.png">';
+            } else {
+                td.innerHTML = '<img src="../images/gender_f.png">';
+            }
+            tr.appendChild(td);
+            td = document.createElement('td');
+            td.textContent = document.getElementById('address').value;
+            tr.appendChild(td);
+            tbl.appendChild(tr);
+        });
+    </script>
+</body>
+</html>
