@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #tbl1{
+        border-collapse: collapse;
+      }
+      #tbl1 td {
+        border: 1px solid black;
+        padding : 5px 15px;
+      }
+      #tbl2 {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      #tbl2 td {
+        border: 1px sloid black;
+        width: 126px;
+        height:125px;
+      }
+    </style>
+</head>
+<body>
+    <!-- ex51_event.html -->
+    <h1>테이블</h1>
+    <table id="tbl1" border="1">
+      <tr>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+      </tr>
+      <tr>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+      </tr>
+      <tr>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+      </tr>
+      <tr>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+      </tr>
+      <tr>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+      </tr>
+      <tr>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+      </tr>
+      <tr>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+      </tr>
+      <tr>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+      </tr>
+      <tr>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+      </tr>
+      <tr>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+        <td>lorem2</td>
+      </tr>
+    </table>
+
+
+    <h1>테이블</h1>
+    <table id="tbl2" border="1">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <script>
+      
+
+      const list2 = document.querySelectorAll('#tbl2 td');
+
+      for(let i=0; i<list2.length; i++){
+
+        list2[i].onmousedown = function(){
+
+          if(event.buttons == 1){
+
+              // 마우스 다운 >> <td>
+              // 클릭한 셀 > 이미 이미지가 존재 > 제거 후 > 새로운 이미지 추가 !!
+
+            //alert(event.target.chidlElement);
+
+            let img = document.createElement('img');
+            img.setAttribute('src', 'images/rect_icon01.png');
+            event.target.appendChild(img);
+
+          } else if(event.buttons ==2){
+            let img = document.createElement('img');
+            img.setAttribute('src', 'images/rect_icon02.png');
+            event.target.appendChild(img);
+          } else if(event.buttons ==4){ // 휠버튼이다.
+              // 이미지 삭제
+              // td 태그의 자식인 img태그를 삭제해라 
+              // event.target.removeChild(event.target.firstElementChild);
+
+              //event.target.parentElement.removeChild(event.target); // 이것도 된다. 
+              event.currentTarget.removeChild(event.target); // 이것도 되고
+          }
+        }
+      }
+
+      // const list = document.getElementsByTagName('tr');
+
+      // //<tr> x 10개 
+      // const list1 = document.getElementById('tbl1').firstElementChild.children;
+      //   //HTMLCollection
+
+      // const list2 = document.querySelectorAll('#tbl1 tr');
+      //   //NodeList
+
+      // // ★ 'Array.from 유사배열을 바꿔준다.'
+      // // list1.forEach(num => console.log(num)); // 안됨
+      // Array.from(list1).forEach(tr => tr.bgColor ='gold'); // 이렇게 바꾸니까 된다.
+
+      // // list2.forEach(tr => tr.bgColor ='gold');    // 이건됨 > 내부적으로 iterator를 구현
+      
+
+      // // alert(list1.length);
+      // // alert(list2.length);
+      // // alert(list1 == list2);
+
+      // console.log(typeof list1, typeof list2);
+      // console.log(list1.constructor.name, list2.constructor.name);
+
+      // const nums = [10, 20, 30];
+      // console.log(Array.isArray(nums)); //얘는 배열
+
+
+      // // 유사 배열
+      // // - 배열은 아닌데, 배열처럼 보이게 만든 객체이다. 
+      // console.log(Array.isArray(list1)); // false > 배열이 아니다.HTMLCollection
+      // console.log(Array.isArray(list2)); // false > 배열이 아니다.NodeList
+
+
+      // const names = {
+      //   0: '홍길동',
+      //   1: '아무개',
+      //   2: '하하하',
+      //   length : 3
+      // };
+
+      // console.log(names[0]);
+      // console.log(names[1]);
+      // console.log(names[2]);
+      // console.log(names.length); // undefined인데?
+
+      // // nums vs names > 출력
+      // for(let i=0; i<nums.length ; i++){
+      //   console.log(i, nums[i]);
+      // }
+
+      // for(let i=0; i<names.length ; i++){
+      //   console.log(i, names[i]);
+      // }
+
+      // nums.forEach( num => console.log(num));
+
+      // // 유사배열이다. > 스트림 계열 메소드 미지원
+      // // nums.forEach( names => console.log(num));
+      
+      // Array.from(names).forEach( name => console.log(name));
+      //Array.from 유사배열을 진짜 배열로 바꿔준다. 
+
+      const list = document.querySelectorAll('#tbl1 tr');
+
+      for( let i=0; i<list.length; i++){
+        list[i].onmouseover = function(){
+          // event.target : <tr>(X), <td>(O)
+          // event.target.bgColor = 'gold'; // 유턴하는 객체로 찍힘
+          event.currentTarget.bgColor = 'gold'; // 해결책
+          // event.target.parentElement.bgColor = 'gold'; // 해결책
+          // this.bgColor = 'gold'; // 해결책 가독성구리다. 
+          
+        };
+        list[i].onmouseout = function(){
+          event.currentTarget.bgColor='transparent';
+        }
+      }
+
+    </script>
+</body>
+</html>

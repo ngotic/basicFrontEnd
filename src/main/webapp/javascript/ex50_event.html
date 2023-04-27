@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box { padding : 50px; }
+        #p1  { background-color: tomato;}
+        #p2  { background-color: gold;}
+        #p3  { background-color: dodgerblue;}
+    </style>
+</head>
+<body>
+    <!-- ex50_event.html ★ 사실상 겹친다. -->
+    <div id="p1" class="box">
+        <div id="p2" class="box">
+            <div id="p3" class="box">
+
+            </div>
+        </div>
+    </div>
+    <script>
+
+// ★★★ 그럼 결국 어떤 엘리먼트에 이벤트를 걸어도 그 엘리먼트가 구성하는 트리구조의 리프까진 전파가 되는것 ★★★
+
+// > ★★★ Element가 겹쳤을 때 이벤트 처리 > 부모자식의 관계이고
+// 엘리먼트에 이벤트를 등록시
+//-----
+// OS |    > 이벤트 전 파: 클릭된 당사자한테만 이벤트가 가는게 아니라 상위 노드부터 내려간다. >> 이벤트 전파가 땅으로 내려간다해서 이벤트터널링이라 한다. ↓
+//----------
+// 브라우저 |
+//----------
+// html    |
+//---------
+// body    |
+//---------
+// p1      |
+//---------
+// p2      | // P2클릭시 p2까지 내려가고 여기서 유턴
+//---------
+// p3      | 
+//--------- 
+// 이벤트 전파는 위에서 아래로 전달전달전달 했다가 > 내려갈 떄는 통보를 안함
+// 맨 아래에서 다시 위로 올라온다. 
+// 한바퀴를 돈다. 
+// 위로 올라가는 이벤트 버블링 ↑ 이벤트 동작하고 위로 올라간다. 
+
+        const p1 = document.getElementById('p1');
+        const p2 = document.getElementById('p2');
+        const p3 = document.getElementById('p3');
+
+        //이벤트 버블링(Event Bubbling)
+        // vs 이벤트 터널링(Event Tunneling), 이벤트 캡처링(Event Capturing)
+        // , 이벤트 캡처링(Event Capturing) 
+
+// 자바스크립트는 기본적으로 이벤트 버블링만 발생한다.
+// 단, 원하면 이벤트 터널링도 발생시킬 수 있다. 
+// 이벤트를 통보하는방향이 내려가는덴 변화없고
+// 올라갈 때 이벤트 실행하면서 동작
+
+        // p1.onclick = function() { // 이벤트가 빨노파 다 눌러도 빨강으로 뜬다.
+        //     alert('빨강'+ event.currentTarget.id); 
+        // };
+        // // 겹쳐있다면 target, currentTarget을 상황봐서 생각해라 
+
+        p2.onclick = function (){ // 노랑색 영역 안 부분에 다 이벤트 걸린다.
+            alert('노랑'                      // 이벤트를 등록안해도 유턴한다.
+                        +event.target.id       // 유턴하는 객체 *****
+                        +event.srcElement.id  // 유턴하는 객체
+                        +this.id);            // onclick 객체를 반환한다.
+            // 겹쳤을 떄 자식 구분
+            alert('노랑'+event.currentTarget.id); // this와 동일 ***********
+            // event.cancelBubble = true; 
+        };// 이벤트를 해당 엘리먼트에 걸지 않았다고 해도 전파가 되고 버블링이 되는ㄷ
+        // 1. 이걸 이벤트 건쪽에만 확인하고 싶음 event.currentTarget.id, this.id
+        // 2. 버블릭시 통보되는 것 > event.target.id으로 확인
+
+        // p3.onclick = function (){ // 파랑색 영역 안 부분에 다 이벤트 걸린다.
+        //     alert('파랑' + event.currentTarget.id);
+        //     // 이벤트 버블링을 여기서 중단해라!!
+        //     // - 이벤트가 일어났단 사실을 부모님들에게 알리지 마라 ! 
+        //     event.cancelBubble = true;  // event.stopPropagation(); 으로도 쓸 수 있다.
+        // };
+        // 업무에 따라 버블링을 둬야하는 업무, 막아야하는 업무가 있는데
+        // 상황에 따라 결정해야 한다. 
+
+        
+        // 위의 이벤트가 동시에 다 걸려있다면?????? 
+        // ▶ 파랑 클릭하면 alert창이 3번뜬다. 
+
+
+//----------
+// 브라우저 |
+//----------
+// html    |
+//---------
+// body    |
+//---------
+// p1      |
+//---------
+// p2      |
+//---------
+// p3      |
+
+// 두번째 인자 false
+// 파 >노> 빨 : 전파후에 버블링으로 올라가면서 통보가 된다. 
+    // p1.addEventListener('click', function(){
+    //     alert('빨강');
+    // }, false);
+
+    // p2.addEventListener('click', function(){
+    //     alert('노랑');
+    // }, false);
+
+    // p3.addEventListener('click', function(){
+    //     alert('파랑');
+    // }, false);
+
+        
+    // 두번째 인자 > true로 바꿨을 떄 빨 > 노 > 파 내려가면서 통보가 일어난다. 
+    // ★★★★ 순서가 뒤집힘
+    // > ★ 이벤트 터널링이다. 내려가면서 알림을 준다. 
+    // 이때는 유턴하고 버블링으로 올라갈 때 아무것도 안일어난다.
+    // 이벤트 터널링은 > DOM방식으로 구현가능하다. 
+    // p1.addEventListener('click', function(){
+    //     alert('빨강');
+    //     event.stopPropagation();
+    // }, true);
+
+    // p2.addEventListener('click', function(){
+    //     alert('노랑');
+    //     event.stopPropagation();
+    // }, true);
+
+    // p3.addEventListener('click', function(){
+    //     alert('파랑');
+    //     event.stopPropagation();
+    // }, true);
+
+
+
+    // p1.addEventListener('click', function(){
+    //     alert('빨강');
+    // });
+
+    // p2.addEventListener('click', function(){
+    //     alert('노랑');
+    // });
+
+    // p3.addEventListener('click', function(){
+    //     alert('파랑');
+    // });
+
+    // 두개 다살리면 빨 > 노> 파 / 파 >노 >빨
+
+    </script>
+</body>
+</html>

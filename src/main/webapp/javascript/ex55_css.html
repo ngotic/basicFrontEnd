@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+     .box {
+            position :absolute ; left :0 ; top :0;
+        }
+    </style>
+</head>
+<body>
+    <!--  -->
+    <!-- <div id="box1" class="box bg-red">상자1</div>
+    <div id="box2" class="box bg-orange">상자2</div>
+    <div id="box3" class="box bg-yellow">상자3</div>
+    <div id="box4" class="box bg-blue">상자4</div>
+    <div id="box5" class="box bg-green">상자5</div> -->
+    <script>
+
+        //화면 클릭 > 상자 생성 > 이동
+
+        const colors = ['bg-red', 'bg-yellow', 'bg-blue', 'bg-orange', 'bg-green'];
+
+        let index = 0;
+
+        window.onmousedown = function() {
+
+            //console.log(event.ctrlKey); /// 컨트롤키를 누르면이친구가 인식을 한다. 컨트롤키를 눌른 상태로 마우스 누르면 true
+
+            //console.log(event.altKey);
+            //console.log(event.shiftKey);
+
+            if(event.buttons ==1 && !event.ctrlKey){
+                // <div class="box"></div>
+                let box = document.createElement('div'); // <div></div>
+                // 여러 클래스를 다룰려면 classList를 써서 add해라 
+                box.classList.add('box');    // <div class="box"></div>
+                //box.classList.add('bg-red'); // <div class="box bg-red"></div>
+                box.classList.add(colors[index++]);
+                
+                if(index>=colors.length) index=0;
+                box.style.left = event.clientX - 100 +'px';
+                box.style.top = event.clientY - 100 +'px';
+
+                document.body.appendChild(box);
+            } else if(event.buttons ==1 && event.ctrlKey){
+
+                //alert(event.target);
+                // if(event.target.nodeName=='DIV'){}
+
+                if (event.target.classList.contains('box')){ // 눌린 애가 지우려는 상자인게 맞다.
+                    if(confirm('delete?'))
+                        document.body.removeChild(event.target);               //> 얘는 리턴값이 있다. 
+                        //event.target.remove(); // IE 미지원 > 이걸로도 되긴한다. > 얘는 리턴타입이 void
+                } 
+                // 회사에서는 다 정의가 되어 있다. 프로젝트 마다 브라우저 대상,
+                // 뭐뭐지원~ 이런 얘기가 다 있어서 그 브라우저 안에서 우리의 기능들을 테스트 해야한다.
+
+            }
+            
+        }
+    </script>
+</body>
+</html>

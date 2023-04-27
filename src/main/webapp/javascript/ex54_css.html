@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style> 
+        /* .box {width: 150px; height: 150px;}
+        #box1 { background-color: ;}
+        #box2 { background-color: ;}
+        #box3 { background-color: ;}
+        #box4 { background-color: ;}
+        #box5 { background-color: ;} */
+        #box1{
+            position: absolute;
+            left:0px;
+            top:0px;
+        }
+        .box {
+            position :absolute ; left :0 ; top :0;
+        }
+    </style>
+</head>
+<body>
+<!-- 
+    <input type="button" value="확인" class="btn warning large">
+    <input type="button" value="확인" class="btn danger small">
+    <input type="button" value="확인" class="btn primary"> -->
+    <!-- ex54_css.html -->
+    <!-- div#box$.box{상자$}*5 -->
+    <!-- <div id="box1" class="box small">상자1</div>
+    <div id="box2" class="box large bg-red fg-white">상자2</div>
+    <div id="box3" class="box bg-blue">상자3</div>
+    <div id="box4" class="box bg-yellow fg-black inline">상자4</div>
+    <div id="box5" class="box inline">상자5</div> -->
+
+    <!-- 클래스의 특성을 만들어놓고 옵션 붙이듯이 한다. -->
+
+
+    <hr>
+    <div id="box1" class="box bg-red">상자1</div>
+    <div id="box2" class="box bg-orange">상자2</div>
+    <div id="box3" class="box bg-yellow">상자3</div>
+    <div id="box4" class="box bg-blue">상자4</div>
+    <div id="box5" class="box bg-green">상자5</div>
+
+    <!-- <table class="table striped wide">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table> -->
+
+
+
+
+    <script>
+        const box1 = document.getElementById('box1');
+        const list = document.getElementsByClassName('box');
+        let index=0;
+        let zindex =1;
+        //window.onmousedown = function() {
+        window.onmousedown = function() {
+            //alert(`${event.clientX}:${event.clientY}`);
+            // 내가 누른 좌표 어딘지 찍음 clientX:clientY 문서의 좌측 상단 꼭지점
+
+            // box1.style.left = event.clientX + 'px';
+            // box1.style.top = event.clientY + 'px';
+            
+            list[index].style.left = event.clientX -100 + 'px';
+            list[index].style.top = event.clientY -100 + 'px';
+            list[index].style.zIndex = zindex
+
+            index++;
+            zindex++;
+
+            if ( index >= list.length ) index=0;
+        };
+
+    
+
+
+    </script>
+</body>
+</html>

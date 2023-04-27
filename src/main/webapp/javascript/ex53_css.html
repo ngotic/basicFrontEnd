@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            background-color: gold;
+            width: 200px;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+    <!--  -->
+    <h1>자바스크립ㅌ + CSS</h1>
+    <input type="button" value="확인" id="btn">
+        <hr>
+        <!-- 이렇게 인라인으로 등록을하면 이제 읽을 수 있다. -->
+        <!-- <div id="box" style="width:200px;"> 상자<div> -->
+        <div id="box" >상자</div>
+        <!-- <div id="box" > 상자<div></div> ↓ 인라인 없을땐 > const list = window.getComputedStyle(box);이거쓰면 해결된다. -->
+                             <!-- box.style.width 이거 못읽어! -->
+        <hr>
+        <h1>텍스트</h1>
+
+        <div id="tool">
+            <input type="button" value="  +  " id="btn1">
+            <input type="button" value="  -  " id="btn2">
+        </div>
+        <p id="content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem expedita accusamus sunt magni? Sint a quod perferendis minus in. Quasi quidem accusantium ipsam necessitatibus itaque, soluta repellat recusandae commodi omnis corrupti quae fugit adipisci sequi. Molestias cumque exercitationem ducimus vitae. Obcaecati a assumenda sapiente, accusamus nostrum totam veritatis laboriosam quo ex omnis, voluptatum illo magni natus repellat distinctio nobis eum eligendi, voluptates vero accusantium repudiandae. Repellat, in! Nisi aut nobis mollitia itaque optio tenetur accusantium maiores eligendi iure eius repellendus sed quo enim nihil velit, asperiores voluptate quibusdam nam consectetur sunt distinctio temporibus. Tempore itaque illo dolorem culpa. Aut, eligendi?</p>
+    <script>
+        const btn =  document.getElementById('btn');
+        const box =  document.getElementById('box');
+
+        btn.addEventListener('click', function(){
+            // // box.style = 'font-size:2rem;';
+            // box.setAttribute('style', 'font-size:3rem;');
+            // 여러개 넣고 싶다.. css
+
+            // 이거 불편하다. > 모든걸 문자열로 조작 
+            // box.style = 'backgroud-color: black; color:white; font-size:3rem;';
+
+            // 이걸 구조화 시키자 각각 관리 잘 쪼개자
+            // css의 속성을 하위 프로퍼티로 설계 
+            // box.style = 'color:blue';
+            // box.style.color = 'blue';
+            // box.style['color'] = 'white';
+            // box.style['background-color'] = 'black'; // -가 들어가면 이렇게함
+            // box.style.backgroundColor = 'blue'; // 캐멀표기법도 가능하다.
+            // box.style['font-size']='3rem';
+
+            // 상자 너비 : 200px;
+            // box.style.width = '400px';
+            // 누를때마다 조금씪 커지게(+50px)
+            // box.style.width = box.style.width + 50;
+            // 자바스클비트 > css 
+            //alert(box.style.width); //200px, null
+            //style="width:250px";
+            // box.style.width = box.style.width + 50 +'px'; (X) 이러면 문자열 더해져서 안되고 
+            //box.style.width = parseInt(box.style.width) + 50 +'px'; // 이렇게 더해야함(O)
+            // 자바스크립트 > CSS 정의된 속성값을 읽어오지 못한다. 단 인라인시트값은 읽어올 수 있다 임베비브와 외부타일 시트값을 일거오지 못한다. 
+            // 태그의 css 건드릴 때는 인라인으로만 건든다.
+
+            // ★★★★ 우리가 쓰기작업을 할 때는 실제 적용되는게 인라인스타일시트로 적용이 된다.
+
+            // 태그에 적용된 현재 서식을 읽어오는 방식 
+            //                          ★★★
+            // const list = window.getComputedStyle(box); // 내가 알고싶은 서식을 가진 태그를 넣는다.
+            //  이놈이 뭘하나를 반환해준다.
+
+            // alert(list.getPropertyValue('width'));
+            // list.setProperty('width','500px');
+
+
+        });
+
+        const btn1 = document.getElementById('btn1');
+        const btn2 = document.getElementById('btn2');
+        const content = document.getElementById('content');
+
+        let fontSize = 16; // 16px;
+
+        btn1.addEventListener('click', function() {
+            fontSize += 1;
+            content.style.fontSize = fontSize + 'px';
+        });
+        btn2.addEventListener('click', function() {
+            fontSize -= 1;
+            content.style.fontSize = fontSize + 'px';
+        });
+
+    </script>
+</body>
+</html>

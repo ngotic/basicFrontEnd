@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent, #child{
+            border : 1px solid black;
+            padding : 50px;
+        }
+    </style>
+</head>
+<body>
+    <!--  -->
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+    <div>
+        <a href="http://www.naver.com" id="link1">네이버</a>
+        <hr>
+        <input type="text" id="txt1" style="ime-mode: disabled">
+    </div>
+    <script>
+        //1. 이벤트 버블링 중단
+        //a. event.cancelBubble = true; > 비표준 > IE전용
+        //b. event.stopPropagation();   > 표준
+
+
+
+        const p = document.getElementById('parent');
+        const c = document.getElementById('child');
+
+        const link1 = document.getElementById('link1');
+        const txt1 = document.getElementById('txt1');
+
+
+        // 링크의 이동과 클릭이벤트 발생은 클릭이벤트가 먼저 일어난다. 그후에 페이지 이동한다.
+        link1.onclick = function(){
+            // alert();
+            // return false; // 이동 중단
+            event.preventDefault();  // 한글 안된다/ 
+        }
+
+        txt1.onkeydown = function(){
+           // return false; // keydown > 문자 반영 > keyup
+            // 입력 중단 > return false > 없었ㄷ너일로 해라 
+            // if(event.keyCode >= 48 && event.keyCode <= 57){
+            //     // 한글은 입력된다. 
+            //     return true;
+            // } else {
+            //     return false;
+            // }
+            //event.stopPropagation(); 
+            event.preventDefault();  // 한글 안된다/ 
+        };
+
+        p.onclick = function (){ alert('부모'); }
+        c.onclick = function() {
+             alert('자식');
+            //  event.cancelBubble = true;
+            // event.stopPropagation();
+
+            alert(event.cancelBubble); // 현재 브라우저에서 문법을 지원유무
+            alert(event.stopPropagation);
+            if(event.stopPropagation) {
+                // 현재 브라우저가 stopPropagation 함수 지원
+                event.stopPropagation();
+            } else {
+                // 현재 브라우저가 stopPropagation 함수 지원안함 > IE
+                event.cancelBubble = truel
+            }
+
+        }
+
+        //2. 이벤트 중단
+        //a. return false;
+        //b. event.preventDefault();
+    </script>
+</body>
+</html>

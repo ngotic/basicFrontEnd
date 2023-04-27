@@ -53,10 +53,10 @@
         });
 
         btn2.addEventListener('click', function() {
-            const input = document.createElement('input');
-            input.setAttribute('type', 'text');
-            input.setAttribute('size', '10');
-            div1.appendChild(input);
+            const input = document.createElement('input'); // 1. 엘리먼트 만들기
+            input.setAttribute('type', 'text');            // 2. 속성정의하기
+            input.setAttribute('size', '10');                
+            div1.appendChild(input);                       // 3. 정의한 엘리먼트 넣기
         });
 
         btn3.addEventListener('click', function() {

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex49_template.html -->
+
+    <script>
+        let name = '홍길동';
+        let age = 20;
+        console.log('이름은 ' +name + '이고, 나이는 '+age+'살입니다.');
+        console.log('이름은 %s이고, 나이는 %d살입니다.', name, age); // 이건 단지 로그의 기능일뿐
+        // 문자열로 만들고 싶어... 근데 없었다.  > es6에서 이런 형식문자를 원해서 나온게 
+        // ★★ template String이다.
+        // let message = '이름은 ' + name + '이고, 나이는 ' +age + '살입니다.';
+        //alert(messgae);
+
+        //1. 'string'
+        //2. 'string'
+        //3. `string`: (역따옴포, backtick, backquote)
+        // let message = `문자열`; // ▶ 그냥 문자열이다. 역따옴표를 쓰긴 했지만 그냥 문자열
+        // alert(message); // ▶ 그냥 문자열이다.
+        // alert(typeof message);
+
+        // ★ backquote는 > 1. 형식문자를 제공한다. > ${ }안에 연산가능, 클래스를 가져올 수 있다. 
+        //                > 2. 문자열 사이에 엔터가 가능하다.
+
+
+        let message = `이름은 ${name}이고, 나이는 ${age}살입니다. 만 나이로 ${age - 1}입니다. 현재 시각은 ${new Date()}입니다.`;
+        //let message = '이름은 ${name}이고, 나이는 ${age}살입니다. 만 나이로 ${age - 1}입니다. 현재 시각은 ${new Date()}입니다.'; 홑따옴표를 해버리면 >>>> 안된다.
+
+        let message2 = `이름은 ${name}이고, 나이는 ${age}살입니다. 만 나이로 ${age - 1}입니다. 
+        
+        엔터가 가능하다. ~!
+        
+        현재 시각은 ${new Date()}입니다.`;
+        alert(message2);
+
+    </script>
+</body>
+</html>

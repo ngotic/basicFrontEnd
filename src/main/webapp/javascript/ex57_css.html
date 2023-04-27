@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+        .draggable{
+            position: absolute; /* 여기서 위치가 난잡함 이걸 relative로 가려고함 --> ex58_css.html */
+            left : 0;
+            top : 0;
+            user-select: none;
+        }
+    </style>
+</head>
+<!-- onselectstart="return false;" -->
+<body> 
+    <!-- ex57_css.html -->
+    <h1 class="draggable">제목입니다.</h1> <!-- 드래그하면서 텍스트가 선택이 됨 -->
+    <div class="box bg-red draggable">상자1</div> <!-- 움직일 수 있는 자격을 준다. > 그걸 css class로!! -->
+    <div class="box bg-yellow draggable">상자2</div>
+    <div class="box bg-blue draggable">상자3</div>
+    <button class="draggable">버튼</button>
+
+    <script>
+        let isDown = false;
+        let x = 0, y=0;
+        let obj;          // > 드래그 대상
+        let zindex = 0; // 드래그 할 때마다 마지막에 눌린애를 가장 위로 올리자
+
+        window.onmousedown = function() {
+            // > class로 draggable를 하나 추가하면 이제 드래그할 수 있는 대상이 된다.
+            // css로 이렇게!
+            if(event.target.classList.contains('draggable')){
+                obj = event.target; // 드래그 대상
+                isDown = true;
+                x = event.offsetX;
+                y = event.offsetY;
+
+                obj.style.zIndex = ++zindex;
+            } 
+
+        };
+
+        window.onmousemove = function() {
+            if (isDown) {
+                obj.style.left = event.clientX - x + 'px';
+                obj.style.top = event.clientY - y + 'px';
+            }
+        };
+
+        window.onmouseup = function() {
+            isDown = false;
+        };
+
+    </script>
+</body>
+</html>
