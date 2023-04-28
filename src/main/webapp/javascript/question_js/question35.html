@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body {
+            color: #777;
+            transition: all 0.1s;
+        }    
+        input{
+            outline: none;
+            color: #777;
+            font-size: 60px;
+            width : 100%;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!--  -->
+    <h1>제목입니다.</h1>
+    <input type="text" id="txt1">
+    <hr>
+    <h1>다른 내용입니다.</h1>
+    <script>
+        let txt1 = document.getElementById('txt1');
+        txt1.onkeydown = () => {
+            console.log(event.target.value);
+            document.body.style.margin = '0px';
+            document.body.style.left = '10px';
+        }
+        txt1.onkeyup = () => {
+            document.body.style.margin = '10px';
+            document.body.style.left = '0px';
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <!--  -->
+    
+    
+    <!-- 
+        ★★★> position : absolute가 핵심이다.     
+        <img src="../images/face03.png" style="position:absolute; left:110px; top:20px;"> 
+    -->
+    <script>
+        // body 태그 ~ 
+        window.addEventListener('mousedown',function(){
+
+           // if( event.buttons==1 ){
+                let img = document.createElement('img');
+                img.setAttribute('src','../images/face03.png');
+                img.style.position = 'absolute';
+
+                // img.style.height;
+                // const list = window.getComputedStyle(img); // 내가 알고싶은 서식을 
+                // alert(list.getPropertyValue('width'));
+                // alert(img.style.width); //> 이게 안되니까 
+
+                img.style.left = event.clientX -40 + 'px';
+                img.style.top = event.clientY  -40 + 'px';
+                document.body.appendChild(img);
+
+            //}
+            //face03.png
+        });
+
+    </script>
+</body>
+</html>

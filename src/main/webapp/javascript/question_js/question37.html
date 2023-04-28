@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            transition: all 1.5s;
+        }
+    #main{
+        color : #777;
+        
+        border: 1px solid #777;
+        width: 600px;
+        margin: auto;
+    }
+    section {
+        padding: 0 20px 0 20px;
+        border-bottom: 1px solid black;
+        height: 1000px;
+    }
+    </style>
+</head>
+<body>
+    <!--  -->
+    <div id="main">
+        <section>
+            <h1>Index</h1>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, commodi, natus ex, iste fugiat provident doloremque mollitia numquam nulla perferendis ab. Repudiandae ullam veniam sit dolor quibusdam nemo excepturi impedit.
+            </div>
+        </section>
+        <section>
+            <h1>About me</h1>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et eius possimus recusandae repellat labore in officia eligendi quas sit non ipsum dolorem temporibus sed, enim omnis voluptas, dicta repellendus qui. Culpa, repellat. Earum doloremque neque ullam beatae quia iste id, facilis quos veniam sint similique asperiores culpa hic minus cupiditate maiores praesentium magnam dolorum inventore delectus. Natus, magni saepe doloribus architecto animi earum dolorem ipsam perferendis voluptates molestiae molestias nostrum ducimus. Consequatur, possimus voluptas sapiente iusto nostrum impedit mollitia velit quibusdam natus, accusantium, nobis laboriosam amet! Dolorum culpa, nihil sunt doloremque corrupti, reiciendis voluptatum cupiditate dicta, dolorem expedita similique pariatur.
+            </div>
+        </section>
+        <section>
+            <h1>Career</h1>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil illum voluptas aut architecto similique quo accusantium deleniti assumenda impedit minima error repellat id, ad nisi accusamus deserunt enim numquam voluptatum esse iusto consequatur consequuntur labore. Asperiores repellat, quam, est iure laboriosam sit ea tempora beatae accusantium neque earum quod ab.
+            </div>
+        </section>
+        <section>
+            <h1>Portfolio</h1>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, pariatur. Dolorum voluptatibus enim magni ex. At amet rerum atque delectus? Veniam delectus sunt beatae. Est rem fugiat placeat suscipit vitae praesentium dolore. Tenetur itaque illum facere quaerat nulla eos animi! Eos deserunt saepe enim, ea laborum, velit obcaecati quisquam harum molestias minus laudantium maxime minima. Reiciendis minima at natus fugit. Officia, repudiandae? Amet ratione obcaecati voluptatibus cumque excepturi quis? Nemo tenetur odit deserunt mollitia beatae quas accusamus laudantium vero sequi, rem nostrum? Earum ipsum dignissimos ad nobis maiores accusantium officia perspiciatis aspernatur! Eos pariatur hic saepe dolor in itaque voluptate commodi. Maxime excepturi exercitationem culpa consequatur error tempora eum consectetur officia, voluptate voluptates doloremque. Fugit rerum molestiae, inventore quidem dolorum quibusdam nam tenetur sapiente libero quasi sequi perspiciatis cupiditate earum non nihil beatae sint in architecto, ipsa magni error qui placeat. Earum temporibus quam velit iste blanditiis tempore nam porro.
+            </div>
+        </section>
+
+        <section>
+            <h1>Education</h1>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, pariatur. Dolorum voluptatibus enim magni ex. At amet rerum atque delectus? Veniam delectus sunt beatae. Est rem fugiat placeat suscipit vitae praesentium dolore. Tenetur itaque illum facere quaerat nulla eos animi! Eos deserunt saepe enim, ea laborum, velit obcaecati quisquam harum molestias minus laudantium maxime minima. Reiciendis minima at natus fugit. Officia, repudiandae? Amet ratione obcaecati voluptatibus cumque excepturi quis? Nemo tenetur odit deserunt mollitia beatae quas accusamus laudantium vero sequi, rem nostrum? Earum ipsum dignissimos ad nobis maiores accusantium officia perspiciatis aspernatur! Eos pariatur hic saepe dolor in itaque voluptate commodi. Maxime excepturi exercitationem culpa consequatur error tempora eum consectetur officia, voluptate voluptates doloremque. Fugit rerum molestiae, inventore quidem dolorum quibusdam nam tenetur sapiente libero quasi sequi perspiciatis cupiditate earum non nihil beatae sint in architecto, ipsa magni error qui placeat. Earum temporibus quam velit iste blanditiis tempore nam porro.
+            </div>
+        </section>
+    </div>
+    <script>
+        window.onscroll = function() {
+            console.log(window.scrollY); //> 현재 
+            let y = window.scrollY;
+            if( y > 0 && y < 1000) {
+                document.body.style.backgroundColor = '#fff';
+            } else if ( y >= 1000 && y < 2000) {
+                document.body.style.backgroundColor = '#FF6347';
+            } else if ( y >= 2000 && y <= 3000) {
+                document.body.style.backgroundColor = '#FFD700';
+            } else if ( y >= 3000 && y <= 3800) {
+                document.body.style.backgroundColor = '#6495ED';
+            } else if ( y >= 3800 && y <= 5000) {
+                document.body.style.backgroundColor = '#9ACD32';
+            }
+        }
+    </script>
+</body>
+</html>

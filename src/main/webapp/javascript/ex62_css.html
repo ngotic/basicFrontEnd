@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+        #menu {
+            border: 1px solid black;
+            display: flex;
+            width : 630px;
+
+            position: fixed;
+            /* 가운데 정렬하는 방법중 하나이다. */
+            top: -100px;
+            left : 0;
+            right: 0; 
+            margin: 0 auto; 
+            /* 그냥 마진이 있으면 안먹고 */
+        }
+
+
+        #menu img {
+            transition: 1s all;
+        }
+
+        /*         
+        이런 행동을 이제 자바스크립트로 하자
+        #menu img:hover {
+            transform: translate(0, 90px);
+        } */
+    </style>
+</head>
+<body>
+    <!-- ex62_css.html -->
+    <nav id="menu">
+        <!-- img[images/rect_icon0$.png]*5 -->
+        <img src="images/rect_icon01.png" alt="">
+        <img src="images/rect_icon02.png" alt="">
+        <img src="images/rect_icon03.png" alt="">
+        <img src="images/rect_icon04.png" alt="">
+        <img src="images/rect_icon05.png" alt="">
+    </nav>
+    
+    
+    
+    <script>
+        let old;
+        const list = document.querySelectorAll('#menu img');
+
+        for( let i=0; i<list.length; i++){
+            list[i].onclick = function(){
+
+                // 이전에 누른 메뉴? > 접기 
+                // 이전의 이벤트를 기억한다.!
+                if( old != null ){
+                    old.style.transform = 'translate(0, 0)';
+                }
+                if( event.target == old ) {
+                    event.target.style.transform = 'translate(0, 0)';
+                    old = null;
+                } else {
+                    // 나중에 누른 메뉴
+                    event.target.style.transform = 'translate(0, 90px)';
+                    old = event.target;
+                }
+
+            };
+        };
+
+    </script>
+</body>
+</html>

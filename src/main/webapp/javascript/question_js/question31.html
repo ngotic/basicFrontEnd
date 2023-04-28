@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl{
+            border-collapse: collapse;
+        }
+
+        #tbl td {
+            width:100px;
+            height:100px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!--  -->
+    <table id="tbl" border="1">
+        <tr>
+            <td class="name"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table> 
+    <script>
+        const list = document.getElementsByTagName('td');
+        for (let i=0;i <list.length ; i++){
+            list[i].onclick = clickEvent;
+        }
+        //#FFFFFF
+        //#E6E6E6
+        //#CDCDCD
+        let prev=null;
+        // alert(prev);
+        function clickEvent(){  
+            
+            let my = window.getComputedStyle(event.target); // 내가 알고싶은 서식을 
+            let rgbstr = my.getPropertyValue('background-color');
+            let vrgblist = rgbList(rgbstr);
+
+            if( vrgblist[0]==0 ){
+                return ;
+            }
+
+            if (prev !=null) { 
+                prev.removeChild(prev.firstChild);
+            }
+
+            let img = document.createElement('img');
+            img.setAttribute('src','../images/dog-foot.png');
+            img.setAttribute('style','width:100%;height:100%;')
+           
+            let r = clip(parseInt(vrgblist[0])-30);
+            let g = clip(parseInt(vrgblist[1])-30);
+            let b = clip(parseInt(vrgblist[2])-30);
+            event.target.style.backgroundColor='rgb('+ r +',' + g+ ','+ b+')';
+            event.target.appendChild(img);
+            prev = event.target;
+  
+        }
+
+        function rgbList(rgbstr){
+            return rgbstr.slice(rgbstr.indexOf('(')+1,  rgbstr.indexOf(')')).split(',');
+        }
+        function clip(value){
+            if(value <= 0){
+                return 0;
+            } else {
+                return value;
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        img {
+            position: absolute;
+            left: 500px;
+            top:200px;
+        }
+    </style>
+</head>
+<body>
+    <!--  item15.gif -->
+    <!-- <img src="../images/item15.gif" id="img" style=" position: absolute;
+    left: 500px;
+    top:200px;"> -->
+     <img src="../images/item15.gif" id="img">
+    
+    
+    <script>
+        let img;
+        let imgs;
+        window.addEventListener('mouseover', function(){
+            //alert(11); // 이미지가 있는 지점
+
+            // img.style.left = event.clientX -40 + 'px';
+            // img.style.top  = event.clientY  -40 + 'px';
+            img = document.getElementById('img');
+            imgs = window.getComputedStyle(img); 
+            // alert( parseInt(imgs.getPropertyValue('left').replace('px','')) );
+            // alert(typeof event.clientX)
+            let width = parseInt(imgs.getPropertyValue('width').replace('px',''));
+            // alert(width);
+            let leftPoint = parseInt(imgs.getPropertyValue('left').replace('px',''));
+            let rightPoint = leftPoint + width;
+            if ( leftPoint-30 <=event.clientX && event.clientX  <= leftPoint+30 ) {
+                img.style.left = leftPoint+40+'px';
+            }
+             else if ( rightPoint-30 <=event.clientX && event.clientX  <= rightPoint+30 ){
+                img.style.left = leftPoint-40+'px';
+            }
+
+
+        })
+        window.addEventListener('click', function(){
+            //alert(event.clientX)
+            // 내가 알고싶은 서식을 가진 태그를 넣는다.
+            //alert(+','+imgs.getPropertyValue('width'));
+            //  이놈이 뭘하나를 반환해준다.
+            // const list = window.getComputedStyle(box); // 내가 알고싶은 서식을 가진 태그를 넣는다.
+            //  이놈이 뭘하나를 반환해준다.
+            // alert(list.getPropertyValue('width'));
+            // list.setProperty('width','500px');
+            // alert(list.getPropertyValue('width'));
+            // list.setProperty('width','500px');
+        })
+
+    </script>
+</body>
+</html>
