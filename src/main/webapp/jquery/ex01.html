@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- 
+        webapp > jquery > ex01.html
+     -->
+    
+    <input type="text" name="txt1" id="txt1">
+
+    
+    <body>
+
+    </body>
+    <!-- <script src="js/jquery-3.6.4.js"></script> -->
+    <!-- <script src="../node_modules/jquery-3.6.4.js"></script> -->
+    <!-- 
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script>
+
+    /*
+    순수 JavaScript
+    - Vanila Javascript
+
+    JavaScript Library(API)
+    - JQuery 
+
+    JavaScript Framework 
+    - React
+    - Angular
+    - Vue
+
+    - JQuery 
+    - https://jquery.com
+    - jquery is a fast(X), small, and feature ~ 
+    css 선택자 지원~ ! 
+    - Lightweight Footprint
+    - CSS compliant > document.querySelector(CSS 선택자) : ES6
+    - Cross-browser > 브라우저 호환성 > 크롬 엣지 파이어폭스, IE, 사파리
+    안드로이드, IOS, and more 
+
+
+    JQuery 직접설치
+    1. 직접 설치 > 파일 다운로드 + 참조
+    2. Node.js > NPM(Yarn) > 설치
+    3. CDN 사용 > URL 참조 
+
+    jquery-3.6.4.min.js 압축 버전 > 개발에 필요한 기능 빼고 최소한에 돌아가는 기능만 넣은게 압축버전이다. 88KB
+    jquery-3.6.4.js 비압축 버전 286KB > 우리는 비압축 버전을 가지고 있자. 
+
+
+    CDN > content delivery Network > google CDN 
+
+    */
+    //1. BOM 
+    document.all.txt1.value = 'BOM';
+
+    //2. DOM
+    document.getElementById('txt1').value='BOM';
+
+    jQuery('#txt1').val("jQuery"); // 값은 val이다.
+    
+    </script>
+</body>
+</html>

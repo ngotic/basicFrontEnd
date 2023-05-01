@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+        /* .one { 이러면 우선순위가 밀린다. 
+            background-color: darkgoldenrod;
+        } */
+
+        .box.one {
+            background-color: darkgoldenrod;
+        }
+
+        .two {
+            font-size: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex05_css.html -->
+    <h1>jQuery + CSS</h1>
+
+    <input type="button" value="확인" id="btn"></input>
+    
+    <hr>
+    
+    <div id="box" class="box bg-green">상자</div>
+    
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        $('#btn').click(function(){
+
+            // CSS 조작      
+            // css('속성')       > getter
+            // - css('속성', 값) > setter
+            // alert(document.getElementById('box'.style.backgroundColor));//인라인
+            // alert(getComputedStyle(document.getElementById('box')).getPropertyValue('background-color'));// 인라인 아닌거 읽음
+            // 기본 css를 못얻어온다. 얻어올 수 있어도 귀찮다.
+
+            // 제이쿼리는 인라인 스타일 시트 아닌것도 읽는다. 
+            //alert($('#box').css('background-color')); // 
+            // $('#box')
+            // .css('color','blue')
+            // .css('background-color', 'gold')
+            // .css('width', 300)
+            // .css('height', 100); // >> 이런건 오브젝트 형태로도 가능하다.
+
+            // $('#box').css({
+            //     color : 'tomato',
+            //     'background-color': 'cornflowerblue',
+            //     width:100,
+            //     height:300
+            //     // -가 있어서 문자열로 함 
+            // });
+
+            
+            // BOM 
+            // document.all.box.className = 'one';
+            // document.all.box.className = 'two';// 덮어쓰기 된다. > 하나만 적용됨
+
+            // document.all.box.className = 'one two'; // 둘다 적용 > 근데 조작할려면 문자열 조작해야함
+
+
+            // DOM에서 개량시킴
+            //document.getElementById('box').classList.add('one');
+            //document.getElementById('box').classList.add('two'); 
+            // 요소로 관리하니 클래스 추가, 삭제가 쉽다.
+            //document.getElementById('box').classList.remove('two'); 제거
+            // document.getElementById('box').classList.toggle('one'); // 넣었다가 제거
+            
+            // jQuery
+            // $('#box').addClass('one');
+            // $('#box').addClass('two');
+            // $('#box').removeClass('two');
+            $('#box').toggleClass('one');
+
+        });
+    </script>
+</body>
+</html>

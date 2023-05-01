@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex07_manipulation.html -->
+    <h1>JQuery 태그 조작</h1>
+
+    <input type="button" value="확인" id="btn">
+    <hr>
+    <div id="box" class="box bg-orange">상자입니다.</div>
+    <hr>
+    <input type="text" id="txt1">
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        let n = 1;
+        $('#btn').click(function(){
+
+            // 1. 콘텐츠 조작
+            // - innerText, textContent > text();
+            // - inner HTML > html();
+            // - value > val();
+
+            // alert($('#box').text());
+            // $('#box').text('홍길동');
+
+            // $('#box').html('<b>안녕하세요.</b>'); // 먹힌다.
+            // $('#box').text('<b>안녕하세요.</b>'); // 안먹힌다.
+
+            // alert($('#txt1').val());
+            // $('#val').val('값을 대입합니다.');
+
+            // 2. 속성 조작
+            // - BOM : obj.prop
+            // - DOM : obj.setAttribute(key, value), obj.getAttribute(key)
+
+            // HTML 속성을 조작하는 메서드
+            // - obj.attr('name');
+            // - obj.attr('name', value);
+
+            // JavaSCript 프로퍼티를 조작하는 메서드(HTML 속성에는 없고, JavaScript에만 있는 프로퍼티 )
+            // - obj.prop('name');
+            // - obj.prop('name', value);
+
+            // $('#txt1').attr('size', 50); // -----  //
+            // $('#txt1').prop('size', 50); //(- > -) // prop이라는 메서드도 있다. 
+                                            // -----  //
+            // $('#txt1')
+            //     .attr('size', 50)
+            //     .attr('maxlength', 10);
+            
+            // $('#txt1').attr({
+            //     size : 50,
+            //     maxlength: 10
+            // }); // key value를 object로도 넣을 수 있다.
+
+            //3. 태그 생성 
+            //box.innerHTML += '<img>'
+            // box.appendChild(img); < create하고 이렇게 넣음
+
+            //$('#box').html('<img src="images/catty01.png">'); // 덮어쓰기라 변화가 없는 것 처럼보인다.
+
+            // $('#box').append(`<img src="images/catty0${n}.png">`);
+            // $('#box').prepend(`<img src="images/catty0${n}.png">`);
+            // n++;
+
+            // 고양이 추가 + 고양이 테두리 
+            // $('#box')
+            // .append(`<img src="images/catty0${n}.png">`)
+            // .css('border', '5px solid gold');
+
+            // $('#box').append(`<img src="images/catty0${n}.png">`);
+            // jQuery 함수 기능
+            // 1. 태그 검색
+            // 2. 자바스크립트 객체 > jQuery 변환
+            // 3. 문자열 > 태그 생성 
+
+            // $('#box').append(
+            // $(`<img src="images/catty0${n}.png">`)// 문자열을 제이쿼리로 감싸서 사용한다.
+            //     .css('border', '5px solid black') // 추가되는 태그를 바로 조작 
+            //     .click(function(){
+            //         alert(this.src)
+            //     })// 내가 추가한 이미지 + 스타일도 준다. 
+            // );
+
+            // 부모.append(자식);
+            // 부모.prepend(자식)
+
+            // 자식.appendTo(부모)
+            // 자식.prependTo(부모)
+            $(`<img src="images/catty0${n}.png">`)
+            .css('border', '5px solid black')
+            .click(function(){
+                // alert(this.src);
+                $(this).remove(); // 클릭된 본인 스스로 제거 
+            }).appendTo($('#box'));
+
+            // 순수 자바 > 부모가 자식삭제,  removeChild
+            // 자기 스스로가 삭제하는 메서드 있음 remove
+            n++;
+
+        });     
+
+    </script>
+</body>
+</html>

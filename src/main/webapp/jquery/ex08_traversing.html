@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+        #me {
+            outline: 5px solid black;
+        }
+        .check {
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex08_traversing.html -->
+
+
+    <h1>Axis</h1>
+
+    <input type="button" value="버튼" id="btn">
+    <hr>
+
+    <div>
+        할아버지
+        <div>
+            큰아버지
+            <div>사촌</div>
+        </div>
+        <div>
+            아버지
+            <div>
+                큰형
+                <div>조카</div>
+            </div>
+            <div>
+                작은형
+            </div>
+            <div id="me">
+                나
+                <div>큰애</div>
+                <div>
+                    둘째
+                    <div>손자</div>
+                </div>
+                <div id="item">막내</div>
+            </div>
+            <div>
+                동생
+            </div>
+            <div>
+                막내동생
+                <div>조카</div>
+            </div>
+        </div>
+        <div id="item">
+            작은아버지
+            <div>사촌</div>
+        </div>
+    </div>
+    
+
+    <hr>
+
+    <table id="tbl" class="table wide">
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+    </table>
+
+
+    
+    
+    </table>
+    
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        $('#btn').click(function(){
+            // 자식
+            // childNodes, children
+            // $('#me').children().addClass('check') // 
+            // // 태그들만 들어있다. 
+            // $('#me').children().css('border', '10px solid blue') // 
+            // $('#me').children().addClass('check')
+            //                     .css('border','10px solid blue').click(function(){
+            //                             alert($(this).text());
+            //                     });
+            // $('#me').children().first().addClass('check');
+            // $('#me').children().laset().addClass('check');
+
+
+            //0, 1, 2
+            // -1 -2 -3 
+           // $('#me').children().eq(-3).addClass('check');
+            //$('#me').children().children().addClass('check');
+            // indexOf 안만들고 eq로 퉁친거다. 
+            // find() : 태그를 기점으로 하위 태그를 검색 > 지역 검색 
+            //$('#me').find('CSS 선택자'); // find를 많이 쓴다. 
+
+            //$('.item').addClass('check');
+            //$('#me').find('.item').addClass('check');
+
+            // 조상탐색 
+            // - parentNode, parentElement
+
+            //$('#me').parent().css('border', '10px solid orange');
+            //$('#me').parents().css('border', '10px solid orange');
+            // $('#me').parentsUntil('body').css('border', '10px solid orange');
+
+            
+            //형제 탐색
+            // previousSibling, nextSibling
+            
+            // $('#me').prev().addClass('check');
+            // $('#me').next().addClass('check');
+
+            // $('#me').prev().prev().addClass('check');
+
+            // $('#me').prevAll().addClass('check');
+            // $('#me').nextAll().addClass('check');
+
+            // 이조 건에 해당하는 직전까지 찾는다.
+           // $('#me').prevUntil('조건').addClass('check');
+            
+            //$('#me').siblings().addClass('check'); // 형제들 다 찾는다. 
+
+            //<td> X 50개 > 이벤트 추가 
+            // const tbl = document.getElementById('tbl');
+            // const tbody = tbl.firstElementChild;
+            
+            // for ( let i=0 ;i <tbody.children.length ; i++){
+            //     for(let j=0; j<tbody.children[i].children.length; j++){
+            //         tbody.children[i].children[j].onmouseover = function(){
+            //             event.target.style.backgroundColor = 'gold';
+            //         }
+            //     }
+            // }
+            // document.querySelectorAll('#tbl td').forEach(function(item){
+            //     item.onmouseover = function(){
+            //         event.target.style.backgroundColor = 'cornflowerblue';
+            //     }; // 쿼리 셀렉터로 찾고 이렇게 함 
+            // });
+
+            // 한방에 다잡고 for문 없어도 되고 이제 JQuery가 좋은 점! 
+            // $('#tbl td').mouseover(function(){
+            //     $(this).css('background-color', 'tomato');
+            // }); // 이제 제일 간단
+
+            // $('#tbl').children().children().children().mouseover(function(){
+            //     $(this).css('background-color', 'tomato');
+            // }); // 애가 이중 포문 역할한 것이다. 
+            //JavaScript.forEach(function(item, index) {});
+            $('#tbl td').each((index, item) => {
+                $(item).mouseover(function() {
+                    $(this).css('background-color','tomato');
+                });
+            });// jquery 종류가 많다. 
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+        
+        #box {
+            padding: 20px;
+            margin : 30px;
+            border-width: 10px;
+            /* box-sizing: border-box; */
+            box-sizing : border-box;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex06_box.html -->
+    <h1>jQuery + Box Model</h1>
+
+    <input type="button" value="확인" id="btn">
+    <hr>
+    <div id="box" class="box bg-orange" style="width:50%"></div>
+    
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        
+        $('#btn').click(function(){
+
+            // 상자 크기?
+            // 박스 사이징에 따라 두개가 같을 수 있고 다를 수 있다. 
+
+            //1. CSS 
+            console.log('width', $('#box').css('width'));    // 이친구는 content 사이즈다. 
+            console.log('height', $('#box').css('height'));
+            // border-box시 200,200
+
+            //2. 
+            console.log('width', $('#box').width());
+            console.log('height', $('#box').height());
+            //$('#box').width(300); // border-box시 140,140
+
+            //3. width/height + padding = orange 영역
+            console.log('innerWidth', $('#box').innerWidth());     // 수치(px)> 패딩이 반영되었다. 
+            console.log('innerHeight', $('#box').innerHeight());   // 180 180
+
+            //4. width/height + padding + border = 실제 사각형 영역 
+            console.log('outerWidth', $('#box').outerWidth());
+            console.log('outerHeight', $('#box').outerHeight()); // 200, 200
+
+            //5. width/height + padding + border + margin = 실제 사각형 영역 + 마진
+            console.log('outerWidth(true)', $('#box').outerWidth(true));
+            console.log('outerHeight(true)', $('#box').outerHeight(true));
+
+
+
+        });
+
+    </script>
+</body>
+</html>

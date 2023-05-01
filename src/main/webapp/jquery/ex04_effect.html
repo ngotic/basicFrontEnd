@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex04_effect.html -->
+
+    <h1>JQuery Effect</h1>
+
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+    <input type="button" value="버튼3" id="btn3">
+    <input type="button" value="버튼4" id="btn4">
+    <input type="button" value="버튼5" id="btn5">
+    
+    <hr class="b">
+                        <!-- 해당 속성잡고 ! f12로 이동한다. -->
+    <div id="box" class="box bg-yellow">상자</div>
+    <div id="box" class="box bg-yellow">상자</div>
+    <!-- <div id="box" class="box bg-yellow">상자</div> -->
+
+    
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        
+        // function doSomething() {
+        //     alert('hahaha');
+        // }
+        // let m = doSomething;
+        // 함수 이름이 길 때 이렇게 변수에 저장해서 사용한다.
+        // m();
+
+        //jQuery > (Alias) > $ ( 달러로 별칭을 붙여논 것이다. )
+        //jQuery('#btn1')
+        // jQuery Effection function
+        // 1. hide(time), show(time), toggle(time)
+        // 2. fadeOut(), fadeIn(), fadeToggle()
+        // 3. slideUp(), slideDown(), slideToggle()
+
+        // 'slow', 'fast', 1000 이렇게 숫자를 넣는다.
+        //   $('#btn1').click( () => {
+        //     $('#box').hide(1000); // > display : none을 한 것이다.
+        // });
+
+        // $('#btn2').click(() => {
+        //     $('#box').show('slow');
+        //     // document.getElementById('box').style.display = 'none';
+        // });
+
+        // $('#btn3').click(() => {
+        //     $('#box').toggle('fast');
+        // });
+
+        $('#btn1').click( () => {
+            //$('#box').hide(); // > display : none을 한 것이다.
+            // $('#box').fadeOut(1000);
+            // $('#box').slideUp(1000);
+            $('#box').animate({
+                width: '400px',
+                height: '400px'
+            });
+        });
+
+        $('#btn2').click(() => {
+            // $('#box').show();
+            // document.getElementById('box').style.display = 'none';
+            // $('#box').fadeIn(1000);
+            // $('#box').slideDown(1000);
+            $('#box').animate({
+                width: 200, // 단위 안쓰는것도 되는데 단 픽셀에 한해서 그렇다. 
+                height: 200
+            });
+        }); 
+
+        $('#btn3').click(() => {
+            //$('#box').toggle(1000);
+            //$('#box').fadeToggle(1000);
+            // $('#box').slideToggle(1000);
+            $('#box').animate({
+                // box.style.width = parseInt(box.style.width) + 100 + 'px';
+                width: '+=100', // 이렇게 문자열로 += 붙여도 된다.. ㄷㄷ
+                height : '+=50px',
+                'margin-left' : '+=50px',
+                marginTop: '+=50px'
+            });
+        }); // 원하는 css를 직접 통제할 수 있다. 
+
+        // jquery는 굳이 찾아서 변수에 넣는 짓을 안해도 된다. 
+      
+        $('#btn4').click(function(){
+
+            // $('#box').slideUp().slideDown();
+            // 앞에 행동 실행 후 > 다음 행동 시작 
+            // $('#box').slideUp().slideDown().hide(1000).show(1000);
+            // $('#box').animate({transform: 'translate(200px, 0)'})
+            //         .animate({transform: 'translate(200px, 200px)'})
+            //         .animate({transform: 'translate(0px, 200px)'})
+            //         .animate({transform: 'translate(0px, 0)'})
+            $('btn5').onclick(function() {
+                $('#box').hide(3000, function(){
+                    // Effect 종료 직후 처리 업무
+                    $(document.body).css('background-color', 'gray');
+                });
+                //setTimeout(function(){}, 3000);
+            });
+
+        });
+
+    </script>
+</body>
+</html>
