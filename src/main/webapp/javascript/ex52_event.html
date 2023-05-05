@@ -26,9 +26,7 @@
         //1. 이벤트 버블링 중단
         //a. event.cancelBubble = true; > 비표준 > IE전용
         //b. event.stopPropagation();   > 표준
-
-
-
+        
         const p = document.getElementById('parent');
         const c = document.getElementById('child');
 
@@ -36,11 +34,12 @@
         const txt1 = document.getElementById('txt1');
 
 
-        // 링크의 이동과 클릭이벤트 발생은 클릭이벤트가 먼저 일어난다. 그후에 페이지 이동한다.
+        // ★ 링크의 이동과 클릭이벤트 발생은 클릭이벤트가 먼저 일어난다. 그 후에 페이지 이동한다.
         link1.onclick = function(){
             // alert();
             // return false; // 이동 중단
             event.preventDefault();  // 한글 안된다/ 
+            // ★ 그래서 강제 이동을 막으려면 event.preventDefault();
         }
 
         txt1.onkeydown = function(){
@@ -64,12 +63,14 @@
 
             alert(event.cancelBubble); // 현재 브라우저에서 문법을 지원유무
             alert(event.stopPropagation);
+
+            // < 브라우저에서 stopPropagation 지원 유무 >  > 객체에서 있는지 확인한다.
             if(event.stopPropagation) {
                 // 현재 브라우저가 stopPropagation 함수 지원
                 event.stopPropagation();
             } else {
                 // 현재 브라우저가 stopPropagation 함수 지원안함 > IE
-                event.cancelBubble = truel
+                event.cancelBubble = true;
             }
 
         }

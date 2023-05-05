@@ -37,7 +37,9 @@
             // 좌표값만 있으면 알아낸다. 
             //console.log(document.elementFromPoint(x, y)); // 여러 고양이중 하나 클릭하면 어느 태그인지 출력함,
             // 겹쳐있으면 위에 있는 고양이 출력한다. 
-
+            //alert(document.elementFromPoint(x, y).nodeName); // s붙은거랑 안붙은거 두개가 있다. 
+            //alert(document.elementsFromPoint(x, y)[0].nodeName);
+            // document에서 이렇게 찍는다. 
             console.log(document.elementsFromPoint(x, y));
              // (3)[img#cat1, body, html]
              // [img#cat2, img#cat1, body, html]

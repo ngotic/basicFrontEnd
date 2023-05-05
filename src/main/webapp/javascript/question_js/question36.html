@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body {
+            color: #777;
+            transition: all 0.1s;
+        }    
+        input{
+            outline: none;
+            color: #777;
+            font-size: 60px;
+            width : 100%;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!--  -->
+    <h1>제목입니다.</h1>
+    <input type="text" id="txt1" style="transform: translate(0px, 0px);">
+    <hr>
+    <h1>다른 내용입니다.</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem recusandae sunt doloribus libero, quis dolores provident eum voluptas facilis fugiat tempora soluta illum ipsa perferendis id exercitationem pariatur reiciendis quod!
+    </p>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur laborum, voluptatum nostrum repellendus dolorem nobis tenetur tempore aspernatur voluptates deserunt quam assumenda impedit accusamus atque reiciendis, corrupti mollitia, earum sed.</p>
+
+    <script>
+        let txt1 = document.getElementById('txt1');
+
+        let g = 1;
+        let flag = 0;
+        txt1.onkeydown = () => {
+
+            let move = [-5, 5, 0];
+
+            document.body.style.transform = "translate("+move[Math.floor(Math.random() * 3)]+"px, "+ move[Math.floor(Math.random()*3)]+"px)";
+
+            setTimeout(function() {
+                document.body.style.transform = "translate("+move[Math.floor(Math.random() * 3)]+"px, "+ move[Math.floor(Math.random()*3)]+"px)"
+            }, 5);
+
+            setTimeout(function(){
+                document.body.style.transform = "translate(0px, 0px);"
+            }, 20);
+            // alert(g/100);
+            document.body.style.backgroundColor="rgba(255,0,0, "+ g/100 +")";
+            g +=5;
+            // ★ bgColor는 rgba가 안먹힌다. 
+            if(g > 100) g=0;
+            flag = 0;
+    }
+
+    setInterval(function(){
+        flag = 1; // 1초 지나면 플래그 1로 만듬
+        if(flag == 1){
+            document.body.style.backgroundColor="white";
+        }
+
+
+    }, 1000);
+
+    </script>
+</body>
+</html>

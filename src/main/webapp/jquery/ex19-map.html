@@ -12,6 +12,11 @@
             height : 500px;
         }
     </style>
+<script type="text/javascript" src="keys/apiKey.js"></script>
+<!-- <script id="kakao" type="text/javascript" charset="utf-8"></script>
+<script>
+    document.getElementById("kakao").src ="https://dapi.kakao.com/v2/maps/sdk.js?appkey=31ef66b24f93bbb959f9b59dc1f2b78a";
+</script> -->
 </head>
 <body>
     <!-- ex19_map.html  카카오 본사가 중심으로 되어 있다. -->
@@ -30,8 +35,11 @@
 
     <input type="button" value="확대하기" id ="btn5">
     <input type="button" value="축소하기" id ="btn6">
+    
 
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=31ef66b24f93bbb959f9b59dc1f2b78a"></script>
+	<script id="kakao" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" id="kakao" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=31ef66b24f93bbb959f9b59dc1f2b78a"></script>
+
 	<script>
 
 		var container = document.getElementById('map');

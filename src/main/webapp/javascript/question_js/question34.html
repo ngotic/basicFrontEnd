@@ -79,9 +79,7 @@
             img.setAttribute('class','draggable');
             img.style.borderRadius = '5px';
             imgdiv.appendChild(img);
-
             targetimg = img;
-
             firstLeft = img.getBoundingClientRect().left;
             firstTop = img.getBoundingClientRect().top;
         }
@@ -92,14 +90,11 @@
                 imgdiv.removeChild(imgdiv.firstElementChild)
             }
             let img = document.createElement('img');
-
             img.setAttribute('src', '../images/dog0'+rvalue+".jpg");
             img.setAttribute('class','draggable');
             img.style.borderRadius = '5px';
             imgdiv.appendChild(img);
-
             targetimg = img;
-
             firstLeft = img.getBoundingClientRect().left;
             firstTop = img.getBoundingClientRect().top;
         }
@@ -111,13 +106,9 @@
                 isDown = true;
             }
         }
-
-
         window.onmousemove = function() {
             if (isDown) {
                 list = document.getElementsByClassName('draggable');
-                // alert(list);
-                // alert(list[0].BoundingClientRect().left);
                 console.log(list[0].getBoundingClientRect().left);
                 targetimg.style.left = event.clientX - firstLeft - 60 + 'px';
                 targetimg.style.top  = event.clientY - firstTop - 60 + 'px';

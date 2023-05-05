@@ -5,3 +5,4 @@ bin/
 .classpath
 /src/main/webapp/WEB-INF/
 .externalToolBuilders/
+/src/main/webapp/node_modules/
