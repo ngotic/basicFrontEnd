@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!--  -->
+    
+    
+    
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+        const o1 = new Object();
+
+        o1.name = '홍길동';
+        o1.age = 20;
+        o1.hello = function(){
+            console.log(this.name);
+            console.log(this.age);
+        };
+        o1.hello();
+        // 객체 안에 함수 담음
+        const o2 = {
+            name : '아무개',
+            age : 20,
+            hello: function(){
+                console.log(this.age);
+                console.log(this.name);
+            }
+        }
+        o2.hello();
+
+        const o3 = {
+            name: '하하하'
+        }
+        o3.age = 20;
+        o3.hello = function(){
+            console.log(this.name);
+            console.log(this.age);
+        }
+
+        o3.hello();
+
+        // 2. 생성자 함수
+        // - 파스칼 표기법(필수x)
+        // - new 연산자와 같이 호출. 단독 호출 X
+        function User() { // 보통 매개변수로 변수값 초기화하려고함
+            this.name = '호호호';
+            this.age = 25;
+            this.hello = function() {
+                console.log(this.name);
+                console.log(this.age);
+            };
+        }
+
+        // User();  // 단독호출 > 전역함수의 호출 > 내부에서의 this == window 객체
+
+        // const o4 = {} 이것과 동일하다. 
+        // o4.name = '호호호';
+        const o4 = new User(); // 이 때의 this > 앞에서 생성된(new) 객체를 가리킨다. 
+        o4.hello();
+
+        function Member(name, age) {
+            this.name = name;
+            this.age = age;
+            this.hello = function(){
+                console.log(this.name);
+                console.log(this.age);
+            }
+        }
+        // 틀 역할을 한다. 
+        const o5 = new Member('헤헤헤', 22);
+        o5.hello();
+
+        // 3. ES6 클래스 
+        class Mouse {
+            // > 생성자(고정-예약어)
+            // - 멤버 선언 + 멤버 초기화
+            constructor(){
+                this.name = 'G80';
+                this.button = 3;
+                this.price = 30000;
+            } // 멤버 선언 멤버 초기화
+        }
+        // const m1 = {};
+        const m1 = new Mouse();
+
+        console.log(m1.name);
+        console.log(m1.button);
+        console.log(m1.price);
+
+        class Keyboard {
+            // 멤버 변수(프로퍼티) > 잘 사용 안함
+            // let name = 'K810';> (X) >>>>>> 선언문을 못쓴다. this. < 이게 생략된 상태다.
+            // name = 'K810';
+            // price = 120000; // 근데 생성자가 있으니까 여기서 선언 및 초기화할 필요도 없다. 
+            // color; // 선언은 여기서, 초기화는 생성자에서 해도 된다. 
+
+            constructor(){
+                this.color = 'white';
+                this.name = 'K810';
+                this.price = 120000;
+            }
+
+            // private String name; > 자바패턴 <-> 자바스크립트도 생성자가 있는데 왜 여기서 초기화함??
+            // 여긴 변수를 선언만 해야한다.
+        }
+        const k1 = new Keyboard();
+        console.log(k1.name);
+        console.log(k1.price);
+
+        class Item {
+            constructor(name, color){
+                this.name = name;
+                this.color = color;
+            }
+            // 메서드 // > function 키워드 생략함
+            info() {
+                console.log(this.name, this.color);
+            }
+        }
+
+        const il = new Item('노트북', 'black');
+        il.info();
+
+        console.log(typeof il); // Object 
+        function test() {
+            console.log(22);
+        }   
+
+        console.log(typeof test()); // 이건 리턴타입을 알려준다.
+
+        // class 키워드를 사용한 클래스 == 생성자의 다른 표현 방식 
+        console.log(typeof Item) // class(X) > function(O)
+        // 사실은 생성자함수지 진짜 클래스는 아니다. 
+        // 겉보기에 쓰기 좋게 바꿔놓은 코드라 sugar code다. 
+
+        class Monitor { // 이런 상속구조가 자바 스크립트에선 
+            constructor(name){
+                this.name = name;
+            }
+            info(){
+                console.log('name: ' + this.name);
+            }
+        }
+
+        class LG100 extends Monitor {
+            constructor(){
+                super('LG100');
+            }
+            check(){
+                console.log('자체메서드');
+            }
+            info() { // 오버라이딩(재정의) // 동일한 info가 있더라도 이렇다. 
+                super.info();
+                this.check();
+            }
+        }
+
+        const lg = new LG100();
+        lg.info();
+
+        // 멤버명 앞에 '_' or '$' > 비공개 멤버 의미!! > 이게 유명한 패턴임
+        // 실제로는 막을 수 없으나 다른 사람이 이런 짓을 하지말라는 경고다.
+        class Computer{
+            #c = 30; // 이렇게 쓴다.
+            constructor(){
+                // 멤버 접근 지정자 > 유사
+                this.a  = 10;     //public
+                this._b = 20;    //protected(=private)
+                // this.#c = 30;    //pivate field '#c' m
+            }
+            test() {
+                console.log(this.a,
+                            this._b,
+                            this.#c); // 내부에선 접근이 된다. 
+            }
+        } 
+        const c1 = new Computer();
+        console.log(c1.a);
+        console.log(c1._b);    // 접근이 되는데 왜 private인가?????
+        // console.log(c1.#c); // caught SyntaxError: Private field '#c' must be declared ~
+        c1.test();
+
+        class Camera {
+            constructor(name, price){
+                this._name = price;
+                this._price = price;
+            }
+
+            setName(name){
+                this._name = name;
+            }
+
+            getName(){
+                return this._name;
+            }
+
+            // set function() { }    // 프로퍼티
+            set price(price){
+                this._price = price;
+            }
+
+            // get function() { }
+            get price() {
+                return this._price;
+            }
+        }
+
+        const c2 = new Camera('Cannon', 1000000);
+
+        c2.setName('Sony');        //
+        console.log(c2.getName()); //
+
+        // ★ 프로퍼티의 특징 > setter에 매개변수를 2개이상 
+        // 적지 못한다. ★ 대입 연산자를 넣는 것이라 여러개를 넣지 못한다.
+
+        // 사용법이 틀리다
+        // c2.price(900000);
+        // console.log(c2.price());
+
+        c2.price = 900000;
+        console.log(c2.price);
+        //★★ 내부적으로 함수인데, 외부에는 
+        //★★ 변수처럼 사용하는 멤버 > set, get 프로퍼티 !! 
+        //★★ 사용상의 편의성 때문이다. 
+
+    </script>
+</body>
+</html>

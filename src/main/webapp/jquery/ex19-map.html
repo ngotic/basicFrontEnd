@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+        #map {
+            width: 1200px;
+            height : 500px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex19_map.html  카카오 본사가 중심으로 되어 있다. -->
+    <h1>지도</h1>
+
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/data.js"></script> <!-- 이렇게 둔 것만으로해도 참조가 된다. -->
+    <div id="map"></div>
+    <hr>
+    <input type="button" value="한독빌딩 이동하기" id ="btn1" data-lat="37.4993" data-lng="127.0331">
+    <input type="button" value="신촌으로 이동하기" id ="btn2" data-lat="37.5592" data-lng="126.9365">
+    <input type="button" value="잠실로 이동하기" id ="btn3" data-lat="37.5092" data-lng="127.0997">
+    <input type="button" value="역삼역으로 이동하기" id ="btn4">
+
+    <hr>
+
+    <input type="button" value="확대하기" id ="btn5">
+    <input type="button" value="축소하기" id ="btn6">
+
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=31ef66b24f93bbb959f9b59dc1f2b78a"></script>
+	<script>
+
+		var container = document.getElementById('map');
+
+		var options = {
+			// center: new kakao.maps.LatLng(33.450701, 126.570667), 
+            center: new kakao.maps.LatLng(37.4993, 127.0331), 
+            // 위도와 경도다. 제주도 본사임 
+            // level은 확대 수준이다. 
+			level: 1 // 1로 주면 확대로 크게 나온다. 최소가 13이나 14 레벨정도 있다.
+		};
+
+		var map = new kakao.maps.Map(container, options); // 이게 지도를 그린 것이다. 
+
+        // 우리가 있는 곳을 중심점으로 만들고 싶다면 
+        // > 우리 있는 여기가 위경도가 어디있는지 찾으면 된다. 
+        // 원래 구글맵에 찎으면 위경도를 알려줬음 > 근데 지금은 안되네? 
+
+        // ★ 구글맵 > 주변검색 > 한독빌딩 > 한독빌딩의 위경도다.
+        // 37.4993
+        //127.0331 
+        // 이렇게 스크립트와 연동해서 순간이동을 한다. 
+        // 이벤트를 모든 버튼에 걸어놨는데 일단 이거 주석 
+        // $('input[type=button]').click(function(){
+        //     // Javascript는 dataset이라는 객체가 있었다.
+        //     // - obj.dataset['lat']
+        //     // - obj.dataset['lng ']
+        //     //jQuery > 제이쿼리는 data이다.
+        //     // alert($(this).data('lat')) // 이런 메서드가 있다. 여기서 lat을 입력하면 된다. 
+        //     // 한독빌딩 위도값이 출력된다. 
+        //     const point = new kakao.maps.LatLng($(this).data('lat'), 
+        //                                         $(this).data('lng')); // 1.위 경도에 대한 객체 생성
+        //     map.setCenter(point); // setCenter로 위경도 객체를 넣으면 이동한다.
+        //     // 테스트는 지도를 적당한 위치로 옮기고 한독빌딩으로 가기 버튼을 누르면 된다.
+        // });
+
+        $('#btn1').click(function(){
+            const point = new kakao.maps.LatLng(list[0].position.lat, 
+                                                list[0].position.lng);
+            //map.setCenter(point); // 이동하는 메서드가 하나 더 있다. 
+            map.panTo(point); // panTo는 이동하는 메서드다.
+        }); // 한독빌딩
+
+        $('#btn4').click(function(){
+            const point = new kakao.maps.LatLng(list[1].position.lat, 
+                                                list[1].position.lng);
+            // map.setCenter(point); // setCenter > 이건 순간이동으로 이동함
+            map.panTo(point); // panTo는 이동하는 메서드다. > 이건 슬라이드로 이동함
+        }); // 역삼역
+        // 근데 panTo는 현재 보이는 위치가 지도에 보이면 슬라이드로 이동, 안보이면 순간이동한다. > 둘중에 원하는 행동으로 써라 
+
+        // setDrraggble, setZoomable는 원래 true로 설정되어 있다. 
+        map.setDraggable(false); // 드래그 못하게 막음 
+        map.setZoomable(false); // 확대 축소 못하게 막음
+        // 이렇게 잡아버리면 지도는 이미지다 그냥 > 때에 맞게 클지 끌지 결정
+
+        $('#btn5').click(function(){
+            // alert(map.getLevel());// 레벨을 알려준다. 
+            // map.setLevel(10); 이걸로 레벨 변경가능
+            map.setLevel(map.getLevel()+1);
+        });
+
+        $('#btn6').click(function(){
+            // alert(map.getLevel());// 레벨을 알려준다. 
+            // map.setLevel(10); 이걸로 레벨 변경가능
+            map.setLevel(map.getLevel()-1);
+        });
+
+        // 확대 + 축소 + 사용자 못건드림
+
+	</script>
+</body>
+</html>

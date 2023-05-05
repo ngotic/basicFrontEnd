@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex68_json.html -->
+    
+    
+    <script>
+    /*
+        JSON, Javascript Object Notation 
+        - 자바스크립트 객체 표기법
+        - 자바스크립트의 객체를 문자열로 표현할 때 사용하는 포멧이다.
+        - 자바스크립트에서 사용 중인 데이터([객체])를 외부 환경(파일 입출력, 네트워크)에 전달 
+        > 하나의 문자열로 표현하는 방법이 필요했다. > JSON
+        > 상대방의 데이터를 전달하기 위해서 포맷이 필요했는데 그게 JSON이다. 
+        xml과 함께 데이터 전달용이다. 
+        - 언어 독립적 > 대부분의 언어/환경에서 JSON 지원
+
+        javaSCript Object Literal
+
+        const o1 = {
+            name :'홍길동',
+            age : 20,
+            hello : function(){}
+        }
+        JSON
+        - 반드시 프로퍼티를 쌍따옴표로 묶는다.(홑따옴표, 역따옴표 불가능)
+        - 반드시 값도 쌍따옴표도 묶는다.홑따옴표, 역따옴표 불가능
+        -> 값 > boolean 숫자 > 그냥 표현 가능
+            //
+        메소드 표현 가능 > 
+        {
+            "name" :"홍길동",
+            "age" : 20
+        }
+    */
+
+    const hong = {
+        name: '홍길동',
+        age : 20,
+        gender : 'male',
+        // hello: function(){ // 여기 부분은 데이터로 직렬화가 안된다.
+        //     console.log()  // 함수같이 직렬화가 되지 않는 부분은 JSON.stringify에서 걸러진다.
+        // }
+        nick : ['술꾼', '망나니', '바보'],
+        address : {
+            sido: '서울시',
+            gugun : '강남구',
+            dong: '역삼동'
+        }
+        
+    };
+    //{"name":"홍길동","age":20,"gender":"male","nick":["술꾼","망나니","바보"]}
+
+
+    // JSON이라는게 있다,            // "[객체]를 문자열의 JSON 형태로 인코딩했다."
+                                    // 이걸 직렬화(Serialized) 했다고도 한다.
+    let str = JSON.stringify(hong); // 문자열의 JSON 포맷 형태로 전달한다. 
+    console.log(str);
+    // ★★ 객체에 함수를 넣으면 이건 데이터화가 안되서 직렬화에서 배제된다.
+    // ★★ 배열도 제이슨 직렬화에 포함이 된다.
+    // 구글에 json parser 검색 > Json Parser Online > 다 비슷하게 생김
+    
+    console.log(typeof hong); //object
+    console.log(typeof str); //string
+
+    // console.log(str.name); //undefined
+    // {"name":"홍길동","age":20,"gender":"male"} // 이걸 네트워크로 전송해서
+    // 반대쪽에선 '역직렬화'를해서 디코딩을 한다.
+
+    /*
+     {
+            "name":"홍길동",
+            "age":20,
+            "gender":"male",
+            "nick":["술꾼","망나니","바보"],
+            "address": { "sido":"서울시",
+                        "gugun":"강남구",
+                        "dong":"역삼동"
+                       }
+    } 
+    */
+    // JSON(string) > JavaScript(Object)
+
+    // JSON 형식의 문자열 수신
+    const data = '{"name" : "홍길동", "age" : 20}';
+
+    // console.log(data);
+    const result = JSON.parse(data); // 문자열을 인식하고 자바스크립트 객체로 만들어준다.
+
+    console.log(result.name);
+    console.log(result.age);
+
+    // JavaScript Object > JSON > JavaScript Object
+
+    </script>
+</body>
+</html>

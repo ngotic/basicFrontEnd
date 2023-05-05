@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+    <link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
+    <script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
+    <style>
+        body{
+            width:880px;
+            margin:20px auto;
+        }
+        #list::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #list .item{
+            float: left;
+            border: 1px solid #999;
+            width: 150px;
+            height: 220px;
+            text-align: center;
+            padding: 20px 10px;
+            margin : 15px;
+        }
+        #list .item img{
+            display: block;
+            margin: 0 auto;
+            width:126px;
+            height: 126px;
+            object-fit: cover;  /* contain, cover 등 */
+        }
+        #list .item div:nth-child(2){
+            margin-top: 20px;
+            font-weight: bold;
+            color:#555;
+        }
+        #list .item div:nth-child(3){
+            color:tomato;
+        }
+        #search {
+            border:  1px solid #999;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px;
+            width: 745px;
+        }
+        #price{
+            margin: 15px;
+        }
+        #add {
+            border : 1px solid #CCC;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            margin-left: 15px;
+        }
+        #add th, #add td{
+            border: 1px solid #CCC;
+            padding : 15px;
+        }
+        .item.ui-selected {
+            background-color: gold;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div id="grid"></div>
+
+    <!-- ex15_ui.html -->
+    <h1>List</h1>
+
+    <div id="search">
+        가격 : <span>35,000원 ~ 70,000원</span>
+        <div id="price"></div>
+    </div>
+
+    <div id="list">
+
+        <div class="item">
+            <img src="images/rect_icon01.png">
+            <div>상품명</div>
+            <div>15000</div>
+        </div>
+
+        <div class="item">
+            <img src="images/rect_icon01.png" alt="">
+            <div>Lorem, ipsum dolor.</div>
+            <div>10000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon02.png" alt="">
+            <div>Natus, aperiam illo?</div>
+            <div>20000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon03.png" alt="">
+            <div>Harum, adipisci quae.</div>
+            <div>10000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon04.png" alt="">
+            <div>Ullam, vitae ea!</div>
+            <div>10002</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon05.png" alt="">
+            <div>Molestias, quam ex.</div>
+            <div>20000</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon06.png" alt="">
+            <div>Cupiditate, neque porro!</div>
+            <div>30006</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon07.png" alt="">
+            <div>Minus, consequuntur tempore?</div>
+            <div>10007</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon08.png" alt="">
+            <div>Ad, facilis blanditiis.</div>
+            <div>20008</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon09.png" alt="">
+            <div>Corporis, repudiandae atque.</div>
+            <div>30009</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon10.png" alt="">
+            <div>Expedita, asperiores sed.</div>
+            <div>20010</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon11.png" alt="">
+            <div>Accusantium, quae impedit.</div>
+            <div>50011</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon12.png" alt="">
+            <div>Distinctio, unde error.</div>
+            <div>60012</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon13.png" alt="">
+            <div>Id, incidunt quis.</div>
+            <div>80013</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon14.png" alt="">
+            <div>Soluta, consequuntur quas?</div>
+            <div>10014</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon15.png" alt="">
+            <div>Quibusdam, aperiam et!</div>
+            <div>40150</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon16.png" alt="">
+            <div>Voluptatibus, voluptatum ipsam?</div>
+            <div>10016</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon17.png" alt="">
+            <div>Corrupti, ipsa et.</div>
+            <div>40017</div>
+        </div>
+        <div class="item">
+            <img src="images/rect_icon18.png" alt="">
+            <div>Ex, nobis vel.</div>
+            <div>20018</div>
+        </div>
+    </div>
+
+    <div id="adddialog">
+        <table id="add">
+            <tr>
+                <th>이미지</th>
+                <td><input type="file" id="txtimg" ></td>
+            </tr>
+            <tr>
+                <th>상품명</th>
+                <td><input type="text" id="txtname"></td>
+            </tr>
+            <tr>
+                <th>가격</th>
+                <td><input type="number" id="txtprice" min="10000" max="100000" step="1000"></td>
+                <!-- ★STEP -->
+            </tr>
+        </table>
+        <input type="button" value="추가하기" id="btnadd">
+    </div>
+
+    <input type="button" value="추가하기" id="btndialog">
+    <input type="button" value="삭제하기" id="btnremove">
+
+    <!-- (div.item>(img[src=images/rect_icon$$.png])+(div>lorem3)+(div{$$$}))*18 -->
+   
+    
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+
+
+        // 자바스크립트
+        // - 숫자.toLocaleString() > 천단위가 나온다.
+        $('.item').each((index, item) => {
+            // console.log(parseInt($(item).children().eq(2).text()).toLocaleString());
+            let price=parseInt($(item).children().eq(2).text()).toLocaleString();
+            $(item).children().eq(2).text(price);
+        });
+
+        $('#price').slider({
+            range: true,
+            min : 5000,
+            max: 100000, // min, max 인자 두개를 둘 수 있는데 버튼 두개다.
+            step: 1000,
+            values: [35000, 70000], // 이건 초기값이다.
+            slide : function(event, ui){
+                // $('#search > span').text(ui.value.toLocaleString());
+                $('#search > span').text(
+                    //ui.value.toLocaleString()); 버튼이 하나일 때 > 여러개 있으면 values이다.
+                    ui.values[0].toLocaleString()+'원 ~ '+
+                    ui.values[1].toLocaleString() +'원'
+                );
+
+                // $('#list .item').each((index, item) => {
+                //     // 30000 > 30,000
+                //     // console.log($(item).children().eq(2).text().replace(',','')); // replace는 하나만 바꿔줌 그래서 정규 표현식 써야함
+                //     // console.log($(item).children().eq(2).text().replace(/,/g,'')); // g는 글로벌이고 다 바꿀려면 이거 쓴다.
+                //     let price = parseInt($(item).children().eq(2).text().replace(/,/g,''));
+                //     if(price >= parseInt(ui.values[0]) && price <= parseInt(ui.values[1])) {
+                //         $(item).show();
+                //     } else {
+                //         $(item).hide();
+                //     } // 보이고 안보이고만 통제 한거지 실제로 > 일부만 전송한 것은 아니다.
+                //     // 소량일 때는 이방법은 좋다. > 즉각반응도 된다. 
+                //     // 근데 > 대량일 때가 문제다. 
+                //     // 그래서 실제로는 슬라이드를 움직였을 때 보고 싶은 애들만 서버에서 다운로드 한다.
+                //     // 최소한의 것만 가져올 수록 통신하는 코드를 짜야 한다. > 근데 서버랑 통신하는 것도 느린 경우도 있다.
+                // });
+                init(ui.values[0], ui.values[1]);
+            }
+        }); 
+        // js폴더안에 images폴더를 넣어야함
+        // 이제 필터링을 할 거다. 원하는건 보이게 원하지 않는 것은 안보이게 
+
+        init(35000, 70000);
+
+        function init(low, high) {
+            $('#list .item').each((index, item) => {
+                let price = parseInt($(item).children().eq(2).text().replace(/,/g,''));
+                if(price >= parseInt(low) && price <= parseInt(high)) {
+                    $(item).show();
+                } else {
+                    $(item).hide();
+                } // 보이고 안보이고만 통제 한거지 실제로 > 일부만 전송한 것은 아니다.
+             });
+        }
+
+        $('#btnadd').click(function(){
+
+            // alert($('#txtimg').val()); 
+            //C:\fakepath\2png.png > 페이크패스가 뜬다. 경로를안알려줌 이거 알려주면 내 하드디스크 구조를 알아버린다. 그래서우리는 이름만 알아온다.
+            // 전졔: images 폴더 안에 이미지만 들고온다.를 깔자
+            // const txtimg = document
+            // $('#txtimg').val();
+            // $('#txtname').val();
+            // $('#txtprice').val();
+
+            // alert($('#txtimg').val().replace('C:\\fakepath\\', ''));
+
+
+            $('#list').append(
+                `
+                <div class="item">
+                    <img src="images/${$('#txtimg').val().replace('C:\\fakepath\\', '')}" alt="">
+                    <div>${$('#txtname').val()}</div>
+                    <div>${parseInt($('#txtprice').val()).toLocaleString()}</div>
+                </div>
+                `
+            ); // 이 상태만으로도 추가는 되는데 이미지나 제목같은거 추가해야 한다.
+            $('#txtimg').val('');
+            $('#txtname').val('');
+            $('#txtprice').val('');
+            // 이게 초기화하는 코드다.
+            $('#adddialog').dialog('close');
+        });
+
+        $('#adddialog').hide();
+
+        $('#btndialog').click(function(){
+            $('#adddialog').dialog({
+                width: 500,
+                height: 350,
+                title: '상품 추가',
+                resizable : false,
+                // draggable: false,
+                modal: true
+            });
+             // 대화상자이다.
+             // 대화상자에는 크게 두종류가 있다.
+             // 1. modeless > 사용자 입장에선 헷갈린다.
+             // - 대화상자가 열려있어도, 부모창이 포커스를 가질 수 있다.
+             // - 작업 > 병렬(부모, 자식) 
+             // 2. modal
+             // - 대화상자가 열려있으면, 부모창에 포커스를 가질 수 없다. 
+             // - 작업이 '직렬'이다 >
+             // 뒷배경 disable> 현재 작업에 집중한다.
+        });
+        let item = [];
+
+        $('#btnremove').click(function(){
+            // $(item).remove();
+            item.forEach((item)=>{
+                $(item).remove();
+            });
+        });
+
+        $('#list').selectable({
+            selected: function(event, ui) {
+                console.log(ui.selected); // 모든 자식구조들이 연쇄적으로 리턴한다. 
+                if( $(ui.selected).hasClass('item') ) { //
+                    //item = ui.selected;
+                    item.push(ui.selected);
+                }
+            }
+        });
+
+        // 표 > grid
+        // javascript grid
+        // jquery grid
+        // js.grid
+
+        // grid 라이브러리 한 두개 정도 들어가면 좋다.
+
+    </script>
+
+    
+</body>
+</html>

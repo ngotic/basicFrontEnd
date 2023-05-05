@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+        #box {
+            width: 250px;
+            height: 250px;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <!--  ex11_ui.html -->
+    <h1>Interactions <small>Droppable </small></h1>
+
+    <div id="box"></div>
+    <img src="images/catty01.png" id="cat">
+    
+    
+    
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+        // 드래그 기능을 할 수 있는 라이브러리 > jquery-ui
+        // 검색할 순 있지만 무턱대고 가져다 쓰기가 어려움
+        // 내가 쓸 수 있는 라이브러리를 관리하자 
+        $('#cat').draggable({
+            cursor: 'move'
+        });
+
+        $('#box').droppable({
+            // tolerance: 'poiner', // 마우스 포인터가 걸리면 드랍 > 포인터 기준
+            tolerance: 'fit', // 마우스 포인터가 걸리면 드랍 > 딲 맞으면 OK 
+            drop: function(){
+                // alert(); // 박스 영역에 고양이가 들어오면 창뜬다.
+                $(this).css('background-color', 'tomato');
+
+                $('#cat').draggable({
+                    containment : '#box'
+                });
+            }
+        });
+
+        $('#cat').dblclick(function(){ // 더블클릭시 해방
+            $(this).css('background-color', 'gold');
+            $('#cat').draggable({
+                containment: ''
+            })
+        });
+    </script>
+</body>
+</html>

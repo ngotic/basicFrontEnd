@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+        #box , #box2{
+            width: 200px;
+            height : 200px;
+            background-color: gold;
+            margin-bottom: 10px;
+        }
+        .helper {
+            border: 1px dotted #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex12_ui.html -->
+    <h1>Interactions <small>resizable</small></h1>
+    <div id="box"></div>
+    <div id="box2"></div>
+    <img src="images/catty01.png" id="cat">
+    
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        // $('#cat').draggable(); // 특정 > 이벤트가 겹쳐버리면 둘다 안되는 경우도 있다. 
+        $('#cat').resizable({
+            aspectRatio: true // 종횡비가 안깨진다. 
+        });
+
+        $('#box').resizable({
+            maxWidth : 500,
+            maxHeight : 500,
+            minWidth : 100,
+            minHeight : 100,
+            // grid : [100, 100], // 뚝뚝 끊어져서 
+            animate : true,
+            helper: 'helper' 
+        });
+
+        $('#box2').resizable({
+            alsoResize : '#box' // 또한 얘도 지정해줘~ 해서 다른 요소도 동시에 리사이즈가 됨
+        });
+    </script>
+</body>
+</html>

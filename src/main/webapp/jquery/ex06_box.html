@@ -24,7 +24,7 @@
 
     <input type="button" value="확인" id="btn">
     <hr>
-    <div id="box" class="box bg-orange" style="width:50%"></div>
+    <div id="box" class="box bg-orange" ></div>
     
 
     <script src="js/jquery-3.6.4.js"></script>
@@ -36,28 +36,26 @@
             // 박스 사이징에 따라 두개가 같을 수 있고 다를 수 있다. 
 
             //1. CSS 
-            console.log('width', $('#box').css('width'));    // 이친구는 content 사이즈다. 
-            console.log('height', $('#box').css('height'));
+            console.log('1. width', $('#box').css('width'));    // 이친구는 content 사이즈다. 
+            console.log('2. height', $('#box').css('height'));
             // border-box시 200,200
 
-            //2. 
-            console.log('width', $('#box').width());
-            console.log('height', $('#box').height());
-            //$('#box').width(300); // border-box시 140,140
+            //2. >border-box시에 border까지 뺸다.
+            console.log('3. width', $('#box').width());
+            console.log('4. height', $('#box').height());
+            //$('#box').width(300); // border-box시 140,140 < -(40+20)
 
-            //3. width/height + padding = orange 영역
-            console.log('innerWidth', $('#box').innerWidth());     // 수치(px)> 패딩이 반영되었다. 
-            console.log('innerHeight', $('#box').innerHeight());   // 180 180
+            //3. width/height + padding = orange 영역 > 안쪾을 포함
+            console.log('5. innerWidth', $('#box').innerWidth());     // 수치(px)> 패딩이 반영되었다. 
+            console.log('6. innerHeight', $('#box').innerHeight());   // 180 180
 
-            //4. width/height + padding + border = 실제 사각형 영역 
-            console.log('outerWidth', $('#box').outerWidth());
-            console.log('outerHeight', $('#box').outerHeight()); // 200, 200
+            //4. width/height + padding + border = 실제 사각형 영역 > 바깥쪽까지포함
+            console.log('7. outerWidth', $('#box').outerWidth());
+            console.log('8. outerHeight', $('#box').outerHeight()); // 200, 200
 
             //5. width/height + padding + border + margin = 실제 사각형 영역 + 마진
-            console.log('outerWidth(true)', $('#box').outerWidth(true));
-            console.log('outerHeight(true)', $('#box').outerHeight(true));
-
-
+            console.log('9. outerWidth(true)', $('#box').outerWidth(true));
+            console.log('10. outerHeight(true)', $('#box').outerHeight(true));
 
         });
 

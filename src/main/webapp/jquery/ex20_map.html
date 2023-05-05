@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
+        #main{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <!--  ex20_map.html -->
+    <h1>지도</h1>
+    <div id="main">
+        <div id ="map" style="width:1200px; height:450px"></div>
+        <ul id="plist">
+            <!-- <li>한독빌딩</li> 이렇게 두고 여기서 장소를 넣고 장소를 클릭하면 마커에 표시하게 한다. -->
+        </ul>
+    </div>
+    
+    <hr>
+    <div id="message"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/jquery-3.6.4.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey="></script>
+    <script>
+        
+        const map = new kakao.maps.Map(document.getElementById('map'), {
+            center : new kakao.maps.LatLng(37.4993, 127.0331),
+            level : 3 // 확대레벨
+        }); 
+
+        // $(map).click(function(){ // 이렇게 이벤트를 걸면 안된다. 
+        //     alert();
+        // }); // 걍 map은 시각적인 장식임 
+
+        // 카카오가 맵에다가 이벤트 걸도록 구조를 만들어놨다.
+        // 이래야 클릭 이벤트가 걸린다. 
+        // kakao.maps.event.addListener(map, 'click', function(event) {
+        //     //alert(event.latLng); // 좌표값 나온다. 
+        //     document.getElementById('message').innerText
+        //         = `클릭한 위치는 : 위도(${event.latLng.getLat()}), 경도(${event.latLng.getLat()})`; // 어느 좌표에 찍었는지 보여준다. 
+        //     // map.panTo( new kakao.maps.LatLng(event.latLng.getLat(),
+        //     //                                  event.latLng.getLng() )); // 찍은 위치로 좌표 셋팅
+        //     // 해당 누른 좌표에 셋팅함
+        //     // 마커 표시 
+        //     const marker = new kakao.maps.Marker({
+        //         position : event.latLng
+        //     });
+        //     marker.setMap(map); // 마커에다가 지도를 할당한다. 지도에다가 할당이 아니다. 
+        //     // 이렇게 하면 지도에 동그란 마커가 찎힌다. > 마커의 모양이나 설명도 넣을 수 있다. 
+        // });// 원래 구글맵이 보여줬었다. 
+
+        // 리스트 forEach() 쓰는거 
+        // list.forEach((item, index) => {
+        //     // console.log( item.name,
+        //     //              item.position.lat,
+        //     //              item.position.lng ); // 이 정보를 마커로 만들자
+        //     const marker = new kakao.maps.Marker({
+        //         position: new kakao.maps.LatLng(item.position.lat, item.position.lng)
+        //     });
+        //     marker.setMap(map); // 이렇게 하니까 10군데에 마커가 찍혀있다. 
+        // });
+
+        let marker = null;
+
+        list.forEach((item) => {
+
+            // $('#plist').append(`
+            //     <li>${item.name}</li>
+            // `);    
+            // 문자열에다가 이벤트를 걸고 싶다. 
+
+            $(`<li>${item.name}</li>`) // ★ 화살표 함수에서 this쓰면 안된다.
+            .css('cursor', 'pointer') // appendTo가 이래서 편함 중간에 css 껴넣을 수 있다. 
+            .click(()=>{
+                // alert($(event.target).text()); // 이제 시각적으로 티를 낼거다. 
+                $('#plist li').css('color', 'black'); // 모두 검은색으로 처리
+                $(event.target).css('color', 'blue'); // 눌린놈만 파란색 > 한마디로 초기화 한거다.
+                //alert(item.position.lat); // 눌려진 애의 위경도가 나온다.
+
+                if( marker != null ) {
+                    // 마커 삭제
+                    marker.setMap(null);  // 이렇게 null을 주면 지도와 헤어진다. ★ null을 의도적으로 넣는 방법 > 삭제시키려 그렇다. 
+                }
+
+                // if(marker == null) {
+                     // 1. null일 때만 마커 부여, 2. 두번째부터는 기존 마커를 지우고 새 마커를 부여 
+                    marker = new kakao.maps.Marker({
+                        position: new kakao.maps.LatLng(item.position.lat,
+                        item.position.lng)
+                    }); // object 형식으로 넣는다. 
+                    marker.setMap(map);//마커찍고 그장소로 이동
+
+                    map.panTo(new kakao.maps.LatLng(item.position.lat,
+                         item.position.lng)); // 이런 인터페이스를 만든다. 
+
+                //}
+
+            })
+            .appendTo('#plist'); // 하고 싶은 것을 다하고 appendTo()로 dom태그로 지정한다. 
+
+        });
+
+        
+
+    </script>
+</body>
+</html>

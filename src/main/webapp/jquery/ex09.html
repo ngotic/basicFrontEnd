@@ -248,9 +248,7 @@
                                           // 문서의 실제 세로길이 
             let x = $(document).scrollTop() * 100/ ($(document).outerHeight() - $(window).outerHeight());
             $('#bar').css('width', x + '%');  
-            
             // 메뉴가 시야에서 사라지는 순간 > 메뉴를 붙박이로 만들기 
-
             // 왼쪾은 스크롤위치갑 , 오른쪽은 정적인 y좌표값
             // console.log( $(document).scrollTop(), $('#menu').position().top);
             if($(document).scrollTop() >= $('#menu').position().top) {
@@ -296,7 +294,7 @@
         $('.back a').click(function() {
             $('html, body').animate({ 
                     scrollTop: 0
-                }, 1000);
+            }, 1000);
         });
 
 

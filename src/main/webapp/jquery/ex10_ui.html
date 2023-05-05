@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <!-- ex10_ui.html -->
+    <!-- jquery-ui.js,jquery-ui.css, jquery-3.6.4.js -->
+
+    <h1>Interactions <small>Dragable</small></h1>
+
+    <img src="images/catty01.png" id="cat1">
+    <!-- img[src=images/catty0$.png].cat*9 -->
+    <img src="images/catty01.png" alt="" class="cat">
+    <img src="images/catty02.png" alt="" class="cat">
+    <img src="images/catty03.png" alt="" class="cat">
+    <img src="images/catty04.png" alt="" class="cat">
+    <img src="images/catty05.png" alt="" class="cat">
+    <img src="images/catty06.png" alt="" class="cat">
+    <img src="images/catty07.png" alt="" class="cat">
+    <img src="images/catty08.png" alt="" class="cat">
+    <img src="images/catty09.png" alt="" class="cat">
+
+    <hr>
+
+    <div id ="box" style="border: 1px solid black; width: 400px; height: 300px;">
+        <img src="images/catty09.png" id="cat2">
+    </div>
+
+    <!-- 기본먼저 넣고 ui를 다음줄에 넣는다. -->
+    <script src="js/jquery-3.6.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+        // 이걸 쓰고 다른걸 한다. 라이브러리가 있으면 거의 가져다 쓰는 편이다. 직접 만들진 않는다. 
+        $('#cat1').draggable(); // 제이쿼리에 draggable이라는 함수가 있다. 
+        $('.cat').draggable(); // 이래버리면 루프 안돌려도 고양이들에게 적용된다. 
+
+        $('.cat').draggable({
+           // axis: 'x' // x축으로만 이동한다 혹은 y를 넣으면 y로축으로만 이동
+           grid: [ 128, 128 ] // 한번에 이동하는 거리에 대한 제한이다. 얼마든지 사이즈 조절가능
+        });
+        $('#cat2').draggable({ // 상자 안의 cat2
+            //containment : 'parent' // 이 옵션을 주면 상자 안에 있을 때 빠져 나올 수 있다.
+            // containment : '#box' // id 선택자를 줘도 된다.
+            // snap : '#box' // 근처게 갔을 때 찹 달라붙는다. 
+            snap : '.cat' // 근처게 갔을 때 찹 달라붙는다. 
+        });
+
+    </script>
+</body>
+</html>
