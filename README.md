@@ -351,9 +351,93 @@ li:nth-child(3)
 .tbl tr:nth-child(even) td:nth-child(odd) // 이런식으로 도 선택자를 잡을 수 있다. 중간에 가상 또 가상 
 
 
+속성 선택자
+1. 선택자[속성명]     : 해당 속성을 명시했는지?
+2. 선택자[속성명=값]  : 해당속성과 값을 명시했는지? 속성의 값이 맞는 걸로도 찾음 
+3. 선택자[속성명^=값] : 속성명이 이 값으로 시작하는 애로 찾아주세요. startsWith()
+4. 선택자[속성명$=값] : 속성값이 값으로 끝나는지? endsWith()
+5. 선택자[속성명*=값] : 이 값이 들어있는 친구를 찾아주세요. 속성값이 포함되는데 contains() or like '%값%'
+
+.list a[target] {background-color: gold;}
+.list a[target=_black] {background-color: gold;} 
+.list a[href^=https] {background-color: gold;} 
+.list a[href$='.com'] {background-color: gold;}
+.list a[href*=m] {background-color: gold;}
+ /* . 이 있으니까 escape를 시켜주기 위해서 ' '안에다가 씀 . */
 
 
+★ 셀렉터를 아래처럼도 약간 동적인 느낌으로도 걸 수 있다. 
+input[type=checkbox]:checked
+.cb-cat:checked + .cat
+.cb-cat + .cat
+.cb1:checked + div
 
+
+★ 전후 선택자
+1. ::before = :before
+2. ::after  = :after
+span::before{
+    content: '[';
+}
+span::after{
+    content: ']';
+}
+
+★ 그림자 효과 
+text-shadow: 2px 2px 10px #999;
+box-shadow: 5px 2px 2px gray;
+
+border-radius : px or %, 50%정도면 원처럼 됨
+
+★ column 내용물을 컬럼기준으로 분할한다. 
+p {
+    column-count: 3;               /* 3단의 컬럼으로 나눠진다.*/
+    column-gap: 20px;              /* 간격이다. */
+    column-rule: 1px solid gray; /* 테두리다. */
+    text-align: justify;           /* 양끝 맞춰진다. */
+}
+
+
+border : 경계인데 
+box-sizing: border-box; 쓰면 width, height 기본 크기 보장 (예상 사이즈임)
+box-sizing: content-box; 쓰면 width, height가 컨텐츠 크기 보장 (좀더 커짐)
+
+outline : 무조건 바깥쪽 테두리.
+
+
+// CSS 변수 지정 
+:root {  
+    --main-background-color : #dad7cd;
+}
+
+// 쓸 때는 var() 안에다가 
+body {
+    background-color: var(--main-background-color);
+}
+
+// 미디어 쿼리
+@media (max-width: 767px){} // max니까 여기까지는 이걸로 해줘
+// 767px크기 까지는 이 정의로 해줘라 
+
+
+@media (min-width: 768px){} //min이니까 
+// 최소 768크기부터는 이 정의로 해줘
+
+가로모드 스마트폰 너비(576px ~ 767px)
+    @media (min-width : 576px) {
+}
+태블릿 너비(767px ~ 991px)
+    @media (min-width : 768px) {
+}
+
+데스크탑(랩탑)
+@media (min-width : 992px) {
+    color : red;
+}
+큰화면 데스크톱
+@media (min-width : 1200px) {
+    color : skyblue;
+}
 
 input 태그나 textarea 태그에 
 outline :none; 걸 수 있다.
@@ -419,7 +503,6 @@ querySelectorAll
 // s 붙은거, querySelectorAll은 여러개 반환, querySelector는 맨처음 발견한거 한개 반환
 
 ```
-
 ### DOM에서 노드탐색
 ```js
 
@@ -574,6 +657,17 @@ let isDown = false;
     // 이거도 스크롤 이동된거리다.
     //window.scrollX
     //window.scrollY
+
+    event.keyCode 누른키       // > 키보드이벤트 때 사용 
+    좌(37), 우(39)
+
+    event.buttons             // > 마우스 이벤트 때 사용 
+    왼쪽(1), 오른쪽(2), 왼쪽+오른쪾(3), 휠버튼(4)
+
+    컨트롤키, 알트키, 쉬프트키  // 키보드 이벤인데 > 다른 종류의 키다.
+    console.log(event.ctrlKey); 
+    console.log(event.altKey);
+    console.log(event.shiftKey);
 
 ```
 ### 타이머
@@ -931,6 +1025,9 @@ console.log(i); // 이경우 i는 살아 있다.
 // 지역에서 선언됬는데? 왜? 
 
 // let을 쓰면 이 문제는 해결 
+
+★ 그냥 let써라 꼭 
+
 ```
   
 ### Loop 

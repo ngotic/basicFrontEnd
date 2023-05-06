@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #cat {
+            position: relative;
+            left: 0px;
+            top :40px;
+        }
+    </style>
+</head>
+<body>
+    <!--  -->
+    <div>
+        <input type="button" value="시작" id="btn">
+    </div>
+    <img src="../images/catty12.png" id="cat">
+    
+    <script>
+
+        let isClick = false;
+        
+        let btn = document.getElementById("btn");
+        let img = document.getElementById("cat");
+        
+        let n =0;
+        let isMove = true;
+        rectList = [];
+        img.style.transition = "all 0.1s";
+
+
+        btn.onclick = function(){
+
+                isMove = false;
+
+                if(rectList.length <= 0 ) return;
+                img.style.left = rectList[0].x + - 60 + 'px';
+                img.style.top  = rectList[0].y + - 60 + 'px';
+
+                let timer = setInterval(() => {
+                    if(rectList.length <= 0 ) return;
+                    img.style.left = rectList[n].x - 60 + 'px';
+                    img.style.top  = rectList[n].y - 60 + 'px';
+                    n++;
+                    if( (n+1) == rectList.length) { 
+                        clearInterval(timer) 
+                        rectList = [];
+                        isMove=true;
+                    };
+                }, 20);
+        }
+
+        window.onmousemove = function(){
+            
+            if(event.ctrlKey == true && isMove == true){
+                rectList.push({
+                    x: event.clientX,
+                    y: event.clientY
+                });
+            }
+        }
+    </script>
+</body>
+</html>

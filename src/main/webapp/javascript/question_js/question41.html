@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .cat {
+            position: absolute;
+            left: 0px;
+            top :40px;
+        }
+    </style>
+</head>
+<body>
+    <!--  -->
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty02.png" class="cat">
+    <img src="../images/catty03.png" class="cat">
+    <img src="../images/catty04.png" class="cat">
+    <img src="../images/catty05.png" class="cat">
+    <img src="../images/catty06.png" class="cat">
+    <img src="../images/catty07.png" class="cat">
+    <img src="../images/catty08.png" class="cat">
+    <img src="../images/catty09.png" class="cat">
+    
+    <script>
+
+        let isClick = false;
+        
+        let img = document.getElementsByClassName("cat");
+        
+        let isMove = true;
+        rectList = [];
+       
+       let n=0;
+       let v = Math.random()*4 / 10;
+
+       for( let element of img )  {
+            let v = Math.random()*5 / 5;
+            element.style.transition = "all "+v+"s";
+            element.style['transition-timing-function'] = 'linear';
+            element.style.zIndex = n++;
+       }
+
+        window.onmousemove = function(){
+            //alert(img.length)
+            for( let element of img )  {
+                element.style.left = event.clientX - 60 + 'px';
+                element.style.top  = event.clientY - 60 + 'px';    
+            }   
+        }
+    </script>
+</body>
+</html>

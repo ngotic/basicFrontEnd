@@ -119,6 +119,18 @@
 
         window.onmouseup = function() {
             isDown = false;
+            let x = event.clientX;
+            let y = event.clientY;
+            console.log(document.elementsFromPoint(x, y));
+
+            for ( let a of document.elementsFromPoint(x, y)){
+                 if ( a.nodeName =='TD' ){
+                    //두개 이거 수정해주면 들어간다. 
+                    event.target.style.left = 0;
+                    event.target.style.top = 0;
+                    a.appendChild(event.target);
+                 }
+            }
         }
 
     </script>
