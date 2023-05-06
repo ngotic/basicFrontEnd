@@ -52,11 +52,15 @@
     // // }
 
 
-    // var list = [10, 20, 30];
+    var list = [10, 20, 30];
     // // 이건 우리가 알던 향상된 for문이 아님
-    // for ( var n in list){
-    //     console.log(n); // 0 1 2 출력
-    // }
+    for ( var n in list){
+        console.log(n+','+ list[n]); // 0 1 2 출력
+    }
+
+    for ( var n of list){
+        console.log(':'+n); // 0 1 2 출력
+    }
     // console.log('----------------');
     // for ( var p in screen ) {
     //     console.log(p);
@@ -74,7 +78,7 @@
     var a = 10; // a; 전역변수
     var a = 20; // 사실은 변수가 아닌 속성이라서 재정의가 되는 것이다. 
     for ( var p in window ){ // p; 전역변수
-        console.log(p);
+       // console.log(p);
     }
 
     let b = 20;
@@ -91,7 +95,6 @@
     // console.log(d); // 얘는 지역변수 역할을 제대로한다.
 
     for(var i=0; i<5; i++){
-
     }
     console.log(i); // i가 전역변수라서 살아있다. > 우리가알던 for문의 i는 
     // 지역변수 역할인데!? 

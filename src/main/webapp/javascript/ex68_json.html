@@ -58,6 +58,17 @@
         }
         
     };
+
+    const test = {
+        'name': '홍길동',
+        "age" : 20,
+        gender : "male",
+    };
+
+    console.log('***'+test.age+test.name + test.gender);
+    let str0 = JSON.stringify(test); // 문자열의 JSON 포맷 형태로 전달한다. 
+    console.log(str0);
+
     //{"name":"홍길동","age":20,"gender":"male","nick":["술꾼","망나니","바보"]}
 
 

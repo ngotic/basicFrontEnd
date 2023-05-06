@@ -26,7 +26,14 @@
     <div class="box bg-blue draggable">상자3</div>
     <button class="draggable">버튼</button>
     
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit sunt ipsum, dicta harum molestias dolor. Quo beatae odio, consectetur expedita, recusandae voluptate sequi magni eum ratione placeat molestiae esse doloremque.
 
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit sunt ipsum, dicta harum molestias dolor. Quo beatae odio, consectetur expedita, recusandae voluptate sequi magni eum ratione placeat molestiae esse doloremque.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit sunt ipsum, dicta harum molestias dolor. Quo beatae odio, consectetur expedita, recusandae voluptate sequi magni eum ratione placeat molestiae esse doloremque.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit sunt ipsum, dicta harum molestias dolor. Quo beatae odio, consectetur expedita, recusandae voluptate sequi magni eum ratione placeat molestiae esse doloremque.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit sunt ipsum, dicta harum molestias dolor. Quo beatae odio, consectetur expedita, recusandae voluptate sequi magni eum ratione placeat molestiae esse doloremque.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit sunt ipsum, dicta harum molestias dolor. Quo beatae odio, consectetur expedita, recusandae voluptate sequi magni eum ratione placeat molestiae esse doloremque.
+    
     <script>
         // 고민할 거리가 많다. ex56, ex57, ex58은 천천히 시간을 잡고 분석을 하자
         // 이미지를 추가하니까 '스크롤바가' 생김 이슈임! 스크롤을 내려서 누르면 내린 상태에서
@@ -49,7 +56,7 @@
             });// 이걸로 Object를 만든다.
         }
 
-        // console.log(olist);
+        console.log(olist);
 
         function getLeft(obj){
             for(let i=0; i<olist.length; i++){
@@ -68,6 +75,12 @@
         }
 
         window.onmousedown = function() {
+
+
+            // console.log( window.pageXOffset +', ' +window.pageYOffset)
+
+            console.log(window.scrollX +', '+ window.scrollY )
+
             // > class로 draggable를 하나 추가하면 이제 드래그할 수 있는 대상이 된다.
             // css로 이렇게!
             if(event.target.classList.contains('draggable')){
@@ -75,7 +88,7 @@
                 isDown = true;
                 x = event.offsetX;
                 y = event.offsetY;
-
+                alert(event.target.getBoundingClientRect().left+', ' +event.target.getBoundingClientRect().top)
                 // ox = event.target.getBoundingClientRect().left; // 
                 // oy = event.target.getBoundingClientRect().top;  // 원래 위치값 
 

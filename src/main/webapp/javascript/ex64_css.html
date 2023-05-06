@@ -57,10 +57,11 @@
             // alert(event.target.value);
             //alert(event.target.value - old);
             // alert(Math.abs(event.target.vakue-old));
-            list.style.transitionDuration = `${Math.abs(event.target.vakue-old)}s`;
+            list.style.transitionDuration = `${Math.abs(event.target.value-old)}s`;
             list.style.transform = `translate(-${event.target.value * 250}px, 0)`;
 
             old = event.target.value;
+            console.log(event.target.value);
         });
     </script>
 </body>
