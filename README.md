@@ -8,6 +8,122 @@
 // <table> 만들어 놓으면 중간에 tbody 껴있음
 // 이거 고려하고 탐색
 // <table> tbody <tr> <td>
+
+엔터도 공백이다. ( 그래서 엘리먼트를 여러라인으로 두면 공백이 조금 생기는데 font-size를 0으로 두면 해결됨 )
+
+공백은 &nbsp; 
+&기호는 &amp; 이다.  ( 이거는 스프링 xml에서 url처리시 쓰임 )
+// 오른쪽 기준이라는거 생각하면 안헷갈림
+&lt; less than        < 
+&gt; greater than     >
+&copy; 
+&#65;  : 문자코드 
+
+
+// mybatis 다룰 때 아래 지식이 필요 
+PCDATA > xml로 해석 한다. > 변환작업 일어남
+CDATA  > xml로 해석 안한다. 
+// <![CDATA[  ]]> 
+
+body 태그 자체는 bgColor, background(이미지)속성가진다.
+
+p 태그 > <p align ="justify">첫번째 문단입니다.</p> // justify 쓸만하다. 
+
+html 스타일 태그: 이건 암기 
+
+<ul> / <ol> : type 속성으로 스타일을 줄 수 있다. 
+
+왼쪽 여백의 원인은 'padding'
+list-style-type: none으로 bullet 제거 
+
+<a href="ex10_list.html" target="_blank">열번째 예제(self)</a>
+// _blank는 새창에서 열기
+
+<a href="ex10_list.html" target="_self">열번째 예제(self)</a>
+// _self는 현재창에서 열기 
+
+<li><a href="#item1">변수</a></li>
+# 을 붙이면 앵커라는 건데 한 페이지 안에서 
+어떤 태그로 이동할 수 있다. 
+
+* 어떤 태그가 a태그면 a태그의 name 속성명으로 '#속성명' 지정
+* 어떤 태그가 div 같은거면 id속성의 속성명으로 지정
+
+// alt는 깨진 이미지 나올 때 이게 뭔지 대체구문
+<img src="images/dog01.jpg" alt="강아지 오형제">
+// width, height 속성을 제공 
+
+태그는 style 인라인 속성 지정을 하는 경우가 있음
+<a href="#"style="background-color: yellow;">인라인태그 링크2</a>
+
+<table> 구성 : table, thead, tbody, tr, th, td, tfoot 
+<table> : border를 1로 지정시 경계가 보임, bgColor 속성도 있다. 
+
+<td> : 속성으로 align="center"로 좌우 정렬가능, valign="center"으로 상하 정렬가능
+   
+테이블 병합 (헷갈리지 않아야 함)
+* td에서 쓴다 : 
+rowspan > row를 합치겠다.
+colspan > col을 합치겠다.
+
+★ rowspan이나 colspan을 쓰고 다음 tr 쪽에 td를 보면서 개수를 맞춰야 함 
+
+
+<form></form> 태그 : method속성(get, post), action(url)속성 제공, onsubmit속성( ☞ 내가 작성한 자바스크립트 함수 호출 )
+
+ex)
+<form action="/action_url.php" onsubmit="fn();">
+블라블라
+</form>
+
+스크립트 단에서 코드 짤 때 form 태그에 submit 이벤트가 감지되면 양식을 제출하는 고유동작(페이지 이동 or 새로고침 발생)이 일어나는데 이것을 event.preventDefault();로 막아준다. 
+
+<input> 태그 
+
+input.type : 입력 컨트롤의 종류
+text, password, checkbox, radio, file, hidden, [ submit, reset, button : 버튼계열], date(ex20.html 참고), color(색상선택창), 
+tel, url, email
+
+
+input.size
+input.maxlength
+input.readonly
+input.disabled
+input.value
+input.accesskey : 이걸 "s" 라 주고 alt+s 누르면 바로감
+input.autofocus : 새로 고침시 바로 포커싱
+input.autocomplete : 이전에 입력한 검색어 보여줌 그래서 자동완성이 가능
+
+input.placeholder : 입력전에 이미 들고있는 값 
+input.required : 내용물 채워야 submit 가능
+input.onchange : 내용물 변경 감지
+input.min, input.max : 범위
+
+
+숫자: <input type="number" min="0" max="100" step="10">
+// 위아래 화살표가 생김, step을 줘서 몇씩 증가 감서 인터페이스 제공
+input.step : 몇씩 
+
+// 진행바
+<progress></progress> 
+
+// 수치표시
+<meter value="0.5"></meter> 
+
+// 클릭시 세부내용 보여줌 
+<details>
+    <summary>자바?</summary>
+        <p>자바는 어쩌구 저쩌구 어쩌구 저쩌구</p>  
+</details>
+
+<select>
+    <option></option>
+</select>
+
+// label 태그는 input의 id를 for로 받는다. 
+// 그러면 한 덩이로 묶인다. 
+<input type="checkbox" id="cb1"> <label for="cb1">영화</label>
+
 ```
 
 ## 2. CSS
@@ -220,7 +336,17 @@ prompt()  // 글자 입력창 > 인풋칸, 확인, 취소
 // 타입 궁금할 때 
 console.log(typeof n1);
 
+```
+### template String
+``` js
+let name = '홍길동';
+let age = 20;
 
+// template String을 쓰지 않으면 뭔가 답답하다.
+console.log('이름은 ' +name + '이고, 나이는 '+age+'살입니다.');
+
+// ★ 역따옴표를 쓴다. 이거 쓰면 변수조작이 쉽다. 
+let message = `이름은 ${name}이고, 나이는 ${age}살입니다. 만 나이로 ${age - 1}입니다. 현재 시각은 ${new Date()}입니다.`;
 
 ```
 
@@ -281,6 +407,9 @@ btn2.addEventListener('click', m1);
 jQuery('#btn4').off('mouseout'); 
 // 심플함 
 ```
+
+### 이벤트 동작
+
 
 
 
