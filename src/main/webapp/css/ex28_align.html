@@ -38,8 +38,9 @@
         #div1 {
             /* 블록태그 안에서는 공간이 남으니까 오른쪽으로 붙는다. */
             /* text-align: right; */
-            width:200px;
-            margin-left: 260px; /*이러면 중앙에 맞을까?? No*/
+           width:200px;
+            /* margin-left: 260px;  */
+            /*이러면 중앙에 맞을까?? No*/
             /*왼쪽 마진과 오른쪽 마진을 일부러 같은 숫자를 준다. 중앙 맞추려고*/
             /*margin left, right를 auto로 주면 된다. 그러면 한 가운데 위치 한다. */
             margin-left:auto;
@@ -50,12 +51,12 @@
 <body>
     <!-- ex28_align.html -->
     <h1>인라인 태그</h1>
-    <div style="background-color: aquamarine; padding: 10px; text-align: center;">
+    <div style="background-color: aquamarine; padding: 0px; text-align: center;">
         <span id="span1">인라인 태그</span>
     </div>
     <h1>블럭 태그</h1>
 
-    <div style="background-color: aquamarine; padding: 10px; text-align: center;">
+    <div style="background-color: aquamarine; padding: 10px; ">
         <div id="div1">블럭 태그</div>
     </div>
     

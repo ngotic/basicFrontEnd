@@ -242,7 +242,12 @@
 
             // "비례식 하나 쓴거다."
             // 문서의 세로 길이 : 100% = 스크롤바의 위치 : x%
+            alert($(document).outerHeight()+","+ $(window).outerHeight());
+            // $(document).outerHeight() 이건 실제 문서기준으로 높이
+            // $(window).outerHeight() 이건 창 기준의 높이 
+            // 마지막에 창기준 높이를 하나 빼면 된다. 
 
+            console.log(">>"+$(document).scrollTop() * 100/ $(document).outerHeight());
             // x > 빨간바의 너비 
             // let x = $(document).scrollTop() * 100/ $(document).outerHeight();
                                           // 문서의 실제 세로길이 

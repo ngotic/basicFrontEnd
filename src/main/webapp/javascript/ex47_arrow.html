@@ -65,10 +65,7 @@
 
 
     function test(){ // 전역함수는 윈도우 객체의 프로퍼티로 this를 기본적으로 가진다. 
-
     }
-
-
     // document.getElementById('btn1').onclick = function(){ // 여기선 이벤트의 this
 
     //     // alert('익명 함수');
@@ -119,16 +116,19 @@
     });
 
     // 인덱스까지 필요하면 매개변수 하나 더쓴다.
-    list.forEach((item, index) => console.log(item, index));
+    list.forEach((item, index) => { console.log('*'+item, index);} );
 
     // 마지막 매개변수는 배열 원본을 가지고 있다.
     list.forEach((item, index, temp) => console.log(item, index, temp));
+
+    // list.forEach( (item, index, origin) => {
+    // console.log("&"+item, index, origin);})
 
     // map()
     // 앞의 요소를 가공해서 다른 요소로 반환
     list.map(num => 100).forEach(item => console.log(item));
     
-    list.map(num => n %2 ==0? '짝수':'홀수').forEach(item => console.log(item));
+    list.map(num => num %2 ==0? '짝수':'홀수').forEach(item => console.log(item));
 
     const names = ['홍길동', '아무개','호호호'];
 
@@ -155,18 +155,18 @@
         .forEach(num => console.log(num));
 
     // list.sort();
-    console.clear();
+    // console.clear();
     console.log(list.sort((a, b) => a - b));
 
 
     // ES6부터 나옴
 
 
-    //finc
+    //find
 
     // - 요소 검색
 
-    const mlist  = ['홍길동', '아무개', '하하하', '호호호', '후후후'];
+    const mlist  = ['홍길동', '하무개', '하하하', '하호호', '후후후'];
 
 
     // 요구사항 > '하'씨가 있습니까?
@@ -178,7 +178,7 @@
 
     // mlist.find();
 
-    console.log(mlist.find(name => name.startsWith('하'))); // 이게 편하다.
+    console.log('>>'+mlist.find(name => name.startsWith('하'))); // 이게 편하다.
     </script>
     
 </body>

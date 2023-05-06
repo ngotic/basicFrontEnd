@@ -221,8 +221,8 @@
       for( let i=0; i<list.length; i++){
         list[i].onmouseover = function(){
           // event.target : <tr>(X), <td>(O)
-          // event.target.bgColor = 'gold'; // 유턴하는 객체로 찍힘
-          event.currentTarget.bgColor = 'gold'; // 해결책
+          // event.target.bgColor = 'gold'; // 유턴하는 객체로 찍힘 // 다 내려가서 이벤트 걸림 
+          //event.currentTarget.bgColor = 'gold'; // 해결책 // 
           // event.target.parentElement.bgColor = 'gold'; // 해결책
           // this.bgColor = 'gold'; // 해결책 가독성구리다. 
           

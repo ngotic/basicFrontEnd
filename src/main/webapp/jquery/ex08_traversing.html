@@ -144,8 +144,6 @@
     </table>
 
 
-    
-    
     </table>
     
     <script src="js/jquery-3.6.4.js"></script>
@@ -161,7 +159,7 @@
             //                             alert($(this).text());
             // });
             // $('#me').children().first().addClass('check');
-            // $('#me').children().laset().addClass('check');
+            // $('#me').children().last().addClass('check');
 
             // 인덱싱이 0부터 
             //0, 1, 2
@@ -225,11 +223,14 @@
             //     $(this).css('background-color', 'tomato');
             // }); // 애가 이중 포문 역할한 것이다. 
             //JavaScript.forEach(function(item, index) {});
+
             $('#tbl td').each((index, item) => {
                 $(item).mouseover(function() {
                     $(this).css('background-color','tomato');
                 });
             });// jquery 종류가 많다. 
+
+
         });
     </script>
 </body>

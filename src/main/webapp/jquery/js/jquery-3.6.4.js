@@ -5468,7 +5468,7 @@ jQuery.event = {
 					if ( ret !== undefined ) {
 						if ( ( event.result = ret ) === false ) {
 							event.preventDefault();
-							event.stopPropagation();
+							event.();
 						}
 					}
 				}

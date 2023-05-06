@@ -22,7 +22,7 @@
         <!-- <div id="box" style="width:200px;"> 상자<div> -->
         <div id="box" >상자</div>
         <!-- <div id="box" > 상자<div></div> ↓ 인라인 없을땐 > const list = window.getComputedStyle(box);이거쓰면 해결된다. -->
-                             <!-- box.style.width 이거 못읽어! -->
+        <!-- box.style.width 이거 못읽어! -->
         <hr>
         <h1>텍스트</h1>
 
@@ -36,20 +36,23 @@
         const box =  document.getElementById('box');
 
         btn.addEventListener('click', function(){
-            // // box.style = 'font-size:2rem;';
-            // box.setAttribute('style', 'font-size:3rem;');
+
+            // box.style = 'font-size:5rem;'; // 가능
+            // box.style.color = 'blue';      // 가능
+
+            box.setAttribute('style', 'font-size:30px;'); // 가능
             // 여러개 넣고 싶다.. css
 
             // 이거 불편하다. > 모든걸 문자열로 조작 
-            // box.style = 'backgroud-color: black; color:white; font-size:3rem;';
+            //box.style = 'backgroud-color: black; color:white; font-size:3rem;';
 
             // 이걸 구조화 시키자 각각 관리 잘 쪼개자
             // css의 속성을 하위 프로퍼티로 설계 
             // box.style = 'color:blue';
             // box.style.color = 'blue';
             // box.style['color'] = 'white';
-            // box.style['background-color'] = 'black'; // -가 들어가면 이렇게함
-            // box.style.backgroundColor = 'blue'; // 캐멀표기법도 가능하다.
+            //box.style['background-color'] = 'black'; // -가 들어가면 이렇게함
+            //box.style.backgroundColor = 'blue'; // 캐멀표기법도 가능하다.
             // box.style['font-size']='3rem';
 
             // 상자 너비 : 200px;
@@ -57,7 +60,8 @@
             // 누를때마다 조금씪 커지게(+50px)
             // box.style.width = box.style.width + 50;
             // 자바스클비트 > css 
-            //alert(box.style.width); //200px, null
+
+           //alert(box.style.width); //200px, null
             //style="width:250px";
             // box.style.width = box.style.width + 50 +'px'; (X) 이러면 문자열 더해져서 안되고 
             //box.style.width = parseInt(box.style.width) + 50 +'px'; // 이렇게 더해야함(O)
@@ -68,11 +72,10 @@
 
             // 태그에 적용된 현재 서식을 읽어오는 방식 
             //                          ★★★
-            // const list = window.getComputedStyle(box); // 내가 알고싶은 서식을 가진 태그를 넣는다.
+            let list = window.getComputedStyle(box); // 내가 알고싶은 서식을 가진 태그를 넣는다.
             //  이놈이 뭘하나를 반환해준다.
 
-            // alert(list.getPropertyValue('width'));
-            // list.setProperty('width','500px');
+            //box.style.width = parseInt(list.getPropertyValue('width'))+50+'px';
 
 
         });

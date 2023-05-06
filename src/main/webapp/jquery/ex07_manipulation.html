@@ -70,15 +70,19 @@
             // box.appendChild(img); < create하고 이렇게 넣음
 
             //$('#box').html('<img src="images/catty01.png">'); // 덮어쓰기라 변화가 없는 것 처럼보인다.
-
-            // $('#box').append(`<img src="images/catty0${n}.png">`);
-            // $('#box').prepend(`<img src="images/catty0${n}.png">`);
+            // $('#box').prepend(`<img src="images/catty0${2}.png">`);
+            // $('#box').prepend(`<img src="images/catty0${3}.png">`);
+            // $('#box').prepend(`<img src="images/catty0${4}.png">`);
+            // $('#box').append(`<img src="images/catty0${1}.png">`);
+            // $('#box').append(`<img src="images/catty0${1}.png">`);
+            // $('#box').append(`<img src="images/catty0${1}.png">`);
+            // $('#box').prepend(`<img src="images/catty0${3}.png">`);
             // n++;
 
             // 고양이 추가 + 고양이 테두리 
-            // $('#box')
-            // .append(`<img src="images/catty0${n}.png">`)
-            // .css('border', '5px solid gold');
+            $('#box')
+            .append(`<img src="images/catty0${n}.png">`)
+            .css('border', '5px solid gold');
 
             // $('#box').append(`<img src="images/catty0${n}.png">`);
             // jQuery 함수 기능
@@ -99,12 +103,12 @@
 
             // 자식.appendTo(부모)
             // 자식.prependTo(부모)
-            $(`<img src="images/catty0${n}.png">`)
-            .css('border', '5px solid black')
-            .click(function(){
-                // alert(this.src);
-                $(this).remove(); // 클릭된 본인 스스로 제거 
-            }).appendTo($('#box'));
+            // $(`<img src="images/catty0${n}.png">`)
+            // .css('border', '5px solid black')
+            // .click(function(){
+            //     // alert(this.src);
+            //     $(this).remove(); // 클릭된 본인 스스로 제거 
+            // }).appendTo($('#box'));
 
             // 순수 자바 > 부모가 자식삭제,  removeChild
             // 자기 스스로가 삭제하는 메서드 있음 remove
